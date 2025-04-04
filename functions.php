@@ -11,7 +11,7 @@ add_action( 'wp_enqueue_scripts', 'kb_biz_flick_child_enqueue_styles' );
 function kb_biz_flick_child_enqueue_styles() {
     $parenthandle = 'biz-flick-style'; // This is 'style' for the Biz Flick theme.
     $theme = wp_get_theme();
-    wp_enqueue_style( $parenthandle, get_template_directory_uri() . '/style.css', 
+    wp_enqueue_style( $parenthandle, get_template_directory_uri() . '/assets/sass/styles.css', 
         array(), // if the parent theme code has a dependency, copy it to here
         $theme->parent()->get('Version')
     );
