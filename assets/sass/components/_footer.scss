@@ -1,0 +1,271 @@
+footer{
+    width: 100vw;
+    
+    .VoletGauche{
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+            
+        a{
+            display: block;
+            max-width: 250px;
+            max-height: 100px;
+            margin: 0 auto;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        
+        .ReseauxSociaux { 
+            background-color: blue;
+            display: flex;
+            justify-content: space-evenly;
+            a{
+                width: 35px;
+                aspect-ratio: 1;
+                background-color: aqua;
+            }
+        }
+    }
+
+    .VoletCentre{
+        background-color: red;
+    }
+
+    .VoletDroite{
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ul{
+
+            display: flex;
+            flex-direction: column;
+        }
+    }        
+    // Utilisation du mixin pour adapter la typographie
+    @include respond-to(sm) {
+        background-color: fuchsia;
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+        .VoletGauche{
+            height: 25%;
+        }
+    
+        .VoletCentre{
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+    
+           .Services > li,
+           .Secteurs > li{
+            display: none;
+           }
+        }
+    
+        .VoletDroite{
+            height: 35%;
+            ul{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+    }
+    
+    @include respond-to(md) {        
+        height: 30vh;
+        display: flex;
+        flex-wrap: wrap;
+        .VoletGauche{
+            order: 3;
+            width: 100vw;
+        }
+    
+        .VoletCentre{
+            
+            width: 70%;
+            display: flex;
+            justify-content: space-around;
+    
+            ul{
+                padding: 5% 0 5%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            
+                .Rdv{}
+            }
+        }
+        
+        .VoletDroite{
+            
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ul{
+                background-color: aqua;
+                width: 90%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+    }
+    
+    @include respond-to(lg) {
+        height: 250px;
+        background-color: aqua;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr;
+    
+        .VoletGauche{
+            height: 100%;
+            background-color: purple;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+                
+            a{
+                display: block;
+                max-width: 250px;
+                max-height: 100px;
+                margin: 0 auto;
+    
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            
+            .ReseauxSociaux { 
+                background-color: blue;
+                display: flex;
+                justify-content: space-evenly;
+                a{
+                    width: 35px;
+                    aspect-ratio: 1;
+                    background-color: aqua;
+                }
+            }
+        }
+    
+        .VoletCentre{
+            background-color: magenta;
+            display: flex;
+            justify-content: space-around;
+    
+            ul{
+                padding: 5% 0 5%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            
+                .Rdv{}
+            }
+        }
+    
+        .VoletDroite{
+            background-color: gold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ul{
+                background-color: aqua;
+                width: 90%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+    }
+    
+    @include respond-to(xl) {
+        height: 250px;
+        background-color: aqua;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 1fr;
+    
+        .VoletGauche{
+            height: 100%;
+            background-color: purple;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+                
+            a{
+                display: block;
+                max-width: 250px;
+                max-height: 100px;
+                margin: 0 auto;
+    
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            
+            .ReseauxSociaux { 
+                background-color: blue;
+                display: flex;
+                justify-content: space-evenly;
+                a{
+                    width: 35px;
+                    aspect-ratio: 1;
+                    background-color: aqua;
+                }
+            }
+        }
+    
+        .VoletCentre{
+            background-color: magenta;
+            display: flex;
+            justify-content: space-around;
+    
+            ul{
+                padding: 5% 0 5%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            
+                .Rdv{}
+            }
+        }
+    
+        .VoletDroite{
+            background-color: gold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ul{
+                background-color: aqua;
+                width: 90%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+        }
+    }
+
+}

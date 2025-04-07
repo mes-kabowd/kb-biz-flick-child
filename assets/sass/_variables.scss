@@ -1,0 +1,35 @@
+:root{
+    // Couleurs et thème
+    $primary-color:    #007acc;
+    $secondary-color:  #ff69b4;
+    $background-color: #f5f5f5;
+    $text-color:       #333333;
+    $link-color:       $primary-color;
+
+    // Typographie
+    $font-family-base: 'Helvetica Neue', sans-serif;
+    $font-size-base:   16px;
+    $font-size-heading: 2.5rem;
+
+    // Espacements & conteneur
+    $spacing-unit: 1rem;
+    $container-max-width: 1200px;
+
+    // Bordures et transitions
+    $border-radius: 4px;
+    $transition-speed: 0.3s;
+
+    // Déclaration des variables pour les breakpoints
+    // Mobile
+    $breakpoint-sm: 576px;
+    
+    // Tablette
+    $breakpoint-md: 768px;
+    
+    // Laptop
+    $breakpoint-lg: 992px;
+    
+    // Desktop
+    $breakpoint-xl: 1200px;
+
+}
