@@ -1,98 +1,230 @@
 header {
-
-    width: 100vw;
-    display: none;
+    width: 100%;
+    .Logo { 
+        width: 20vw;
+        display: flex;
+        align-items: center;
+        
+        a{
+            display: block;
+            max-width: 250px;
+            max-height: 100px;
     
-  // Utilisation du mixin pour adapter la typographie
-  @include respond-to(sm) {
-  }
-  
-  @include respond-to(md) {
-  }
-  
-  @include respond-to(lg) {
-
-              height: 125px;
-              display: grid;
-              grid-template-columns: 1fr 4fr 1fr;
-              grid-template-rows: repeat(2, 1fr);
-              grid-column-gap: 0px;
-              grid-row-gap: 0px;
-              
-              .Logo { 
-                  grid-area: 1 / 1 / 3 / 2; 
-                  background-color: orange;
-                  width: 20vw;
-                  display: flex;
-                  align-items: center;
-                  
-                  a{
-                      display: block;
-                      max-width: 250px;
-                      max-height: 100px;
-          
-                      img{
-                          width: 100%;
-                          height: 100%;
-                          object-fit: contain;
-                      }
-                  }
-              }
-              .MenuHaut { 
-                  grid-area: 1 / 2 / 2 / 3; 
-                  background-color: red;    
-                  display: flex;
-                  align-items: center;
-                  justify-content: flex-end;
-          
-                  ul{
-                      width: 80%;
-                      display: flex;
-                      background-color: chartreuse;
-                      justify-content: space-around;
-                  }
-              }
-              .ReseauxSociaux { 
-                  grid-area: 1 / 3 / 2 / 4; 
-                  background-color: blue;
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-around;
-                  width: 20vw;
-                  a{
-                      width: 35px;
-                      aspect-ratio: 1;
-                      background-color: aqua;
-                  }
-              }
-              .MenuBas { 
-                  grid-area: 2 / 2 / 3 / 3; 
-                  background-color: yellow;
-                  display: flex;
-                  align-items: center;
-                  
-                  ul{
-                      width: 100%;
-                      background-color: coral;
-                      display: flex;
-                      justify-content: space-around;
-                      li{
-                          
-                      }
-                  }
-              }
-              .Rdv { 
-                  grid-area: 2 / 3 / 3 / 4; 
-                  background-color: green;
-                  width: 20vw;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-              }
-  }
-  
-  @include respond-to(xl) {
-  }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
 
 
+
+
+
+    .MenuMobile{
+        width: 100%;
+        padding: 5%;
+        background-color: purple;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        z-index: 3;
+        
+        .Logo{
+
+        }
+
+        .BarreRecherche{
+            height: 75%;
+        }
+
+        .MenuBrg{
+            background-color: aqua;
+            width: 35px;
+            aspect-ratio: 1;
+        }
+
+    }
+
+    .ContenuHeader{
+        width: 100%;
+        height: 100vh;
+        z-index: 5;
+        display: grid;
+        place-items: center;
+        padding-top: 10%;
+        overflow: hidden;
+
+        transform: translateY(-100%);
+        
+
+        .Logo{
+            display: none;
+        }
+
+        .MenuHaut{
+            order: 4;
+            .BarreRecherche{
+                display: none;
+            }
+        }
+
+        .ReseauxSociaux { 
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            order: 1;
+            a{
+                width: 35px;
+                aspect-ratio: 1;
+                background-color: aqua;
+            }
+        }
+
+        .MenuBas { 
+            // background-color: yellow;
+            width: 100%;
+            height: 150%;
+            padding: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            order: 2;
+
+            ul{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                li{}
+            }
+        }
+
+        .Rdv { 
+            // background-color: green;
+            order: 3;
+            width: 45%;
+            margin-top: 5%;
+
+            font-weight: bold;
+            font-size: large;
+
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+
+
+    
+    
+    @media screen and (min-width: 576px){
+        
+    }
+
+    @media screen and (min-width: 768px) {        
+
+        
+    }
+
+    @media screen and (min-width: 992px) {
+
+        .MenuMobile{
+            display: none;
+        }
+
+        .ContenuHeader{
+            background-color: magenta;
+            transform: translateY(100%);
+            padding: 0;
+
+
+            height: 125px;
+            display: grid;
+            grid-template-columns: 1fr 4fr 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            
+            .Logo { 
+                grid-area: 1 / 1 / 3 / 2; 
+                background-color: orange;
+                width: 20vw;
+                display: flex;
+                align-items: center;
+                
+                a{
+                    display: block;
+                    max-width: 250px;
+                    max-height: 100px;
+            
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+            .MenuHaut { 
+                grid-area: 1 / 2 / 2 / 3; 
+                background-color: red;    
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            
+                ul{
+                    width: 80%;
+                    display: flex;
+                    background-color: chartreuse;
+                    justify-content: space-around;
+                }
+            }
+            .ReseauxSociaux { 
+                grid-area: 1 / 3 / 2 / 4; 
+                background-color: blue;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 20vw;
+                a{
+                    width: 35px;
+                    aspect-ratio: 1;
+                    background-color: aqua;
+                }
+            }
+            .MenuBas { 
+                grid-area: 2 / 2 / 3 / 3; 
+                background-color: yellow;
+                display: flex;
+                align-items: center;
+                
+                ul{
+                    width: 100%;
+                    background-color: coral;
+                    display: flex;
+                    justify-content: space-around;
+                    li{
+                        
+                    }
+                }
+            }
+            .Rdv { 
+                grid-area: 2 / 3 / 3 / 4; 
+                background-color: green;
+                width: 20vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+    }
+    
+    @media screen and (min-width: 1200px) {
+       
+    }
 }

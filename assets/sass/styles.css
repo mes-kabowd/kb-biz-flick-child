@@ -1,0 +1,411 @@
+/**
+ * Theme Name:        kb-biz-flick-child
+ * Template:          biz-flick
+ * Theme URI:         https://fr-ca.wordpress.org/themes/biz-flick/preview/
+ * Description:       Custom theme for Kabowd Website
+ * Version:           1.0.0
+ * Author:            Kabowd IT - Kabowd Services informatiques 
+ * Author URI:        https://kabowd.ca
+ * Tags:              block-patterns, full-site-editing
+ * Text Domain:       fabled-sunset
+ * Domain Path:       /assets/lang
+ * Tested up to:      6.4
+ * Requires at least: 6.2
+ * Requires PHP:      7.4
+ * License:           GNU General Public License v2.0 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ */
+header {
+  width: 100%;
+}
+header .Logo {
+  width: 20vw;
+  display: flex;
+  align-items: center;
+}
+header .Logo a {
+  display: block;
+  max-width: 250px;
+  max-height: 100px;
+}
+header .Logo a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+header .MenuMobile {
+  width: 100%;
+  padding: 5%;
+  background-color: purple;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  z-index: 3;
+}
+header .MenuMobile .BarreRecherche {
+  height: 75%;
+}
+header .MenuMobile .MenuBrg {
+  background-color: aqua;
+  width: 35px;
+  aspect-ratio: 1;
+}
+header .ContenuHeader {
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding-top: 10%;
+  overflow: hidden;
+  transform: translateY(-100%);
+}
+header .ContenuHeader .Logo {
+  display: none;
+}
+header .ContenuHeader .MenuHaut {
+  order: 4;
+}
+header .ContenuHeader .MenuHaut .BarreRecherche {
+  display: none;
+}
+header .ContenuHeader .ReseauxSociaux {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  order: 1;
+}
+header .ContenuHeader .ReseauxSociaux a {
+  width: 35px;
+  aspect-ratio: 1;
+  background-color: aqua;
+}
+header .ContenuHeader .MenuBas {
+  width: 100%;
+  height: 150%;
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  order: 2;
+}
+header .ContenuHeader .MenuBas ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+header .ContenuHeader .Rdv {
+  order: 3;
+  width: 45%;
+  margin-top: 5%;
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+@media screen and (min-width: 992px) {
+  header .MenuMobile {
+    display: none;
+  }
+  header .ContenuHeader {
+    background-color: magenta;
+    transform: translateY(100%);
+    padding: 0;
+    height: 125px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  header .ContenuHeader .Logo {
+    grid-area: 1/1/3/2;
+    background-color: orange;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+  }
+  header .ContenuHeader .Logo a {
+    display: block;
+    max-width: 250px;
+    max-height: 100px;
+  }
+  header .ContenuHeader .Logo a img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  header .ContenuHeader .MenuHaut {
+    grid-area: 1/2/2/3;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  header .ContenuHeader .MenuHaut ul {
+    width: 80%;
+    display: flex;
+    background-color: chartreuse;
+    justify-content: space-around;
+  }
+  header .ContenuHeader .ReseauxSociaux {
+    grid-area: 1/3/2/4;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20vw;
+  }
+  header .ContenuHeader .ReseauxSociaux a {
+    width: 35px;
+    aspect-ratio: 1;
+    background-color: aqua;
+  }
+  header .ContenuHeader .MenuBas {
+    grid-area: 2/2/3/3;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+  }
+  header .ContenuHeader .MenuBas ul {
+    width: 100%;
+    background-color: coral;
+    display: flex;
+    justify-content: space-around;
+  }
+  header .ContenuHeader .Rdv {
+    grid-area: 2/3/3/4;
+    background-color: green;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+footer {
+  width: 100%;
+  height: 65%;
+  padding: 5%;
+  background: linear-gradient(transparent 0%, rgb(54, 31, 219) 10%, rgb(15, 20, 38) 100%);
+}
+footer .VoletGauche {
+  height: 35%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+footer .VoletGauche a {
+  display: block;
+  max-width: 250px;
+  max-height: 100px;
+  margin: 0 auto;
+}
+footer .VoletGauche a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 5%;
+}
+footer .VoletGauche .ReseauxSociaux {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
+}
+footer .VoletGauche .ReseauxSociaux a {
+  width: 35px;
+  aspect-ratio: 1;
+}
+footer .VoletCentre {
+  font-size: 1.15rem;
+  text-align: center;
+  padding: 5%;
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+footer .VoletCentre .Services > li,
+footer .VoletCentre .Secteurs > li {
+  font-size: 1rem;
+  display: none;
+}
+footer .VoletDroite {
+  height: 35%;
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .VoletDroite ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+@media screen and (min-width: 576px) {
+  footer .VoletCentre {
+    flex-direction: row;
+  }
+  footer .VoletDroite {
+    padding: 2.5%;
+  }
+}
+@media screen and (min-width: 768px) {
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 65%;
+  }
+  footer .VoletGauche {
+    order: 3;
+    height: 35%;
+    width: 100%;
+  }
+  footer .VoletCentre {
+    height: 65%;
+    width: 75%;
+    padding: 5% 0 5%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  footer .VoletCentre .Services > li,
+  footer .VoletCentre .Secteurs > li {
+    display: block;
+  }
+  footer .VoletCentre ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  footer .VoletDroite {
+    height: 65%;
+    width: 25%;
+  }
+  footer .VoletDroite ul {
+    padding: 5%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  footer .VoletDroite ul li {
+    padding: 5%;
+  }
+}
+@media screen and (min-width: 992px) {
+  footer {
+    padding: 2.5% 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  footer .VoletGauche {
+    order: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  footer .VoletGauche a {
+    display: block;
+    max-width: 250px;
+    max-height: 100px;
+    margin: 0 auto;
+  }
+  footer .VoletGauche a img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  footer .VoletGauche .ReseauxSociaux {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  footer .VoletGauche .ReseauxSociaux a {
+    width: 35px;
+    aspect-ratio: 1;
+  }
+  footer .VoletCentre {
+    order: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  footer .VoletCentre ul {
+    padding: 5% 0 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  footer .VoletDroite {
+    order: 3;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer .VoletDroite ul {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+@media screen and (min-width: 1200px) {
+  footer {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+* ul {
+  list-style: none;
+}
+* a {
+  text-decoration: none;
+  color: #000;
+}
+* html,
+* body {
+  height: 100%;
+  margin: 0;
+}
+* body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+* body main {
+  width: 100%;
+  flex: 1;
+  padding: 2rem;
+}
+* body main section {
+  margin-bottom: 2rem;
+}/*# sourceMappingURL=styles.css.map */
