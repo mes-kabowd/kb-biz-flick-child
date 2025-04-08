@@ -1,6 +1,7 @@
 footer{
     width: 100vw;
-    
+    position: relative; // Début sans position fixe pour petits écrans
+
     .VoletGauche{
         background-color: yellow;
         display: flex;
@@ -47,8 +48,8 @@ footer{
             flex-direction: column;
         }
     }        
-    // Utilisation du mixin pour adapter la typographie
-    @include respond-to(sm) {
+    
+    @media (min-width: 576px) {
         background-color: fuchsia;
         height: 75vh;
         display: flex;
@@ -83,7 +84,7 @@ footer{
         }
     }
     
-    @include respond-to(md) {        
+    @media (min-width: 768px) {        
         height: 30vh;
         display: flex;
         flex-wrap: wrap;
@@ -126,7 +127,7 @@ footer{
         }
     }
     
-    @include respond-to(lg) {
+    @media (min-width: 992px) {
         height: 250px;
         background-color: aqua;
         display: grid;
@@ -197,7 +198,7 @@ footer{
         }
     }
     
-    @include respond-to(xl) {
+    @media (min-width: 1200px) {
         height: 250px;
         background-color: aqua;
         display: grid;
@@ -267,5 +268,15 @@ footer{
             }
         }
     }
+
+    // Pour les très grands écrans (≥1280px)
+  @media (min-width: 1280px) {
+    position: fixed; // Fixé en bas de l'écran
+    bottom: 0; 
+    left: 0; 
+    width: 100%; // Toujours pleine largeur
+    font-size: 1.2rem; // Taille légèrement plus grande pour une lisibilité optimale
+    padding: 3rem; // Espacement plus important pour équilibrer l'esthétique
+  }
 
 }
