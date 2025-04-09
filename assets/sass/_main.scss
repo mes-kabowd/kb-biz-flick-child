@@ -26,9 +26,12 @@
             width: 100%;
             flex: 1;
             padding: 2rem;
+            margin: 10rem 0 2.5rem;
+            background-color: cyan;
 
             section{
-                margin-bottom: 2rem;
+                margin-bottom: 2.5rem;
+                // display: none;
             }
         }
     }   
