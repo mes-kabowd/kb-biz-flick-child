@@ -1,6 +1,8 @@
 header {
     width: 100%;
-    .Logo { 
+
+    .Logo,
+    .LogoMb { 
         width: 20vw;
         display: flex;
         align-items: center;
@@ -26,51 +28,119 @@ header {
         width: 100%;
         padding: 5%;
         background-color: purple;
+        z-index: 5;
         display: flex;
         align-items: center;
         justify-content: space-around;
         position: fixed;
-        z-index: 3;
         
-        .Logo{
-
+        .Logo,
+        .LogoMb{
+            z-index: 10;
+            
         }
-
-        .BarreRecherche{
+        
+        .BarreRechercheMb{
+            z-index: 10;
+            width: 45%;
             height: 75%;
         }
-
-        .MenuBrg{
-            background-color: aqua;
-            width: 35px;
+        
+        .menu {
+            --s: 35px; /* control the size */
+            --c: black; /* the color */
+            
+            z-index: 10;
+            height: var(--s);
             aspect-ratio: 1;
-        }
+            border: none;
+            padding: 0;
+            border-inline: calc(var(--s)/2) solid #0000; 
+            box-sizing: content-box;
+            --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
+                   no-repeat content-box border-box;
+            --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
+                   repeat-y content-box border-box;
+            background: 
+              var(--_g2) left  var(--_p,0px) top,
+              var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
+              var(--_g2) right var(--_p,0px) top,
+              var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
+            background-size: 
+              20% 80%,
+              40% 100%;
+            position: relative;
+            clip-path: inset(0 25%);
+            -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+            cursor: pointer;
+            transition: 
+              background-position .3s var(--_s,.3s), 
+              clip-path 0s var(--_s,.6s);
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            appearance:none;
 
+            &:before,
+            &:after {
+              content:"";
+              position: absolute;
+              border-radius: var(--s);
+              inset: 40% 0;
+              background: var(--c);
+              transition: transform .3s calc(.3s - var(--_s,.3s));
+            }
+            
+            &:checked {
+              clip-path: inset(0);
+              --_p: calc(-1*var(--s));
+              --_s: 0s;
+            }
+            &:checked:before {
+              transform: rotate(45deg);
+            }
+            &:checked:after {
+              transform: rotate(-45deg);
+            }
+            &:focus-visible {
+              clip-path: none;
+              -webkit-mask: none;
+              border: none;
+              outline: 2px solid var(--c);
+              outline-offset: 5px;
+            }
+
+            &:checked ~ .ContenuHeader{
+              transform: translateY(0);
+              transition: transform 0.3s ease;
+            } 
+          }
     }
 
     .ContenuHeader{
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        
+        position: absolute;
+        top: 0;
+
+        background-color: orange;
         width: 100%;
         height: 100vh;
-        z-index: 5;
         display: grid;
         place-items: center;
         padding-top: 10%;
         overflow: hidden;
-
-        transform: translateY(-100%);
         
 
         .Logo{
             display: none;
         }
-
         .MenuHaut{
             order: 4;
             .BarreRecherche{
                 display: none;
             }
         }
-
         .ReseauxSociaux { 
             display: flex;
             align-items: center;
@@ -83,7 +153,6 @@ header {
                 background-color: aqua;
             }
         }
-
         .MenuBas { 
             // background-color: yellow;
             width: 100%;
@@ -103,7 +172,6 @@ header {
                 li{}
             }
         }
-
         .Rdv { 
             // background-color: green;
             order: 3;
@@ -118,8 +186,7 @@ header {
             justify-content: center;
         }
     }
-
-
+    
     
     
     @media screen and (min-width: 576px){
@@ -134,93 +201,106 @@ header {
     @media screen and (min-width: 992px) {
 
         .MenuMobile{
-            display: none;
-        }
-
-        .ContenuHeader{
-            background-color: magenta;
-            transform: translateY(100%);
+            .LogoMb,
+            .BarreRechercheMb,
+            .menu{
+                display: none;
+            }
             padding: 0;
-
-
-            height: 125px;
-            display: grid;
-            grid-template-columns: 1fr 4fr 1fr;
-            grid-template-rows: repeat(2, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
-            
-            .Logo { 
-                grid-area: 1 / 1 / 3 / 2; 
-                background-color: orange;
-                width: 20vw;
-                display: flex;
-                align-items: center;
+            .ContenuHeader{
+                transform: translateY(0);
+                padding: 0;
+                position: relative;
+    
+                height: 2.5%;
+                display: grid;
+                grid-template-columns: 1fr 4fr 1fr;
+                grid-template-rows: repeat(2, 1fr);
+                grid-column-gap: 0px;
+                grid-row-gap: 0px;
                 
-                a{
-                    display: block;
-                    max-width: 250px;
-                    max-height: 100px;
-            
-                    img{
-                        width: 100%;
-                        height: 100%;
-                        object-fit: contain;
+                
+                .Logo {
+    
+                    grid-area: 1 / 1 / 3 / 2; 
+                    padding: 5%;
+                    background-color: orange;
+                    width: 20vw;
+                    display: flex;
+                    align-items: center;
+                    
+                    a{
+                        display: block;
+                        max-width: 250px;
+                        max-height: 100px;
+                
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
                     }
                 }
-            }
-            .MenuHaut { 
-                grid-area: 1 / 2 / 2 / 3; 
-                background-color: red;    
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-            
-                ul{
-                    width: 80%;
-                    display: flex;
-                    background-color: chartreuse;
-                    justify-content: space-around;
-                }
-            }
-            .ReseauxSociaux { 
-                grid-area: 1 / 3 / 2 / 4; 
-                background-color: blue;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                width: 20vw;
-                a{
-                    width: 35px;
-                    aspect-ratio: 1;
-                    background-color: aqua;
-                }
-            }
-            .MenuBas { 
-                grid-area: 2 / 2 / 3 / 3; 
-                background-color: yellow;
-                display: flex;
-                align-items: center;
-                
-                ul{
+                .MenuHaut { 
                     width: 100%;
-                    background-color: coral;
+                    padding: 1%;
+                    grid-area: 1 / 2 / 2 / 3; 
                     display: flex;
-                    justify-content: space-around;
-                    li{
-                        
+                    align-items: center;
+                    justify-content: flex-end;
+                    ul{
+                        width: 80%;
+                        display: flex;
+                        // padding: 5%;
+                        justify-content: space-around;
+          
+                        .BarreRecherche{
+                            display: block;
+                        }
                     }
                 }
-            }
-            .Rdv { 
-                grid-area: 2 / 3 / 3 / 4; 
-                background-color: green;
-                width: 20vw;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                .ReseauxSociaux { 
+                    grid-area: 1 / 3 / 2 / 4;
+                    padding: 5%; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 22.5vw;
+                    a{
+                        width: 35px;
+                        padding: 5%; 
+                        aspect-ratio: 1;
+                        background-color: aqua;
+                    }
+                }
+                .MenuBas { 
+                    grid-area: 2 / 2 / 3 / 3; 
+                    // background-color: yellow;
+                    display: flex;
+                    align-items: center;
+                    
+                    ul{
+                        width: 100%;
+                        // background-color: coral;
+                        flex-direction: row;
+                        // display: flex;
+                        // justify-content: space-around;
+                        li{
+                            
+                        }
+                    }
+                }
+                .Rdv { 
+                    grid-area: 2 / 3 / 3 / 4; 
+                    // background-color: green;
+                    width: 20vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
         }
+
         
     }
     

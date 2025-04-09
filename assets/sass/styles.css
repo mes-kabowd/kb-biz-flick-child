@@ -18,17 +18,20 @@
 header {
   width: 100%;
 }
-header .Logo {
+header .Logo,
+header .LogoMb {
   width: 20vw;
   display: flex;
   align-items: center;
 }
-header .Logo a {
+header .Logo a,
+header .LogoMb a {
   display: block;
   max-width: 250px;
   max-height: 100px;
 }
-header .Logo a img {
+header .Logo a img,
+header .LogoMb a img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -38,29 +41,93 @@ header .MenuMobile {
   width: 100%;
   padding: 5%;
   background-color: purple;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: space-around;
   position: fixed;
-  z-index: 3;
 }
-header .MenuMobile .BarreRecherche {
+header .MenuMobile .Logo,
+header .MenuMobile .LogoMb {
+  z-index: 10;
+}
+header .MenuMobile .BarreRechercheMb {
+  z-index: 10;
+  width: 45%;
   height: 75%;
 }
-header .MenuMobile .MenuBrg {
-  background-color: aqua;
-  width: 35px;
+header .MenuMobile .menu {
+  --s: 35px; /* control the size */
+  --c: black; /* the color */
+  z-index: 10;
+  height: var(--s);
   aspect-ratio: 1;
+  border: none;
+  padding: 0;
+  border-inline: calc(var(--s) / 2) solid rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+  --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0)
+         no-repeat content-box border-box;
+  --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000)
+         repeat-y content-box border-box;
+  background: var(--_g2) left var(--_p, 0px) top, var(--_g1) left calc(var(--s) / 10 + var(--_p, 0px)) top, var(--_g2) right var(--_p, 0px) top, var(--_g1) right calc(var(--s) / 10 + var(--_p, 0px)) top;
+  background-size: 20% 80%, 40% 100%;
+  position: relative;
+  -webkit-clip-path: inset(0 25%);
+          clip-path: inset(0 25%);
+  -webkit-mask: linear-gradient(90deg, rgba(0, 0, 0, 0), #000 25% 75%, rgba(0, 0, 0, 0));
+  cursor: pointer;
+  transition: background-position 0.3s var(--_s, 0.3s), -webkit-clip-path 0s var(--_s, 0.6s);
+  transition: background-position 0.3s var(--_s, 0.3s), clip-path 0s var(--_s, 0.6s);
+  transition: background-position 0.3s var(--_s, 0.3s), clip-path 0s var(--_s, 0.6s), -webkit-clip-path 0s var(--_s, 0.6s);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+header .MenuMobile .menu:before, header .MenuMobile .menu:after {
+  content: "";
+  position: absolute;
+  border-radius: var(--s);
+  inset: 40% 0;
+  background: var(--c);
+  transition: transform 0.3s calc(0.3s - var(--_s, 0.3s));
+}
+header .MenuMobile .menu:checked {
+  -webkit-clip-path: inset(0);
+          clip-path: inset(0);
+  --_p: calc(-1*var(--s));
+  --_s: 0s;
+}
+header .MenuMobile .menu:checked:before {
+  transform: rotate(45deg);
+}
+header .MenuMobile .menu:checked:after {
+  transform: rotate(-45deg);
+}
+header .MenuMobile .menu:focus-visible {
+  -webkit-clip-path: none;
+          clip-path: none;
+  -webkit-mask: none;
+  border: none;
+  outline: 2px solid var(--c);
+  outline-offset: 5px;
+}
+header .MenuMobile .menu:checked ~ .ContenuHeader {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
 }
 header .ContenuHeader {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  background-color: orange;
   width: 100%;
   height: 100vh;
-  z-index: 5;
   display: grid;
   place-items: center;
   padding-top: 10%;
   overflow: hidden;
-  transform: translateY(-100%);
 }
 header .ContenuHeader .Logo {
   display: none;
@@ -111,78 +178,84 @@ header .ContenuHeader .Rdv {
 }
 @media screen and (min-width: 992px) {
   header .MenuMobile {
+    padding: 0;
+  }
+  header .MenuMobile .LogoMb,
+  header .MenuMobile .BarreRechercheMb,
+  header .MenuMobile .menu {
     display: none;
   }
-  header .ContenuHeader {
-    background-color: magenta;
-    transform: translateY(100%);
+  header .MenuMobile .ContenuHeader {
+    transform: translateY(0);
     padding: 0;
-    height: 125px;
+    position: relative;
+    height: 2.5%;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
   }
-  header .ContenuHeader .Logo {
+  header .MenuMobile .ContenuHeader .Logo {
     grid-area: 1/1/3/2;
+    padding: 5%;
     background-color: orange;
     width: 20vw;
     display: flex;
     align-items: center;
   }
-  header .ContenuHeader .Logo a {
+  header .MenuMobile .ContenuHeader .Logo a {
     display: block;
     max-width: 250px;
     max-height: 100px;
   }
-  header .ContenuHeader .Logo a img {
+  header .MenuMobile .ContenuHeader .Logo a img {
     width: 100%;
     height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
   }
-  header .ContenuHeader .MenuHaut {
+  header .MenuMobile .ContenuHeader .MenuHaut {
+    width: 100%;
+    padding: 1%;
     grid-area: 1/2/2/3;
-    background-color: red;
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
-  header .ContenuHeader .MenuHaut ul {
+  header .MenuMobile .ContenuHeader .MenuHaut ul {
     width: 80%;
     display: flex;
-    background-color: chartreuse;
     justify-content: space-around;
   }
-  header .ContenuHeader .ReseauxSociaux {
+  header .MenuMobile .ContenuHeader .MenuHaut ul .BarreRecherche {
+    display: block;
+  }
+  header .MenuMobile .ContenuHeader .ReseauxSociaux {
     grid-area: 1/3/2/4;
-    background-color: blue;
+    padding: 5%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 20vw;
+    width: 22.5vw;
   }
-  header .ContenuHeader .ReseauxSociaux a {
+  header .MenuMobile .ContenuHeader .ReseauxSociaux a {
     width: 35px;
+    padding: 5%;
     aspect-ratio: 1;
     background-color: aqua;
   }
-  header .ContenuHeader .MenuBas {
+  header .MenuMobile .ContenuHeader .MenuBas {
     grid-area: 2/2/3/3;
-    background-color: yellow;
     display: flex;
     align-items: center;
   }
-  header .ContenuHeader .MenuBas ul {
+  header .MenuMobile .ContenuHeader .MenuBas ul {
     width: 100%;
-    background-color: coral;
-    display: flex;
-    justify-content: space-around;
+    flex-direction: row;
   }
-  header .ContenuHeader .Rdv {
+  header .MenuMobile .ContenuHeader .Rdv {
     grid-area: 2/3/3/4;
-    background-color: green;
     width: 20vw;
     display: flex;
     align-items: center;
