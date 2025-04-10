@@ -23,14 +23,18 @@
         width: 100%;
         min-height: 100vh;
         main{
+            overflow: hidden;
             width: 100%;
             flex: 1;
-            padding: 2rem;
-            margin: 10rem 0 2.5rem;
+            // padding: 2rem;
+            margin: 12.5rem 0 2.5rem;
             background-color: cyan;
 
             section{
-                margin-bottom: 2.5rem;
+                width: 100%;
+                // margin-bottom: 2.5rem;
+                padding: 5%;
+                min-height: 35vh;
                 // display: none;
             }
         }

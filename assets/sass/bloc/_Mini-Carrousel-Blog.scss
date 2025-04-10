@@ -1,0 +1,32 @@
+.Mini-Carrousel-Blog{
+    
+    h2{
+        text-align: center;
+    }
+
+    .Liste-Blog{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        article{
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            img{
+                width: 35%;
+                aspect-ratio: 1;
+                object-fit: contain;
+            }
+            .InfoBlog{
+                width: 50%;
+                padding: 2.5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    }
+}

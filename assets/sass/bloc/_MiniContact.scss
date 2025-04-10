@@ -1,0 +1,18 @@
+.MiniContact{
+    display: flex;
+    .Block-Gauche{
+        width: 75%;
+        padding: 5%;
+    }
+    .Block-Droite{
+        width: 25%;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+
+    }
+
+}

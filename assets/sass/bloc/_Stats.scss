@@ -1,0 +1,46 @@
+.Stats{
+    display: flex;
+    padding: 0;
+    .Block-Gauche{
+        width: 65%;
+        padding: 5%;    
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;    
+
+        h2{padding: 5%;}
+
+        p{}
+
+        .Block-Stats{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            // justify-content: center;
+            
+            .MiniStats{
+                width: 35%;
+                display: flex;
+                
+                .Valeur{
+    
+                }
+    
+                .Txt-Valeur{
+                    
+                }
+            }
+        }
+    }
+
+    .Block-Droite{
+        width: 35%;
+        padding: 5%;
+        img{
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: contain;
+        }
+    }
+}

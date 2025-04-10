@@ -37,7 +37,7 @@ header .LogoMb a img {
   -o-object-fit: contain;
      object-fit: contain;
 }
-header .MenuMobile {
+header .NavHeader {
   width: 100%;
   padding: 5%;
   background-color: purple;
@@ -47,16 +47,16 @@ header .MenuMobile {
   justify-content: space-around;
   position: fixed;
 }
-header .MenuMobile .Logo,
-header .MenuMobile .LogoMb {
+header .NavHeader .Logo,
+header .NavHeader .LogoMb {
   z-index: 10;
 }
-header .MenuMobile .BarreRechercheMb {
+header .NavHeader .BarreRechercheMb {
   z-index: 10;
   width: 45%;
   height: 75%;
 }
-header .MenuMobile .menu {
+header .NavHeader .menu {
   --s: 35px; /* control the size */
   --c: black; /* the color */
   z-index: 10;
@@ -84,7 +84,7 @@ header .MenuMobile .menu {
   -moz-appearance: none;
   appearance: none;
 }
-header .MenuMobile .menu:before, header .MenuMobile .menu:after {
+header .NavHeader .menu:before, header .NavHeader .menu:after {
   content: "";
   position: absolute;
   border-radius: var(--s);
@@ -92,19 +92,19 @@ header .MenuMobile .menu:before, header .MenuMobile .menu:after {
   background: var(--c);
   transition: transform 0.3s calc(0.3s - var(--_s, 0.3s));
 }
-header .MenuMobile .menu:checked {
+header .NavHeader .menu:checked {
   -webkit-clip-path: inset(0);
           clip-path: inset(0);
   --_p: calc(-1*var(--s));
   --_s: 0s;
 }
-header .MenuMobile .menu:checked:before {
+header .NavHeader .menu:checked:before {
   transform: rotate(45deg);
 }
-header .MenuMobile .menu:checked:after {
+header .NavHeader .menu:checked:after {
   transform: rotate(-45deg);
 }
-header .MenuMobile .menu:focus-visible {
+header .NavHeader .menu:focus-visible {
   -webkit-clip-path: none;
           clip-path: none;
   -webkit-mask: none;
@@ -112,7 +112,7 @@ header .MenuMobile .menu:focus-visible {
   outline: 2px solid var(--c);
   outline-offset: 5px;
 }
-header .MenuMobile .menu:checked ~ .ContenuHeader {
+header .NavHeader .menu:checked ~ .ContenuHeader {
   transform: translateY(0);
   transition: transform 0.3s ease;
 }
@@ -177,15 +177,15 @@ header .ContenuHeader .Rdv {
   justify-content: center;
 }
 @media screen and (min-width: 992px) {
-  header .MenuMobile {
+  header .NavHeader {
     padding: 0;
   }
-  header .MenuMobile .LogoMb,
-  header .MenuMobile .BarreRechercheMb,
-  header .MenuMobile .menu {
+  header .NavHeader .LogoMb,
+  header .NavHeader .BarreRechercheMb,
+  header .NavHeader .menu {
     display: none;
   }
-  header .MenuMobile .ContenuHeader {
+  header .NavHeader .ContenuHeader {
     transform: translateY(0);
     padding: 0;
     position: relative;
@@ -196,7 +196,7 @@ header .ContenuHeader .Rdv {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
   }
-  header .MenuMobile .ContenuHeader .Logo {
+  header .NavHeader .ContenuHeader .Logo {
     grid-area: 1/1/3/2;
     padding: 5%;
     background-color: orange;
@@ -204,18 +204,18 @@ header .ContenuHeader .Rdv {
     display: flex;
     align-items: center;
   }
-  header .MenuMobile .ContenuHeader .Logo a {
+  header .NavHeader .ContenuHeader .Logo a {
     display: block;
     max-width: 250px;
     max-height: 100px;
   }
-  header .MenuMobile .ContenuHeader .Logo a img {
+  header .NavHeader .ContenuHeader .Logo a img {
     width: 100%;
     height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
   }
-  header .MenuMobile .ContenuHeader .MenuHaut {
+  header .NavHeader .ContenuHeader .MenuHaut {
     width: 100%;
     padding: 1%;
     grid-area: 1/2/2/3;
@@ -223,15 +223,15 @@ header .ContenuHeader .Rdv {
     align-items: center;
     justify-content: flex-end;
   }
-  header .MenuMobile .ContenuHeader .MenuHaut ul {
+  header .NavHeader .ContenuHeader .MenuHaut ul {
     width: 80%;
     display: flex;
     justify-content: space-around;
   }
-  header .MenuMobile .ContenuHeader .MenuHaut ul .BarreRecherche {
+  header .NavHeader .ContenuHeader .MenuHaut ul .BarreRecherche {
     display: block;
   }
-  header .MenuMobile .ContenuHeader .ReseauxSociaux {
+  header .NavHeader .ContenuHeader .ReseauxSociaux {
     grid-area: 1/3/2/4;
     padding: 5%;
     display: flex;
@@ -239,22 +239,22 @@ header .ContenuHeader .Rdv {
     justify-content: space-around;
     width: 22.5vw;
   }
-  header .MenuMobile .ContenuHeader .ReseauxSociaux a {
+  header .NavHeader .ContenuHeader .ReseauxSociaux a {
     width: 35px;
     padding: 5%;
     aspect-ratio: 1;
     background-color: aqua;
   }
-  header .MenuMobile .ContenuHeader .MenuBas {
+  header .NavHeader .ContenuHeader .MenuBas {
     grid-area: 2/2/3/3;
     display: flex;
     align-items: center;
   }
-  header .MenuMobile .ContenuHeader .MenuBas ul {
+  header .NavHeader .ContenuHeader .MenuBas ul {
     width: 100%;
     flex-direction: row;
   }
-  header .MenuMobile .ContenuHeader .Rdv {
+  header .NavHeader .ContenuHeader .Rdv {
     grid-area: 2/3/3/4;
     width: 20vw;
     display: flex;
@@ -262,6 +262,15 @@ header .ContenuHeader .Rdv {
     justify-content: center;
   }
 }
+header .Prenez-Notre-Service {
+  position: fixed;
+  text-align: center;
+  width: 10%;
+  padding: 1.5%;
+  top: 25vh;
+  left: 30%;
+}
+
 footer {
   width: 100%;
   height: 65%;
@@ -451,6 +460,281 @@ footer .VoletDroite ul {
   }
 }
 
+.Titre-Page {
+  width: 100%;
+  height: 50vh;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+.Titre-Page .Bloc-Gauche {
+  grid-area: 1/1/2/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.Titre-Page .Bloc-Gauche h1 {
+  padding: 5%;
+}
+.Titre-Page .Bloc-Gauche h3 {
+  padding: 5%;
+}
+.Titre-Page .Bloc-Gauche img {
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Titre-Page .Bloc-Droite {
+  grid-area: 1/2/2/3;
+}
+.Titre-Page .Bloc-Droite img, .Titre-Page .Bloc-Droite p {
+  width: 100%;
+  height: 75%;
+}
+.Titre-Page .Bloc-Droite img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Titre-Page .Bloc-Droite p {
+  overflow-y: auto;
+}
+.Titre-Page .Bloc-Droite .ListBtn {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Titre-Page .Bloc-Bas {
+  width: 100%;
+  grid-area: 2/1/3/3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.Titre-Page .Bloc-Bas .MiniStats {
+  width: 30%;
+  display: flex;
+}
+.Mini-Carrousel-Blog h2 {
+  text-align: center;
+}
+.Mini-Carrousel-Blog .Liste-Blog {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Mini-Carrousel-Blog .Liste-Blog article {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+.Mini-Carrousel-Blog .Liste-Blog article img {
+  width: 35%;
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Mini-Carrousel-Blog .Liste-Blog article .InfoBlog {
+  width: 50%;
+  padding: 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MiniContact {
+  display: flex;
+}
+.MiniContact .Block-Gauche {
+  width: 75%;
+  padding: 5%;
+}
+.MiniContact .Block-Droite {
+  width: 25%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Grd-Contact {
+  display: flex;
+}
+.Grd-Contact .Block-Gauche,
+.Grd-Contact .Block-Centre,
+.Grd-Contact .Block-Droite {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.Carrousel-Infini .Carrousel {
+  width: 100%;
+  display: flex;
+}
+.Carrousel-Infini .Carrousel article {
+  padding: 2.5%;
+  width: 20%;
+}
+
+.Carrousel-pack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.Carrousel-pack .Block-Haut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Carrousel-pack .Block-Haut p {
+  padding: 5%;
+  width: 80%;
+}
+.Carrousel-pack .Carrousel {
+  display: flex;
+  overflow-x: auto;
+  padding: 0;
+  width: 100%;
+}
+.Carrousel-pack .Carrousel .Pack {
+  width: 75%;
+  aspect-ratio: 9/16;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.Carrousel-pack .Carrousel .Pack img {
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Carrousel-pack .Block-Stats {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.Carrousel-pack .Block-Stats .MiniStats {
+  width: 30%;
+  display: flex;
+}
+.Page404 {
+  display: flex;
+}
+.Page404 .Block-Gauche .IconErreur {
+  width: 75%;
+  aspect-ratio: 1;
+}
+.Page404 .Block-Gauche .Erreur {
+  width: 60%;
+  font-size: xx-large;
+}
+.Page404 .Block-Droite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.Page404 .Block-Droite .BlockBtns {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Page404 .Block-Droite .BlockBtns .BtnErreur {
+  padding: 5%;
+  text-align: center;
+}
+
+.Stats {
+  display: flex;
+  padding: 0;
+}
+.Stats .Block-Gauche {
+  width: 65%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Stats .Block-Gauche h2 {
+  padding: 5%;
+}
+.Stats .Block-Gauche .Block-Stats {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.Stats .Block-Gauche .Block-Stats .MiniStats {
+  width: 35%;
+  display: flex;
+}
+.Stats .Block-Droite {
+  width: 35%;
+  padding: 5%;
+}
+.Stats .Block-Droite img {
+  width: 100%;
+  aspect-ratio: 1;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.Texte-Page {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.Texte-Page .Block-Gauche,
+.Texte-Page .Block-Droite {
+  width: 50%;
+}
+.Texte-Page .Block-Gauche h2,
+.Texte-Page .Block-Droite h2 {
+  padding: 5%;
+}
+.Texte-Page .Block-Gauche img,
+.Texte-Page .Block-Droite img {
+  width: 100%;
+  height: 75%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.Texte-Page .Block-Gauche p, .Texte-Page .Block-Gauche ul,
+.Texte-Page .Block-Droite p,
+.Texte-Page .Block-Droite ul {
+  padding: 5%;
+  width: 90%;
+}
+.Texte-Page .Block-Centre {
+  min-height: 30vh;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.Texte-Page .Block-Centre h2 {
+  text-align: center;
+  padding: 5%;
+}
+.Texte-Page .Block-Centre p {
+  padding: 5%;
+  width: 90%;
+  height: 40%;
+  overflow-y: auto;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -475,14 +759,16 @@ footer .VoletDroite ul {
   min-height: 100vh;
 }
 * body main {
+  overflow: hidden;
   width: 100%;
   flex: 1;
-  padding: 2rem;
-  margin: 10rem 0 2.5rem;
+  margin: 12.5rem 0 2.5rem;
   background-color: cyan;
 }
 * body main section {
-  margin-bottom: 2.5rem;
+  width: 100%;
+  padding: 5%;
+  min-height: 35vh;
 }
 
 :root {

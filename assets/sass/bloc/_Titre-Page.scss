@@ -1,0 +1,71 @@
+.Titre-Page{
+    width: 100%;
+    height: 50vh;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2, 1fr);
+
+    .Bloc-Gauche{
+        // width: 35%;
+        grid-area: 1 / 1 / 2 / 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h1{padding: 5%;}
+        h3{padding: 5%;}
+        img{
+            width: 90%;
+            object-fit: contain;
+
+        }
+      
+    }
+
+    .Bloc-Droite{
+        // width: 65%;
+        grid-area: 1 / 2 / 2 / 3;
+        h1{}
+        img, p{ 
+            width: 100%;
+            height: 75%;
+        }
+
+        img{
+            object-fit: contain;
+        }
+        
+        p{
+            overflow-y: auto;
+        }
+
+        .ListBtn{
+            width: 100%;
+            height: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .Bloc-Bas{
+        width: 100%;
+        grid-area: 2 / 1 / 3 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+        .MiniStats{
+            width: 30%;
+            display: flex;
+
+            .Valeur{
+
+            }
+
+            .Txt-Valeur{
+                
+            }
+        }
+    }
+}

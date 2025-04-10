@@ -24,7 +24,7 @@ header {
 
 
 
-    .MenuMobile{
+    .NavHeader{
         width: 100%;
         padding: 5%;
         background-color: purple;
@@ -200,7 +200,7 @@ header {
 
     @media screen and (min-width: 992px) {
 
-        .MenuMobile{
+        .NavHeader{
             .LogoMb,
             .BarreRechercheMb,
             .menu{
@@ -306,5 +306,14 @@ header {
     
     @media screen and (min-width: 1200px) {
        
+    }
+
+    .Prenez-Notre-Service{
+        position: fixed;
+        text-align: center;
+        width: 10%;
+        padding: 1.5%;
+        top: 25vh;
+        left: 30%;
     }
 }

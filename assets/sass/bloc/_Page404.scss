@@ -1,0 +1,32 @@
+.Page404{
+    display: flex;
+    .Block-Gauche{
+        .IconErreur{
+            width: 75%;
+            aspect-ratio: 1;
+        }
+        .Erreur{
+            width: 60%;
+            font-size: xx-large;
+        }
+    }
+    .Block-Droite{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        h2{}
+        p{}
+        .BlockBtns{
+            
+            display: flex;
+            flex-wrap: wrap;
+
+            .BtnErreur{
+                padding: 5%;
+                text-align: center;
+            }
+        }
+    }
+}
