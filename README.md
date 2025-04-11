@@ -7,6 +7,5 @@
 ## Comment réutiliser ce thème enfant
 1. Installer wordpres dans un environnement local, conteneurisé ou non, ou en utilisant docker
 2. [Installer le thème parent biz-flick](https://wordpress.org/themes/biz-flick/#:~:text=Welcome%20to%20Biz%20Flick%20the%20ultimate%20WordPress%20Full,SEO%20agencies%20looking%20to%20enhance%20their%20online%20presence)
-3. Placer ce dossier dans le meme répertoire dans lequel contient votre thème parenet
-4. Tester que les changements du thème enfant s'appliquent
+3. Placer ce dossier dans le même répertoire dans lequel contient votre thème parent
 5. Continuer à faire évoluer votre environnement
