@@ -2,7 +2,7 @@
     display: flex;
     padding: 0;
     .Block-Gauche{
-        width: 65%;
+        width: 50%;
         padding: 5%;    
         display: flex;
         flex-direction: column;
@@ -20,7 +20,7 @@
             // justify-content: center;
             
             .MiniStats{
-                width: 35%;
+                width: 50%;
                 display: flex;
                 
                 .Valeur{
@@ -35,7 +35,7 @@
     }
 
     .Block-Droite{
-        width: 35%;
+        width: 50%;
         padding: 5%;
         img{
             width: 100%;

@@ -1,1 +1,28 @@
-.MiniMedia-Article{}
+.MiniMedia-Article{
+    // height: 10%;
+    // background-color: red;
+    // padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .Block-Bas{
+        // padding: 0;
+        // height: 100%;
+        display: flex;
+        justify-content: space-between;
+        p{
+            width: 40%;
+            padding: 5%;
+            max-height: 30vh;
+            overflow-y: auto;
+        }
+        img{
+            width: 45%;
+            background-color: cadetblue;
+            object-fit: contain;
+        }
+
+    }
+    
+}

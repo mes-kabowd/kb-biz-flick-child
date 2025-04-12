@@ -187,7 +187,14 @@ header {
         }
     }
     
-    
+    .Prenez-Notre-Service{
+        position: fixed;
+        text-align: center;
+        width: 20%;
+        padding: 1.5%;
+        top: 15vw;
+        left: 10%;
+    }
     
     @media screen and (min-width: 576px){
         
@@ -299,6 +306,10 @@ header {
                     justify-content: center;
                 }
             }
+
+            .Prenez-Notre-Service{
+                top: 25vh;
+            }
         }
 
         
@@ -308,12 +319,5 @@ header {
        
     }
 
-    .Prenez-Notre-Service{
-        position: fixed;
-        text-align: center;
-        width: 10%;
-        padding: 1.5%;
-        top: 25vh;
-        left: 30%;
-    }
+    
 }

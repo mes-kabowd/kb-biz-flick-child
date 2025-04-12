@@ -1,3 +1,35 @@
-.Media-article{
-    
+.Media-Article{
+    // padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    // background-color: orangered;
+    .Block-Gauche{
+        width: 40%;
+        // padding: 5%;
+        max-height: 30vh;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        ul{
+            height: 75%;
+            li{
+                list-style: inside;
+                padding: 5%;
+            }
+        }
+    }
+    .Block-Droite{
+        padding: 0;
+        // width: 45%;
+        background-color: cadetblue;
+        display: flex;
+        align-items: center;
+        img{
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
 }
