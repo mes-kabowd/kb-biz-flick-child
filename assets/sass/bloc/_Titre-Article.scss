@@ -2,22 +2,24 @@
     width: 100%;
     height: 50vh;
     padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: repeat(2, 1fr);
-
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    
     .Block-Gauche{
+        height: 40vh;
         // width: 35%;
-        grid-area: 1 / 1 / 2 / 2;
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: space-around;
         h1{padding: 5%;}
         h3{padding: 5%;}
         img{
             width: 90%;
             object-fit: contain;
-
+            
         }
       
     }
@@ -25,15 +27,18 @@
     .Block-Droite{
         // width: 65%;
         // background-color: gold;
-        grid-area: 1 / 2 / 2 / 3;
+        padding: 0;
+        align-items: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        h1{}
+        h1{
+
+        }
         img, p{ 
             // background-color: greenyellow;
             width: 75%;
-            height: 75%;
+            height: 50%;
         }
 
         img{
@@ -51,5 +56,82 @@
             align-items: center;
             justify-content: space-between;
         }
+    }
+    
+    @media screen and (min-width: 576px){
+        
+    }
+    
+    @media screen and (min-width: 768px) {        
+        
+    }
+    
+    @media screen and (min-width: 992px) {        
+        width: 100%;
+        // height: 50vh;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: repeat(2, 1fr);
+        
+        .Block-Haut{
+            grid-area: 1 / 1 / 2 / 2;
+            text-align: center;
+
+        }
+
+        .Block-Bas{
+            grid-area: 2 / 1 / 3 / 2;
+            // width: 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0;
+            h1{padding: 5%;}
+            h3{padding: 5%;}
+            img{
+                width: 90%;
+                object-fit: contain;
+                
+            }
+          
+        }
+    
+        .Block-Droite{
+            // width: 65%;
+            // background-color: gold;
+            grid-area: 1 / 2 / 3 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            h1{}
+            img, p{ 
+                // background-color: greenyellow;
+                // width: 75%;
+                // height: 75%;
+            }
+    
+            img{
+                object-fit: contain;
+            }
+            
+            p{
+                overflow-y: auto;
+            }
+    
+            .ListBtn{
+                width: 100%;
+                height: 10%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    
+    }
+    
+    @media screen and (min-width: 1200px) {
+    
     }
 }

@@ -6,7 +6,7 @@
     // background-color: orangered;
     .Block-Gauche{
         width: 40%;
-        // padding: 5%;
+        padding: 0;
         max-height: 30vh;
         overflow-y: auto;
         display: flex;
@@ -14,6 +14,7 @@
         justify-content: space-between;
         ul{
             height: 75%;
+            overflow-y: auto;
             li{
                 list-style: inside;
                 padding: 5%;
@@ -30,6 +31,22 @@
             width: 100%;
             object-fit: contain;
         }
+    }
+
+    @media screen and (min-width: 576px){
+
+    }
+    
+    @media screen and (min-width: 768px) {        
+    
+    }
+    
+    @media screen and (min-width: 992px) {
+    
+    }
+    
+    @media screen and (min-width: 1200px) {
+    
     }
 
 }

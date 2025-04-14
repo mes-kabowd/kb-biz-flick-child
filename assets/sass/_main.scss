@@ -27,15 +27,39 @@
             width: 100%;
             flex: 1;
             // padding: 2rem;
-            margin: 12.5rem 0 2.5rem;
+            margin: 5rem 0 3.5rem;
             background-color: cyan;
-
+            
             section{
                 width: 100%;
                 // margin-bottom: 2.5rem;
                 padding: 5%;
-                min-height: 35vh;
+                // min-height: 35vh;
                 // display: none;
+            }
+            @media screen and (min-width: 576px){
+                
+            }
+            
+            @media screen and (min-width: 768px) {        
+                
+            }
+            
+            @media screen and (min-width: 992px) {
+                margin: 10rem 0 2.5rem;
+    
+                section{
+                    // width: 100%;
+                    margin-bottom: 0;
+                    // padding: 5%;
+                    // min-height: 35vh;
+                    // display: none;
+                }
+            
+            }
+            
+            @media screen and (min-width: 1200px) {
+            
             }
         }
     }   

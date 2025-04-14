@@ -539,7 +539,6 @@ footer .VoletDroite ul {
   flex-direction: column;
   justify-content: space-between;
 }
-
 .MiniContact {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -573,7 +572,6 @@ footer .VoletDroite ul {
   -o-object-fit: contain;
      object-fit: contain;
 }
-
 .Grd-Carrousel-Blog {
   height: 75vh;
   display: grid;
@@ -644,7 +642,6 @@ footer .VoletDroite ul {
   aspect-ratio: 1;
   background-color: purple;
 }
-
 .Grd-Contact {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -671,7 +668,6 @@ footer .VoletDroite ul {
 .Grd-Contact .Block-Droite {
   grid-area: 2/3/3/4;
 }
-
 .Carrousel-Infini .Carrousel {
   width: 100%;
   display: flex;
@@ -680,7 +676,6 @@ footer .VoletDroite ul {
   padding: 2.5%;
   width: 20%;
 }
-
 .Carrousel-pack {
   display: flex;
   flex-direction: column;
@@ -778,7 +773,6 @@ footer .VoletDroite ul {
 .List-Block .Block-Bas article:last-child {
   grid-area: 3/3/4/4;
 }
-
 .Page-Recherche {
   padding: 0;
 }
@@ -816,7 +810,6 @@ footer .VoletDroite ul {
   align-items: center;
   justify-content: space-around;
 }
-
 .Page404 {
   display: flex;
   padding: 0;
@@ -875,7 +868,6 @@ footer .VoletDroite ul {
   padding: 5%;
   text-align: center;
 }
-
 .Stats {
   display: flex;
   padding: 0;
@@ -910,7 +902,6 @@ footer .VoletDroite ul {
   -o-object-fit: contain;
      object-fit: contain;
 }
-
 .Texte-Page {
   display: flex;
   align-items: center;
@@ -955,19 +946,20 @@ footer .VoletDroite ul {
   height: 40%;
   overflow-y: auto;
 }
-
 .Titre-Article {
   width: 100%;
   height: 50vh;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
 }
 .Titre-Article .Block-Gauche {
-  grid-area: 1/1/2/2;
+  height: 40vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-around;
 }
 .Titre-Article .Block-Gauche h1 {
@@ -982,14 +974,15 @@ footer .VoletDroite ul {
      object-fit: contain;
 }
 .Titre-Article .Block-Droite {
-  grid-area: 1/2/2/3;
+  padding: 0;
+  align-items: center;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .Titre-Article .Block-Droite img, .Titre-Article .Block-Droite p {
   width: 75%;
-  height: 75%;
+  height: 50%;
 }
 .Titre-Article .Block-Droite img {
   -o-object-fit: contain;
@@ -1005,13 +998,63 @@ footer .VoletDroite ul {
   align-items: center;
   justify-content: space-between;
 }
-
+@media screen and (min-width: 992px) {
+  .Titre-Article {
+    width: 100%;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .Titre-Article .Block-Haut {
+    grid-area: 1/1/2/2;
+    text-align: center;
+  }
+  .Titre-Article .Block-Bas {
+    grid-area: 2/1/3/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0;
+  }
+  .Titre-Article .Block-Bas h1 {
+    padding: 5%;
+  }
+  .Titre-Article .Block-Bas h3 {
+    padding: 5%;
+  }
+  .Titre-Article .Block-Bas img {
+    width: 90%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .Titre-Article .Block-Droite {
+    grid-area: 1/2/3/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Titre-Article .Block-Droite img {
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .Titre-Article .Block-Droite p {
+    overflow-y: auto;
+  }
+  .Titre-Article .Block-Droite .ListBtn {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
 .Txt-Article {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-
 .MiniMedia-Article {
   display: flex;
   flex-direction: column;
@@ -1033,7 +1076,6 @@ footer .VoletDroite ul {
   -o-object-fit: contain;
      object-fit: contain;
 }
-
 .Media-Article {
   height: 100%;
   display: flex;
@@ -1041,6 +1083,7 @@ footer .VoletDroite ul {
 }
 .Media-Article .Block-Gauche {
   width: 40%;
+  padding: 0;
   max-height: 30vh;
   overflow-y: auto;
   display: flex;
@@ -1049,6 +1092,7 @@ footer .VoletDroite ul {
 }
 .Media-Article .Block-Gauche ul {
   height: 75%;
+  overflow-y: auto;
 }
 .Media-Article .Block-Gauche ul li {
   list-style: inside;
@@ -1065,7 +1109,6 @@ footer .VoletDroite ul {
   -o-object-fit: contain;
      object-fit: contain;
 }
-
 .Galerie-Media {
   width: 100%;
   --s: 150px; /* control the size */
@@ -1095,7 +1138,6 @@ footer .VoletDroite ul {
   -o-object-fit: contain;
      object-fit: contain;
 }
-
 .Ressources-Article h2 {
   padding: 5%;
   text-align: center;
@@ -1110,7 +1152,6 @@ footer .VoletDroite ul {
 .Ressources-Article ul li a:hover {
   color: white;
 }
-
 * {
   padding: 0;
   margin: 0;
@@ -1138,15 +1179,21 @@ footer .VoletDroite ul {
   overflow: hidden;
   width: 100%;
   flex: 1;
-  margin: 12.5rem 0 2.5rem;
+  margin: 5rem 0 3.5rem;
   background-color: cyan;
 }
 * body main section {
   width: 100%;
   padding: 5%;
-  min-height: 35vh;
 }
-
+@media screen and (min-width: 992px) {
+  * body main {
+    margin: 10rem 0 2.5rem;
+  }
+  * body main section {
+    margin-bottom: 0;
+  }
+}
 :root {
   --primary-color: #361fdb;
   --Gradient-primary-color: #361fdb;
