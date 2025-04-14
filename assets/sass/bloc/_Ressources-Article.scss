@@ -1,1 +1,23 @@
-.Ressources-Article{}
+.Ressources-Article{
+    h2{
+        padding: 5%;
+        text-align: center;
+    }
+
+    ul{
+        // list-style: circle;
+        li{
+            margin: 2.5%;
+            list-style: inside;   
+            
+            a{
+                transition: .35s linear;   
+                
+                &:hover{
+                    color: white;
+                }      
+            }
+        }
+    }
+
+}

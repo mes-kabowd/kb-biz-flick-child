@@ -1,18 +1,25 @@
 .Grd-Contact{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 3fr;
 
     .Block-Gauche,
     .Block-Centre,
     .Block-Droite{
-        padding: 5%;
+        // padding: 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
     }
 
-    .Block-Gauche{}
-    .Block-Centre{}
-    .Block-Droite{}
+    h2{
+        grid-area: 1 / 1 / 2 / 4;
+        margin: auto;
+    }
+
+    .Block-Gauche{grid-area: 2 / 1 / 3 / 2;}
+    .Block-Centre{grid-area: 2 / 2 / 3 / 3;}
+    .Block-Droite{grid-area: 2 / 3 / 3 / 4;}
 
 }

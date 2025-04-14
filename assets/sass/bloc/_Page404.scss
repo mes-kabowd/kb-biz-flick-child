@@ -1,13 +1,37 @@
 .Page404{
+    // height: 50vh;
     display: flex;
+    padding: 0;
     .Block-Gauche{
+        width: 50%;
+        height: 100%;
+        background-color: orangered;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // margin: 0;
         .IconErreur{
             width: 75%;
             aspect-ratio: 1;
+            background-color: olive;
+            // transform: translateY(-5%);
+            z-index: 3;
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
         }
         .Erreur{
-            width: 60%;
-            font-size: xx-large;
+            background-color: yellow;
+            height: 100%;
+            margin: 0;
+            // width: 80%;
+
+            transform: translateY(-10%);
+            text-align: center;
+            font-size: 7.5rem;
+            // line-height: 75%;
+            z-index: 1;
         }
     }
     .Block-Droite{
@@ -15,15 +39,24 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        // width: 50%;
 
         h2{}
-        p{}
+        p{overflow-y: auto;}
         .BlockBtns{
+            width: 100%;
+            height: 35%;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            grid-template-columns: auto auto auto auto auto;
+            gap: 10%;
+            background-color: red;
             
-            display: flex;
-            flex-wrap: wrap;
-
-            .BtnErreur{
+            li{
+                width: 100%;
+                height: 35px;
+                background-color: azure;
                 padding: 5%;
                 text-align: center;
             }
