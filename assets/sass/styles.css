@@ -1,20 +1,3 @@
-/**
- * Theme Name:        kb-biz-flick-child
- * Template:          biz-flick
- * Theme URI:         https://fr-ca.wordpress.org/themes/biz-flick/preview/
- * Description:       Custom theme for Kabowd Website
- * Version:           1.0.0
- * Author:            Kabowd IT - Kabowd Services informatiques 
- * Author URI:        https://kabowd.ca
- * Tags:              block-patterns, full-site-editing
- * Text Domain:       fabled-sunset
- * Domain Path:       /assets/lang
- * Tested up to:      6.4
- * Requires at least: 6.2
- * Requires PHP:      7.4
- * License:           GNU General Public License v2.0 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- */
 header {
   width: 100%;
 }
