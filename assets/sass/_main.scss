@@ -1,28 +1,29 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    ul{
+    ul {
         list-style: none;
     }
     
-    a{
+    a {
         text-decoration: none;
         color: #000;
     }
 
     html,
-    body{
+    body {
         height: 100%;
         margin: 0;
     }
     
-    body{
+    body {
         display: flex;
         flex-direction: column;
         width: 100%;
         min-height: 100vh;
-        main{
+        
+        main {
             overflow: hidden;
             width: 100%;
             flex: 1;
@@ -30,20 +31,17 @@
             margin: 5rem 0 3.5rem;
             background-color: cyan;
             
-            section{
+            section {
                 width: 100%;
                 // margin-bottom: 2.5rem;
                 padding: 5%;
                 // min-height: 35vh;
                 // display: none;
             }
-            @media screen and (min-width: 576px){
-                
-            }
+
+            @media screen and (min-width: 576px) {}
             
-            @media screen and (min-width: 768px) {        
-                
-            }
+            @media screen and (min-width: 768px) {}
             
             @media screen and (min-width: 992px) {
                 margin: 10rem 0 2.5rem;
@@ -58,9 +56,7 @@
             
             }
             
-            @media screen and (min-width: 1200px) {
-            
-            }
+            @media screen and (min-width: 1200px) {}
         }
     }   
 }

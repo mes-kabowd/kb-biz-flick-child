@@ -948,27 +948,30 @@ footer .VoletDroite ul {
 }
 .Titre-Article {
   width: 100%;
-  height: 50vh;
-  padding: 0;
+  height: 30vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 2.5rem;
+  margin-bottom: 5rem;
 }
-.Titre-Article .Block-Gauche {
-  height: 40vh;
+.Titre-Article .Block-Haut {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.Titre-Article .Block-Gauche h1 {
-  padding: 5%;
+.Titre-Article .Block-Haut img {
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
-.Titre-Article .Block-Gauche h3 {
-  padding: 5%;
+.Titre-Article .Block-Bas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-.Titre-Article .Block-Gauche img {
+.Titre-Article .Block-Bas img {
   width: 90%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -998,17 +1001,38 @@ footer .VoletDroite ul {
   align-items: center;
   justify-content: space-between;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .Titre-Article {
-    width: 100%;
-    padding: 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: repeat(2, 1fr);
   }
   .Titre-Article .Block-Haut {
+    grid-area: 1/1/2/3;
+  }
+  .Titre-Article .Block-Bas {
+    grid-area: 2/1/3/2;
+  }
+  .Titre-Article .Block-Droite {
+    grid-area: 2/2/3/3;
+  }
+}
+@media screen and (min-width: 992px) {
+  .Titre-Article {
+    width: 100%;
+    height: 50vh;
+    padding: 0;
+    margin-bottom: 3.5rem;
+  }
+  .Titre-Article .Block-Haut {
     grid-area: 1/1/2/2;
     text-align: center;
+  }
+  .Titre-Article .Block-Haut h1 {
+    padding: 5%;
+  }
+  .Titre-Article .Block-Haut h3 {
+    padding: 5%;
   }
   .Titre-Article .Block-Bas {
     grid-area: 2/1/3/2;
@@ -1054,36 +1078,79 @@ footer .VoletDroite ul {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 5rem;
+}
+.Txt-Article h2 {
+  text-align: center;
+  padding: 5%;
+}
+.Txt-Article p {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+@media screen and (min-width: 992px) {
+  .Txt-Article {
+    margin-bottom: 3.5rem;
+  }
+  .Txt-Article h2 {
+    text-align: left;
+  }
 }
 .MiniMedia-Article {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 5rem;
+}
+.MiniMedia-Article h2 {
+  text-align: center;
 }
 .MiniMedia-Article .Block-Bas {
+  height: 50vh;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 .MiniMedia-Article .Block-Bas p {
-  width: 40%;
   padding: 5%;
-  max-height: 30vh;
+  max-height: 25vh;
   overflow-y: auto;
 }
 .MiniMedia-Article .Block-Bas img {
-  width: 45%;
+  width: 90%;
   background-color: cadetblue;
   -o-object-fit: contain;
      object-fit: contain;
 }
+@media screen and (min-width: 992px) {
+  .MiniMedia-Article {
+    margin-bottom: 3.5rem;
+  }
+  .MiniMedia-Article h2 {
+    text-align: left;
+  }
+  .MiniMedia-Article .Block-Bas {
+    flex-direction: row;
+  }
+  .MiniMedia-Article .Block-Bas p {
+    width: 40%;
+    max-height: 30vh;
+  }
+  .MiniMedia-Article .Block-Bas img {
+    width: 45%;
+  }
+}
 .Media-Article {
-  height: 100%;
+  min-height: 35vh;
   display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 5rem;
 }
 .Media-Article .Block-Gauche {
-  width: 40%;
-  padding: 0;
+  width: 100%;
   max-height: 30vh;
   overflow-y: auto;
   display: flex;
@@ -1108,6 +1175,17 @@ footer .VoletDroite ul {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+@media screen and (min-width: 768px) {
+  .Media-Article {
+    min-height: 35vh;
+    margin-bottom: 3.5rem;
+    flex-direction: row;
+  }
+  .Media-Article .Block-Gauche {
+    padding: 0;
+    width: 40%;
+  }
 }
 .Galerie-Media {
   width: 100%;
@@ -1138,12 +1216,15 @@ footer .VoletDroite ul {
   -o-object-fit: contain;
      object-fit: contain;
 }
+.Ressources-Article {
+  margin-bottom: 5rem;
+}
 .Ressources-Article h2 {
   padding: 5%;
   text-align: center;
 }
 .Ressources-Article ul li {
-  margin: 2.5%;
+  margin: 5%;
   list-style: inside;
 }
 .Ressources-Article ul li a {
@@ -1151,6 +1232,14 @@ footer .VoletDroite ul {
 }
 .Ressources-Article ul li a:hover {
   color: white;
+}
+@media screen and (min-width: 992px) {
+  .Ressources-Article {
+    margin-bottom: 3.5rem;
+  }
+  .Ressources-Article ul li {
+    margin: 2.5%;
+  }
 }
 * {
   padding: 0;
