@@ -1,26 +1,24 @@
 .Titre-Page{
     width: 100%;
-    height: 50vh;
+    min-height: 50vh;
     // padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 2fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
-    h1{
-        grid-area: 1 / 1 / 2 / 3;
-        text-align: center;
-    }
+    h1{text-align: center;}
 
     .Block-Gauche{
         // width: 35%;
-        grid-area: 2 / 1 / 3 / 2;
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: space-around;
         h1{padding: 5%;}
         h3{padding: 5%;}
         img{
-            width: 90%;
+            width: 80%;
             object-fit: contain;
 
         }
@@ -30,7 +28,6 @@
     .Block-Droite{
         // width: 65%;
         // background-color: gold;
-        grid-area: 2 / 2 / 3 / 3;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -43,6 +40,7 @@
         }
 
         img{
+            
             object-fit: contain;
         }
         
@@ -63,19 +61,19 @@
 
     .Bloc-Bas{
         width: 100%;
-        grid-area: 3 / 1 / 4 / 3;
         display: flex;
-        // align-items: center;
         justify-content: space-around;
         // background-color: green;
         
         .MiniStats{
             width: 25%;
             display: flex;
+            align-items: center;
+            flex-direction: column;
             justify-content: space-between;
 
             .Valeur{
-
+                font-size: x-large;
             }
 
             .Txt-Valeur{
@@ -83,9 +81,9 @@
             }
         }
     }
-
+    
     @media screen and (min-width: 576px){
-
+        
     }
     
     @media screen and (min-width: 768px) {        
@@ -93,7 +91,92 @@
     }
     
     @media screen and (min-width: 992px) {
+        min-height: 35vh;
+        // max-height: 75vh;
+        // background-color: red;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 2fr 1fr;
+        margin-bottom: 2.5rem;
     
+        h1{
+            grid-area: 1 / 1 / 2 / 3;
+            // text-align: center;
+        }
+    
+        .Block-Gauche{
+            // width: 35%;
+            grid-area: 2 / 1 / 3 / 2;
+            align-items: flex-start;
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: space-around;
+            // h1{padding: 5%;}
+            // h3{padding: 5%;}
+            img{
+                width: 90%;
+                // object-fit: contain;
+    
+            }
+          
+        }
+    
+        .Block-Droite{
+            // width: 65%;
+            // background-color: gold;
+            grid-area: 2 / 2 / 3 / 3;
+            // display: flex;
+            // align-items: center;
+            // flex-direction: column;
+            // justify-content: center;
+            h1{}
+            // img, p{ 
+            //     // background-color: greenyellow;
+            //     width: 85%;
+            //     height: 75%;
+            // }
+    
+            // img{
+            //     object-fit: contain;
+            // }
+            
+            // p{
+            //     margin: 5%;
+            //     overflow-y: auto;
+            // }
+    
+            // .ListBtn{
+            //     width: 100%;
+            //     height: 10%;
+            //     margin: 5%;
+            //     display: flex;
+            //     align-items: center;
+            //     justify-content: space-between;
+            // }
+        }
+    
+        .Bloc-Bas{
+            // width: 100%;
+            grid-area: 3 / 1 / 4 / 3;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-around;
+            // background-color: green;
+            
+            .MiniStats{
+                width: 27.5%;
+                text-align: left;
+                flex-direction: row;
+    
+                .Valeur{
+                    
+                }
+    
+                .Txt-Valeur{
+                    
+                }
+            }
+        }
     }
     
     @media screen and (min-width: 1200px) {

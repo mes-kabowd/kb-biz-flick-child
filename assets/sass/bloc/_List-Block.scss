@@ -6,7 +6,7 @@
     
     .Block-Haut{
         display: flex;
-        // flex-direction: column;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         
@@ -15,7 +15,7 @@
         
         p{
             padding: 5%;
-            width: 80%;
+            // width: 80%;
         }
     }
     
@@ -23,19 +23,19 @@
         // padding: 0;
         min-height: 50vh;
         // background-color: pink;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-template-rows: repeat(2, 1fr);
         
         
         article{
-            width: 40vw;
+            width: 80vw;
+            margin: 5% 0 15%;
             display: grid;
             grid-template-columns: 2fr repeat(2, 1fr);
             grid-template-rows: 2fr 1fr;
             grid-column-gap: 10%;
             grid-row-gap: 10%;
-            // background-color: red;
 
             img { 
                 grid-area: 1 / 1 / 2 / 2; 
@@ -70,16 +70,75 @@
 
 
     }
-
+    
     @media screen and (min-width: 576px){
-
+        
     }
     
     @media screen and (min-width: 768px) {        
-    
+        
     }
     
     @media screen and (min-width: 992px) {
+        .Block-Haut{
+            flex-direction: row;
+            
+            h2 {}
+            
+            p {width: 80%;}
+        }
+        
+        .Block-Bas{
+            // padding: 0;
+            max-height: 80vh;
+            // background-color: pink;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            
+            
+            article{
+                width: 40vw;
+                display: grid;
+                grid-template-columns: 2fr repeat(2, 1fr);
+                grid-template-rows: 2fr 1fr;
+                grid-column-gap: 10%;
+                grid-row-gap: 10%;
+                // background-color: red;
+    
+                img { 
+                    grid-area: 1 / 1 / 2 / 2; 
+                    padding: 5%;
+                }
+    
+                p { 
+                    grid-area: 1 / 2 / 2 / 4; 
+                    padding: 5%;
+                }
+    
+                h4 { 
+                    grid-area: 2 / 1 / 3 / 3; 
+                    padding: 5%;
+                }
+    
+                button { 
+                    grid-area: 2 / 3 / 3 / 4; 
+                    
+                    height: 35px;
+                }
+            }
+    
+            article:first-child{
+                grid-area: 1 / 1 / 2 / 2;
+            }
+            
+            article:last-child{
+                grid-area: 3 / 3 / 4 / 4;
+            }
+    
+    
+    
+        }
     
     }
     
