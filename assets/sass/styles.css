@@ -556,7 +556,7 @@ footer .VoletDroite ul {
   align-items: center;
   justify-items: center;
 }
-.Mini-Carrousel-Blog .Liste-Blog section#carousel {
+.Mini-Carrousel-Blog .Liste-Blog #carousel {
   grid-row: 1/2;
   grid-column: 1/8;
   width: 100vw;
@@ -572,7 +572,7 @@ footer .VoletDroite ul {
   --position: 1;
   pointer-events: none;
 }
-.Mini-Carrousel-Blog .Liste-Blog article.item {
+.Mini-Carrousel-Blog .Liste-Blog .item {
   position: absolute;
   width: 300px;
   height: 400px;
@@ -583,23 +583,23 @@ footer .VoletDroite ul {
   transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
   z-index: calc(var(--position) - var(--abs));
 }
-.Mini-Carrousel-Blog .Liste-Blog article.item:nth-of-type(1) {
+.Mini-Carrousel-Blog .Liste-Blog .item:nth-of-type(1) {
   --offset: 1;
   background-color: #90f1ef;
 }
-.Mini-Carrousel-Blog .Liste-Blog article.item:nth-of-type(2) {
+.Mini-Carrousel-Blog .Liste-Blog .item:nth-of-type(2) {
   --offset: 2;
   background-color: #ff70a6;
 }
-.Mini-Carrousel-Blog .Liste-Blog article.item:nth-of-type(3) {
+.Mini-Carrousel-Blog .Liste-Blog .item:nth-of-type(3) {
   --offset: 3;
   background-color: #ff9770;
 }
-.Mini-Carrousel-Blog .Liste-Blog article.item:nth-of-type(4) {
+.Mini-Carrousel-Blog .Liste-Blog .item:nth-of-type(4) {
   --offset: 4;
   background-color: #ffd670;
 }
-.Mini-Carrousel-Blog .Liste-Blog article.item:nth-of-type(5) {
+.Mini-Carrousel-Blog .Liste-Blog .item:nth-of-type(5) {
   --offset: 5;
   background-color: #e9ff70;
 }

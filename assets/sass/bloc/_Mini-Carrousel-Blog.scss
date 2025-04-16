@@ -41,7 +41,7 @@
         align-items: center;
         justify-items: center;
 
-        section#carousel {
+        #carousel {
             grid-row: 1 / 2;
             grid-column: 1 / 8;
             width: 100vw;
@@ -58,7 +58,7 @@
             pointer-events: none;
         }
           
-          article.item {
+          .item {
             position: absolute;
             width: 300px;
             height: 400px;
