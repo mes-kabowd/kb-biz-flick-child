@@ -1,23 +1,37 @@
+:root {
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    --color-brand: #57bd84;
+    --font-fam: 'Lato', sans-serif;
+    --height: 5rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+  }
+  
+
 .Page-Recherche{
-    padding: 0;
+    // padding: 0;
     
-    .Block-Haut{
-        // height: 25%;
-        background-color: red;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5%;
-        img{
-            width: 5%;
-        }
+    // .Block-Haut{
+    //     // height: 25%;
+    //     background-color: red;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     padding: 1.5%;
+    //     img{
+    //         width: 5%;
+    //     }
 
         
-        input{
-            margin-left: 5%;
-        }
-        margin-bottom: 5%;
-    }
+    //     input{
+    //         margin-left: 5%;
+    //     }
+    //     margin-bottom: 5%;
+    // }
+
     // .Block-Haut{
     //     padding: 0;
     //     display: flex; 
@@ -27,24 +41,208 @@
     //         height: 10%;
     //     }
     // }
-    .Block-Bas{
-        height: 75%;
-        width: 100%;
+    
+    // .Block-Bas{
+    //     height: 75%;
+    //     width: 100%;
+    //     padding: 0;
+    //     display: grid;
+    //     grid-template-columns: auto auto auto;
+    //     article{
+    //         background-color: orchid;
+    //         margin: 5%;
+    //         display: flex;
+    //         flex-direction: column;
+    //         justify-content: space-between;
+    //         .InfoBlog{
+    //             padding: 2.5%;
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: space-around;
+    //         }
+    //     }
+    // }
+
+//Vars 
+
+  // Setup
+//   body {background: var(--color-dark); display: flex; align-items: center; justify-content: center; min-height: 100vh }
+//   html { box-sizing: border-box; height: 100%; font-size: 10px; } *, *::before, *::after { box-sizing: inherit; }
+  
+  // Main styles
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+
+  form {
+    position: relative;
+    width: 90vw;
+    background: var(--color-brand);
+    border-radius: var(--rad);
+
+    input, button {
+      height: var(--height);
+      font-family: var(--font-fam);
+      border: 0;
+      color: var(--color-dark);
+      font-size: 1.8rem;
+    }
+    input[type="search"] {
+      outline: 0; // <-- shold probably remove this for better accessibility, adding for demo aesthetics for now.
+      width: 100%;
+      background: var(--color-light);
+      padding: 0 1.6rem;
+      border-radius: var(--rad);
+      appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
+      transition: all var(--dur) var(--bez);
+      transition-property: width, border-radius;
+      z-index: 1;
+      position: relative;
+    }
+    button {
+      display: none; // prevent being able to tab to it
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: var(--btn-width);
+      font-weight: bold;
+      background: var(--color-brand);
+      border-radius: 0 var(--rad) var(--rad) 0;
+    }
+    input:not(:placeholder-shown) {
+      border-radius: var(--rad) 0 0 var(--rad);
+      width: calc(100% - var(--btn-width));
+      + button {
+        display: block;
+      }
+    }
+    label {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+  }
+  
+
+    .mainCard {
+        text-align: center;
+        display: block;
         padding: 0;
-        display: grid;
-        grid-template-columns: auto auto auto;
-        article{
-            background-color: orchid;
-            margin: 5%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            .InfoBlog{
-                padding: 2.5%;
-                display: flex;
+        width: 100%;
+        margin: 60px auto;
+        background-color: white;
+        box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
+        -webkit-animation-name: mainCard;
+        animation-name: mainCard;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+
+        // Enlever l’imbrication pour garder les keyframes globales
+        @at-root {
+            @-webkit-keyframes mainCard {
+            0% { transform: scale(0); }
+            }
+            @keyframes mainCard {
+            0% { transform: scale(0); }
+            }
+        }
+
+        // Entête de la carte
+        .mainCardHeader {
+            background-color: AQUAMARINE;
+            height: 100px;
+            width: 100%;
+            -webkit-animation-name: mainCardHeader;
+            animation-name: mainCardHeader;
+            -webkit-animation-duration: 0.4s;
+            animation-duration: 0.4s;
+            -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        // Placer les keyframes de mainCardHeader globalement
+        @at-root {
+            @-webkit-keyframes mainCardHeader {
+            0% { transform: scaleY(0); }
+            }
+            @keyframes mainCardHeader {
+            0% { transform: scaleY(0); }
+            }
+        }
+
+        // Contenu de la carte
+        .mainCardContent {
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            top: -50px;
+            height: 100%;
+            width: 100%;
+
+            .miniCard {
+                display: inline-flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: space-around;
+
+                padding: 1.5%;
+                margin: 0 20px 20px 0;
+                background-color: white;
+                height: 300px;
+                width: 250px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                -webkit-animation-name: miniCard;
+                animation-name: miniCard;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-delay: 0.8s;
+                animation-delay: 0.8s;
+                -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+                
+                img{
+                    padding: 2.5%;
+                    height: 40%;
+                    object-fit: contain;
+                }
+                .InfoBlog{
+                    height: 50%;
+                    padding: 2.5%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                }
             }
+        }
+    }
+
+    
+    // Keyframes de la miniCard à conserver en global
+    @at-root {
+        @-webkit-keyframes miniCard {
+        0% { transform: scale(0); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+        }
+    
+        @keyframes miniCard {
+        0% { transform: scale(0); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
         }
     }
 
