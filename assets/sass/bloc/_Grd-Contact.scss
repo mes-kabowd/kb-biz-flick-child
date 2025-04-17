@@ -15,142 +15,141 @@
     .Block-Gauche,
     .Block-Centre,
     .Block-Droite{
-        height: 35vh;
+        // min-height: 35vh;
         padding: 5%;
+        height: 95%;
+        // margin: 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 2.5%;
+        margin-bottom: 3.5%;
     }
     
-    .Block-Gauche{
-        // align-items: center;
-        // // padding: 5%;
-        // // background-color: red;
-        // div{
-        //     // height: 30vh;
-            
-        //     display: flex;
-        //     align-items: center;
-        //     flex-direction: column;
-        //     justify-content: space-between;
-        // }
+    .Block-Gauche {
+        // padding: 1rem; // Style mobile (default)
+        background-color: #f9f9f9;
 
-        .card {
-            width: 70%;
-            padding: 5%;
-            border: 6px solid rgba(0, 0, 0, 0.3);
-            box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3);
-            border-radius: 50px;
-            position: relative;
+      
+        h3 {
+          font-size: 1.5rem;
+          color: #333;
+          margin-bottom: 1rem;
+          text-align: center;
         }
-        
-        .card h2 {
-            color: rgba(0, 0, 0, 0.3);
-            font-size: 60px;
-            text-transform: uppercase;
-        }
-        
-        .card .row {
-            position: relative;
-            width: 100%;
-            display: grid;
-            grid: auto / auto auto;
-            grid-template-columns: repeat(auto-fit,minmax(40%, 1fr));
-            grid-gap: 30px;
-        }
-        
-        .card .row .col {
-            position: relative;
-            width: 100%;
-            margin: 30px 20px 40px 0;
-            transition: 0.5s;
-        }
-        
-        .card .row .form-group {
-            position: relative;
-            width: 100%;
-            height: 40px;
-            color: #ffffff;
-        }
-        
-        .card .row .form-group input,
-        .card .row .form-group textarea {
-            position: absolute;
-            width: 90%;
-            height: 100%;
-            background: transparent;
-            outline: none;
-            font-size: 24px;
-            padding: 10px 0 10px 20px;
-            border: 5px solid rgba(0, 0, 0, 0.3);
-            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-            border-radius: 50px;
-        }
-        
-        .card .row .form-group label {
-            line-height: 40px;
-            color: #ffffff;
-            font-size: 24px;
-            margin: 0 0 0 30px;
-            display: block;
-            pointer-events: none;
-        }
-        
-        .row .col:nth-child(6) {
-            margin-top: 64px;
-        }
-        
-        .card .row .form-group input:focus,
-        .card .row .form-group textarea:focus {
-            border: 5px solid #ffffff;
-            transition: all 0.5s;
-        }
-        
-        .card .row input[type="submit"] {
-            border: 5px solid rgba(0, 0, 0, 0.3);
-            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
-            padding: 10px;
-            height: 100%;
-            width: 50%;
+      
+        .contact-form {
+          display: flex;
+          flex-direction: column;
+          width: 90%;
+          gap: 1rem;
+      
+          label {
+            font-weight: bold;
+            color: #555;
+          }
+      
+          input,
+          textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+      
+            &:focus {
+              border-color: #007BFF;
+              outline: none;
+            }
+          }
+      
+          button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            outline: none;
-            background: transparent;
-            text-transform: uppercase;
-            color: #ffffff;
-            line-height: 40px;
-            font-size: 24px;
-            font-weight: 700;
-            border-radius: 45px;
-            transition: all 0.4s;
+            transition: background-color 0.3s ease;
+      
+            &:hover {
+              background-color: #0056b3;
+            }
+          }
         }
-        
-        .card .row input[type="submit"]:hover {
-            border: 5px solid rgba(255, 255, 255, 1);
-            color: #ffffff;
-            transition: all 0.4s;
-        }
-        
-        @media screen and (max-width: 900px) {
-            .card .row {
-                grid-template-columns: repeat(auto-fit,minmax(70%, 1fr));
-            }
-            
-            .card {
-                padding: 20px;
-            }
-            
-            .card h2 {
-                font-size: 34px;
-            }
-            
-            .card .row input[type="submit"] {
-                width: 100%;
-            }
-        }
+
     }
+    
+    .Block-Centre {
+        padding: 1rem; // Style par défaut pour mobile
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        h3 {
+          font-size: 1.5rem;
+          color: #222;
+          margin-bottom: 1rem;
+          text-align: left;
+        }
+        
+        .team-form {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          width: 90%;
+          
+          label {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 0.5rem;
+          }
+          
+          input,
+          textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+            
+            &:focus {
+              border-color: #28a745;
+              outline: none;
+            }
+          }
+          
+          button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            
+            &:hover {
+              background-color: #218838;
+            }
+          }
+        }
+      
+        // Adaptation pour tablettes (min-width: 768px)
+        // @media screen and (min-width: 768px) {
+          
+        // }
+      
+        // // Adaptation pour écran standard (min-width: 992px)
+        // @media screen and (min-width: 992px) {
+          
+        // }
+      
+        // // Adaptation pour grand écran (min-width: 1200px)
+        // @media screen and (min-width: 1200px) {
+          
+        // }
+      }
+      
     
     // .Block-Centre{
     //     padding: 5%;
@@ -168,6 +167,63 @@
     //     justify-content: space-between;
     // }
 
+    .Block-Droite {
+        padding: 1rem; // Base mobile-first
+        background-color: #fafafa;
+        border: 1px solid #ddd;
+
+        h3 {
+            font-size: 1.5rem;
+            color: #222;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .collaboration-form {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            gap: 1rem;
+      
+          label {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 0.5rem;
+          }
+      
+          input,
+          textarea {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+      
+            &:focus {
+              border-color: #6c757d;
+              outline: none;
+            }
+          }
+      
+          button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            background-color: #6c757d;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+      
+            &:hover {
+              background-color: #5a6268;
+            }
+          }
+        }
+      
+      }
+      
+
     @media screen and (min-width: 576px){
         
     }
@@ -175,25 +231,80 @@
     @media screen and (min-width: 768px) {        
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr 2fr 1fr;
+        // grid-template-rows: 1fr 2fr 1fr;
+        // row-gap: 5%;
         min-height: 40vh;
 
-        h2{
-            margin: 0;
-        }
 
+        
         .Block-Gauche,
         .Block-Centre,
         .Block-Droite{
-            height: 30vh;
+            // min-height: 30vh;
             // background-color: red;
-            margin: 0;
+            // margin: 5%;
+            // margin: auto;
         }
-
-        h2{grid-area: 1 / 1 / 2 / 3;}
-        .Block-Gauche{ grid-area: 2 / 1 / 3 / 3; }
-        .Block-Centre{ grid-area: 3 / 1 / 4 / 2; }
-        .Block-Droite{ grid-area: 3 / 2 / 4 / 3; }
+        
+        h2{
+            // margin: 0;
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        
+        .Block-Gauche{ 
+            grid-area: 2 / 1 / 3 / 3; 
+            padding: 2rem;
+            
+            h3 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-form {
+                input,
+                textarea,
+                button {
+                    font-size: 1.05rem;
+                    padding: 0.85rem;
+                }
+            }
+        }
+        
+        .Block-Centre{ 
+            width: 90%;
+            grid-area: 3 / 1 / 4 / 2; 
+            padding: 2rem;
+            
+            h3 {
+                font-size: 1.8rem;
+            }
+            
+            .team-form {
+                input,
+                textarea,
+                button {
+                    font-size: 1.05rem;
+                    padding: 0.85rem;
+                }
+            }
+        }
+        
+        .Block-Droite{ 
+            grid-area: 3 / 2 / 4 / 3; 
+            padding: 2rem;
+      
+          h3 {
+            font-size: 1.8rem;
+          }
+      
+          .collaboration-form {
+            input,
+            textarea,
+            button {
+              font-size: 1.05rem;
+              padding: 0.85rem;
+            }
+          }
+        }
 
 
 
@@ -219,12 +330,131 @@
             margin: auto;
         }
     
-        .Block-Gauche{grid-area: 2 / 1 / 3 / 2;}
-        .Block-Centre{grid-area: 2 / 2 / 3 / 3;}
-        .Block-Droite{grid-area: 2 / 3 / 3 / 4;}
+        .Block-Gauche{
+            grid-area: 2 / 1 / 3 / 2;
+            max-width: 700px;
+            margin: 0 auto;
+            
+            h3 {
+              font-size: 2rem;
+            }
+            
+            .contact-form {
+              input,
+              textarea,
+              button {
+                font-size: 1.1rem;
+                padding: 1rem;
+              }
+            }
+        }
+        .Block-Centre{
+            grid-area: 2 / 2 / 3 / 3;
+            max-width: 800px;
+            margin: 0 auto;
+            
+            h3 {
+                font-size: 2rem;
+            }
+            
+            .team-form {
+                input,
+                textarea,
+                button {
+                font-size: 1.1rem;
+                padding: 1rem;
+                }
+            }
+        }
+        .Block-Droite{
+            grid-area: 2 / 3 / 3 / 4;
+            max-width: 800px;
+            margin: 0 auto;
+        
+            h3 {
+                font-size: 2rem;
+            }
+        
+            .collaboration-form {
+                input,
+                textarea,
+                button {
+                font-size: 1.1rem;
+                padding: 1rem;
+                }
+            }
+        }
     }
     
     @media screen and (min-width: 1200px) {
-    
+
+        .Block-Gauche,
+        .Block-Centre,
+        .Block-Droite{
+            height: 100%;
+        }
+
+        .Block-Gauche{
+            max-width: 900px;
+          padding: 3rem;
+          
+          h3 {
+            font-size: 2.2rem;
+          }
+          
+          .contact-form {
+            gap: 1.5rem;
+            
+            input,
+            textarea,
+            button {
+              font-size: 1.2rem;
+              padding: 1.2rem;
+            }
+
+            textarea {
+                height: 35vh;
+            }
+          }
+        }
+
+        .Block-Centre{
+            max-width: 1000px;
+          padding: 3rem;
+          
+          h3 {
+            font-size: 2.2rem;
+          }
+          
+          .team-form {
+            gap: 1.5rem;
+            
+            input,
+            textarea,
+            button {
+              font-size: 1.2rem;
+              padding: 1.2rem;
+            }
+          }
+        }
+        .Block-Droite{
+            max-width: 1000px;
+            padding: 3rem;
+        
+            h3 {
+              font-size: 2.2rem;
+            }
+        
+            .collaboration-form {
+              gap: 1.5rem;
+        
+              input,
+              textarea,
+              button {
+                font-size: 1.2rem;
+                padding: 1.2rem;
+              }
+            }
+        }
     }
 }

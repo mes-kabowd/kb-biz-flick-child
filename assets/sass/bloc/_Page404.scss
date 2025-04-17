@@ -1,11 +1,12 @@
 .Page404{
-    // height: 50vh;
     display: flex;
-    padding: 0;
+    align-items: center;
+    flex-direction: column;
+    // padding: 0;
     .Block-Gauche{
         width: 50%;
         height: 100%;
-        background-color: orangered;
+        // background-color: orangered;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -13,20 +14,21 @@
         .IconErreur{
             width: 75%;
             aspect-ratio: 1;
-            background-color: olive;
+            // background-color: olive;
             // transform: translateY(-5%);
             z-index: 3;
             img{
                 width: 100%;
+                transform: scale(1.75);
                 object-fit: contain;
             }
         }
         .Erreur{
-            background-color: yellow;
+            // background-color: yellow;
             height: 100%;
             margin: 0;
             // width: 80%;
-
+            
             transform: translateY(-10%);
             text-align: center;
             font-size: 7.5rem;
@@ -39,40 +41,120 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        height: 100%;
         // width: 50%;
-
-        h2{}
-        p{overflow-y: auto;}
+        
+        h2{display: none;}
+        p{display: none;}
         .BlockBtns{
             width: 100%;
             height: 35%;
+            margin: 5%;
             padding: 0;
             display: grid;
             place-items: center;
             grid-template-columns: auto auto auto auto auto;
             gap: 10%;
-            background-color: red;
+            // background-color: red;
             
             li{
-                width: 100%;
-                height: 35px;
-                background-color: azure;
-                padding: 5%;
-                text-align: center;
+                // width: 100%;
+                // height: 35px;
+                // background-color: azure;
+                // padding: 5%;
+                // text-align: center;
+                button {
+                    padding: 0.75rem;
+                    font-size: 1rem;
+                    background-color: #28a745;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                    
+                    &:hover {
+                        background-color: #218838;
+                    }
+                }
             }
         }
     }
-
+    
     @media screen and (min-width: 576px){
-
+        
     }
     
     @media screen and (min-width: 768px) {        
-    
+        flex-direction: row;
+        height: 50vh;
+        
+        .Block-Droite{
+            h2{
+                display: block;
+            }
+            p{
+                display: block;
+                overflow-y: auto;}
+            .BlockBtns{
+                
+            }
+        }
     }
     
     @media screen and (min-width: 992px) {
-    
+        .Block-Gauche{
+
+            .Erreur{
+                font-size: 6.5rem;
+            }
+        }
+        .Block-Droite{
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // justify-content: space-between;
+            padding: 0;
+            min-height: 40vh;
+            // background-color: red;
+            // // width: 50%;
+            
+            // h2{display: none;}
+            // p{display: none;}
+            .BlockBtns{
+                // width: 100%;
+                height: 50%;
+                // margin: 5%;
+                // padding: 0;
+                // display: grid;
+                // place-items: center;
+                // grid-template-columns: auto auto auto auto auto;
+                // gap: 10%;
+                // background-color: red;
+                
+                li{
+                    // width: 100%;
+                    // height: 35px;
+                    // background-color: azure;
+                    // padding: 5%;
+                    // text-align: center;
+                    // button {
+                    //     padding: 0.75rem;
+                    //     font-size: 1rem;
+                    //     background-color: #28a745;
+                    //     color: #fff;
+                    //     border: none;
+                    //     border-radius: 4px;
+                    //     cursor: pointer;
+                    //     transition: background-color 0.3s ease;
+                        
+                    //     &:hover {
+                    //         background-color: #218838;
+                    //     }
+                    // }
+                }
+            }
+        }
     }
     
     @media screen and (min-width: 1200px) {
