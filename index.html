@@ -12,9 +12,13 @@
         <header>
             <nav class="NavHeader">
                 <div class="LogoMb">
-                    <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+                    <!-- <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a> -->
+                    <a href="index.html"><img src="assets/img/Logo Principal Blanc.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,7 +29,10 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
                             <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
@@ -53,7 +60,7 @@
         </header>
 
         <main>
-            <section class="Titre-Page">
+            <section class="Titre-Page Block-Main">
                 <section class="Block-Droite">
                     <H1 class="TitrePage">Titre de la page</H1>
                     <p class="ParagrapheTitre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quidem, neque id illo error provident ipsum architecto unde dolores libero optio rerum eveniet temporibus nam illum? Aspernatur fuga laborum, beatae voluptates amet incidunt ducimus iusto, harum numquam libero veritatis rem dignissimos? Ipsa, distinctio? Exercitationem sed quo rerum dolore impedit dignissimos.</p>
@@ -65,7 +72,7 @@
                 </section>
             
             </section>
-            <section class="Stats">
+            <section class="Stats Block-Main">
                 <section class="Block-Gauche">
                     <h2>Statistiques</h2>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla perferendis quae veniam aperiam quidem quibusdam molestiae error ipsam, nemo cum necessitatibus saepe officiis reprehenderit, recusandae vitae, maxime voluptatum debitis aliquid voluptas minus magni voluptatibus? Ducimus quo odit excepturi doloribus sapiente nobis, repellendus vel dolore quam! Doloribus accusantium magnam deleniti officia.</p>
@@ -93,47 +100,7 @@
                 </section>
             </section>
 
-            <!-- <section class="Carrousel-pack">
-                <article class="Block-Haut">
-                    <h2>Services</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
-                </article>
-                <section class="Carrousel">
-                    <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                        <h4>Titre article 1</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus veniam quod totam autem excepturi iste architecto quaerat, odit pariatur a possimus quos repellat facilis nobis molestias natus voluptates doloribus sequi!</p>
-                        <button>Bouton</button>
-                    </article>
-                    <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                        <h4>Titre article 2</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse sint pariatur expedita voluptatem sapiente itaque vitae eaque iusto in, eveniet minus quas id quasi reprehenderit, placeat magnam harum repellat veniam!</p>
-                        <button>Bouton</button>
-                    </article>
-                    <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
-                        <h4>Titre article 3</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aperiam veniam itaque autem laudantium repudiandae reprehenderit quis saepe porro. Nobis nam corporis eligendi culpa illum deserunt dolorem nemo debitis voluptate.</p>
-                        <button>Bouton</button>
-                    </article>
-                    <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                        <h4>Titre article 4</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, provident. Reprehenderit ut adipisci eos ad. In, facilis adipisci id architecto totam beatae, eius esse, consequuntur non vero corporis! Illo, dicta.</p>
-                        <button>Bouton</button>
-                    </article>
-                    <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                        <h4>Titre article 5</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo optio dicta ex molestias ducimus mollitia, quae exercitationem fuga ipsam facilis natus, in assumenda adipisci labore provident quas doloribus dolore beatae.</p>
-                        <button>Bouton</button>
-                    </article>
-                </section>
-
-            </section> -->
-
-            <section class="Carrousel-pack">
+            <section class="Carrousel-pack Block-Main">
                 <article class="Block-Haut">
                     <h2>Services</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
@@ -159,7 +126,7 @@
                 </ul>
             </section>
 
-            <section class="Carrousel-pack">
+            <section class="Carrousel-pack Block-Main">
                 <article class="Block-Haut">
                     <h2>Secteurs</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
@@ -185,7 +152,7 @@
                   </ul>
             </section>
 
-            <section class="Mini-Carrousel-Blog">
+            <section class="Mini-Carrousel-Blog Block-Main">
                 <h2>
                     Blog
                 </h2>

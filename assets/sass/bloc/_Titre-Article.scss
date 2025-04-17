@@ -1,20 +1,16 @@
 .Titre-Article{
     width: 100%;
     height: 30vh;
-    // padding: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-bottom: 5rem;
     
     .Block-Haut{
-        // height: 40vh;
-        // width: 35%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        // h3{padding: 5%;}
         img{
             width: 90%;
             object-fit: contain;
@@ -23,14 +19,10 @@
         
     }
     .Block-Bas{
-        // height: 40vh;
-        // width: 35%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        // h1{padding: 5%;}
-        // h3{padding: 5%;}
         img{
             width: 90%;
             object-fit: contain;
@@ -40,18 +32,13 @@
     }
     
     .Block-Droite{
-        // width: 65%;
-        // background-color: gold;
         padding: 0;
         align-items: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        h1{
-            
-        }
+        h1{}
         img, p{ 
-            // background-color: greenyellow;
             width: 75%;
             height: 50%;
         }
@@ -99,10 +86,6 @@
         padding: 0;
         margin-bottom: 3.5rem;
         
-        // display: grid;
-        // grid-template-columns: 1fr 2fr;
-        // grid-template-rows: repeat(2, 1fr);
-        
         .Block-Haut{
             grid-area: 1 / 1 / 2 / 2;
             text-align: center;
@@ -113,7 +96,6 @@
 
         .Block-Bas{
             grid-area: 2 / 1 / 3 / 2;
-            // width: 35%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -130,18 +112,12 @@
         }
     
         .Block-Droite{
-            // width: 65%;
-            // background-color: gold;
             grid-area: 1 / 2 / 3 / 3;
             display: flex;
             align-items: center;
             justify-content: center;
             h1{}
-            img, p{ 
-                // background-color: greenyellow;
-                // width: 75%;
-                // height: 75%;
-            }
+            img, p{}
     
             img{
                 object-fit: contain;

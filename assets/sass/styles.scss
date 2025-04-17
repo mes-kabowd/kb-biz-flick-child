@@ -19,7 +19,6 @@
 @import "bloc/Page404";
 @import "bloc/Stats";
 @import "bloc/Texte-Page";
-// @import "bloc/";
 
 // Block de Contenu Articles
 @import "bloc/Titre-Article";
@@ -32,10 +31,6 @@
 //  Sass de base
 @import "main";
 
-//  Sass Pages
-
-//  Sass Layout
-// @import "layout.scss";
-
 //  Sass Variables
-@import "variables.scss";
+@import "variables";
+@import "mixins";

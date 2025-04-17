@@ -1,9 +1,8 @@
 .Galerie-Media{
-    width: 100%;
-
     --s: 150px; /* control the size */
     --g: 10%;  /* control the gap */
     --f: 1.5;   /* control the scale factor */
+    width: 100%;
     padding: 10%;
     display: grid;
     gap: var(--g);
@@ -28,19 +27,11 @@
         }
     }
 
-    @media screen and (min-width: 576px){
-
-    }
+    @media screen and (min-width: 576px) {}
     
-    @media screen and (min-width: 768px) {        
+    @media screen and (min-width: 768px) {}
     
-    }
+    @media screen and (min-width: 992px) {}
     
-    @media screen and (min-width: 992px) {
-    
-    }
-    
-    @media screen and (min-width: 1200px) {
-    
-    }
+    @media screen and (min-width: 1200px) {}
 }

@@ -1,12 +1,15 @@
 :root{
     // Couleurs et thème
-    --primary-color           : #361fdb;
+    --primary-color1          : #361fdb;
+    --primary-color2          : #20cbe6;
     --Gradient-primary-color  : #361fdb;
-    --secondary-color         : #db701f;
+    --secondary-color1        : #db701f;
+    --secondary-color2        : #db911f;
     --Gradient-secondary-color: #db701f;
-    --background-color        : #f3f5ff;
+    --White-Primary           : #f3f5ff;
+    --Black-Primary           : #0f1426;
     --text-color              : #0f1426;
-    --link-color              : --primary-color;
+    --link-color              : #db701f;
 
     // Typographie
     --font-family-base: 'Helvetica Neue', sans-serif;

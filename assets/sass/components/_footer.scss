@@ -2,7 +2,9 @@ footer{
     width: 100%;
     height: 65%;
     padding: 5%;
-    background: linear-gradient( transparent 0%, rgba(54,31,219,1) 10%, rgba(15,20,38,1) 100%);
+    background: linear-gradient( transparent 0%, var(--primary-color1) 10%, var(--Black-Primary) 100%);
+    
+    color: var(--White-Primary);
     .VoletGauche{
         height: 35%;
         padding: 5%;
@@ -10,6 +12,7 @@ footer{
         flex-direction: column;
         justify-content: space-around;
         a{
+            color: var(--White-Primary);
             display: block;
             max-width: 250px;
             max-height: 100px;
@@ -88,7 +91,6 @@ footer{
         }
     
         .VoletCentre{
-            // background-color: red;
             height: 65%;
             width: 75%;
             
@@ -129,7 +131,6 @@ footer{
     }
     
     @media screen and (min-width: 992px) {
-        // height: 250px;
         padding: 2.5% 0;
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
@@ -139,7 +140,6 @@ footer{
             order: 1;
             height: 100%;
             width: 100%;
-            // background-color: purple;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -158,13 +158,11 @@ footer{
             }
             
             .ReseauxSociaux { 
-                // background-color: blue;
                 display: flex;
                 justify-content: space-evenly;
                 a{
                     width: 35px;
                     aspect-ratio: 1;
-                    // background-color: aqua;
                 }
             }
         }
@@ -173,7 +171,6 @@ footer{
             order: 2;
             width: 100%;
             height: 100%;
-            // background-color: magenta;
             display: flex;
             justify-content: space-around;
     
@@ -192,12 +189,10 @@ footer{
             order: 3;
             height: 100%;
             width: 100%;
-            // background-color: gold;
             display: flex;
             align-items: center;
             justify-content: center;
             ul{
-                // background-color: aqua;
                 width: 90%;
                 height: 100%;
                 display: flex;
@@ -208,74 +203,10 @@ footer{
     }
     
     @media screen and (min-width: 1200px) {
-        // height: 250px;
         display: grid;
         grid-template-columns: 2fr 3fr 2fr;
         grid-template-rows: 1fr;
     
-        // .VoletGauche{
-        //     height: 100%;
-        //     background-color: purple;
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: space-around;
-                
-        //     a{
-        //         display: block;
-        //         max-width: 250px;
-        //         max-height: 100px;
-        //         margin: 0 auto;
-                
-    
-        //         img{
-        //             width: 100%;
-        //             height: 100%;
-        //             object-fit: contain;
-        //         }
-        //     }
-            
-        //     .ReseauxSociaux { 
-        //         background-color: blue;
-        //         display: flex;
-        //         justify-content: space-evenly;
-        //         a{
-        //             width: 35px;
-        //             aspect-ratio: 1;
-        //             background-color: aqua;
-        //         }
-        //     }
-        // }
-    
-        // .VoletCentre{
-        //     background-color: magenta;
-        //     display: flex;
-        //     justify-content: space-around;
-    
-        //     ul{
-        //         // padding: 5% 0 5%;
-        //         height: 100%;
-        //         display: flex;
-        //         flex-direction: column;
-        //         justify-content: space-between;
-            
-        //         .Rdv{}
-        //     }
-        // }
-    
-        // .VoletDroite{
-        //     background-color: gold;
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: center;
-        //     ul{
-        //         background-color: aqua;
-        //         width: 90%;
-        //         height: 100%;
-        //         display: flex;
-        //         flex-direction: column;
-        //         justify-content: space-around;
-        //     }
-        // }
     }
 
 }

@@ -14,7 +14,10 @@
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,9 +28,12 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
-                            <li><a href="">Connexion</a></li>
+                            <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
@@ -51,8 +57,9 @@
                 </section>
             </nav>
         </header>
+
         <main>
-            <section class="Titre-Page">
+            <section class="Titre-Page Block-Main">
                 <section class="Block-Gauche">
                     <H1 class="TitrePage">Titre de la page</H1>
                     <h3 class="SousTitre">Sous-titre de section</h3>
@@ -64,7 +71,7 @@
                 </section>
             </section>
             
-            <section class="List-Block">
+            <section class="List-Block Block-Main">
                 <article class="Block-Haut">
                     <h2>Services</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
@@ -85,7 +92,7 @@
                 </section>
             </section>
             
-            <section class="List-Block">
+            <section class="List-Block Block-Main">
                 <section class="Block-Bas">
                     <article class="Pack">
                         <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
@@ -104,6 +111,7 @@
 
             
         </main>
+
         <footer>
             <section class="VoletGauche">
             

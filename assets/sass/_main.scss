@@ -2,13 +2,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    // color: var(--text-color);
     ul {
         list-style: none;
     }
     
     a {
         text-decoration: none;
-        color: #000;
+        color: var(--text-color);
     }
 
     html,
@@ -30,16 +31,23 @@
             overflow: hidden;
             width: 100%;
             flex: 1;
-            // padding: 2rem;
             margin: 5rem 0 3.5rem;
-            background-color: cyan;
+            background-color: var(--primary-color2);
             
             section {
                 width: 100%;
-                // margin-bottom: 2.5rem;
                 padding: 5%;
-                // min-height: 35vh;
-                // display: none;
+                
+
+            }
+            
+            .Block-Main:nth-child(even){
+                background: linear-gradient( 
+                var(--Black-Primary) 0%,
+                var(--primary-color1) 95%, 
+                transparent 100% 
+                );
+                color: var(--White-Primary);
             }
 
             @media screen and (min-width: 576px) {}
@@ -50,11 +58,7 @@
                 margin: 10rem 0 2.5rem;
     
                 section{
-                    // width: 100%;
                     margin-bottom: 0;
-                    // padding: 5%;
-                    // min-height: 35vh;
-                    // display: none;
                 }
             
             }

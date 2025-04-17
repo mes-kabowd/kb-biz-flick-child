@@ -2,20 +2,16 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    // padding: 0;
     .Block-Gauche{
         width: 50%;
         height: 100%;
-        // background-color: orangered;
         display: flex;
         flex-direction: column;
         align-items: center;
-        // margin: 0;
+        
         .IconErreur{
             width: 75%;
             aspect-ratio: 1;
-            // background-color: olive;
-            // transform: translateY(-5%);
             z-index: 3;
             img{
                 width: 100%;
@@ -23,16 +19,13 @@
                 object-fit: contain;
             }
         }
+
         .Erreur{
-            // background-color: yellow;
             height: 100%;
             margin: 0;
-            // width: 80%;
-            
             transform: translateY(-10%);
             text-align: center;
             font-size: 7.5rem;
-            // line-height: 75%;
             z-index: 1;
         }
     }
@@ -42,10 +35,10 @@
         align-items: center;
         justify-content: space-between;
         height: 100%;
-        // width: 50%;
         
         h2{display: none;}
         p{display: none;}
+
         .BlockBtns{
             width: 100%;
             height: 35%;
@@ -55,14 +48,8 @@
             place-items: center;
             grid-template-columns: auto auto auto auto auto;
             gap: 10%;
-            // background-color: red;
             
             li{
-                // width: 100%;
-                // height: 35px;
-                // background-color: azure;
-                // padding: 5%;
-                // text-align: center;
                 button {
                     padding: 0.75rem;
                     font-size: 1rem;
@@ -81,9 +68,7 @@
         }
     }
     
-    @media screen and (min-width: 576px){
-        
-    }
+    @media screen and (min-width: 576px){}
     
     @media screen and (min-width: 768px) {        
         flex-direction: row;
@@ -93,16 +78,17 @@
             h2{
                 display: block;
             }
+
             p{
                 display: block;
                 overflow-y: auto;}
-            .BlockBtns{
-                
-            }
+
+            .BlockBtns{}
         }
     }
     
     @media screen and (min-width: 992px) {
+
         .Block-Gauche{
 
             .Erreur{
@@ -110,54 +96,16 @@
             }
         }
         .Block-Droite{
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
-            // justify-content: space-between;
             padding: 0;
             min-height: 40vh;
-            // background-color: red;
-            // // width: 50%;
             
-            // h2{display: none;}
-            // p{display: none;}
             .BlockBtns{
-                // width: 100%;
                 height: 50%;
-                // margin: 5%;
-                // padding: 0;
-                // display: grid;
-                // place-items: center;
-                // grid-template-columns: auto auto auto auto auto;
-                // gap: 10%;
-                // background-color: red;
                 
-                li{
-                    // width: 100%;
-                    // height: 35px;
-                    // background-color: azure;
-                    // padding: 5%;
-                    // text-align: center;
-                    // button {
-                    //     padding: 0.75rem;
-                    //     font-size: 1rem;
-                    //     background-color: #28a745;
-                    //     color: #fff;
-                    //     border: none;
-                    //     border-radius: 4px;
-                    //     cursor: pointer;
-                    //     transition: background-color 0.3s ease;
-                        
-                    //     &:hover {
-                    //         background-color: #218838;
-                    //     }
-                    // }
-                }
+                li{}
             }
         }
     }
     
-    @media screen and (min-width: 1200px) {
-    
-    }
+    @media screen and (min-width: 1200px) {}
 }

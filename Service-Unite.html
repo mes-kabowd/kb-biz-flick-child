@@ -14,7 +14,10 @@
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,9 +28,12 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
-                            <li><a href="">Connexion</a></li>
+                            <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
@@ -51,8 +57,9 @@
                 </section>
             </nav>
         </header>
+
         <main>
-            <section class="Titre-Page">
+            <section class="Titre-Page Block-Main">
                 <section class="Block-Gauche">
                     <h1>Titre du Service</h1>
                     <h3 class="SousTitre">Sous-titre de section</h3>
@@ -79,7 +86,7 @@
                 </section>
             </section>
 
-            <section class="Texte-Page">
+            <section class="Texte-Page Block-Main">
                 <article class="Block-Gauche">
                     <h2>Services</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
@@ -90,7 +97,7 @@
             </section>
             
             
-            <section class="Texte-Page">
+            <section class="Texte-Page Block-Main">
                 <section class="Block-Gauche">
                     <img src="assets/img/Icon Logo Principal Noir.png" alt="">
                 </section>
@@ -100,7 +107,7 @@
                 </article>
             </section>
 
-            <section class="Texte-Page">
+            <section class="Texte-Page Block-Main">
                 <article class="Block-Gauche">
                     <h2>Services</h2>
                     <ul>
@@ -116,7 +123,7 @@
                 </section>
             </section>
 
-            <section class="Mini-Carrousel-Blog">
+            <section class="Mini-Carrousel-Blog Block-Main">
                 <h2>
                     Blog
                 </h2>
@@ -179,7 +186,7 @@
                 </section>
             </section>
 
-            <section class="Carrousel-Infini">
+            <section class="Carrousel-Infini Block-Main">
                 <section class="Ctn-Carrousel-Infini">
                     <div class="Contenu">
                         <article class="ImgCtn">
@@ -228,6 +235,7 @@
                 </section>
             </section>
         </main>
+
         <footer>
             <section class="VoletGauche">
             

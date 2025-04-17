@@ -1,197 +1,118 @@
 .Carrousel-pack{
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: space-between;
+  $font-color: #A2A2A2;
+  $primary-color: #63B7E6;
 
-    // .Block-Haut{
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     h2{
-    //     }
-        
-    //     p{
-    //         padding: 5%;
-    //         width: 80%;
-    //     }
-    // }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-
-    // .Carrousel{
-    //     display: flex;
-    //     overflow-x: auto;
-    //     padding: 0;
-    //     width: 100%;
-        
-    //     .Pack{
-    //         width:75%;
-    //         aspect-ratio: 9/16;
-    //         padding: 5%;
-    //         display: flex;
-    //         flex-direction: column;
-    //         align-items: center;
-    //         justify-content: space-between;
-
-    //         img{
-    //             width: 90%;
-    //             object-fit: contain;
-    //         }
-    //         h4{}
-    //         p{}
-    //         button{}
-    //     }
-    // }
-
-    // .Block-Stats{
-    //     width: 100%;
-    //     padding: 0;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: space-around;
-        
-    //     .MiniStats{
-    //         width: 30%;
-    //         display: flex;
-
-    //         .Valeur{
-
-    //         }
-
-    //         .Txt-Valeur{
-                
-    //         }
-    //     }
-    // }
-
-    $font-color: #A2A2A2;
-    $primary-color: #63B7E6;
-
+  .Block-Haut{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-
-    .Block-Haut{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h2{
-        }
-        
-        p{
-            padding: 5%;
-            width: 80%;
-        }
+    h2{
     }
+    
+    p{
+      padding: 5%;
+      width: 80%;
+    }
+  }
 
 
-    .Carrousel{
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        display: flex;
-        flex-flow: row wrap;
-        overflow-x: auto;
-        justify-content: center;
-        list-style: none;
-        li {
-            padding: 5%;
-            margin: 5%;
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: box-shadow .3s;
-    
-          &:hover {
-            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-          }
-    
-          &:hover span {
-            color: $primary-color;
-          }
-          &:hover p {
-            color: #555;
-          }
-          &:hover h4 {
-            color: $primary-color;
-          }
-          &:hover h4:after{
-            width: 25px;
-          }
-          img {
-            padding: 5%;
-            // font-size: 2.6em;
-            width: 50%;
-            display: block;
-            transition: color .3s;
-            color: $font-color;
-            &:before, &:after {
-              position: static;
-            }
-          }
-    
-          h4 {
-            padding: 5%;
-            color: darken($font-color, 20%);
-            display: inline-block;
-            font-size: 24px;
-            font-weight: 100;
-            transition: color .3s;
+  .Carrousel{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+    overflow-x: auto;
+    justify-content: center;
+    list-style: none;
+    li {
+      padding: 5%;
+      margin: 5%;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow .3s;
 
-          }
-          p {
-            padding: 5%;
-            color: $font-color;
-            text-align: left;
-            text-indent: 1em;
-            font-size: 16px;
-            line-height: 26px;
-            transition: color .3s;
-          }
+      &:hover {
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      &:hover span {
+        color: $primary-color;
+      }
+      &:hover p {
+        color: #555;
+      }
+      &:hover h4 {
+        color: $primary-color;
+      }
+      &:hover h4:after{
+        width: 25px;
+      }
+      img {
+        padding: 5%;
+        width: 50%;
+        display: block;
+        transition: color .3s;
+        color: $font-color;
+        &:before, &:after {
+          position: static;
         }
+      }
+
+      h4 {
+        padding: 5%;
+        color: darken($font-color, 20%);
+        display: inline-block;
+        font-size: 24px;
+        font-weight: 100;
+        transition: color .3s;
+
+      }
+      p {
+        padding: 5%;
+        color: $font-color;
+        text-align: left;
+        text-indent: 1em;
+        font-size: 16px;
+        line-height: 26px;
+        transition: color .3s;
+      }
+    }
+    
+  }
+
+  .Block-Bas { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .MiniStats{
+      display: flex;
+      margin: 5%;
       
+      .Valeur{
+        margin: 5%;
+        font-size: x-large;
+      }
+
+      .Txt-Valeur{}
     }
 
-    .Block-Bas { 
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // flex-wrap: wrap;
-        // justify-content: center;
-        
-        .MiniStats{
-            // width: 20%;
-            display: flex;
-            margin: 5%;
-            
-            .Valeur{
-                margin: 5%;
-                font-size: x-large;
-            }
+  }
 
-            .Txt-Valeur{
-                
-            }
-        }
-
-    }
-
-    @media screen and (min-width: 576px){
-
-    }
-    
-    @media screen and (min-width: 768px) {        
-    
-    }
-    
-    @media screen and (min-width: 992px) {
-    
-    }
-    
-    @media screen and (min-width: 1200px) {
-    
-    }
+  @media screen and (min-width: 576px) {}
+  
+  @media screen and (min-width: 768px) {}
+  
+  @media screen and (min-width: 992px) {}
+  
+  @media screen and (min-width: 1200px) {}
 }

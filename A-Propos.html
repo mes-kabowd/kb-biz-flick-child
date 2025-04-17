@@ -14,7 +14,10 @@
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,9 +28,12 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
-                            <li><a href="">Connexion</a></li>
+                            <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
@@ -53,7 +59,7 @@
         </header>
 
         <main>
-            <section class="Titre-Page">
+            <section class="Titre-Page Block-Main">
                 <H1 class="TitrePage">Titre de la page</H1>
                 <section class="Block-Gauche">
                     <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
@@ -68,17 +74,12 @@
                 </section>
             </section>
 
-            <section class="Grd-Contact">
+            <section class="Grd-Contact Block-Main">
                 <h2>
                     Pour nous joindre
                 </h2>
                 <section class="Block-Gauche">
-                    <!-- <h3>Formulaire</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere ratione commodi necessitatibus natus earum quae obcaecati laborum iste, facilis distinctio iure, cumque esse et sequi. Illo obcaecati sed adipisci velit!</p>
-                    <button>Bouton</button>
-                    <h4>Auteur Article</h4> -->
 
-                  
                     <h3>Contactez-nous</h3>
                     <form action="#" method="post" class="contact-form">
                         <label for="name">Nom :</label>
@@ -96,8 +97,9 @@
                     
                 </section>
                 <section class="Block-Centre">
-                    <!-- <img src="assets/img/Icon Logo Principal Couleur.png" alt=""> -->
+
                     <h3>Rejoignez l'équipe</h3>
+                    
                     <form action="#" method="post" class="team-form">
                         <label for="fullName">Nom complet :</label>
                         <input type="text" id="fullName" name="fullName" placeholder="Votre nom complet" required>

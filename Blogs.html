@@ -14,7 +14,10 @@
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,9 +28,12 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
-                            <li><a href="">Connexion</a></li>
+                            <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
@@ -53,7 +59,7 @@
         </header>
 
         <main>
-            <section class="Titre-Page">
+            <section class="Titre-Page Block-Main">
                 <section class="Block-Gauche">
                     <h1 class="TitrePage">Titre de la page</h1>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequatur deleniti maiores quos inventore perferendis reprehenderit quo sit consequuntur ipsum voluptatem porro aut corporis sint, temporibus, corrupti iusto qui dolores!50</p>
@@ -64,14 +70,14 @@
                 </section>
             </section>
 
-            <section class="Carrousel-pack">
+            <section class="Carrousel-pack Block-Main">
                 <article class="Block-Haut">
                     <h2>Actu en Priorité</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
                 </article>
             </section>
 
-            <section class="Grd-Carrousel-Blog">
+            <section class="Grd-Carrousel-Blog Block-Main">
                 <h2>Contenu de Blog</h2>
 
                 <div class="Filtre">
@@ -101,7 +107,6 @@
                     </ul>
                 </div>
 
-                <!-- <div class="Block-FlecheG">
                     <button class="fleche"></button>
                 </div>
                 <section class="Liste-Blog">

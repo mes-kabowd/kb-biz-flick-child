@@ -14,7 +14,10 @@
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,9 +28,12 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
-                            <li><a href="">Connexion</a></li>
+                            <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
@@ -55,7 +61,6 @@
         <main>
             <section class="Page404">
                 <section class="Block-Gauche">
-                    <!-- <div class="IconErreur"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGQ5Z2JkN3FzeDFvaWg5MTgxNHphMXJ2dWZoY3M5cWdxMGVmYnBnYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9ZQ/IzcFv6WJ4310bDeGjo/giphy.gif" alt=""></div> -->
                     <div class="IconErreur"><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FmNnVjMmIwZWkwdzdrY2Rnbm92b3pyc2VnazVvdnlpemIyd2xyYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9ZQ/h4OGa0npayrJX2NRPT/giphy.gif" alt=""></div>
                     <h1 class="Erreur">Erreur 404</h1>
 

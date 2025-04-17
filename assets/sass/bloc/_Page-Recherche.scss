@@ -12,64 +12,6 @@
   
 
 .Page-Recherche{
-    // padding: 0;
-    
-    // .Block-Haut{
-    //     // height: 25%;
-    //     background-color: red;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     padding: 1.5%;
-    //     img{
-    //         width: 5%;
-    //     }
-
-        
-    //     input{
-    //         margin-left: 5%;
-    //     }
-    //     margin-bottom: 5%;
-    // }
-
-    // .Block-Haut{
-    //     padding: 0;
-    //     display: flex; 
-    //     justify-content: space-evenly;
-    //     background-color: red;   
-    //     input{
-    //         height: 10%;
-    //     }
-    // }
-    
-    // .Block-Bas{
-    //     height: 75%;
-    //     width: 100%;
-    //     padding: 0;
-    //     display: grid;
-    //     grid-template-columns: auto auto auto;
-    //     article{
-    //         background-color: orchid;
-    //         margin: 5%;
-    //         display: flex;
-    //         flex-direction: column;
-    //         justify-content: space-between;
-    //         .InfoBlog{
-    //             padding: 2.5%;
-    //             display: flex;
-    //             align-items: center;
-    //             justify-content: space-around;
-    //         }
-    //     }
-    // }
-
-//Vars 
-
-  // Setup
-//   body {background: var(--color-dark); display: flex; align-items: center; justify-content: center; min-height: 100vh }
-//   html { box-sizing: border-box; height: 100%; font-size: 10px; } *, *::before, *::after { box-sizing: inherit; }
-  
-  // Main styles
 
   display: flex;
   align-items: center;
@@ -90,7 +32,6 @@
       font-size: 1.8rem;
     }
     input[type="search"] {
-      outline: 0; // <-- shold probably remove this for better accessibility, adding for demo aesthetics for now.
       width: 100%;
       background: var(--color-light);
       padding: 0 1.6rem;

@@ -14,7 +14,10 @@
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 </div>
-                <input type="search" name="" id="" class="BarreRechercheMb">
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
      
                 
                 <input type="checkbox" name="" class="menu" id="BtnBurger">
@@ -25,9 +28,12 @@
                     <nav class="MenuHaut">
                         <ul>
                             <li>
-                                <input type="search" name="" id="" class="BarreRecherche">
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
                             </li>
-                            <li><a href="">Connexion</a></li>
+                            <li><a href="Recherche.html">Connexion</a></li>
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
@@ -51,67 +57,15 @@
                 </section>
             </nav>
         </header>
+
         <main>
-            <section class="Page-Recherche">
-                <!-- <div class="Block-Haut">
-                    <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                    <input type="search" name="" id="" placeholder="Recherche">
-                </div> -->
+            <section class="Page-Recherche Block-Main">
 
                 <form onsubmit="event.preventDefault();" role="search">
                     <label for="search">Search for stuff</label>
                     <input id="search" type="search" placeholder="Search..." autofocus required />
                     <button type="submit">Go</button>    
                 </form>
-
-                <!-- <section class="Block-Haut">
-                    <h3>Sous-Titre</h3>
-                </section> -->
-
-                <!-- <section class="Block-Bas">
-                    <article>
-                        <h3>Titre Article</h3>
-                        <div class="InfoBlog">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, deleniti!</p>
-                            <button>Bouton</button>
-                        </div>
-                    </article>  
-                    <article>
-                        <h3>Titre Article</h3>
-                        <div class="InfoBlog">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, deleniti!</p>
-                            <button>Bouton</button>
-                        </div>
-                    </article>  
-                    <article>
-                        <h3>Titre Article</h3>
-                        <div class="InfoBlog">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, deleniti!</p>
-                            <button>Bouton</button>
-                        </div>
-                    </article>  
-                    <article>
-                        <h3>Titre Article</h3>
-                        <div class="InfoBlog">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, deleniti!</p>
-                            <button>Bouton</button>
-                        </div>
-                    </article>  
-                    <article>
-                        <h3>Titre Article</h3>
-                        <div class="InfoBlog">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, deleniti!</p>
-                            <button>Bouton</button>
-                        </div>
-                    </article>  
-                    <article>
-                        <h3>Titre Article</h3>
-                        <div class="InfoBlog">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, deleniti!</p>
-                            <button>Bouton</button>
-                        </div>
-                    </article>  
-                </section> -->
 
                 <section class="mainCard">
                     <div class="mainCardHeader"></div>
@@ -211,6 +165,7 @@
     
             </section>
         </main>
+
         <footer>
             <section class="VoletGauche">
             

@@ -23,7 +23,7 @@ header .LogoMb a img {
 header .NavHeader {
   width: 100%;
   padding: 5%;
-  background-color: purple;
+  background: linear-gradient(var(--Black-Primary) 0%, var(--primary-color1) 90%, transparent 100%);
   z-index: 5;
   display: flex;
   align-items: center;
@@ -38,6 +38,63 @@ header .NavHeader .BarreRechercheMb {
   z-index: 10;
   width: 45%;
   height: 75%;
+  position: relative;
+  width: 50vw;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+}
+header .NavHeader .BarreRechercheMb input, header .NavHeader .BarreRechercheMb button {
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+}
+header .NavHeader .BarreRechercheMb input[type=search] {
+  outline: 0;
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+header .NavHeader .BarreRechercheMb button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+header .NavHeader .BarreRechercheMb input:not(:-moz-placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+header .NavHeader .BarreRechercheMb input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+header .NavHeader .BarreRechercheMb input:not(:-moz-placeholder-shown) + button {
+  display: block;
+}
+header .NavHeader .BarreRechercheMb input:not(:placeholder-shown) + button {
+  display: block;
+}
+header .NavHeader .BarreRechercheMb label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
 header .NavHeader .menu {
   --s: 35px; /* control the size */
@@ -104,7 +161,7 @@ header .ContenuHeader {
   transition: transform 0.3s ease;
   position: absolute;
   top: 0;
-  background-color: orange;
+  background: linear-gradient(var(--Black-Primary) 0%, var(--primary-color1) 90%, transparent 100%);
   width: 100%;
   height: 100vh;
   display: grid;
@@ -120,6 +177,65 @@ header .ContenuHeader .MenuHaut {
 }
 header .ContenuHeader .MenuHaut .BarreRecherche {
   display: none;
+  position: relative;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+}
+header .ContenuHeader .MenuHaut .BarreRecherche input, header .ContenuHeader .MenuHaut .BarreRecherche button {
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+}
+header .ContenuHeader .MenuHaut .BarreRecherche input[type=search] {
+  outline: 0;
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+header .ContenuHeader .MenuHaut .BarreRecherche button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--btn-width);
+  font-weight: bold;
+  background: var(--color-brand);
+  border-radius: 0 var(--rad) var(--rad) 0;
+}
+header .ContenuHeader .MenuHaut .BarreRecherche input:not(:-moz-placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+header .ContenuHeader .MenuHaut .BarreRecherche input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+header .ContenuHeader .MenuHaut .BarreRecherche input:not(:-moz-placeholder-shown) + button {
+  display: block;
+}
+header .ContenuHeader .MenuHaut .BarreRecherche input:not(:placeholder-shown) + button {
+  display: block;
+}
+header .ContenuHeader .MenuHaut .BarreRecherche label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+header .ContenuHeader .MenuHaut ul li {
+  margin: auto;
 }
 header .ContenuHeader .ReseauxSociaux {
   display: flex;
@@ -260,7 +376,8 @@ footer {
   width: 100%;
   height: 65%;
   padding: 5%;
-  background: linear-gradient(transparent 0%, rgb(54, 31, 219) 10%, rgb(15, 20, 38) 100%);
+  background: linear-gradient(transparent 0%, var(--primary-color1) 10%, var(--Black-Primary) 100%);
+  color: var(--White-Primary);
 }
 footer .VoletGauche {
   height: 35%;
@@ -270,6 +387,7 @@ footer .VoletGauche {
   justify-content: space-around;
 }
 footer .VoletGauche a {
+  color: var(--White-Primary);
   display: block;
   max-width: 250px;
   max-height: 100px;
@@ -555,7 +673,6 @@ footer .VoletDroite ul {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  background-color: red;
   padding: 0;
   min-height: 35vh;
   overflow: hidden;
@@ -1988,7 +2105,6 @@ footer .VoletDroite ul {
   font-size: 1.8rem;
 }
 .Page-Recherche form input[type=search] {
-  outline: 0;
   width: 100%;
   background: var(--color-light);
   padding: 0 1.6rem;
@@ -2590,10 +2706,10 @@ footer .VoletDroite ul {
   }
 }
 .Galerie-Media {
-  width: 100%;
   --s: 150px; /* control the size */
   --g: 10%; /* control the gap */
   --f: 1.5; /* control the scale factor */
+  width: 100%;
   padding: 10%;
   display: grid;
   gap: var(--g);
@@ -2653,7 +2769,7 @@ footer .VoletDroite ul {
 }
 * a {
   text-decoration: none;
-  color: #000;
+  color: var(--text-color);
 }
 * html,
 * body {
@@ -2674,11 +2790,15 @@ footer .VoletDroite ul {
   width: 100%;
   flex: 1;
   margin: 5rem 0 3.5rem;
-  background-color: cyan;
+  background-color: var(--primary-color2);
 }
 * body main section {
   width: 100%;
   padding: 5%;
+}
+* body main .Block-Main:nth-child(even) {
+  background: linear-gradient(var(--Black-Primary) 0%, var(--primary-color1) 95%, transparent 100%);
+  color: var(--White-Primary);
 }
 @media screen and (min-width: 992px) {
   * body main {
@@ -2689,13 +2809,16 @@ footer .VoletDroite ul {
   }
 }
 :root {
-  --primary-color: #361fdb;
+  --primary-color1: #361fdb;
+  --primary-color2: #20cbe6;
   --Gradient-primary-color: #361fdb;
-  --secondary-color: #db701f;
+  --secondary-color1: #db701f;
+  --secondary-color2: #db911f;
   --Gradient-secondary-color: #db701f;
-  --background-color: #f3f5ff;
+  --White-Primary: #f3f5ff;
+  --Black-Primary: #0f1426;
   --text-color: #0f1426;
-  --link-color: --primary-color;
+  --link-color: #db701f;
   --font-family-base: "Helvetica Neue", sans-serif;
   --font-size-base: 16px;
   --font-size-heading: 2.5rem;
