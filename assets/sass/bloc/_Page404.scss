@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    
     .Block-Gauche{
         width: 50%;
         height: 100%;
@@ -107,5 +108,20 @@
         }
     }
     
-    @media screen and (min-width: 1200px) {}
+    @media screen and (min-width: 1200px) {
+        min-height: 75vh;
+        .Block-Gauche{
+
+            .IconErreur{
+                img{
+                    transform: scale(1.5);
+                }
+            }
+
+            .Erreur{
+                font-size: 8.5rem;
+                
+            }
+        }
+    }
 }

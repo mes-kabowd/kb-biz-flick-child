@@ -20,6 +20,14 @@
   transition: all .3s ease;
 }
 
+
+// Exemple de fichier Sass (ex. style.scss)
+$primary-color: #333;
+$secondary-color: #fff;
+$transition-speed: 0.3s;
+
+
+
 .Grd-Carrousel-Blog{
   $main-color: #4eb6ac;
   box-sizing: border-box;
@@ -39,7 +47,7 @@
 
   .Filtre{
     width: 100%;
-    background-color: red;
+    // background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -53,15 +61,25 @@
     ul{
       display: none;
       width: 80vw;
-      .tag {
-        border-radius: 3px;
-        padding: .2em .5em .3em;
-        border-radius: 2px;
-        background: var(--tag-bg);
-        color: var(--text-color);
-        font-weight: 600;
-        margin: .25em .1em
+    
+      li {
+        a {
+          text-decoration: none;
+          color: $primary-color;
+          padding: 8px 16px;
+          border: 1px solid $primary-color;
+          border-radius: 4px;
+          transition: background $transition-speed, color $transition-speed;
+  
+          &:hover,
+          &.active {
+            background: $primary-color;
+            color: $secondary-color;
+          }
+        }
       }
+  
+
     }
 
 
@@ -180,26 +198,14 @@
       }
 
       // Contenu de la carte
-      .mainCardContent {
-          margin: 0 auto;
-          text-align: center;
-          position: relative;
-          top: -50px;
-          height: 100%;
-          width: 100%;
+      .articles {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 25px; // Espacement entre les articles
+
 
           .miniCard {
-              display: inline-flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: space-around;
-
-              padding: 1.5%;
-              margin: 0 20px 20px 0;
-              background-color: white;
-              height: 300px;
-              width: 250px;
-              border-radius: 5px;
+              border-radius: 12px;
               box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
               -webkit-animation-name: miniCard;
               animation-name: miniCard;
@@ -209,6 +215,19 @@
               animation-delay: 0.8s;
               -webkit-animation-fill-mode: both;
               animation-fill-mode: both;
+
+              flex: 1 1 calc(30% - 20px); // Ajuste la largeur en fonction du nombre de colonnes
+              transition: opacity 0.3s ease, transform 0.3s ease;
+              opacity: 1;
+
+              &.hidden {
+                opacity: 0;
+                transform: scale(0.95);
+                pointer-events: none;
+                position: absolute; // Supprime l’influence sur la mise en page
+
+              }
+
               
               img{
                   padding: 2.5%;
@@ -231,13 +250,25 @@
   // Keyframes de la miniCard à conserver en global
   @at-root {
     @-webkit-keyframes miniCard {
-      0% { transform: scale(0); }
+      0% { 
+        transform: scale(0); 
+        opacity: 0;
+      }
+      10%{
+        opacity: 1;
+      }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
 
     @keyframes miniCard {
-      0% { transform: scale(0); }
+      0% { 
+        transform: scale(0); 
+        opacity: 0;
+      }
+      10%{
+        opacity: 1;
+      }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
@@ -251,28 +282,16 @@
   @media screen and (min-width: 992px) {
     .Filtre{
       width: 100%;
-      background-color: red;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       
       
       ul{
-        display: flex;
         margin: 2.5%;
         display: flex;
         justify-content: space-around;
         width: 80vw;
-
-        .tag {
-          border-radius: 3px;
-          padding: .2em .5em .3em;
-          border-radius: 2px;
-          background: var(--tag-bg);
-          color: var(--text-color);
-          font-weight: 600;
-          margin: .25em .1em
-        }
       }
 
 
@@ -300,6 +319,7 @@
               transition: all var(--dur) var(--bez);
               transition-property: width, border-radius;
               z-index: 1;
+              font-size: xx-large;
               position: relative;
             }
             button {

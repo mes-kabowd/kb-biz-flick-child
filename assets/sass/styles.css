@@ -1,11 +1,20 @@
 header {
   width: 100%;
 }
+header a {
+  color: var(--White-Primary);
+  transition: all 0.5s;
+}
+header a:hover {
+  color: var(--secondary-color2);
+  transform: scale(1.25);
+}
 header .Logo,
 header .LogoMb {
   width: 20vw;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 header .Logo a,
 header .LogoMb a {
@@ -39,7 +48,6 @@ header .NavHeader .BarreRechercheMb {
   width: 45%;
   height: 75%;
   position: relative;
-  width: 50vw;
   background: var(--color-brand);
   border-radius: var(--rad);
 }
@@ -53,6 +61,7 @@ header .NavHeader .BarreRechercheMb input[type=search] {
   outline: 0;
   width: 100%;
   background: var(--color-light);
+  font-size: medium;
   padding: 0 1.6rem;
   border-radius: var(--rad);
   -webkit-appearance: none;
@@ -234,8 +243,12 @@ header .ContenuHeader .MenuHaut .BarreRecherche label {
   width: 1px;
   overflow: hidden;
 }
+header .ContenuHeader .MenuHaut ul {
+  margin-bottom: 50%;
+}
 header .ContenuHeader .MenuHaut ul li {
   margin: auto;
+  font-size: x-large;
 }
 header .ContenuHeader .ReseauxSociaux {
   display: flex;
@@ -265,6 +278,9 @@ header .ContenuHeader .MenuBas ul {
   align-items: center;
   justify-content: space-around;
 }
+header .ContenuHeader .MenuBas ul li {
+  font-size: large;
+}
 header .ContenuHeader .Rdv {
   order: 3;
   width: 45%;
@@ -282,6 +298,11 @@ header .Prenez-Notre-Service {
   padding: 1.5%;
   top: 15vw;
   left: 10%;
+}
+@media screen and (min-width: 768px) {
+  header .NavHeader .BarreRechercheMb input[type=search] {
+    font-size: x-large;
+  }
 }
 @media screen and (min-width: 992px) {
   header .NavHeader {
@@ -331,12 +352,14 @@ header .Prenez-Notre-Service {
     justify-content: flex-end;
   }
   header .NavHeader .ContenuHeader .MenuHaut ul {
+    margin: 0;
     width: 80%;
     display: flex;
     justify-content: space-around;
   }
   header .NavHeader .ContenuHeader .MenuHaut ul .BarreRecherche {
     display: block;
+    width: 30vw;
   }
   header .NavHeader .ContenuHeader .ReseauxSociaux {
     grid-area: 1/3/2/4;
@@ -372,6 +395,18 @@ header .Prenez-Notre-Service {
     top: 25vh;
   }
 }
+@media screen and (min-width: 1200px) {
+  header {
+    height: 10vh;
+  }
+  header a {
+    font-size: larger;
+  }
+  header .BarreRecherche {
+    width: 30vw;
+  }
+}
+
 footer {
   width: 100%;
   height: 65%;
@@ -1193,6 +1228,7 @@ footer .VoletDroite ul {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 3fr;
+    place-items: center;
   }
   .MiniContact h2 {
     grid-area: 1/1/2/3;
@@ -1201,26 +1237,81 @@ footer .VoletDroite ul {
   .MiniContact .Block-Gauche {
     grid-area: 2/1/3/2;
     padding: 5%;
+    width: 90%;
+    background-color: #f9f9f9;
+  }
+  .MiniContact .Block-Gauche h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .MiniContact .Block-Gauche .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 1rem;
+  }
+  .MiniContact .Block-Gauche .contact-form label {
+    font-weight: bold;
+    color: #555;
+  }
+  .MiniContact .Block-Gauche .contact-form input,
+  .MiniContact .Block-Gauche .contact-form textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  .MiniContact .Block-Gauche .contact-form input:focus,
+  .MiniContact .Block-Gauche .contact-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  .MiniContact .Block-Gauche .contact-form button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .MiniContact .Block-Gauche .contact-form button:hover {
+    background-color: #0056b3;
   }
   .MiniContact .Block-Droite {
     grid-area: 2/2/3/3;
     padding: 5%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
-  .MiniContact .Block-Droite article div {
-    height: 100%;
+  .MiniContact .Block-Droite article {
+    padding: 5%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--White-Primary);
   }
-  .MiniContact .Block-Droite article div img {
+  .MiniContact .Block-Droite article img {
     width: 35%;
     aspect-ratio: 1;
     -o-object-fit: contain;
        object-fit: contain;
+  }
+  .MiniContact .Block-Droite article div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-color);
   }
 }
 :root {
@@ -1260,7 +1351,6 @@ footer .VoletDroite ul {
 }
 .Grd-Carrousel-Blog .Filtre {
   width: 100%;
-  background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -1274,14 +1364,17 @@ footer .VoletDroite ul {
   display: none;
   width: 80vw;
 }
-.Grd-Carrousel-Blog .Filtre ul .tag {
-  border-radius: 3px;
-  padding: 0.2em 0.5em 0.3em;
-  border-radius: 2px;
-  background: var(--tag-bg);
-  color: var(--text-color);
-  font-weight: 600;
-  margin: 0.25em 0.1em;
+.Grd-Carrousel-Blog .Filtre ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+.Grd-Carrousel-Blog .Filtre ul li a:hover, .Grd-Carrousel-Blog .Filtre ul li a.active {
+  background: #333;
+  color: #fff;
 }
 .Grd-Carrousel-Blog .Filtre .Mini-Entete form {
   position: relative;
@@ -1374,38 +1467,35 @@ footer .VoletDroite ul {
     transform: scaleY(0);
   }
 }
-.Grd-Carrousel-Blog .mainCard .mainCardContent {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  top: -50px;
-  height: 100%;
-  width: 100%;
+.Grd-Carrousel-Blog .mainCard .articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }
-.Grd-Carrousel-Blog .mainCard .mainCardContent .miniCard {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1.5%;
-  margin: 0 20px 20px 0;
-  background-color: white;
-  height: 300px;
-  width: 250px;
-  border-radius: 5px;
+.Grd-Carrousel-Blog .mainCard .articles .miniCard {
+  border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation-name: miniCard;
   animation-duration: 1s;
   animation-delay: 0.8s;
   animation-fill-mode: both;
+  flex: 1 1 calc(30% - 20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
 }
-.Grd-Carrousel-Blog .mainCard .mainCardContent .miniCard img {
+.Grd-Carrousel-Blog .mainCard .articles .miniCard.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+}
+.Grd-Carrousel-Blog .mainCard .articles .miniCard img {
   padding: 2.5%;
   height: 40%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.Grd-Carrousel-Blog .mainCard .mainCardContent .miniCard .InfoBlog {
+.Grd-Carrousel-Blog .mainCard .articles .miniCard .InfoBlog {
   height: 50%;
   padding: 2.5%;
   display: flex;
@@ -1416,6 +1506,10 @@ footer .VoletDroite ul {
 @keyframes miniCard {
   0% {
     transform: scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
   }
   50% {
     transform: scale(1.05);
@@ -1427,26 +1521,15 @@ footer .VoletDroite ul {
 @media screen and (min-width: 992px) {
   .Grd-Carrousel-Blog .Filtre {
     width: 100%;
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
   .Grd-Carrousel-Blog .Filtre ul {
-    display: flex;
     margin: 2.5%;
     display: flex;
     justify-content: space-around;
     width: 80vw;
-  }
-  .Grd-Carrousel-Blog .Filtre ul .tag {
-    border-radius: 3px;
-    padding: 0.2em 0.5em 0.3em;
-    border-radius: 2px;
-    background: var(--tag-bg);
-    color: var(--text-color);
-    font-weight: 600;
-    margin: 0.25em 0.1em;
   }
   .Grd-Carrousel-Blog .Filtre .Mini-Entete form {
     position: relative;
@@ -1472,6 +1555,7 @@ footer .VoletDroite ul {
     transition: all var(--dur) var(--bez);
     transition-property: width, border-radius;
     z-index: 1;
+    font-size: xx-large;
     position: relative;
   }
   .Grd-Carrousel-Blog .Filtre .Mini-Entete form button {
@@ -1728,6 +1812,7 @@ footer .VoletDroite ul {
   .Grd-Contact .Block-Gauche,
   .Grd-Contact .Block-Centre,
   .Grd-Contact .Block-Droite {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1745,6 +1830,10 @@ footer .VoletDroite ul {
   .Grd-Contact .Block-Gauche h3 {
     font-size: 2rem;
   }
+  .Grd-Contact .Block-Gauche .contact-form {
+    height: 90%;
+    justify-content: space-between;
+  }
   .Grd-Contact .Block-Gauche .contact-form input,
   .Grd-Contact .Block-Gauche .contact-form textarea,
   .Grd-Contact .Block-Gauche .contact-form button {
@@ -1759,6 +1848,10 @@ footer .VoletDroite ul {
   .Grd-Contact .Block-Centre h3 {
     font-size: 2rem;
   }
+  .Grd-Contact .Block-Centre .team-form {
+    height: 90%;
+    justify-content: space-between;
+  }
   .Grd-Contact .Block-Centre .team-form input,
   .Grd-Contact .Block-Centre .team-form textarea,
   .Grd-Contact .Block-Centre .team-form button {
@@ -1772,6 +1865,10 @@ footer .VoletDroite ul {
   }
   .Grd-Contact .Block-Droite h3 {
     font-size: 2rem;
+  }
+  .Grd-Contact .Block-Droite .collaboration-form {
+    height: 90%;
+    justify-content: space-between;
   }
   .Grd-Contact .Block-Droite .collaboration-form input,
   .Grd-Contact .Block-Droite .collaboration-form textarea,
@@ -2168,52 +2265,36 @@ footer .VoletDroite ul {
     transform: scale(0);
   }
 }
-.Page-Recherche .mainCard .mainCardHeader {
-  background-color: AQUAMARINE;
-  height: 100px;
-  width: 100%;
-  animation-name: mainCardHeader;
-  animation-duration: 0.4s;
-  animation-delay: 0.5s;
-  animation-fill-mode: both;
+.Page-Recherche .mainCard .articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }
-@keyframes mainCardHeader {
-  0% {
-    transform: scaleY(0);
-  }
-}
-.Page-Recherche .mainCard .mainCardContent {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  top: -50px;
-  height: 100%;
-  width: 100%;
-}
-.Page-Recherche .mainCard .mainCardContent .miniCard {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 1.5%;
-  margin: 0 20px 20px 0;
-  background-color: white;
-  height: 300px;
-  width: 250px;
-  border-radius: 5px;
+.Page-Recherche .mainCard .articles .miniCard {
+  border-radius: 12px;
+  background-color: var(--White-Primary);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation-name: miniCard;
   animation-duration: 1s;
   animation-delay: 0.8s;
   animation-fill-mode: both;
+  flex: 1 1 calc(30% - 20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
 }
-.Page-Recherche .mainCard .mainCardContent .miniCard img {
+.Page-Recherche .mainCard .articles .miniCard.hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+}
+.Page-Recherche .mainCard .articles .miniCard img {
   padding: 2.5%;
   height: 40%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.Page-Recherche .mainCard .mainCardContent .miniCard .InfoBlog {
+.Page-Recherche .mainCard .articles .miniCard .InfoBlog {
   height: 50%;
   padding: 2.5%;
   display: flex;
@@ -2324,6 +2405,18 @@ footer .VoletDroite ul {
     height: 50%;
   }
 }
+@media screen and (min-width: 1200px) {
+  .Page404 {
+    min-height: 75vh;
+  }
+  .Page404 .Block-Gauche .IconErreur img {
+    transform: scale(1.5);
+  }
+  .Page404 .Block-Gauche .Erreur {
+    font-size: 8.5rem;
+  }
+}
+
 .Stats {
   display: flex;
   flex-direction: column;

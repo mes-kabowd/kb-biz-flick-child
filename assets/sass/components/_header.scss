@@ -1,11 +1,21 @@
 header {
     width: 100%;
 
+    a{
+        color: var(--White-Primary);
+        transition: all 0.5s;
+        &:hover{
+            color: var(--secondary-color2);
+            transform: scale(1.25);
+        }
+    }
+
     .Logo,
     .LogoMb { 
         width: 20vw;
         display: flex;
         align-items: center;
+        justify-content: center;
         
         a{
             display: block;
@@ -51,7 +61,7 @@ header {
             height: 75%;
 
             position: relative;
-            width: 50vw;
+            // width: 50vw;
             background: var(--color-brand);
             border-radius: var(--rad);
         
@@ -66,6 +76,7 @@ header {
                 outline: 0; // <-- shold probably remove this for better accessibility, adding for demo aesthetics for now.
                 width: 100%;
                 background: var(--color-light);
+                font-size: medium;
                 padding: 0 1.6rem;
                 border-radius: var(--rad);
                 appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
@@ -201,6 +212,7 @@ header {
         }
         .MenuHaut{
             order: 4;
+
             .BarreRecherche{
                 display: none;
 
@@ -259,8 +271,10 @@ header {
 
             }
             ul{
+                margin-bottom: 50%;
                 li{
                     margin: auto;
+                    font-size: x-large;
                 }
             }
         }
@@ -291,7 +305,9 @@ header {
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-around;
-                li{}
+                li{
+                    font-size: large;
+                }
             }
         }
         .Rdv { 
@@ -322,7 +338,13 @@ header {
     }
 
     @media screen and (min-width: 768px) {        
-
+        .NavHeader{
+            .BarreRechercheMb{
+                input[type="search"]{
+                    font-size: x-large;
+                }
+            }
+        }
         
     }
 
@@ -377,12 +399,14 @@ header {
                     align-items: center;
                     justify-content: flex-end;
                     ul{
+                        margin: 0;
                         width: 80%;
                         display: flex;
                         justify-content: space-around;
           
                         .BarreRecherche{
                             display: block;
+                            width: 30vw;
                         }
                     }
                 }
@@ -428,7 +452,13 @@ header {
     }
     
     @media screen and (min-width: 1200px) {
-       
+       height: 10vh;
+       a{
+            font-size: larger;
+       }
+       .BarreRecherche{
+            width: 30vw;
+       }
     }
 
     
