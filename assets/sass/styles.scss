@@ -1,32 +1,32 @@
 //  Sass Components
-@import "./components/header.scss";
+@import "./components/header";
 @import "./components/footer.scss";
 
 // Block de Contenu Page
-@import "bloc/Titre-Page";
+@import "./bloc/Titre-Page";
 
-@import "bloc/Mini-Carrousel-Blog";
-@import "bloc/MiniContact";
+@import "./bloc/Mini-Carrousel-Blog";
+@import "./bloc/MiniContact";
 
-@import "bloc/Grd-Carrousel-Blog";
-@import "bloc/Grd-Contact";
+@import "./bloc/Grd-Carrousel-Blog";
+@import "./bloc/Grd-Contact";
 
-@import "bloc/Carrousel-Infini";
-@import "bloc/Carrousel-pack";
+@import "./bloc/Carrousel-Infini";
+@import "./bloc/Carrousel-pack";
 
-@import "bloc/List-Block";
-@import "bloc/Page-Recherche";
-@import "bloc/Page404";
-@import "bloc/Stats";
-@import "bloc/Texte-Page";
+@import "./bloc/List-Block";
+@import "./bloc/Page-Recherche";
+@import "./bloc/Page404";
+@import "./bloc/Stats";
+@import "./bloc/Texte-Page";
 
 // Block de Contenu Articles
-@import "bloc/Titre-Article";
-@import "bloc/Txt-Article";
-@import "bloc/MiniMedia-Article";
-@import "bloc/Media-Article";
-@import "bloc/Galerie-Media";
-@import "bloc/Ressources-Article";
+@import "./bloc/Titre-Article";
+@import "./bloc/Txt-Article";
+@import "./bloc/MiniMedia-Article";
+@import "./bloc/Media-Article";
+@import "./bloc/Galerie-Media";
+@import "./bloc/Ressources-Article";
 
 //  Sass de base
 @import "main";

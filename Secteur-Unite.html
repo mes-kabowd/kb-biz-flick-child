@@ -13,6 +13,7 @@
             <nav class="NavHeader">
                 <div class="LogoMb">
                     <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+                    <!-- <a href="index.html"><img src="assets/img/Logo Principal Blanc.png" alt=""></a> -->
                 </div>
                 <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
                     <input id="search" type="search" placeholder="Search..." autofocus required />
@@ -37,11 +38,11 @@
                         </ul>
                     </nav>
                     <div class="ReseauxSociaux">
-                        <a href=""><img src="" alt=""></a>
-                        <a href=""><img src="" alt=""></a>
-                        <a href=""><img src="" alt=""></a>
-                        <a href=""><img src="" alt=""></a>
-                        <a href=""><img src="" alt=""></a>
+                        <a href=""><img src="assets/img/Linkedin.svg" alt=""></a>
+                        <a href=""><img src="assets/img/Facebook.svg" alt=""></a>
+                        <a href=""><img src="assets/img/GitHub.svg" alt=""></a>
+                        <a href=""><img src="assets/img/Instagram.svg" alt=""></a>
+                        <a href=""><img src="assets/img/YouTube.svg" alt=""></a>
                     </div>
                     <nav class="MenuBas">
                         <ul>
@@ -103,23 +104,36 @@
                     <h2>Services</h2>
                 </article>
                 <ul class="Carrousel">
-                    <li>
-                      <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                      <h4>Titre article 1</h4>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus veniam quod totam autem excepturi iste architecto quaerat, odit pariatur a possimus quos repellat facilis nobis molestias natus voluptates doloribus sequi!</p>
-                      <button>Bouton</button>
+                    <li class="carte">
+                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <div class="Contenue-Carte">
+                          <h5 class="Titre-Carte">Titre article 1</h5>
+                          <p>
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                          </p>
+                          <a href="#" class="btn btn-primary">En voir davantage</a>
+                        </div>
                     </li>
-                    <li><span class="fa fa-music"></span>
-                      <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                      <h4>Titre article 1</h4>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus veniam quod totam autem excepturi iste architecto quaerat, odit pariatur a possimus quos repellat facilis nobis molestias natus voluptates doloribus sequi!</p>
-                      <button>Bouton</button>
+                    <li class="carte">
+                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <div class="Contenue-Carte">
+                          <h5 class="Titre-Carte">Titre article 1</h5>
+                          <p>
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                          </p>
+                          <a href="#" class="btn btn-primary">En voir davantage</a>
+                        </div>
                     </li>
-                    <li><span class="fa fa-users"></span>
-                      <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                      <h4>Titre article 1</h4>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus veniam quod totam autem excepturi iste architecto quaerat, odit pariatur a possimus quos repellat facilis nobis molestias natus voluptates doloribus sequi!</p>
-                      <button>Bouton</button>
+                    <li class="carte">
+                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <div class="Contenue-Carte">
+                          <h5 class="Titre-Carte">Titre article 1</h5>
+                          <p>
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                          </p>
+                          <a href="#" class="btn btn-primary">En voir davantage</a>
+                        </div>
+                    </li>
                   </ul>
             </section>
 
@@ -130,7 +144,7 @@
                 <section class="Block-Gauche">
 
                     <h3>Contactez-nous</h3>
-                    <form action="#" method="post" class="contact-form">
+                    <form action="#" method="post" class="contact-form Formulaires" data-endpoint="https://votre-endpoint-serveur.com">
                         <label for="name">Nom :</label>
                         <input type="text" id="name" name="name" placeholder="Votre nom" required>
                     
@@ -149,20 +163,27 @@
                     
                 </section>
                 <section class="Block-Droite">
-                    <article>
+                    <article class="card">
                         <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                        <div>
-                            <h3>Titre Article</h3>
-                            <button>Bouton</button>
+                        <div class="card-Ctn">
+                          <h5>Special title treatment</h5>
+                          <p>
+                            With supporting text below as a natural lead-in to additional content.
+                          </p>
+                          <a href="#" class="btn btn-primary">Bouton</a>
                         </div>
                     </article>
-                    <article>
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
-                        <div>
-                            <h3>Titre Article</h3>
-                            <button>Bouton</button>
+                    <article class="card">
+                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <div class="card-Ctn">
+                          <h5>Special title treatment</h5>
+                          <p>
+                            With supporting text below as a natural lead-in to additional content.
+                          </p>
+                          <a href="#" class="btn btn-primary">Bouton</a>
                         </div>
-                    </article>  
+                    </article>
+                      
                 </section>
             </section>
 
@@ -223,11 +244,11 @@
                 <a href="index.html" class="Logo"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
                 
                 <div class="ReseauxSociaux">
-                    <a href=""><img src="" alt=""></a>
-                    <a href=""><img src="" alt=""></a>
-                    <a href=""><img src="" alt=""></a>
-                    <a href=""><img src="" alt=""></a>
-                    <a href=""><img src="" alt=""></a>
+                    <a href=""><img src="assets/img/Linkedin.svg" alt=""></a>
+                    <a href=""><img src="assets/img/Facebook.svg" alt=""></a>
+                    <a href=""><img src="assets/img/GitHub.svg" alt=""></a>
+                    <a href=""><img src="assets/img/Instagram.svg" alt=""></a>
+                    <a href=""><img src="assets/img/YouTube.svg" alt=""></a>
                 </div>
             </section>
             <section class="VoletCentre">

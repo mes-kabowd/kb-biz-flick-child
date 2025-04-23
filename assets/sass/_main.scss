@@ -22,8 +22,9 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-
         min-height: 100vh;
+        // background-color: var(--primary-color2);
+        background-color: var(--White-Primary);
         
         main {
             display: flex;
@@ -33,7 +34,6 @@
             width: 100%;
             flex: 1;
             margin: 5rem 0 3.5rem;
-            background-color: var(--primary-color2);
             
             section {
                 width: 100%;
@@ -49,6 +49,7 @@
                 transparent 100% 
                 );
                 color: var(--White-Primary);
+                padding: 10% 0 25%;
             }
 
             @media screen and (min-width: 576px) {}
@@ -56,7 +57,7 @@
             @media screen and (min-width: 768px) {}
             
             @media screen and (min-width: 992px) {
-                margin: 10rem 0 2.5rem;
+                margin: 7.5rem 0 2.5rem;
     
                 section{
                     margin-bottom: 0;
