@@ -1,0 +1,57 @@
+/*==============================================================================
+  1. Déclaration de la famille Gilroy avec toutes ses variantes
+==============================================================================*/
+
+// Ici nous listons toutes les variantes de Gilroy telles qu'affichées dans l'image
+$gilroy-fonts: (
+  "Thin": (file: "Gilroy-Thin.ttf"),
+  "Light": (file: "Gilroy-Light.ttf"),
+  "Regular": (file: "Gilroy-Regular.ttf"),
+  "Medium": (file: "Gilroy-Medium.ttf"),
+  "SemiBold": (file: "Gilroy-SemiBold.ttf"),
+  "Bold": (file: "Gilroy-Bold.ttf"),
+  "ExtraBold": (file: "Gilroy-ExtraBold.ttf"),
+  "Black": (file: "Gilroy-Black.ttf")
+);
+
+@each $variant, $props in $gilroy-fonts {
+  @include font-face(
+    "Gilroy",
+    "/wp-content/themes/kb-biz-flick-child/assets/font/gilroy/#{map-get($props, file)}",
+    "truetype"
+    );
+}
+
+/*==============================================================================
+  2. Déclaration de la famille Kenney Future
+==============================================================================*/
+
+// D'après l'image, il y a deux variantes de Kenney Future
+$kenney-future-fonts: (
+  "Narrow": (
+    file: "Kenney Future Narrow.ttf"
+    ),
+  "Square": (
+    file: "Kenney Future Square.ttf"
+    )
+);
+
+@each $variant, $props in $kenney-future-fonts {
+  // Ici, on nomme la police "Kenney Future Narrow" ou "Kenney Future Square"
+  @include font-face(
+    "Kenney Future #{$variant}",
+    "/wp-content/themes/kb-biz-flick-child/assets/font/kenney-future/#{map-get($props, file)}",
+    "truetype"
+    );
+}
+
+/*==============================================================================
+  3. Déclaration de la police Kerox
+==============================================================================*/
+
+// La police Kerox est au format OpenType (généralement .otf)
+@include font-face(
+  "Kerox",
+  "/wp-content/themes/kb-biz-flick-child/assets/font/kerox-font-non-commercial/Kerox-NonCommercial.otf",
+  "opentype"
+);

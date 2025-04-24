@@ -16,12 +16,12 @@
  
    
         padding: 5%;
+        border-radius: 0.25rem;
         width: 90%;
         background-color: #f9f9f9;
     
         
         h3 {
-            font-size: 1.5rem;
             color: #333;
             margin-bottom: 1rem;
             text-align: center;
@@ -34,14 +34,12 @@
             gap: 1rem;
         
             label {
-            font-weight: bold;
             color: #555;
             }
         
             input,
             textarea {
             padding: 0.75rem;
-            font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 4px;
             transition: border-color 0.3s ease;
@@ -54,7 +52,6 @@
         
             button {
             padding: 0.75rem;
-            font-size: 1rem;
             background-color: #007BFF;
             color: #fff;
             border: none;
@@ -73,7 +70,6 @@
 
     .Block-Droite{
         grid-area: 2 / 2 / 3 / 3;
-        padding: 5%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -84,43 +80,41 @@
             display: flex;
             justify-content: space-around;
             padding: 5%;
-
-        flex-direction: column;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid #dee2e6;
-        border-radius: 0.25rem;
-        margin: 5%;
+            
+            flex-direction: column;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            margin: 5%;
             
             img{
+                padding: 5%;
                 object-fit: contain;
             }
-
+            
             &-Ctn {
                 flex: 1 1 auto;
-                padding: 1rem;
+                padding: 5%;
 
                 h5 {
                 margin-bottom: 0.75rem;
-                font-size: 1.25rem;
                 color: #212529;
                 }
 
                 p {
                     margin-bottom: 1rem;
-                    font-size: 1rem;
                     color: #6c757d;
                 }
 
                 .btn {
                     display: inline-block;
-                    font-weight: 400;
+                    width: 100%;
                     line-height: 1.5;
                     text-align: center;
                     vertical-align: middle;
                     user-select: none;
                     padding: 0.375rem 0.75rem;
-                    font-size: 1rem;
                     border: 1px solid transparent;
                     border-radius: 0.25rem;
                     transition: color 0.15s ease-in-out,
@@ -149,9 +143,7 @@
 
     }
     
-    @media screen and (min-width: 576px){
-        
-    }
+    @media screen and (min-width: 576px){}
     
     @media screen and (min-width: 768px) {        
         
@@ -159,9 +151,7 @@
             flex-direction: row;    
             .card{
                 flex-direction: row;    
-                img{
-                    width: 25%;
-                }
+                img{ width: 25%; }
             }
         }
     }
@@ -179,43 +169,19 @@
 
         .Block-Droite{
             grid-area: 2 / 2 / 3 / 3;
-            padding: 5%;
+            padding: 0;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
     
-            // article{
-            //     padding: 5%;
-            //     width: 90%;
-            //     display: flex;
-            //     align-items: center;
-            //     justify-content: space-between;
-            //     // background-color: #f9f9f9;
-            //     background-color: var(--White-Primary);
-            //     img{
-            //         width: 35%;
-            //         aspect-ratio: 1;
-            //         object-fit: contain;
-            //     }
-            //     div{
-            //         height: 100%;
-            //         display: flex;
-            //         align-items: center;
-            //         flex-direction: column;
-            //         justify-content: space-between;
-            //         color: var(--text-color);
-            //     }
-            // }
-    
-    
+
+            .card{ padding: 0; }
     
         }
     }
     
-    @media screen and (min-width: 1200px) {
-    
-    }
+    @media screen and (min-width: 1200px) {}
 
 }

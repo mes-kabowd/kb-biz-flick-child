@@ -34,10 +34,16 @@
         
         .MiniStats{
             display: flex;
-            margin: 5%;
+            align-items: center;
+            justify-content: space-around;
+            background-clip: border-box;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            padding: 1.75%;
+            margin: 2.5%;
             
             .Valeur{
-                margin: 5%;
+                margin: 2.5%;
                 font-size: x-large;
             }
 

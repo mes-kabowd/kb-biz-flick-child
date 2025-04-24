@@ -14,27 +14,18 @@
         overflow-y: auto;
     }
     
+    @media screen and (min-width: 576px){ }
     
-    @media screen and (min-width: 576px){
-        
-    }
-    
-    @media screen and (min-width: 768px) {        
-        
-    }
+    @media screen and (min-width: 768px) { }
     
     @media screen and (min-width: 992px) {
         margin-bottom: 3.5rem;
         
-        h2{
-            text-align: left;
-        }
+        h2{ text-align: left; }
 
         p{}
     
     }
     
-    @media screen and (min-width: 1200px) {
-    
-    }
+    @media screen and (min-width: 1200px) { }
 }

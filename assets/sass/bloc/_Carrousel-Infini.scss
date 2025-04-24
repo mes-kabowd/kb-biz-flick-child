@@ -22,11 +22,10 @@
     .Ctn-Carrousel-Infini {
         background: white;
         box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-        height: 10vh;
         margin: auto;
         overflow:hidden;
         position: relative;
-        width: 95%;
+        width: 100%;
         padding: 0;
         
         &::before,
@@ -64,9 +63,12 @@
 
     @media screen and (min-width: 576px) {}
     
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+    }
     
-    @media screen and (min-width: 992px) {}
+    @media screen and (min-width: 992px) {
+        padding: 0;
+    }
     
     @media screen and (min-width: 1200px) {}
 }

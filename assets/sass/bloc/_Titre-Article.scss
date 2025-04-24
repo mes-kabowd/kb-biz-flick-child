@@ -43,13 +43,9 @@
             height: 50%;
         }
         
-        img{
-            object-fit: contain;
-        }
+        img{ object-fit: contain; }
         
-        p{
-            overflow-y: auto;
-        }
+        p{ overflow-y: auto; }
         
         .ListBtn{
             width: 100%;
@@ -69,15 +65,9 @@
         grid-template-columns: 1fr 2fr;
         grid-template-rows: repeat(2, 1fr);
 
-        .Block-Haut{
-            grid-area: 1 / 1 / 2 / 3;
-        }
-        .Block-Bas{
-            grid-area: 2 / 1 / 3 / 2;
-        }
-        .Block-Droite{
-            grid-area: 2 / 2 / 3 / 3;
-        }
+        .Block-Haut{ grid-area: 1 / 1 / 2 / 3; }
+        .Block-Bas{ grid-area: 2 / 1 / 3 / 2; }
+        .Block-Droite{ grid-area: 2 / 2 / 3 / 3; }
     }
     
     @media screen and (min-width: 992px) {        
@@ -106,7 +96,6 @@
             img{
                 width: 90%;
                 object-fit: contain;
-                
             }
           
         }
@@ -119,13 +108,9 @@
             h1{}
             img, p{}
     
-            img{
-                object-fit: contain;
-            }
+            img{ object-fit: contain; }
             
-            p{
-                overflow-y: auto;
-            }
+            p{ overflow-y: auto;  }
     
             .ListBtn{
                 width: 100%;

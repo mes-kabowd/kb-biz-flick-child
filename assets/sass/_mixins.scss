@@ -1,0 +1,85 @@
+@mixin font-face($font-family, $file-path, $format, $file-path-woff: null, $file-path-woff2: null, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: "#{$font-family}";
+        src: url("#{$file-path-woff2}") format("woff2"),
+            url("#{$file-path-woff}") format("woff"),
+            url("#{$file-path}") format("#{$format}");
+        font-display: swap;
+    }
+}
+
+/***********************************************/
+
+// Taille de base pour la conversion px -> rem
+$base-font-size: 16px;
+
+// Définition des breakpoints
+$breakpoints: (
+  mobile: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// Fonction pour convertir les pixels en rem
+@function remCalc($px) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// Mixin pour appliquer une taille de texte différente en fonction des breakpoints
+// $mobile  : taille pour mobile (par défaut)
+// $sm      : taille à partir de 576px
+// $md      : taille à partir de 768px
+// $lg      : taille à partir de 992px
+// $xl      : taille à partir de 1200px
+@mixin responsive-text($mobile, $sm, $md, $lg, $xl) {
+  font-size: remCalc($mobile);
+
+  @media (min-width: map-get($breakpoints, sm)) {
+    font-size: remCalc($sm);
+  }
+  @media (min-width: map-get($breakpoints, md)) {
+    font-size: remCalc($md);
+  }
+  @media (min-width: map-get($breakpoints, lg)) {
+    font-size: remCalc($lg);
+  }
+  @media (min-width: map-get($breakpoints, xl)) {
+    font-size: remCalc($xl);
+  }
+}
+
+/***********************************************/
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/***********************************************/
+
+@mixin flex-base {
+    display: flex;
+    align-items: center;
+}
+
+/***********************************************/
+
+@mixin flex-spaceA {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/***********************************************/
+
+@mixin flex-spaceB {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/***********************************************/
+/***********************************************/

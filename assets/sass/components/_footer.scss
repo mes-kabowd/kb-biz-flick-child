@@ -5,6 +5,16 @@ footer{
     background: linear-gradient( transparent 0%, var(--primary-color1) 10%, var(--Black-Primary) 100%);
     
     color: var(--White-Primary);
+
+    a{
+        color: var(--White-Primary);
+        transition: all 0.5s;
+        &:hover{
+            color: var(--secondary-color2);
+            transform: scale(1.25);
+        }
+    }
+
     .VoletGauche{
         height: 35%;
         padding: 5%;
@@ -12,7 +22,6 @@ footer{
         flex-direction: column;
         justify-content: space-around;
         a{
-            color: var(--White-Primary);
             display: block;
             max-width: 250px;
             max-height: 100px;
@@ -44,7 +53,6 @@ footer{
     }
 
     .VoletCentre{
-        font-size: 1.15rem;
         text-align: center;
         padding: 5%;
         height: 35%;
@@ -55,7 +63,6 @@ footer{
 
         .Services > li,
         .Secteurs > li{
-            font-size: 1rem;
             display: none;
         }        
     }
@@ -76,12 +83,8 @@ footer{
     
     @media screen and (min-width: 576px){
         .VoletGauche{}
-        .VoletCentre{
-            flex-direction: row;
-        }
-        .VoletDroite{
-            padding: 2.5%;
-        }
+        .VoletCentre{ flex-direction: row; }
+        .VoletDroite{ padding: 2.5%; }
     }
     
     @media screen and (min-width: 768px) {        
@@ -92,13 +95,11 @@ footer{
             order: 3;
             height: 35%;
             width: 100%;
-
         }
     
         .VoletCentre{
             height: 65%;
-            width: 75%;
-            
+            width: 75%;    
             padding: 5% 0 5%;
             flex-direction: row;
             align-items: flex-start;
@@ -110,7 +111,6 @@ footer{
             }    
 
             ul{
-
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -128,9 +128,7 @@ footer{
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                li{
-                    padding: 5%;
-                }
+                li{ padding: 5%; }
             }
         }
     }

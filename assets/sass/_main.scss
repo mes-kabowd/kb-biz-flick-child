@@ -2,20 +2,67 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    // color: var(--text-color);
-    ul {
-        list-style: none;
+    ul { list-style: none;}
+    
+    // Définition des tailles pour chaque élément.
+    // Les valeurs proposées sont des suggestions progressives.
+    // Vous pouvez adapter ces valeurs en fonction de vos besoins.
+    
+    // h1 : progression de 32px (mobile) à 50px (à partir de 1200px)
+    h1 {
+        @include responsive-text(32px, 36px, 40px, 45px, 50px);
+        font-family: "Kerox";
+        font-style: normal;
+        font-size: var(--font-size-heading);
     }
     
+    // h2 : de 24px à 36px
+    h2 {
+        @include responsive-text(24px, 26px, 28px, 32px, 36px);
+        font-family: "Kenney Future Narrow";
+    }
+    
+    // h3 : de 18px à 20px
+    h3 {
+        @include responsive-text(18px, 18px, 20px, 20px, 20px);
+    }
+    
+    // h4 : par exemple de 16px à 18px
+    h4 {
+        @include responsive-text(16px, 16px, 16px, 18px, 18px);
+    }
+    
+    // h5 : de 14px à 16px
+    h5 {
+        @include responsive-text(14px, 14px, 14px, 16px, 16px);
+    }
+    
+    // Paragraphes : de 14px à 16px pour une bonne lisibilité
+    p {
+        @include responsive-text(14px, 14px, 16px, 16px, 16px);
+    }
+    
+    // Listes (li) : de 12px à 14px
+    li {
+        @include responsive-text(12px, 12px, 14px, 14px, 14px);
+    }
+    
+    // Liens (a) : on leur applique une taille similaire aux paragraphes
     a {
+        @include responsive-text(14px, 14px, 16px, 16px, 16px);
         text-decoration: none;
         color: var(--text-color);
     }
+
+
 
     html,
     body {
         height: 100%;
         margin: 0;
+        font-family: "Gilroy", sans-serif;
+        font-weight: normal;
+        
     }
     
     body {
@@ -23,7 +70,6 @@
         flex-direction: column;
         width: 100%;
         min-height: 100vh;
-        // background-color: var(--primary-color2);
         background-color: var(--White-Primary);
         
         main {
@@ -38,34 +84,33 @@
             section {
                 width: 100%;
                 padding: 5%;
-                
-
             }
             
             .Block-Main:nth-child(even){
                 background: linear-gradient( 
                 var(--Black-Primary) 0%,
                 var(--primary-color1) 95%, 
-                transparent 100% 
-                );
+                transparent 100% );
+                
                 color: var(--White-Primary);
                 padding: 10% 0 25%;
             }
 
-            @media screen and (min-width: 576px) {}
+            @media screen and (min-width: var(--breakpoint-sm)) { }
             
-            @media screen and (min-width: 768px) {}
+            @media screen and (min-width: var(--breakpoint-md)) { }
             
-            @media screen and (min-width: 992px) {
+            @media screen and (min-width: var(--breakpoint-lg)) {
+
                 margin: 7.5rem 0 2.5rem;
     
-                section{
-                    margin-bottom: 0;
-                }
+                section{ margin-bottom: 0; }
+
+                .Block-Main:nth-child(even){ padding: 5%; }
             
             }
             
-            @media screen and (min-width: 1200px) {}
+            @media screen and (min-width: var(--breakpoint-xl)) { }
         }
     }   
 }
