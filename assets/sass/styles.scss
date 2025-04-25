@@ -1,37 +1,29 @@
-//  Sass Components
+// Variables et mixins globaux
+@import "variables";
+@import "font";
+@import "mixins";
+@import "main";
+
+// Composants
 @import "./components/header";
-@import "./components/footer.scss";
+@import "./components/footer";
 
-// Block de Contenu Page
+// Blocs de contenu
 @import "./bloc/Titre-Page";
-
 @import "./bloc/Mini-Carrousel-Blog";
 @import "./bloc/MiniContact";
-
 @import "./bloc/Grd-Carrousel-Blog";
 @import "./bloc/Grd-Contact";
-
 @import "./bloc/Carrousel-Infini";
 @import "./bloc/Carrousel-pack";
-
 @import "./bloc/List-Block";
 @import "./bloc/Page-Recherche";
 @import "./bloc/Page404";
 @import "./bloc/Stats";
 @import "./bloc/Texte-Page";
-
-// Block de Contenu Articles
 @import "./bloc/Titre-Article";
 @import "./bloc/Txt-Article";
 @import "./bloc/MiniMedia-Article";
 @import "./bloc/Media-Article";
 @import "./bloc/Galerie-Media";
 @import "./bloc/Ressources-Article";
-
-//  Sass de base
-@import "main";
-
-//  Autre Sass
-@import "variables";
-@import "mixins";
-@import "font";

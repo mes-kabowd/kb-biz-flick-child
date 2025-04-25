@@ -62,15 +62,12 @@ $kenney-future-fonts: (
 // Taille de base pour la conversion px -> rem
 $base-font-size: 16px;
 
-// Fonction pour convertir les pixels en rem
+/* ... contenu existant du fichier font.scss ... */
+
 @function remCalc($px) {
   @return ($px / $base-font-size) * 1rem;
 }
 
-// Mixin utilisant clamp() pour une typographie fluide
-@mixin fluid-text($min-px, $preferred-vw, $max-px) {
-  font-size: clamp(remCalc($min-px), $preferred-vw, remCalc($max-px));
-}
 
 // Application des styles responsive avec clamp
 h1 {
