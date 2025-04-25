@@ -1,28 +1,29 @@
 .MiniContact{
-    padding: 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
+    padding: var(--padding-null);
+    // display: flex;
+    // align-items: center;
+    // flex-direction: column;
+    // justify-content: space-around;
+    @include flex-C-spaceA;
 
     h2{
         grid-area: 1 / 1 / 2 / 3;
         text-align: center;
-        margin: 5%;
+        margin: var(--margin-base);
     }
     
     .Block-Gauche{
         grid-area: 2 / 1 / 3 / 2;
  
    
-        padding: 5%;
-        border-radius: 0.25rem;
         width: 90%;
-        background-color: #f9f9f9;
+        padding: var(--padding-base);
+        border-radius: var(--border-base);
+        background-color: var(--White-Primary);
     
         
         h3 {
-            color: #333;
+            color: var(--text-color);
             margin-bottom: 1rem;
             text-align: center;
         }
@@ -34,34 +35,34 @@
             gap: 1rem;
         
             label {
-            color: #555;
+                color: var(--Gray-Primary);
             }
         
             input,
             textarea {
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: border-color 0.3s ease;
-        
-            &:focus {
-                border-color: #007BFF;
-                outline: none;
-            }
+                padding: 0.75rem;
+                border: 1px solid var(--Gray-Primary);
+                border-radius: var(--border-radius);
+                transition: border-color var(--transition-speed) ease;
+            
+                &:focus {
+                    border-color: var(--primary-color1);
+                    outline: none;
+                }
             }
         
             button {
-            padding: 0.75rem;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        
-            &:hover {
-                background-color: #0056b3;
-            }
+                padding: 0.75rem;
+                background-color: var(--primary-color1);
+                color: var(--White-Primary);
+                border: none;
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                transition: background-color var(--transition-speed) ease;
+            
+                &:hover {
+                    background-color: var(--primary-color2);
+                }
             }
         }
 
@@ -70,41 +71,39 @@
 
     .Block-Droite{
         grid-area: 2 / 2 / 3 / 3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: space-between;
+        @include flex-C-spaceB;
+
         .card {
             width: 100%;
             display: flex;
             justify-content: space-around;
-            padding: 5%;
+            padding: var(--padding-base);
             
             flex-direction: column;
-            background-color: #fff;
+            background-color: var(--White-Primary);
             background-clip: border-box;
-            border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
-            margin: 5%;
+            border: 1px solid var(--Gray-Primary);
+            border-radius: var(--border-base);
+            margin: var(--margin-base);
             
             img{
-                padding: 5%;
+                padding: var(--padding-base);
                 object-fit: contain;
             }
             
             &-Ctn {
                 flex: 1 1 auto;
-                padding: 5%;
+                padding: var(--padding-base);
 
-                h5 {
-                margin-bottom: 0.75rem;
-                color: #212529;
-                }
+                h5 { margin-bottom: 0.75rem; }
 
                 p {
                     margin-bottom: 1rem;
-                    color: #6c757d;
+                    color: var(--Gray-Primary);
                 }
 
                 .btn {
@@ -116,24 +115,24 @@
                     user-select: none;
                     padding: 0.375rem 0.75rem;
                     border: 1px solid transparent;
-                    border-radius: 0.25rem;
-                    transition: color 0.15s ease-in-out,
-                                background-color 0.15s ease-in-out,
-                                border-color 0.15s ease-in-out,
-                                box-shadow 0.15s ease-in-out;
-                    text-decoration: none;
+                    border-radius: var(--border-base);
+                    transition: color var(--transition-speed) ease-in-out,
+                                background-color var(--transition-speed) ease-in-out,
+                                border-color var(--transition-speed) ease-in-out,
+                                box-shadow var(--transition-speed) ease-in-out;
+                    // text-decoration: none;
 
                     &.btn-primary {
-                        color: #fff;
-                        background-color: #0d6efd;
-                        border-color: #0d6efd;
+                        color: var(--White-Primary);
+                        background-color: var(--primary-color1);
+                        border-color: var(--primary-color1);
 
                         &:hover,
                         &:focus {
-                        color: #fff;
-                        background-color: #0b5ed7;
-                        border-color: #0a58ca;
-                        text-decoration: none;
+                            color: var(--White-Primary);
+                            background-color: var(--primary-color2);
+                            border-color: var(--primary-color1);
+                            // text-decoration: none;
                         }
                     }
                 }
@@ -169,15 +168,15 @@
 
         .Block-Droite{
             grid-area: 2 / 2 / 3 / 3;
-            padding: 0;
+            padding: var(--padding-null);
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-    
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // justify-content: space-between;
+            @include flex-C-spaceB;
 
-            .card{ padding: 0; }
+            .card{ padding: var(--padding-null); }
     
         }
     }

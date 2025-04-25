@@ -1,16 +1,20 @@
 .Stats{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+
+    @include flex-C;
 
     .Block-Gauche { 
-        padding: 5%;    
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: space-between;    
+        padding: var(--padding-base);    
+        // display: flex;
+        // align-items: center;
+        // flex-direction: column;
+        // justify-content: space-between;   
+        
+        @include flex-C-spaceB;
 
-        h2{padding: 5%;}
+        h2{ padding: var(--padding-base); }
 
         p{}
 
@@ -18,7 +22,7 @@
     
     .Block-Droite { 
         width: 50%;
-        padding: 5%;
+        padding: var(--padding-base);
         img{
             width: 100%;
             aspect-ratio: 1;
@@ -28,22 +32,26 @@
     
     .Block-Bas { 
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+
+        @include flex-C;
         
         .MiniStats{
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-around;
+
+            @include flex-spaceA;
             background-clip: border-box;
-            border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
-            padding: 1.75%;
-            margin: 2.5%;
+            border: 1px solid var(--Gray-Primary);
+            border-radius: var(--border-radius);
+            padding: var(--padding-mini);
+            margin: var(--margin-petit);
             
             .Valeur{
-                margin: 2.5%;
+                margin: var(--margin-petit);
                 font-size: x-large;
             }
 
@@ -53,9 +61,7 @@
     }
     
     
-    @media screen and (min-width: 576px){
-
-    }
+    @media screen and (min-width: 576px){ }
     
     @media screen and (min-width: 768px) {            
         display: grid;
@@ -67,7 +73,7 @@
             grid-area: 1 / 1 / 2 / 2; 
             align-items: flex-start;   
     
-            h2{padding: 5%;}
+            h2{padding: var(--padding-base);}
     
             p{}
     
@@ -76,7 +82,7 @@
         .Block-Droite { 
             grid-area: 1 / 2 / 2 / 3; 
             width: 100%;
-            padding: 5%;
+            padding: var(--padding-base);
             img{
                 width: 100%;
                 aspect-ratio: 1;
@@ -87,7 +93,7 @@
         .Block-Bas { 
             grid-area: 2 / 1 / 3 / 3; 
             width: 100%;
-            padding: 0;
+            padding: var(--padding-null);
             flex-direction: row;
             flex-wrap: wrap;
             
@@ -108,7 +114,5 @@
         .Block-Bas{grid-area: 2 / 1 / 3 / 2;}
     }
     
-    @media screen and (min-width: 1200px) {
-    
-    }
+    @media screen and (min-width: 1200px) { }
 }

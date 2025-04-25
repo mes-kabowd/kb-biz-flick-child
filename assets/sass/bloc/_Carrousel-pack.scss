@@ -1,49 +1,49 @@
 .Carrousel-pack{
-  $font-color: #A2A2A2;
-  $primary-color: #63B7E6;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-between;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
+  @include flex-C-spaceB;
+  
   .Block-Haut{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h2{
-      padding: 5%;
-    }
+    @include flex-C-spaceA;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    h2{ padding: var(--padding-base); }
     
     p{
-      padding: 5%;
+      padding: var(--padding-base);
       width: 90%;
     }
   }
 
 
   .Carrousel{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    display: flex;
+    // height: 100%;
+    // width: 100%;
+    @include Width-Height-Base;
+    @include flex-base;
     flex-flow: row wrap;
     overflow-x: auto;
-    justify-content: center;
-    list-style: none;
+    margin: var(--margin-null);
+    // display: flex;
+    // justify-content: center;
+    // list-style: none;
 
     .carte {
       width: 15rem;
       display: flex;
       flex-direction: column;
       background-clip: border-box;
-      border: 1px solid #dee2e6;
-      border-radius: 0.25rem;
+      border: 1px solid var(--White-Primary);
+      border-radius: var(--border-base);
 
-      padding: 1.75%;
-      margin: 2.5%;
+      padding: var(--padding-mini);
+      margin: var(--margin-petitl);
 
-      transition: box-shadow .3s;
+      transition: box-shadow var(--transition-speed);
       
       &:hover {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.15);
@@ -53,25 +53,25 @@
       img {
         display: block;
         width: 100%;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
+        border-top-left-radius: var(--border-base);
+        border-top-right-radius: var(--border-base);
       }
     
       /* corps de la carte */
       .Contenue-Carte {
         flex: 1 1 auto;
-        padding: 1rem;
+        padding: var(--padding-base);
     
         /* titre */
         .Titre-Carte {
           margin-bottom: 0.75rem;
-          color: #212529;
+          color: var(--black-Primary);
         }
     
         /* texte */
         p {
           margin-bottom: 1rem;
-          color: #6c757d;
+          color: var(--Gray-Primary);
         }
     
         /* bouton primaire */
@@ -84,7 +84,7 @@
           user-select: none;
           padding: 0.375rem 0.75rem;
           border: 1px solid transparent;
-          border-radius: 0.25rem;
+          border-radius: var(--border-base);
           transition: color 0.15s ease-in-out,
                       background-color 0.15s ease-in-out,
                       border-color 0.15s ease-in-out,
@@ -92,15 +92,15 @@
           text-decoration: none;
     
           &-primary {
-            color: #fff;
-            background-color: #0d6efd;
-            border-color: #0d6efd;
+            color: var(--White-Primary);
+            background-color: var(--primary-color1);
+            border-color: var(--primary-color1);
     
             &:hover,
             &:focus {
-              color: #fff;
-              background-color: #0b5ed7;
-              border-color: #0a58ca;
+              color: var(--White-Primary);
+              background-color: var(--primary-color2);
+              border-color: var(--primary-color1);
               text-decoration: none;
             }
           }
@@ -113,10 +113,10 @@
 
   .Block-Bas { 
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    @include flex-C;
     .MiniStats{
       display: flex;
       margin: 5%;

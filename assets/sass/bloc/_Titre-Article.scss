@@ -1,28 +1,21 @@
 .Titre-Article{
+    @include flex-C;
+
     width: 100%;
     height: 30vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    // display: flex;
+    // align-items: center;
+    // flex-direction: column;
     margin-bottom: 5rem;
     
-    .Block-Haut{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        img{
-            width: 90%;
-            object-fit: contain;
-            
-        }
-        
-    }
+    .Block-Haut,
     .Block-Bas{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: space-around;
+
+        @include flex-C-spaceA;
         img{
             width: 90%;
             object-fit: contain;
@@ -32,11 +25,12 @@
     }
     
     .Block-Droite{
-        padding: 0;
-        align-items: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        padding: var(--padding-null);
+        // align-items: center;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        @include flex-center;
         h1{}
         img, p{ 
             width: 75%;
@@ -50,15 +44,14 @@
         .ListBtn{
             width: 100%;
             height: 10%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-between;
+            @include flex-spaceB;
         }
     }
     
-    @media screen and (min-width: 576px){
-        
-    }
+    @media screen and (min-width: 576px){ }
     
     @media screen and (min-width: 768px) {        
         display: grid;
@@ -73,26 +66,33 @@
     @media screen and (min-width: 992px) {        
         width: 100%;
         height: 50vh;
-        padding: 0;
+        padding: var(--padding-null);
         margin-bottom: 3.5rem;
         
         .Block-Haut{
             grid-area: 1 / 1 / 2 / 2;
             text-align: center;
-            h1{padding: 5%;}
-            h3{padding: 5%;}
+            h1, h3{padding: var(--padding-base);}
+            // h3{padding: 5%;}
             
         }
-
+        
         .Block-Bas{
             grid-area: 2 / 1 / 3 / 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            padding: 0;
-            h1{padding: 5%;}
-            h3{padding: 5%;}
+            // display: flex;
+            // flex-direction: column;
+            // align-items: center;
+            // justify-content: space-evenly;
+
+            @include flex-C-spaceE;
+
+            padding: var(--padding-null);
+
+            h1, h3{padding: var(--padding-base);}
+            
+            // h1{padding: 5%;}
+            // h3{padding: 5%;}
+
             img{
                 width: 90%;
                 object-fit: contain;
@@ -102,9 +102,11 @@
     
         .Block-Droite{
             grid-area: 1 / 2 / 3 / 3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
+            @include flex-center; 
+
             h1{}
             img, p{}
     
@@ -115,15 +117,15 @@
             .ListBtn{
                 width: 100%;
                 height: 10%;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+                // display: flex;
+                // align-items: center;
+                // justify-content: space-between;
+
+                @include flex-spaceB
             }
         }
     
     }
     
-    @media screen and (min-width: 1200px) {
-    
-    }
+    @media screen and (min-width: 1200px) {}
 }

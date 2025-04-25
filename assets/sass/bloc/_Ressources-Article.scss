@@ -2,19 +2,19 @@
     margin-bottom: 5rem;
     
     h2{
-        padding: 5%;
+        padding: var(--padding-base);
         text-align: center;
     }
 
     ul{
         li{
-            margin: 5%;
+            margin: var(--margin-base);
             list-style: inside;   
             
             a{
-                transition: .35s linear;   
+                transition: var(--transition-speed) linear;   
                 
-                &:hover{ color: white; }      
+                &:hover{ color: var(--White-Primary); }      
             }
         }
     }
@@ -28,7 +28,7 @@
         margin-bottom: 3.5rem;
         
         ul{
-            li{margin: 2.5%;}
+            li{margin: var(--margin-petit);}
         }
     }
     

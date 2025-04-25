@@ -1,9 +1,10 @@
 .Carrousel-Infini{
-    align-items: center;
-	display: flex;
+    // align-items: center;
+	// display: flex;
+	// justify-content: center;
     height: 30vh;
-    padding: 0;
-	justify-content: center;
+    @include flex-center;
+    padding: var(--padding-null);
 
     @mixin white-gradient {
         background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
@@ -26,7 +27,7 @@
         overflow:hidden;
         position: relative;
         width: 100%;
-        padding: 0;
+        padding: var(--padding-null);
         
         &::before,
         &::after {
@@ -63,11 +64,10 @@
 
     @media screen and (min-width: 576px) {}
     
-    @media screen and (min-width: 768px) {
-    }
+    @media screen and (min-width: 768px) {}
     
     @media screen and (min-width: 992px) {
-        padding: 0;
+        padding: var(--padding-null);
     }
     
     @media screen and (min-width: 1200px) {}

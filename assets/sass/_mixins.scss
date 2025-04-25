@@ -10,44 +10,16 @@
 
 /***********************************************/
 
-// Taille de base pour la conversion px -> rem
-$base-font-size: 16px;
-
-// Définition des breakpoints
-$breakpoints: (
-  mobile: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-);
-
-// Fonction pour convertir les pixels en rem
-@function remCalc($px) {
-  @return ($px / $base-font-size) * 1rem;
-}
-
-// Mixin pour appliquer une taille de texte différente en fonction des breakpoints
-// $mobile  : taille pour mobile (par défaut)
-// $sm      : taille à partir de 576px
-// $md      : taille à partir de 768px
-// $lg      : taille à partir de 992px
-// $xl      : taille à partir de 1200px
-@mixin responsive-text($mobile, $sm, $md, $lg, $xl) {
-  font-size: remCalc($mobile);
-
-  @media (min-width: map-get($breakpoints, sm)) {
-    font-size: remCalc($sm);
-  }
-  @media (min-width: map-get($breakpoints, md)) {
-    font-size: remCalc($md);
-  }
-  @media (min-width: map-get($breakpoints, lg)) {
-    font-size: remCalc($lg);
-  }
-  @media (min-width: map-get($breakpoints, xl)) {
-    font-size: remCalc($xl);
-  }
+@mixin boutton($bg-color, $text-color, $padding: 1em, $radius: 5px) {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: $padding;
+    border-radius: $radius;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.9;
+    }
 }
 
 /***********************************************/
@@ -82,4 +54,68 @@ $breakpoints: (
 }
 
 /***********************************************/
+
+@mixin flex-spaceE {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/***********************************************/
+
+@mixin flex-C {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/***********************************************/
+
+@mixin flex-C-spaceA {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/***********************************************/
+
+@mixin flex-C-spaceB {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/***********************************************/
+
+@mixin flex-C-spaceE {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/***********************************************/
+
+@mixin ImgBase {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/***********************************************/
+
+@mixin Width-Height-Base {
+    width: 100%;
+    height: 100%;
+}
+
+/***********************************************/
+
+@mixin P-M-null {
+    padding: 0;
+    margin: 0;
+}
+
 /***********************************************/

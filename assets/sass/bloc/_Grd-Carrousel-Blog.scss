@@ -105,6 +105,7 @@ $transition-speed: 0.3s;
           transition-property: width, border-radius;
           z-index: 1;
           position: relative;
+          font-size: x-large;
         }
 
         button {
@@ -169,7 +170,7 @@ $transition-speed: 0.3s;
 
       // Entête de la carte
       .mainCardHeader {
-          background-color: AQUAMARINE;
+          background-color: var(--primary-color1);
           height: 100px;
           width: 100%;
           -webkit-animation-name: mainCardHeader;
@@ -209,7 +210,7 @@ $transition-speed: 0.3s;
           animation-delay: 0.8s;
           -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-          
+
           display: flex;
           background-clip: border-box;
           border: 1px solid #dee2e6;
@@ -367,6 +368,7 @@ $transition-speed: 0.3s;
               transition-property: width, border-radius;
               z-index: 1;
               position: relative;
+              font-size: xx-large;
             }
             button {
               display: none; // prevent being able to tab to it

@@ -1,11 +1,8 @@
 .Galerie-Media{
-    --s: 150px; /* control the size */
-    --g: 10%;  /* control the gap */
-    --f: 1.5;   /* control the scale factor */
     width: 100%;
     padding: 10%;
     display: grid;
-    gap: var(--g);
+    gap: 10%;
     aspect-ratio: 1;
     grid-template-columns: repeat(3,auto);
 
@@ -17,12 +14,12 @@
         object-fit: cover;
         cursor: pointer;
         filter: grayscale(80%) blur(5px);
-        transition: .35s linear;
+        transition: var(--transition-speed) linear;
 
         &:hover{
             filter: grayscale(0);
-            width:  calc(var(--s)*var(--f));
-            height: calc(var(--s)*var(--f));
+            width:  calc (150px * 1.5);
+            height: calc (150px * 1.5);
             object-fit: contain;
         }
     }

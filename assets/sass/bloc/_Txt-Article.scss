@@ -6,11 +6,13 @@
     
     h2{
         text-align: center;
-        padding: 5%;
+        padding: var(--padding-base);
     }
     
     p{
         max-height: 50vh;
+        // padding: 5%;
+        
         overflow-y: auto;
     }
     

@@ -55,3 +55,52 @@ $kenney-future-fonts: (
   "/wp-content/themes/kb-biz-flick-child/assets/font/kerox-font-non-commercial/Kerox-NonCommercial.otf",
   "opentype"
 );
+
+
+/***********************************************************/
+
+// Taille de base pour la conversion px -> rem
+$base-font-size: 16px;
+
+// Fonction pour convertir les pixels en rem
+@function remCalc($px) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+// Mixin utilisant clamp() pour une typographie fluide
+@mixin fluid-text($min-px, $preferred-vw, $max-px) {
+  font-size: clamp(remCalc($min-px), $preferred-vw, remCalc($max-px));
+}
+
+// Application des styles responsive avec clamp
+h1 {
+  @include fluid-text(32px, 5vw, 56px); // Ex: 32px (min), 5vw (opt), 50px (max)
+}
+
+h2 {
+  @include fluid-text(24px, 4vw, 42px);
+}
+
+h3 {
+  @include fluid-text(18px, 3vw, 28px);
+}
+
+h4 {
+  @include fluid-text(16px, 2.5vw, 24px);
+}
+
+h5 {
+  @include fluid-text(14px, 2vw, 20px);
+}
+
+p {
+  @include fluid-text(14px, 2vw, 18px);
+}
+
+li {
+  @include fluid-text(12px, 1.8vw, 16px);
+}
+
+a {
+  @include fluid-text(14px, 2vw, 18px);
+}
