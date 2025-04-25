@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/img/Icon Logo Principal Couleur.png" type="image/x-icon">
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/sass/styles.css">
+        <title>À propos de Kabowd</title>
+    </head>
+    <body>
+        <header>
+            <nav class="NavHeader">
+                <div class="LogoMb">
+                    <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+                    <!-- <a href="index.html"><img src="assets/img/Logo Principal Blanc.png" alt=""></a> -->
+                </div>
+                <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                    <button type="submit">Go</button>    
+                </form>
+     
+                
+                <input type="checkbox" name="" class="menu" id="BtnBurger">
+                <section class="ContenuHeader">
+                    <div class="Logo">
+                        <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+                    </div>
+                    <nav class="MenuHaut">
+                        <ul>
+                            <li>
+                                <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                                    <input id="search" type="search" placeholder="Search..." autofocus required />
+                                    <button type="submit">Go</button>    
+                                </form>
+                            </li>
+                            <li><a href="Recherche.html">Connexion</a></li>
+                        </ul>
+                    </nav>
+                    <div class="ReseauxSociaux">
+                        <a href=""><img src="assets/img/Linkedin.svg" alt=""></a>
+                        <a href=""><img src="assets/img/Facebook.svg" alt=""></a>
+                        <a href=""><img src="assets/img/GitHub.svg" alt=""></a>
+                        <a href=""><img src="assets/img/Instagram.svg" alt=""></a>
+                        <a href=""><img src="assets/img/YouTube.svg" alt=""></a>
+                    </div>
+                    <nav class="MenuBas">
+                        <ul>
+                            <li><a href="Services.html">Services</a></li>
+                            <li><a href="Secteurs.html">Secteurs</a></li>
+                            <li><a href="Blogs.html">Blog</a></li>
+                            <li><a href="A-Propos.html">À propos</a></li>
+                        </ul>
+                    </nav>
+                    <div class="Rdv">
+                        <a href="erreur404.html">Prenez un Rendez-vous</a>
+                    </div>
+                </section>
+            </nav>
+        </header>
+
+        <main>
+            <section class="Titre-Page Block-Main">
+                <H1 class="TitrePage">Titre de la page</H1>
+                <section class="Block-Gauche">
+                    <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                </section>
+                
+                <section class="Block-Droite">
+                    <p class="ParagrapheTitre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quidem, neque id illo error provident ipsum architecto unde dolores libero optio rerum eveniet temporibus nam illum? Aspernatur fuga laborum, beatae voluptates amet incidunt ducimus iusto, harum numquam libero veritatis rem dignissimos? Ipsa, distinctio? Exercitationem sed quo rerum dolore impedit dignissimos.</p>
+                    <div class="ListBtn">
+                        <a href="#" class="btn btn-primary">Bouton 1</a>
+                        <a href="#" class="btn btn-primary">Bouton 2</a>
+                    </div>
+                </section>
+            </section>
+
+            <section class="Grd-Contact Block-Main">
+                <h2>
+                    Pour nous joindre
+                </h2>
+                <section class="Block-Gauche">
+
+                    <h3>Contactez-nous</h3>
+                    <form action="#" method="post" class="contact-form Formulaires"  data-endpoint="https://votre-endpoint-serveur.com">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+                        <label for="subject">Objet :</label>
+                        <input type="text" id="subject" name="subject" placeholder="Objet de votre demande" required>
+                    
+                        <label for="message">Message :</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                    
+                        <button type="submit">Envoyer</button>
+                    </form>
+                </section>
+                <section class="Block-Centre">
+
+                    <h3>Rejoignez l'équipe</h3>
+                    
+                    <form action="#" method="post" class="team-form Formulaires"  data-endpoint="https://votre-endpoint-serveur.com">
+                        <label for="fullName">Nom complet :</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Votre nom complet" required>
+
+                        <label for="email">Email :</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                        
+                        <label for="Telephone">Numéro de téléphone :</label>
+                        <input type="number" id="Telephone" name="Telephone" placeholder="Votre numéro de téléphone" required>
+
+                        <label for="specialty">Spécialité :</label>
+                        <input type="text" id="specialty" name="specialty" placeholder="Votre domaine d'expertise" required>
+
+                        <label for="motivation">Lettre de motivation :</label>
+                        <textarea id="motivation" name="motivation" rows="6" placeholder="Expliquez-nous pourquoi vous souhaitez rejoindre l'équipe" required></textarea>
+
+                        <button type="submit">Envoyer ma candidature</button>
+                    </form>
+                </section>
+                <section class="Block-Droite">
+                    <h3>Collaborez avec Kabowd</h3>
+                    <form action="#" method="post" class="collaboration-form Formulaires"  data-endpoint="https://votre-endpoint-serveur.com">
+                      <label for="companyName">Nom de l'entreprise :</label>
+                      <input type="text" id="companyName" name="companyName" placeholder="Nom de votre entreprise" required>
+                  
+                      <label for="contactName">Nom du contact :</label>
+                      <input type="text" id="contactName" name="contactName" placeholder="Votre nom" required>
+                  
+                      <label for="email">Email :</label>
+                      <input type="email" id="email" name="email" placeholder="Votre email" required>
+                  
+                      <label for="subject">Objet :</label>
+                      <input type="text" id="subject" name="subject" placeholder="Objet de votre demande" required>
+                  
+                      <label for="message">Message :</label>
+                      <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet ou collaboration souhaitée" required></textarea>
+                  
+                      <button type="submit">Envoyer</button>
+                    </form>
+                </section>
+            </section>
+
+            <section class="Carrousel-Infini Block-Main">
+                <section class="Ctn-Carrousel-Infini">
+                    <div class="Contenu">
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
+                        </article>
+                        <article class="ImgCtn">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+                        </article>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <section class="VoletGauche">
+            
+                <a href="index.html" class="Logo"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+                
+                <div class="ReseauxSociaux">
+                    <a href=""><img src="assets/img/Linkedin.svg" alt=""></a>
+                    <a href=""><img src="assets/img/Facebook.svg" alt=""></a>
+                    <a href=""><img src="assets/img/GitHub.svg" alt=""></a>
+                    <a href=""><img src="assets/img/Instagram.svg" alt=""></a>
+                    <a href=""><img src="assets/img/YouTube.svg" alt=""></a>
+                </div>
+            </section>
+            <section class="VoletCentre">
+                <ul class="Services">
+                    <a href="Services.html">Services</a>
+                    <li>
+                        <a href="Service-Unite.html">list Services</a>
+                    </li>
+                    <li>
+                        <a href="Service-Unite.html">list Services</a>
+                    </li>
+                    <li>
+                        <a href="Service-Unite.html">list Services</a>
+                    </li>
+                    <li>
+                        <a href="Service-Unite.html">list Services</a>
+                    </li>
+                    <li>
+                        <a href="Service-Unite.html">list Services</a>
+                    </li>
+                </ul>
+                <ul class="Secteurs">
+                    <a href="Secteurs.html">Secteurs</a>
+                    <li>
+                        <a href="Secteur-Unite.html">List Secteur</a>
+                    </li>
+                    <li>
+                        <a href="Secteur-Unite.html">List Secteur</a>
+                    </li>
+                    <li>
+                        <a href="Secteur-Unite.html">List Secteur</a>
+                    </li>
+                    <li>
+                        <a href="Secteur-Unite.html">List Secteur</a>
+                    </li>
+                    <li>
+                        <a href="Secteur-Unite.html">List Secteur</a>
+                    </li>
+                </ul>
+                
+                <ul class="Blog">
+                    <li>
+                        <a href="Blogs.html">Blog</a>
+                    </li>
+                </ul>
+                <ul class="APropos">
+                    <li>
+                        <a href="A-Propos.html">À propos</a>
+                    </li>
+                </ul>
+                <ul class="PrenezRDV">
+                    <li>
+                        <a href="erreur404.html" class="Rdv">Prenez un Rendez-vous</a>
+                    </li>
+                </ul>
+
+
+            </section>
+            <section class="VoletDroite">
+                <ul>
+                    <li>Numéro de Tel</li>
+                    <li>Adresse</li>
+                    <li>Courriel</li>
+                    <li>Crédit</li>
+                </ul>
+            </section>
+        </footer>
+
+        <script src="assets/js/Formulaire.js"></script>
+    </body>
+</html>

@@ -158,20 +158,13 @@
         /* corps de la carte */
         .InfoBlog {
           height: 100%;
-          flex: 1 1 auto;
-          // display: flex;
-          // align-items: center;
-          // flex-direction: column;
-          // justify-content: space-between;
+          flex: 1 1 auto; 
           @include flex-C-spaceB;
           padding: var(--padding-base);
           
       
           /* titre */
-          h3 {
-            margin-bottom: 0.75rem;
-            // color: #212529;
-          }
+          h3 { margin-bottom: 0.75rem; }
       
           /* texte */
           p {
@@ -192,9 +185,7 @@
             transition: color var(--transition-speed) ease-in-out,
                         background-color var(--transition-speed) ease-in-out,
                         border-color var(--transition-speed) ease-in-out,
-                        box-shadow var(--transition-speed) ease-in-out;
-            // text-decoration: none;
-      
+                        box-shadow var(--transition-speed) ease-in-out; 
             &-primary {
               color: var(--White-Primary);
               background-color: var(--primary-color1);
@@ -204,8 +195,7 @@
               &:focus {
                 color: var(--White-Primary);
                 background-color: var(--primary-color2);
-                border-color: var(--primary-color1);
-                // text-decoration: none;
+                border-color: var(--primary-color1); 
               }
             }
           }

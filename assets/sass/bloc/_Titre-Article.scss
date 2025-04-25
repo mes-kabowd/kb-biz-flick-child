@@ -2,20 +2,14 @@
     @include flex-C;
 
     width: 100%;
-    height: 30vh;
-    // display: flex;
-    // align-items: center;
-    // flex-direction: column;
+    height: 30vh; 
     margin-bottom: 5rem;
     
     .Block-Haut,
-    .Block-Bas{
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: space-around;
+    .Block-Bas{ 
 
         @include flex-C-spaceA;
+
         img{
             width: 90%;
             object-fit: contain;
@@ -25,11 +19,7 @@
     }
     
     .Block-Droite{
-        padding: var(--padding-null);
-        // align-items: center;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
+        padding: var(--padding-null); 
         @include flex-center;
         h1{}
         img, p{ 
@@ -43,10 +33,7 @@
         
         .ListBtn{
             width: 100%;
-            height: 10%;
-            // display: flex;
-            // align-items: center;
-            // justify-content: space-between;
+            height: 10%; 
             @include flex-spaceB;
         }
     }
@@ -72,27 +59,16 @@
         .Block-Haut{
             grid-area: 1 / 1 / 2 / 2;
             text-align: center;
-            h1, h3{padding: var(--padding-base);}
-            // h3{padding: 5%;}
-            
+            h1, h3{padding: var(--padding-base);}  
         }
         
         .Block-Bas{
-            grid-area: 2 / 1 / 3 / 2;
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
-            // justify-content: space-evenly;
-
-            @include flex-C-spaceE;
-
+            grid-area: 2 / 1 / 3 / 2; 
+            @include flex-C-spaceE; 
             padding: var(--padding-null);
 
             h1, h3{padding: var(--padding-base);}
-            
-            // h1{padding: 5%;}
-            // h3{padding: 5%;}
-
+             
             img{
                 width: 90%;
                 object-fit: contain;
@@ -101,10 +77,7 @@
         }
     
         .Block-Droite{
-            grid-area: 1 / 2 / 3 / 3;
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
+            grid-area: 1 / 2 / 3 / 3; 
             @include flex-center; 
 
             h1{}
@@ -116,10 +89,7 @@
     
             .ListBtn{
                 width: 100%;
-                height: 10%;
-                // display: flex;
-                // align-items: center;
-                // justify-content: space-between;
+                height: 10%; 
 
                 @include flex-spaceB
             }

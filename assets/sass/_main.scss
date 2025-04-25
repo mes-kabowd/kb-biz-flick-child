@@ -1,14 +1,8 @@
 * {
-    // padding: 0;
-    // margin: 0;
     @include P-M-null;
 
     box-sizing: border-box;
     ul { list-style: none;}
-    
-    // Définition des tailles pour chaque élément.
-    // Les valeurs proposées sont des suggestions progressives.
-    // Vous pouvez adapter ces valeurs en fonction de vos besoins.
 
     h1 {
         font-family: "Kerox";
@@ -41,9 +35,6 @@
         background-color: var(--White-Primary);
         
         main {
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
 
             @include flex-C;
             overflow: hidden;

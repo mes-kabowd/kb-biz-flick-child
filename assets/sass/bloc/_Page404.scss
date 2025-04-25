@@ -1,23 +1,15 @@
-.Page404{
-    // display: flex;
-    // align-items: center;
-    // flex-direction: column;
+.Page404{ 
     @include flex-C;
 
     .Block-Gauche{
-        width: 50%;
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
+        width: 50%; 
         @include flex-C;
 
         .IconErreur{
             width: 75%;
             aspect-ratio: 1;
             z-index: 3;
-            img{
-                // width: 100%;
-                // object-fit: contain;
+            img{ 
                 @include ImgBase;
                 transform: scale(1.75);
             }
@@ -32,11 +24,7 @@
             z-index: 1;
         }
     }
-    .Block-Droite{
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: space-between;
+    .Block-Droite{ 
 
         @include flex-C-spaceB;
         height: 100%;

@@ -1,9 +1,5 @@
 .MiniContact{
-    padding: var(--padding-null);
-    // display: flex;
-    // align-items: center;
-    // flex-direction: column;
-    // justify-content: space-around;
+    padding: var(--padding-null); 
     @include flex-C-spaceA;
 
     h2{
@@ -13,9 +9,7 @@
     }
     
     .Block-Gauche{
-        grid-area: 2 / 1 / 3 / 2;
- 
-   
+        grid-area: 2 / 1 / 3 / 2; 
         width: 90%;
         padding: var(--padding-base);
         border-radius: var(--border-base);
@@ -70,11 +64,7 @@
     }
 
     .Block-Droite{
-        grid-area: 2 / 2 / 3 / 3;
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: space-between;
+        grid-area: 2 / 2 / 3 / 3; 
         @include flex-C-spaceB;
 
         .card {
@@ -119,8 +109,7 @@
                     transition: color var(--transition-speed) ease-in-out,
                                 background-color var(--transition-speed) ease-in-out,
                                 border-color var(--transition-speed) ease-in-out,
-                                box-shadow var(--transition-speed) ease-in-out;
-                    // text-decoration: none;
+                                box-shadow var(--transition-speed) ease-in-out; 
 
                     &.btn-primary {
                         color: var(--White-Primary);
@@ -131,8 +120,7 @@
                         &:focus {
                             color: var(--White-Primary);
                             background-color: var(--primary-color2);
-                            border-color: var(--primary-color1);
-                            // text-decoration: none;
+                            border-color: var(--primary-color1); 
                         }
                     }
                 }
@@ -168,12 +156,8 @@
 
         .Block-Droite{
             grid-area: 2 / 2 / 3 / 3;
-            padding: var(--padding-null);
-            height: 100%;
-            // display: flex;
-            // flex-direction: column;
-            // align-items: center;
-            // justify-content: space-between;
+            padding: 5%;
+            height: 100%; 
             @include flex-C-spaceB;
 
             .card{ padding: var(--padding-null); }

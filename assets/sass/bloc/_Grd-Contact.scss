@@ -1,8 +1,4 @@
-.Grd-Contact{
-  // display: flex;
-  // align-items: center;
-  // flex-direction: column;
-  // justify-content: space-around;
+.Grd-Contact{ 
   @include flex-C-spaceA;
   
   h2{
@@ -16,11 +12,7 @@
     @include flex-C-spaceB;
     border-radius: var(--border-base);
     padding: var(--padding-base);
-    height: 95%;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: space-between;
+    height: 95%; 
     margin-bottom: 3.5%;
   }
     
@@ -247,11 +239,7 @@
     .Block-Gauche,
     .Block-Centre,
     .Block-Droite{
-      height: 100%;
-      // display: flex;
-      // flex-direction: column;
-      // align-items: center;
-      // justify-content: space-between;
+      height: 100%; 
       @include flex-C-spaceB;
     }
 

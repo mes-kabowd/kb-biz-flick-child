@@ -13,9 +13,6 @@ header {
     .Logo,
     .LogoMb { 
         width: 20vw;
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
         @include flex-center;
         
         a{
@@ -39,9 +36,6 @@ header {
         );
 
         z-index: 5;
-        // display: flex;
-        // align-items: center;
-        // justify-content: space-around;
         @include flex-spaceA;
         position: fixed;
         
@@ -260,40 +254,24 @@ header {
             }
         }
         .ReseauxSociaux { 
-            // display: flex;
-            // align-items: center;
-            // justify-content: space-around;
             @include flex-spaceA;
             width: 100%;
             order: 1;
             a{
                 width: 35px;
                 aspect-ratio: 1;
-                // background-color: aqua;
-                img{
-                    // width: 100%;
-                    // height: 100%;
-                    // object-fit: contain;
-                    @include ImgBase;
-                }
+                img{ @include ImgBase; }
             }
         }
         .MenuBas { 
             width: 100%;
             height: 150%;
             padding: 5%;
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
             @include flex-center;
             order: 2;
 
             ul{
                 height: 100%;
-                // display: flex;
-                // flex-direction: column;
-                // align-items: center;
-                // justify-content: space-around;
 
                 @include flex-C-spaceA;
                 li{ }
@@ -303,10 +281,6 @@ header {
             order: 3;
             width: 45%;
             margin-top: 5%;
-            // display: flex;
-            // text-align: center;
-            // justify-content: center;
-
             @include flex-center;
         }
     }
@@ -325,9 +299,7 @@ header {
     @media screen and (min-width: 768px) {        
         .NavHeader{
             .BarreRechercheMb{
-                input[type="search"]{
-                    font-size: x-large;
-                }
+                input[type="search"]{ font-size: x-large; }
             }
         }
         
@@ -362,8 +334,6 @@ header {
                     grid-area: 1 / 1 / 3 / 2; 
                     padding: var(--padding-petit);
                     width: 20vw;
-                    // display: flex;
-                    // align-items: center;
                     @include flex-base;
                     
                     a{
@@ -371,21 +341,13 @@ header {
                         max-width: 250px;
                         max-height: 100px;
                 
-                        img{
-                            // width: 100%;
-                            // height: 100%;
-                            // object-fit: contain;
-                            @include ImgBase;
-                        }
+                        img{ @include ImgBase; }
                     }
                 }
                 .MenuHaut { 
                     width: 100%;
                     padding: 1%;
                     grid-area: 1 / 2 / 2 / 3; 
-                    // display: flex;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex-spaceA;
 
                     ul{
@@ -406,17 +368,12 @@ header {
                 .ReseauxSociaux { 
                     grid-area: 1 / 3 / 2 / 4;
                     padding: var(--padding-base); 
-                    // display: flex;
-                    // align-items: center;
-                    // justify-content: space-around;
                     @include flex-spaceA;
                     width: 22.5vw;
 
                 }
                 .MenuBas { 
                     grid-area: 2 / 2 / 3 / 3; 
-                    // display: flex;
-                    // align-items: center;
                     @include flex-base;
                     
                     ul{
@@ -427,16 +384,11 @@ header {
                 .Rdv { 
                     grid-area: 2 / 3 / 3 / 4; 
                     width: 20vw;
-                    // display: flex;
-                    // align-items: center;
-                    // justify-content: center;
                     @include flex-center;
                 }
             }
 
-            .Prenez-Notre-Service{
-                top: 25vh;
-            }
+            .Prenez-Notre-Service{ top: 25vh; }
         }
 
         

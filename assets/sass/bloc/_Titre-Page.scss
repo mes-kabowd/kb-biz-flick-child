@@ -1,11 +1,7 @@
 .Titre-Page{
     position: relative;
     width: 100%;
-    min-height: 50vh;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-around;
-    // align-items: center;
+    min-height: 50vh; 
     @include flex-C-spaceA;
     
     &::before {
@@ -17,9 +13,7 @@
         filter: opacity(50%) blur(5px);
         position: absolute;
         top: 0;
-        left: 0;
-        // width: 100%;
-        // height: 100%;
+        left: 0; 
         @include Width-Height-Base;
         transform: scale(1.1);
         z-index: -1;
@@ -36,29 +30,17 @@
 
     h1{text-align: center;}
 
-    .Block-Gauche{
-        // display: flex;
-        // flex-direction: column;
-        // align-items: center;
-        // justify-content: space-around;
+    .Block-Gauche{ 
         @include flex-C-spaceA;
 
         h1, h3{padding: var(--padding-base);}
-        // h3{padding: 5%;}
-
-        img{
-            // width: 100%;
-            // object-fit: contain;
-            @include ImgBase;
-        }
+ 
+        img{ @include ImgBase; }
       
     }
 
     .Block-Droite{
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        
+ 
         @include flex-center;
         flex-direction: column;
 
@@ -79,10 +61,6 @@
             width: 100%;
             height: 10%;
             margin: var(--margin-base);
-            // display: flex;
-            // align-items: center;
-            // justify-content: space-between;
-
             @include flex-spaceB;
 
             .btn {
@@ -109,7 +87,6 @@
                         color: var(--White-Primary);
                         background-color: var(--primary-color2);
                         border-color: var(--primary-color1);
-                        // text-decoration: none;
                     }
                 }
             }
@@ -122,12 +99,7 @@
         justify-content: space-around;
         
         .MiniStats{
-            width: 25%;
-            // display: flex;
-            // align-items: center;
-            // flex-direction: column;
-            // justify-content: space-between;
-
+            width: 25%; 
             @include flex-C-spaceB;
 
             .Valeur{ font-size: xx-large; }

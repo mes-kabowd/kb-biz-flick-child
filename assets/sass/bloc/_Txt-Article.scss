@@ -10,9 +10,8 @@
     }
     
     p{
-        max-height: 50vh;
-        // padding: 5%;
-        
+        padding: var(--padding-base);
+        max-height: 50vh;        
         overflow-y: auto;
     }
     

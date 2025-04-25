@@ -1,8 +1,5 @@
 .Media-Article{
-    min-height: 35vh;
-    // display: flex;
-    // align-items: center;
-    // justify-content: space-between;
+    min-height: 35vh; 
     @include flex-spaceB;
     flex-direction: column-reverse;
     margin-bottom: 5rem;
@@ -24,16 +21,9 @@
         }
     }
     .Block-Droite{
-        padding: var(--padding-null);
-        // background-color: var();
-        // display: flex;
-        // align-items: center;
+        padding: var(--padding-null); 
         @include flex-base;
-        img{
-            @include ImgBase;
-            // width: 100%;
-            // object-fit: contain;
-        }
+        img{ @include ImgBase; }
     }
     
     @media screen and (min-width: 576px){ }

@@ -1,16 +1,9 @@
-.Carrousel-pack{
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: space-between;
+.Carrousel-pack{ 
 
   @include flex-C-spaceB;
   
   .Block-Haut{
-    @include flex-C-spaceA;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
+    @include flex-C-spaceA; 
     h2{ padding: var(--padding-base); }
     
     p{
@@ -20,18 +13,13 @@
   }
 
 
-  .Carrousel{
-    // height: 100%;
-    // width: 100%;
+  .Carrousel{ 
     @include Width-Height-Base;
     @include flex-base;
     flex-flow: row wrap;
     overflow-x: auto;
-    margin: var(--margin-null);
-    // display: flex;
-    // justify-content: center;
-    // list-style: none;
-
+    margin: var(--margin-null); 
+    
     .carte {
       width: 15rem;
       display: flex;
@@ -112,18 +100,13 @@
   }
 
   .Block-Bas { 
-    width: 100%;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
+    width: 100%; 
     @include flex-C;
     .MiniStats{
       display: flex;
       margin: 5%;
       
-      .Valeur{
-        margin: 5%;
-      }
+      .Valeur{ margin: 5%; }
 
       .Txt-Valeur{}
     }
