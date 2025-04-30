@@ -5,10 +5,6 @@
 
 // Enqueue des feuilles de style et scripts
 function kb_biz_flick_child_enqueue() {
-    // Charger le style parent.
-    // wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-
-
     // Normalize.css
     wp_enqueue_style(
         'kb-normalize',
@@ -17,6 +13,7 @@ function kb_biz_flick_child_enqueue() {
         filemtime( get_stylesheet_directory() . '/assets/css/normalize.css' )
     );
     
+
     // CSS principal compilé depuis les sources Sass
     wp_enqueue_style(
         'kb-child-style',
