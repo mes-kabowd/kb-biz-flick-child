@@ -1,103 +1,103 @@
-/*==============================================================================
-  1. Déclaration de la famille Gilroy avec toutes ses variantes
-==============================================================================*/
-
-// Ici nous listons toutes les variantes de Gilroy telles qu'affichées dans l'image
-$gilroy-fonts: (
-  "Thin": (file: "Gilroy-Thin.ttf"),
-  "Light": (file: "Gilroy-Light.ttf"),
-  "Regular": (file: "Gilroy-Regular.ttf"),
-  "Medium": (file: "Gilroy-Medium.ttf"),
-  "SemiBold": (file: "Gilroy-SemiBold.ttf"),
-  "Bold": (file: "Gilroy-Bold.ttf"),
-  "ExtraBold": (file: "Gilroy-ExtraBold.ttf"),
-  "Black": (file: "Gilroy-Black.ttf")
-);
-
-@each $variant, $props in $gilroy-fonts {
-  @include font-face(
-    "Gilroy",
-    "/wp-content/themes/kb-biz-flick-child/assets/font/gilroy/#{map-get($props, file)}",
-    "truetype"
-    );
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/gilroy/Gilroy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/*==============================================================================
-  2. Déclaration de la famille Kenney Future
-==============================================================================*/
-
-// D'après l'image, il y a deux variantes de Kenney Future
-$kenney-future-fonts: (
-  "Narrow": (
-    file: "Kenney Future Narrow.ttf"
-    ),
-  "Square": (
-    file: "Kenney Future Square.ttf"
-    )
-);
-
-@each $variant, $props in $kenney-future-fonts {
-  // Ici, on nomme la police "Kenney Future Narrow" ou "Kenney Future Square"
-  @include font-face(
-    "Kenney Future #{$variant}",
-    "/wp-content/themes/kb-biz-flick-child/assets/font/kenney-future/#{map-get($props, file)}",
-    "truetype"
-    );
+@font-face {
+  font-family: 'GilroySB';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/gilroy/Gilroy-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/*==============================================================================
-  3. Déclaration de la police Kerox
-==============================================================================*/
+@font-face {
+  font-family: 'GilroyB';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/gilroy/Gilroy-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
-// La police Kerox est au format OpenType (généralement .otf)
-@include font-face(
-  "Kerox",
-  "/wp-content/themes/kb-biz-flick-child/assets/font/kerox-font-non-commercial/Kerox-NonCommercial.otf",
-  "opentype"
-);
+@font-face {
+  font-family: 'GilroyBlk';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/gilroy/Gilroy-Black.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'Kenney Future N';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/kenney-future/Kenney\ Future\ Narrow.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-/***********************************************************/
+@font-face {
+  font-family: 'Kenney Future S';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/kenney-future/Kenney\ Future\ Square.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kerox';
+  src: url('/wp-content/themes/kb-biz-flick-child/assets/font/kerox-font-non-commercial/Kerox-NonCommercial.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 // Taille de base pour la conversion px -> rem
 $base-font-size: 16px;
 
-/* ... contenu existant du fichier font.scss ... */
-
+// Fonction pour convertir les pixels en rem
 @function remCalc($px) {
   @return ($px / $base-font-size) * 1rem;
 }
 
+// Mixin utilisant clamp() pour une typographie fluide
+@mixin fluid-text($min-px, $preferred-vw, $max-px) {
+  font-size: clamp(remCalc($min-px), $preferred-vw, remCalc($max-px));
+}
 
 // Application des styles responsive avec clamp
+
 h1 {
-  @include fluid-text(32px, 5vw, 56px); // Ex: 32px (min), 5vw (opt), 50px (max)
+  @include fluid-text(32px, 5vw, 64px); // Ex: 32px (min), 5vw (opt), 64px (max)
+  font-family: "Kerox";
 }
 
 h2 {
-  @include fluid-text(24px, 4vw, 42px);
+  @include fluid-text(24px, 4vw, 48px);
+  font-family: "Kenney Future N";
 }
 
-h3 {
-  @include fluid-text(18px, 3vw, 28px);
+h3, button {
+  @include fluid-text(18px, 3vw, 36px);
+  font-family: "Kenney Future S";
 }
 
 h4 {
-  @include fluid-text(16px, 2.5vw, 24px);
+  @include fluid-text(16px, 2.5vw, 32px);
+  font-family: "GilroyBlk";
 }
 
 h5 {
-  @include fluid-text(14px, 2vw, 20px);
+  @include fluid-text(14px, 2vw, 28px);
+  font-family: "GilroyB";
 }
 
-p {
-  @include fluid-text(14px, 2vw, 18px);
+p, input, textarea {
+  @include fluid-text(14px, 2vw, 28px);
+  font-family: "Gilroy", sans-serif;
 }
 
-li {
-  @include fluid-text(12px, 1.8vw, 16px);
+li, label {
+  @include fluid-text(12px, 1.8vw, 24px);
+  font-family: "GilroySB", sans-serif;
 }
 
 a {
-  @include fluid-text(14px, 2vw, 18px);
+  font-family: "GilroySB", sans-serif;
+  @include fluid-text(14px, 2vw, 28px);
 }

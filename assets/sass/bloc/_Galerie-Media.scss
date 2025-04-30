@@ -14,12 +14,11 @@
         object-fit: cover;
         cursor: pointer;
         filter: grayscale(80%) blur(5px);
-        transition: var(--transition-speed) linear;
+        transition: all var(--transition-speed) linear;
 
         &:hover{
             filter: grayscale(0);
-            width:  calc (150px * 1.5);
-            height: calc (150px * 1.5);
+            transform: scale(1.5);
             object-fit: contain;
         }
     }

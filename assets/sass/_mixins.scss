@@ -1,20 +1,20 @@
-@mixin font-face($font-family, $file-path, $format, $file-path-woff: null, $file-path-woff2: null, $weight: normal, $style: normal) {
-    @font-face {
-        font-family: "#{$font-family}";
-        src: url("#{$file-path-woff2}") format("woff2"),
-            url("#{$file-path-woff}") format("woff"),
-            url("#{$file-path}") format("#{$format}");
-        font-display: swap;
-    }
-}
+// @mixin font-face($font-family, $file-path, $format, $file-path-woff: null, $file-path-woff2: null, $weight: normal, $style: normal) {
+//     @font-face {
+//         font-family: "#{$font-family}";
+//         src: url("#{$file-path-woff2}") format("woff2"),
+//             url("#{$file-path-woff}") format("woff"),
+//             url("#{$file-path}") format("#{$format}");
+//         font-display: swap;
+//     }
+// }
 
 /***********************************************/
 
-@mixin fluid-text($min-px, $preferred-vw, $max-px) {
-    font-size: clamp(remCalc($min-px), $preferred-vw, remCalc($max-px));
-  }
+// @mixin fluid-text($min-px, $preferred-vw, $max-px) {
+//     font-size: clamp(remCalc($min-px), $preferred-vw, remCalc($max-px));
+//   }
   
-  @mixin white-gradient {
+@mixin white-gradient {
     background: linear-gradient(
       to right, 
       rgba(255,255,255,1) 0%, 
@@ -24,17 +24,17 @@
   
 /***********************************************/
 
-@mixin boutton($bg-color, $text-color, $padding: 1em, $radius: 5px) {
-    background-color: $bg-color;
-    color: $text-color;
-    padding: $padding;
-    border-radius: $radius;
-    border: none;
-    cursor: pointer;
-    &:hover {
-        opacity: 0.9;
-    }
-}
+// @mixin boutton($bg-color, $text-color, $padding: 1em, $radius: 5px) {
+//     background-color: $bg-color;
+//     color: $text-color;
+//     padding: $padding;
+//     border-radius: $radius;
+//     border: none;
+//     cursor: pointer;
+//     &:hover {
+//         opacity: 0.9;
+//     }
+// }
 
 /***********************************************/
 

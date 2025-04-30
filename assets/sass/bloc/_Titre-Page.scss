@@ -54,6 +54,7 @@
         
         p{
             margin: var(--margin-base);
+            font-weight: bold;
             overflow-y: auto;
         }
 
@@ -95,15 +96,18 @@
 
     .Bloc-Bas{
         width: 100%;
-        display: flex;
-        justify-content: space-around;
+        padding: var(--padding-base);
+        // display: flex;
+        // justify-content: space-around;
+        @include flex-C-spaceB;
         
         .MiniStats{
-            width: 25%; 
+            // width: 25%; 
+            margin: var(--margin-mini);
             @include flex-C-spaceB;
-
+            
             .Valeur{ font-size: xx-large; }
-
+            
             .Txt-Valeur{}
         }
     }
@@ -112,7 +116,23 @@
         
     }
     
-    @media screen and (min-width: 768px) {        
+    @media screen and (min-width: 768px) {  
+        .Bloc-Bas{
+            flex-direction: row;
+            .MiniStats{
+                margin: var(--margin-null);
+                
+                .Valeur{ 
+                    margin: var(--margin-mini);
+                }
+
+                .Txt-Valeur{
+                    text-align: center;
+                    margin: var(--margin-mini);
+                }
+            }
+        }   
+
         &::before{}
     }
     
@@ -121,6 +141,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr 2fr 1fr;
+        padding: var(--padding-null);
     
         &::before{}
         
@@ -144,28 +165,44 @@
     
         .Bloc-Bas{
             grid-area: 3 / 1 / 4 / 3;
+            padding: var(--padding-mini);
             
             .MiniStats{
 
-                width: 27.5%;
-                text-align: left;
+                width: 30%;
+                // text-align: left;
                 flex-direction: row;
                 background-clip: border-box;
                 border: 1px solid var(--White-Primary);
                 border-radius: var(--border-radius);
                 padding: var(--padding-mini);
-                margin: var(--margin-petit);
+                margin: var(--margin-null);
                 transition: box-shadow .3s;
                 
                 &:hover { box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.15); }
 
-    
-                .Valeur{ }
-    
-                .Txt-Valeur{ }
+                .Valeur{ 
+                    margin: var(--margin-null);
+                }
+
+                .Txt-Valeur{
+                    text-align: left;
+                    margin: var(--margin-null);
+                }
             }
         }
     }
     
-    @media screen and (min-width: 1200px) { min-height: 25vh; }
+    @media screen and (min-width: 1200px) { 
+        min-height: 25vh; 
+
+        .Bloc-Bas{
+
+            .MiniStats{
+                .Valeur{ margin: var(--margin-mini); }
+
+                .Txt-Valeur{ margin: var(--margin-mini); }
+            }
+        }
+    }
 }

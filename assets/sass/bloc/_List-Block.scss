@@ -12,10 +12,11 @@
     
     .Block-Bas{
         min-height: 50vh;
-        
 
         .Pack {
+            height: 100%;
             display: flex;
+            margin: var(--margin-base);
             background-clip: border-box;
             border: 1px solid var(--Gray-Primary);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -44,7 +45,7 @@
                 padding: var(--padding-base);
  
                 /* texte */
-                p {color: var(--Gray-Primary);}
+                // p {color: var(--Gray-Primary);}
             
                 /* bouton primaire */
                 .btn {
@@ -69,7 +70,7 @@
                         &:hover,
                         &:focus {
                             color: var(--White-Primary);
-                            background-color: var(--primary-color1);
+                            background-color: var(--primary-color2);
                             border-color: var(--primary-color2); 
                         }
                     }
@@ -81,14 +82,21 @@
             &:last-child{ grid-area: 3 / 3 / 4 / 4; }
         }
 
-
-
-
     }
     
     @media screen and (min-width: 576px){}
     
-    @media screen and (min-width: 768px) {}
+    @media screen and (min-width: 768px) {
+        .Block-Bas{
+            .Pack{
+                img{}
+                .card-Ctn{
+                    height: 100%;
+                    @include flex-C-spaceB
+                }
+            }
+        }
+    }
     
     @media screen and (min-width: 992px) {
         .Block-Haut{
@@ -108,6 +116,7 @@
             
             article{
                 width: 40vw;
+                // margin: var(--margin-null);
                 display: grid;
                 grid-template-columns: 2fr repeat(2, 1fr);
                 grid-template-rows: 2fr 1fr;
@@ -143,5 +152,26 @@
     
     }
     
-    @media screen and (min-width: 1200px) {}
+    @media screen and (min-width: 1200px) {
+        .Block-Bas{
+            article{
+    
+                img { 
+
+                    padding: var(--padding-mini);
+                }
+    
+                p { 
+
+                    padding: var(--padding-mini);
+                }
+    
+                h4 { 
+
+                    padding: var(--padding-mini);
+                }
+            }
+    
+        }
+    }
 }

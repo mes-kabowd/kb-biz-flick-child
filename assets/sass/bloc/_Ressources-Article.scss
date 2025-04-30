@@ -1,5 +1,4 @@
 .Ressources-Article{
-    margin-bottom: 5rem;
     
     h2{
         padding: var(--padding-base);
@@ -14,7 +13,7 @@
             a{
                 transition: var(--transition-speed) linear;   
                 
-                &:hover{ color: var(--White-Primary); }      
+                &:hover{ color: var(--primary-color2); }      
             }
         }
     }
@@ -24,8 +23,6 @@
     @media screen and (min-width: 768px) { }
     
     @media screen and (min-width: 992px) {
-
-        margin-bottom: 3.5rem;
         
         ul{
             li{margin: var(--margin-petit);}

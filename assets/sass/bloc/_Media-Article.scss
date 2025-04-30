@@ -2,7 +2,6 @@
     min-height: 35vh; 
     @include flex-spaceB;
     flex-direction: column-reverse;
-    margin-bottom: 5rem;
 
     .Block-Gauche{
         width: 100%;
@@ -29,17 +28,18 @@
     @media screen and (min-width: 576px){ }
     
     @media screen and (min-width: 768px) {        
-        min-height: 35vh;
-        margin-bottom: 3.5rem;
-        flex-direction: row;
-
+        // min-height: 50vh;
+        
         .Block-Gauche{
-            padding: var(--padding-null);
+            padding: var(--padding-base);
             width: 40%;
         }
     }
     
-    @media screen and (min-width: 992px) { }
+    @media screen and (min-width: 992px) { 
+        flex-direction: row;
+        .Block-Gauche{ padding: var(--padding-null); }
+    }
     
     @media screen and (min-width: 1200px) { }
 

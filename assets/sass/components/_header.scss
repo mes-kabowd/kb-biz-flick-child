@@ -3,7 +3,9 @@ header {
 
     a{
         color: var(--White-Primary);
-        transition: all var(--transition-speed);
+        font-weight: bold;
+        transition: all 0.5s;
+
         &:hover{
             color: var(--secondary-color2);
             transform: scale(1.25);
@@ -20,9 +22,7 @@ header {
             max-width: 250px;
             max-height: 100px;
     
-            img{
-                @include ImgBase;
-            }
+            img{ @include ImgBase; }
         }
     }
 
@@ -248,8 +248,9 @@ header {
             }
             ul{
                 margin-bottom: 50%;
-                li{
-                    margin: auto;
+                li{ 
+                    margin: auto; 
+                    font-size: x-large
                 }
             }
         }
@@ -279,7 +280,8 @@ header {
         }
         .Rdv { 
             order: 3;
-            width: 45%;
+            // width: 45%;
+            font-size: large;
             margin-top: 5%;
             @include flex-center;
         }
@@ -300,6 +302,13 @@ header {
         .NavHeader{
             .BarreRechercheMb{
                 input[type="search"]{ font-size: x-large; }
+            }
+            .ContenuHeader{
+                .MenuBas{
+                    ul{
+                        li{ font-size: larger; }
+                    }
+                }
             }
         }
         
@@ -323,7 +332,7 @@ header {
     
                 height: 2.5%;
                 display: grid;
-                grid-template-columns: 1fr 4fr 1fr;
+                grid-template-columns: 1fr 4fr 2fr;
                 grid-template-rows: repeat(2, 1fr);
                 grid-column-gap: 0px;
                 grid-row-gap: 0px;
@@ -385,6 +394,7 @@ header {
                     grid-area: 2 / 3 / 3 / 4; 
                     width: 20vw;
                     @include flex-center;
+                    a{ font-size: larger; }
                 }
             }
 
@@ -399,7 +409,20 @@ header {
 
        a{}
 
-       .BarreRecherche{width: 30vw;}
+       .NavHeader{
+           .ContenuHeader{
+                .MenuHaut{
+                    ul{
+                        li{
+                            .BarreRecherche{
+                                width: 30vw;
+                                input[type="search"]{ font-size: larger; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     
