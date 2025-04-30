@@ -45,7 +45,7 @@
                     <div class="Contenue-Carte">
                         <h5 class="Titre-Carte">Titre article 1</h5>
                         <p>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
                         </p>
                         <a href="#" class="btn btn-primary">En voir davantage</a>
                     </div>

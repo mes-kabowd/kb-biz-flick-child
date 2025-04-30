@@ -10,16 +10,16 @@
     <header>
         <nav class="NavHeader">
             <div class="LogoMb">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+                <a href="<?php echo home_url(); ?>">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Logo Principal Couleur.png" alt="Logo de Kabowd">
                 </a>
             </div>
             <?php get_search_form(); ?>
             <input type="checkbox" name="" class="menu" id="BtnBurger">
             <section class="ContenuHeader">
                 <div class="Logo">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+                    <a href="<?php echo home_url(); ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Logo Principal Couleur.png" alt="Logo de Kabowd">
                     </a>
                 </div>
                 <nav class="MenuHaut">
