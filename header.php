@@ -1,28 +1,58 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> <?php blankslate_schema_type(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width">
-<?php wp_head(); ?>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="wrapper" class="hfeed">
-<header id="header" role="banner">
-<div id="branding">
-<div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-<?php
-if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '<h1>'; }
-echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url"><span itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span></a>';
-if ( is_front_page() || is_home() || is_front_page() && is_home() ) { echo '</h1>'; }
-?>
-</div>
-<div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>><?php bloginfo( 'description' ); ?></div>
-</div>
-<nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
-<div id="search"><?php get_search_form(); ?></div>
-</nav>
+<header>
+    <nav class="NavHeader">
+        <div class="LogoMb">
+            <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+            <!-- <a href="index.html"><img src="assets/img/Logo Principal Blanc.png" alt=""></a> -->
+        </div>
+        <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
+            <input id="search" type="search" placeholder="Search..." autofocus required />
+            <button type="submit">Go</button>    
+        </form>
+
+        
+        <input type="checkbox" name="" class="menu" id="BtnBurger">
+        <section class="ContenuHeader">
+            <div class="Logo">
+                <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+            </div>
+            <nav class="MenuHaut">
+                <ul>
+                    <li>
+                        <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
+                            <input id="search" type="search" placeholder="Search..." autofocus required />
+                            <button type="submit">Go</button>    
+                        </form>
+                    </li>
+                    <li><a href="Recherche.html">Connexion</a></li>
+                </ul>
+            </nav>
+            <div class="ReseauxSociaux">
+                <a href=""><img src="assets/img/Linkedin.svg" alt=""></a>
+                <a href=""><img src="assets/img/Facebook.svg" alt=""></a>
+                <a href=""><img src="assets/img/GitHub.svg" alt=""></a>
+                <a href=""><img src="assets/img/Instagram.svg" alt=""></a>
+                <a href=""><img src="assets/img/YouTube.svg" alt=""></a>
+            </div>
+            <nav class="MenuBas">
+                <ul>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="Secteurs.html">Secteurs</a></li>
+                    <li><a href="Blogs.html">Blog</a></li>
+                    <li><a href="A-Propos.html">À propos</a></li>
+                </ul>
+            </nav>
+            <div class="Rdv">
+                <a href="erreur404.html">Prenez un Rendez-vous</a>
+            </div>
+        </section>
+    </nav>
 </header>
-<div id="container">
-<main id="content" role="main">
