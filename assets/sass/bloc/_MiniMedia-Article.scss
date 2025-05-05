@@ -1,0 +1,50 @@
+.MiniMedia-Article{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h2{ text-align: center; }
+    
+    .Block-Bas{
+
+        height: 50vh;
+        @include flex-C-spaceA;
+
+        p{  
+            padding: var(--padding-base);
+            max-height: 25vh;
+            overflow-y: auto;
+        }
+
+        img{
+            width: 90%; 
+            object-fit: contain;
+        }
+
+    }
+    
+    @media screen and (min-width: 576px){}
+    
+    @media screen and (min-width: 768px) {}
+    
+    @media screen and (min-width: 992px) {   
+        
+        h2{ text-align: left; }
+        
+        .Block-Bas{
+
+            flex-direction: row;
+
+            p{
+                width: 40%;
+                max-height: 30vh;
+            }
+
+            img{ width: 45%; }
+    
+        }
+    }
+    
+    @media screen and (min-width: 1200px) {}
+}

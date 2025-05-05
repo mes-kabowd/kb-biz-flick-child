@@ -1,0 +1,67 @@
+.Carrousel-Infini{
+    height: 30vh;
+    @include flex-center;
+    padding: var(--padding-null);
+    
+    $animationSpeed: 40s;
+    
+    // Animation
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 7))}
+    }
+    
+    
+    // Styling
+    .Ctn-Carrousel-Infini {
+        background: white;
+        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+        margin: auto;
+        overflow:hidden;
+        position: relative;
+        width: 100%;
+        padding: var(--padding-null);
+        
+        &::before,
+        &::after {
+            @include white-gradient;
+            content: "";
+            height: 100%;
+            position: absolute;
+            width: 200px;
+            z-index: 2;
+        }
+        
+        &::after {
+            right: 0;
+            top: 0;
+            transform: rotateZ(180deg);
+        }
+    
+        &::before {
+            left: 0;
+            top: 0;
+        }
+        
+        .Contenu {
+            animation: scroll $animationSpeed linear infinite;
+            display: flex;
+            width: calc(250px * 14);
+        }
+        
+        .ImgCtn {
+            height: 100%;
+            width: 250px;
+        }
+    }
+
+    @media screen and (min-width: 576px) {}
+    
+    @media screen and (min-width: 768px) {}
+    
+    @media screen and (min-width: 992px) {
+        padding: var(--padding-null);
+    }
+    
+    @media screen and (min-width: 1200px) {}
+}

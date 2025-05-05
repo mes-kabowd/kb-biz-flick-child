@@ -1,0 +1,231 @@
+.Page-Recherche{
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+
+  form {
+    position: relative;
+    width: 90vw;
+    background: var(--primary-color1);
+    border-radius: var(--border-base);
+
+    input, button {
+      height: var(--height);
+      border: 0;
+      color: var(--text-color);
+    }
+
+    input[type="search"] {
+      width: 100%;
+      background: var(--color-light);
+      padding: 0 1.6rem;
+      border-radius: var(--border-base);
+      appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
+      transition: all var(--dur) var(--bez);
+      transition-property: width, border-radius;
+      z-index: 1;
+      position: relative;
+    }
+
+    button {
+      display: none; // prevent being able to tab to it
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: var(--btn-width);
+
+      background: var(--primary-color1);
+      border-radius: 0 var(--border-base) var(--border-base) 0;
+    }
+
+    input:not(:placeholder-shown) {
+      border-radius: var(--border-base) 0 0 var(--border-base);
+      width: calc(100% - var(--btn-width));
+      + button {
+        display: block;
+      }
+    }
+
+    label {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: var(--padding-null);
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+  }
+  
+
+  .mainCard {
+    text-align: center;
+    display: block;
+    padding: 0;
+    width: 100%;
+    margin: 60px auto;
+    background-color: var(--White-Primary);
+    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
+    -webkit-animation-name: mainCard;
+    animation-name: mainCard;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    // Enlever l’imbrication pour garder les keyframes globales
+    @at-root {
+      @-webkit-keyframes mainCard {
+        0% { transform: scale(0); }
+      }
+
+      @keyframes mainCard {
+        0% { transform: scale(0); }
+      }
+    }
+
+    // Entête de la carte
+    .mainCardHeader {
+      background-color: var(--primary-color1);
+      height: 100px;
+      width: 100%;
+      -webkit-animation-name: mainCardHeader;
+      animation-name: mainCardHeader;
+      -webkit-animation-duration: var(--transition-speed);
+      animation-duration: var(--transition-speed);
+      -webkit-animation-delay: 0.5s;
+      animation-delay: 0.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    // Placer les keyframes de mainCardHeader globalement
+    @at-root {
+      @-webkit-keyframes mainCardHeader {
+        0% { transform: scaleY(0); }
+      }
+
+      @keyframes mainCardHeader {
+        0% { transform: scaleY(0); }
+      }
+    }
+
+    // Contenu de la carte
+    .articles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px; // Espacement entre les articles
+
+
+      .miniCard {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        -webkit-animation-name: miniCard;
+        animation-name: miniCard;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        display: flex;
+        background-clip: border-box;
+
+        border: 1px solid var(--Gray-Primary);
+        border-radius: var(--border-base);
+        
+        
+        flex: 1 1 calc(30% - 20px); // Ajuste la largeur en fonction du nombre de colonnes
+        transition: box-shadow var(--transition-speed);
+        
+        &:hover {
+          box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        /* image "haut de carte" */
+        img {
+          display: block;
+          width: 50%;
+          object-fit: contain;
+          border-top-left-radius: var(--border-base);
+          border-top-right-radius: var(--border-base);
+          padding: var(--padding-base);
+        }
+
+        /* corps de la carte */
+        .InfoBlog {
+          height: 100%;
+          flex: 1 1 auto; 
+          @include flex-C-spaceB;
+          padding: var(--padding-base);
+          
+      
+          /* titre */
+          h3 { margin-bottom: 0.75rem; }
+      
+          /* texte */
+          p {
+            margin-bottom: 1rem;
+            color: var(--Gray-Primary)
+          }
+      
+          /* bouton primaire */
+          .btn {
+            display: inline-block;
+            line-height: 1.5;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: var(--border-base);
+            transition: color var(--transition-speed) ease-in-out,
+                        background-color var(--transition-speed) ease-in-out,
+                        border-color var(--transition-speed) ease-in-out,
+                        box-shadow var(--transition-speed) ease-in-out; 
+            &-primary {
+              color: var(--White-Primary);
+              background-color: var(--primary-color1);
+              border-color: var(--primary-color1);
+      
+              &:hover,
+              &:focus {
+                color: var(--White-Primary);
+                background-color: var(--primary-color2);
+                border-color: var(--primary-color1); 
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+    
+  // Keyframes de la miniCard à conserver en global
+  @at-root {
+    @-webkit-keyframes miniCard {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  
+    @keyframes miniCard {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  }
+
+  @media screen and (min-width: 576px){}
+  
+  @media screen and (min-width: 768px) {}
+  
+  @media screen and (min-width: 992px) {}
+  
+  @media screen and (min-width: 1200px) {}
+}

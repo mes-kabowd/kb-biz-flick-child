@@ -1,0 +1,248 @@
+.Mini-Carrousel-Blog{ 
+  @include flex-C-spaceB;
+  padding: var(--padding-null);
+  min-height: 35vh;
+  overflow: hidden;
+  
+  h2{
+    height: 25%;
+    margin: center;
+    padding: var(--padding-base);
+  }
+
+  .Galerie-Blog { 
+    @include P-M-null;
+    display: grid;
+    grid-template-rows: 60vw 10vh;
+    grid-template-columns: 1fr 10% 10% 10% 10% 10% 1fr;
+    align-items: center;
+    justify-items: center;
+  
+    #carousel {
+      grid-row: 1 / 2;
+      grid-column: 1 / 8;
+      width: 100vw;
+      height: 100%; 
+      @include flex-center;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      perspective: 600px;
+      --items: 5;
+      --middle: 3;
+      --position: 1;
+      pointer-events: none;
+  
+      .item {
+        position: absolute;
+        height: 100%;
+        aspect-ratio: 5/7;
+        background-color: var(--White-Primary);
+        background-clip: border-box;
+        border: 1px solid var(--Gray-Primary);
+        border-radius: var(--border-base);
+        margin: var(--margin-base);
+
+        --r: calc(var(--position) - var(--offset));
+        --abs: max(calc(var(--r) * -1), var(--r));
+        transition: all var(--transition-speed) linear;
+        transform: rotateY(calc(-10deg * var(--r)))
+          translateX(calc(-300px * var(--r)));
+        z-index: calc((var(--position) - var(--abs)));
+ 
+        @include flex-C-spaceA;
+
+        /* S'assurer que le contenu interne est placé au-dessus de l'overlay */
+          * {
+            position: relative;
+            z-index: 2;
+        }
+    
+        img{
+          width: 35%;
+          aspect-ratio: 1;
+          object-fit: contain;
+        }
+        
+        .InfoBlog{
+          height: 100%;
+          width: 60%;
+          padding: 2.5%; 
+          @include flex-C-spaceB;
+          margin-bottom: 0.75rem;
+          color: var(--Black-Primary);
+
+          p{
+            
+            margin-bottom: 1rem;
+            color: var(--Gray-Primary);
+            display: none;
+          }
+          
+          img{
+            padding: var(--padding-base);
+            object-fit: contain;
+          }
+          
+          .btn {
+            display: inline-block;
+            width: 100%;
+            line-height: 1.5;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            padding: 0.375rem 0.75rem;
+            border: 1px solid transparent;
+            border-radius: var(--border-base);
+            transition: color var(--transition-speed) ease-in-out,
+                        background-color var(--transition-speed) ease-in-out,
+                        border-color var(--transition-speed) ease-in-out,
+                        box-shadow var(--transition-speed) ease-in-out; 
+
+            &.btn-primary {
+              color: var(--White-Primary);
+              background-color: var(--primary-color1);
+              border-color: var(--primary-color1);
+
+              &:hover,
+              &:focus {
+                color: var(--White-Primary);
+                background-color: var(--primary-color2);
+                border-color: var(--primary-color1); 
+              }
+            }
+          }
+
+        }
+    
+        &:nth-of-type(1) { --offset: 1; }
+        &:nth-of-type(2) { --offset: 2; }
+        &:nth-of-type(3) { --offset: 3; }
+        &:nth-of-type(4) { --offset: 4; }
+        &:nth-of-type(5) { --offset: 5; }
+      }
+    }
+    
+    input {
+      cursor: pointer;
+      height: 20%;
+      aspect-ratio: 1;
+
+      &:nth-of-type(1) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+      &:nth-of-type(1):checked ~ #carousel { --position: 1; }
+      
+      &:nth-of-type(2) {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+      }
+      &:nth-of-type(2):checked ~ #carousel { --position: 2; }
+      
+      &:nth-of-type(3) {
+        grid-column: 4 /5;
+        grid-row: 2 / 3;
+      }
+      &:nth-of-type(3):checked ~ #carousel { --position: 3; }
+      
+      &:nth-of-type(4) {
+        grid-column: 5 / 6;
+        grid-row: 2 / 3;
+      }
+      &:nth-of-type(4):checked ~ #carousel { --position: 4; }
+      
+      &:nth-of-type(5) {
+        grid-column: 6 / 7;
+        grid-row: 2 / 3;
+      }
+      &:nth-of-type(5):checked ~ #carousel { --position: 5; }
+    }
+      
+  }
+  
+  @media screen and (min-width: 576px) {
+
+  }
+  
+  @media screen and (min-width: 768px) {
+    min-height: 20vh;
+
+    h2{ padding: var(--padding-mini); }
+
+    .Galerie-Blog { 
+      @include P-M-null;
+      display: grid;
+      grid-template-rows: 30vw 10vh;
+      grid-template-columns: 1fr 10% 10% 10% 10% 10% 1fr;
+      align-items: flex-start;
+    
+      #carousel {
+        grid-row: 1 / 2;
+        grid-column: 1 / 8;
+        width: 100vw;
+        height: 95%; 
+        @include flex-center;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 600px;
+        --items: 5;
+        --middle: 3;
+        --position: 1;
+        pointer-events: none;
+    
+        .item {
+          position: absolute;
+          aspect-ratio: 5/7;
+          
+        }
+      }
+      
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .Galerie-Blog {
+      min-height: 50vh; 
+      @include P-M-null;
+      display: grid;
+      grid-template-rows: 500px 100px;
+      grid-template-columns: 1fr 7.5% 7.5% 7.5% 7.5% 7.5% 1fr;
+      
+      h2{}
+      
+      #carousel {
+        grid-row: 1 / 2;
+        grid-column: 1 / 8;
+        width: 100vw;
+        height: 95%; 
+        @include flex-center;
+        overflow: hidden;
+        transform-style: preserve-3d;
+        perspective: 600px;
+        --items: 5;
+        --middle: 3;
+        --position: 1;
+        pointer-events: none;
+        
+        .item { 
+          flex-direction: row; 
+          height: 75%;
+          aspect-ratio: 4/3;
+          
+          .InfoBlog{
+            p{ display: block;}
+          }
+        }
+      
+      
+      input { cursor: pointer; }
+      
+    }
+  }
+
+}
+
+}

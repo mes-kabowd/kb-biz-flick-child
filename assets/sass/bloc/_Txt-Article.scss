@@ -1,0 +1,30 @@
+.Txt-Article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    h2{
+        text-align: center;
+        padding: var(--padding-base);
+    }
+    
+    p{
+        padding: var(--padding-base);
+        max-height: 50vh;        
+        overflow-y: auto;
+    }
+    
+    @media screen and (min-width: 576px){ }
+    
+    @media screen and (min-width: 768px) { }
+    
+    @media screen and (min-width: 992px) {
+        
+        h2{ text-align: left; }
+
+        p{}
+    
+    }
+    
+    @media screen and (min-width: 1200px) { }
+}

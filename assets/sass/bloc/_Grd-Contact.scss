@@ -1,0 +1,361 @@
+.Grd-Contact{ 
+  @include flex-C-spaceA;
+  
+  h2{
+    text-align: center;
+    margin: var(--margin-base);
+  }
+
+  .Block-Gauche,
+  .Block-Centre,
+  .Block-Droite{
+    @include flex-C-spaceB;
+    border-radius: var(--border-base);
+    padding: var(--padding-base);
+    height: 95%; 
+    margin-bottom: 3.5%;
+  }
+    
+  .Block-Gauche {
+    background-color: var(--White-Primary);
+
+  
+    h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      gap: 1rem;
+  
+      label {
+        color: var(--Gray-Primary);
+      }
+  
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid var(--White-Primary);
+        border-radius: var(--border-radius);
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          border-color: var(--primary-color1);
+          outline: none;
+        }
+      }
+  
+      button {
+        padding: 0.75rem;
+        background-color: var(--primary-color1);
+        color: var(--White-Primary);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color var(--transition-speed) ease;
+  
+        &:hover {
+          background-color: var(--primary-color1);
+        }
+      }
+    }
+
+  }
+    
+  .Block-Centre {
+    padding: 1rem; // Style par défaut pour mobile
+    background-color: var(--White-Primary);
+    border: 1px solid var(--Gray-Primary);
+    h3 {
+      color: var(--Black-Primary);
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    
+    .team-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 90%;
+      
+      label {
+        color: var(--Gray-Primary);
+        margin-bottom: 0.5rem;
+      }
+      
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid var(--Gray-Primary);
+        border-radius: 4px;
+        transition: border-color 0.3s ease;
+        
+        &:focus {
+          border-color: #28a745;
+          outline: none;
+        }
+      }
+      
+      button {
+        padding: 0.75rem;
+        background-color: #28a745;
+        color: var(--White-Primary);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+          background-color: #218838;
+        }
+      }
+    }
+  
+  }
+      
+
+  .Block-Droite {
+    padding: 1rem; // Base mobile-first
+    background-color: var(--White-Primary);
+    border: 1px solid var(--Gray-Primary);
+
+    h3 {
+      color: var(--text-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+      
+    .collaboration-form {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      gap: 1rem;
+  
+      label {
+        color: var(--Gray-Primary);
+        margin-bottom: 0.5rem;
+      }
+  
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid var(--White-Primary);
+        border-radius: var(--border-radius);
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          border-color: var(--Gray-Primary);
+          outline: none;
+        }
+      }
+  
+      button {
+        padding: 0.75rem;
+        background-color: var(--Gray-Primary);
+        color: var(--White-Primary);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+    }
+    
+  }
+      
+
+  @media screen and (min-width: 576px){}
+    
+  @media screen and (min-width: 768px) {        
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 40vh;
+
+
+    
+    .Block-Gauche,
+    .Block-Centre,
+    .Block-Droite{}
+    
+    h2{ grid-area: 1 / 1 / 2 / 3; }
+      
+    .Block-Gauche{ 
+      grid-area: 2 / 1 / 3 / 3; 
+      padding: 2rem;
+      
+      .contact-form {
+        input,
+        textarea,
+        button {
+          padding: 0.85rem;
+        }
+      }
+    }
+      
+    .Block-Centre{ 
+      width: 90%;
+      grid-area: 3 / 1 / 4 / 2; 
+      padding: 2rem;
+      
+      .team-form {
+        input,
+        textarea,
+        button {
+            padding: 0.85rem;
+        }
+      }
+    }
+      
+    .Block-Droite{ 
+      grid-area: 3 / 2 / 4 / 3; 
+      padding: 2rem;
+
+  
+      .collaboration-form {
+        input,
+        textarea,
+        button {
+          padding: 0.85rem;
+        }
+      }
+    }
+
+
+
+
+  }
+    
+  @media screen and (min-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 3fr;
+
+    .Block-Gauche,
+    .Block-Centre,
+    .Block-Droite{
+      height: 100%; 
+      @include flex-C-spaceB;
+    }
+
+    h2{
+      grid-area: 1 / 1 / 2 / 4;
+      margin: auto;
+    }
+  
+    .Block-Gauche{
+      grid-area: 2 / 1 / 3 / 2;
+      max-width: 700px;
+      margin: 0 auto;
+      
+      .contact-form {
+        height: 90%;
+        justify-content: space-between;
+
+        input,
+        textarea,
+        button {
+          padding: 1rem;
+        }
+      }
+    }
+
+    .Block-Centre{
+      grid-area: 2 / 2 / 3 / 3;
+      max-width: 800px;
+      margin: 0 auto;
+      
+      .team-form {
+        height: 90%;
+        justify-content: space-between;
+
+        input,
+        textarea,
+        button {
+          padding: 1rem;
+        }
+      }
+    }
+
+    .Block-Droite{
+      grid-area: 2 / 3 / 3 / 4;
+      max-width: 800px;
+      margin: 0 auto;
+  
+      .collaboration-form {
+        height: 90%;
+        justify-content: space-between;
+
+        input,
+        textarea,
+        button {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+    
+  @media screen and (min-width: 1200px) {
+
+    .Block-Gauche,
+    .Block-Centre,
+    .Block-Droite{
+      height: 100%;
+    }
+
+    .Block-Gauche{
+      max-width: 900px;
+      padding: 3rem;
+
+      
+      .contact-form {
+        gap: 1.5rem;
+        
+        input,
+        textarea,
+        button {
+          padding: 1.2rem;
+        }
+
+        textarea {
+            height: 35vh;
+        }
+      }
+    }
+
+    .Block-Centre{
+      max-width: 1000px;
+      padding: 3rem;
+    
+      .team-form {
+        gap: 1.5rem;
+        
+        input,
+        textarea,
+        button {
+          padding: 1.2rem;
+        }
+      }
+    }
+
+    .Block-Droite{
+      max-width: 1000px;
+      padding: 3rem;
+  
+      .collaboration-form {
+        gap: 1.5rem;
+  
+        input,
+        textarea,
+        button {
+          padding: 1.2rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.Ressources-Article{
+    
+    h2{
+        padding: var(--padding-base);
+        text-align: center;
+    }
+
+    ul{
+        li{
+            margin: var(--margin-base);
+            list-style: inside;   
+            
+            a{
+                transition: var(--transition-speed) linear;   
+                
+                &:hover{ color: var(--primary-color2); }      
+            }
+        }
+    }
+
+    @media screen and (min-width: 576px){ }
+    
+    @media screen and (min-width: 768px) { }
+    
+    @media screen and (min-width: 992px) {
+        
+        ul{
+            li{margin: var(--margin-petit);}
+        }
+    }
+    
+    @media screen and (min-width: 1200px) { }
+}

@@ -1,0 +1,151 @@
+.Carrousel-pack{ 
+
+  @include flex-C-spaceB;
+  
+  .Block-Haut{
+    @include flex-C-spaceA; 
+    h2{ padding: var(--padding-base); }
+    
+    p{
+      padding: var(--padding-base);
+      width: 90%;
+    }
+  }
+
+
+  .Carrousel{ 
+    @include Width-Height-Base;
+    @include flex-base;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    overflow-x: auto;
+    margin: var(--margin-null); 
+    
+    .carte {
+      width: 15rem;
+      display: flex;
+      flex-direction: column;
+      background-clip: border-box;
+      border: 1px solid var(--Gray-Primary);
+      border-radius: var(--border-base);
+
+      padding: var(--padding-base);
+      margin: var(--margin-base);
+      
+      transition: box-shadow var(--transition-speed);
+      
+      &:hover {
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.15);
+      }
+      
+      /* image "haut de carte" */
+      img {
+        display: block;
+        width: 100%;
+        border-top-left-radius: var(--border-base);
+        border-top-right-radius: var(--border-base);
+      }
+      
+      /* corps de la carte */
+      .Contenue-Carte {
+        flex: 1 1 auto;
+        margin: var(--margin-base);
+        padding: var(--padding-base);
+    
+        /* titre */
+        .Titre-Carte {
+          margin-bottom: 0.75rem;
+          color: var(--black-Primary);
+        }
+    
+        /* texte */
+        p {
+          margin-bottom: 1rem;
+          font-weight: lighter;
+          // color: var(--Gray-Primary);
+        }
+    
+        /* bouton primaire */
+        .btn {
+          display: inline-block;
+          font-weight: 400;
+          line-height: 1.5;
+          text-align: center;
+          vertical-align: middle;
+          user-select: none;
+          padding: 0.375rem 0.75rem;
+          border: 1px solid transparent;
+          border-radius: var(--border-base);
+          transition: color 0.15s ease-in-out,
+                      background-color 0.15s ease-in-out,
+                      border-color 0.15s ease-in-out,
+                      box-shadow 0.15s ease-in-out;
+          text-decoration: none;
+    
+          &-primary {
+            color: var(--White-Primary);
+            background-color: var(--primary-color1);
+            border-color: var(--primary-color1);
+    
+            &:hover,
+            &:focus {
+              color: var(--White-Primary);
+              background-color: var(--primary-color2);
+              border-color: var(--primary-color1);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    
+    
+  }
+
+  .Block-Bas { 
+    width: 100%; 
+    @include flex-C;
+    .MiniStats{
+      display: flex;
+      margin: 5%;
+      
+      .Valeur{ margin: 5%; }
+
+      .Txt-Valeur{}
+    }
+
+  }
+
+  @media screen and (min-width: 576px) {}
+  
+  @media screen and (min-width: 768px) {
+    .Carrousel{
+      .carte{
+        padding: var(--padding-petit);
+        margin: var(--margin-petit);
+      }
+    }
+    .Block-Bas{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .Carrousel{
+      .carte{
+        width: 16.5rem;
+        padding: var(--padding-null);
+        margin: var(--margin-mini);
+      }
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .Carrousel{
+      .carte{
+        max-width: 20rem;
+      }
+    }
+  }
+}

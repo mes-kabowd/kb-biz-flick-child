@@ -1,0 +1,110 @@
+.Stats{ 
+    @include flex-C;
+    
+    .Block-Gauche { 
+        padding: var(--padding-base);     
+        @include flex-C-spaceB;
+        
+        h2{ padding: var(--padding-base); }
+        
+        p{}
+        
+    }
+    
+    .Block-Droite { 
+        width: 50%;
+        padding: var(--padding-base);
+        img{
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: contain;
+        }        
+    }
+    
+    .Block-Bas { 
+        width: 100%;         
+        padding: var(--padding-null);
+        @include flex-C;
+        
+        .MiniStats{ 
+            width: 90%;         
+            @include flex-spaceA;
+            background-clip: border-box;
+            border: 1px solid var(--Gray-Primary);
+            border-radius: var(--border-radius);
+            padding: var(--padding-mini);
+            margin: var(--margin-petit);
+            
+            .Valeur{
+                margin: var(--margin-petit);
+                font-size: x-large;
+            }
+
+            .Txt-Valeur{}
+        }
+
+    }
+    
+    
+    @media screen and (min-width: 576px){ }
+    
+    @media screen and (min-width: 768px) {            
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 2fr 1fr;
+    
+        
+        .Block-Gauche { 
+            grid-area: 1 / 1 / 2 / 2; 
+            align-items: flex-start;   
+    
+            h2{padding: var(--padding-base);}
+    
+            p{}
+    
+        }
+        
+        .Block-Droite { 
+            grid-area: 1 / 2 / 2 / 3; 
+            width: 100%;
+            padding: var(--padding-base);
+            img{
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: contain;
+            }        
+        }
+        
+        .Block-Bas { 
+            grid-area: 2 / 1 / 3 / 3; 
+            width: 100%;
+            padding: var(--padding-null);
+            margin: var(--margin-null);
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+            .MiniStats{
+                width: 45%;
+                display: flex;
+                .Valeur{}
+    
+                .Txt-Valeur{font-size: larger;}
+            }
+    
+        }
+    }
+    
+    @media screen and (min-width: 992px) {
+    }
+    
+    @media screen and (min-width: 1200px) { 
+        .Block-Gauche{grid-area: 1 / 1 / 2 / 2;}
+        .Block-Droite{grid-area: 1 / 2 / 3 / 3;}
+        .Block-Bas{
+            grid-area: 2 / 1 / 3 / 2;
+            .MiniStats{
+                .Txt-Valeur{font-size: larger;}
+            }
+        }
+    }
+}

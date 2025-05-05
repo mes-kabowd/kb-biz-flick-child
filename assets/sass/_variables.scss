@@ -1,0 +1,67 @@
+:root{
+    // Couleurs et thème
+    --primary-color1          : #361fdb;
+    --primary-color2          : #20cbe6;
+    --Gradient-primary-color  : #361fdb;
+    --secondary-color1        : #db701f;
+    --secondary-color2        : #db911f;
+    --Gradient-secondary-color: #db701f;
+    --White-Primary           : #f3f5ff;
+    --Gray-Primary           : #6e6e84;
+    --Black-Primary           : #0f1426;
+    --text-color              : #0f1426;
+    --link-color              : #db701f;
+
+    // Typographie
+    --font-size-heading: 2.5rem;
+
+    // Espacements & conteneur
+    --spacing-unit: 1rem;
+    --container-max-width: 1200px;
+
+    // Bordures et transitions
+    --border-radius: 4px;
+    --border-base: 0.25rem;
+    --transition-speed: 0.5s;
+
+
+    --padding-null : 0;
+    --padding-mini : 1.5%;
+    --padding-petit : 2.5%;
+    --padding-base : 5%;
+
+    --margin-null : 0;
+    --margin-mini : 1.5%;
+    --margin-petit : 2.5%;
+    --margin-base : 5%;
+
+
+
+    // Déclaration des variables pour les breakpoints
+    // Mobile
+    --breakpoint-sm: 576px;
+    
+    // Tablette
+    --breakpoint-md: 768px;
+    
+    // Laptop
+    --breakpoint-lg: 992px;
+    
+    // Desktop
+    --breakpoint-xl: 1200px;
+
+    --extra-large: 1280px; // Nouveau seuil au-delà du XL
+
+
+
+    /************** Barre de recherche *************************/ 
+
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    --color-brand: #361fdb;
+    --height: 5rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}

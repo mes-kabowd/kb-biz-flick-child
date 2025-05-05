@@ -1,0 +1,68 @@
+* {
+    @include P-M-null;
+    box-sizing: border-box;
+    ul { list-style: none;}
+
+    a {
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        font-weight: normal;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--White-Primary);
+        
+        main {
+            @include flex-C;
+            overflow: hidden;
+            width: 100%;
+            flex: 1;
+            margin: 5rem 0 3.5rem;
+            
+            section {
+                width: 100%;
+                padding: var(--padding-base);
+            }
+            
+            .Block-Main:nth-child(even){
+                background: linear-gradient( 
+                var(--Black-Primary) 0%,
+                var(--primary-color1) 95%, 
+                transparent 100% );
+
+                color: var(--White-Primary);
+                padding: 10% 0 40%;
+            }
+            
+            @media screen and (min-width: 576px) { }
+            
+            @media screen and (min-width: 768px) { }
+            
+            @media screen and (min-width: 992px) {
+                
+                margin: 7.5rem 0 2.5rem;
+                
+                section{ margin-bottom: 0; }
+                
+                .Block-Main:nth-child(even){ 
+                    padding: 10% 0 15%;
+                }
+                
+            }
+            
+            @media screen and (min-width: 1200px) { 
+                .Block-Main:nth-child(even){ padding: var(--padding-base); }
+            }
+        }
+    }   
+}
