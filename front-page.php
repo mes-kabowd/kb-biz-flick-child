@@ -1,6 +1,17 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Ce fichier est utilisé automatiquement comme page d'accueil si une page statique est définie dans Réglages > Lecture.
+ * Pour cela, crée une page "Accueil" dans l'admin et sélectionne-la comme page d'accueil.
+ */
+get_header();
+?>
 
 <main>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <!-- Tu peux placer the_content() où tu veux afficher le contenu éditable de la page d'accueil -->
+        <?php the_content(); ?>
+    <?php endwhile; endif; ?>
+
     <section class="Titre-Page Block-Main">
         <section class="Block-Droite">
             <H1 class="TitrePage"><?php bloginfo('name'); ?></H1>
@@ -33,7 +44,7 @@
             </article>
             <article class="MiniStats">
                 <h4 class="Valeur">40%</h4>
-                <h3 class="Txt-Valeur">Type de Statistiques 4</h3>
+                <h3 class="Txt-Valeur">Type de Statistiques 4</h4>
             </article>
         </section>
         <section class="Block-Droite">

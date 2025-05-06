@@ -22,6 +22,7 @@ function blankslateKabowd_setup() {
         'main-menu'    => esc_html__( 'Menu principal', 'blankslateKabowd' ),
         'footer-menu'  => esc_html__( 'Menu pied de page', 'blankslateKabowd' ),
         'kabowd-filtre'=> esc_html__( 'Menu Filtre', 'blankslateKabowd' ),
+        'social-menu'  => esc_html__( 'Menu Social', 'blankslateKabowd' ),
     ) );
 }
 
@@ -84,10 +85,128 @@ function blankslateKabowd_skip_link() {
     echo '<a href="#content" class="skip-link screen-reader-text">' . esc_html__( 'Aller au contenu', 'blankslateKabowd' ) . '</a>';
 }
 
-// --- Lien retour en haut ---
-add_action( 'wp_footer', 'blankslateKabowd_back_to_top_link' );
-function blankslateKabowd_back_to_top_link() {
-    echo '<a href="#top" class="back-to-top">' . esc_html__( 'Retour en haut', 'blankslateKabowd' ) . '</a>';
+// --- Customizer : options de personnalisation du header ---
+function kabowd_customize_register($wp_customize) {
+    $wp_customize->add_section('kabowd_header', array(
+        'title' => __('Header Kabowd', 'kabowd'),
+        'priority' => 30,
+    ));
+    $wp_customize->add_setting('kabowd_logo', array('default' => get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_logo', array(
+        'label' => __('Logo principal', 'kabowd'),
+        'section' => 'kabowd_header',
+        'settings' => 'kabowd_logo',
+    )));
+    $wp_customize->add_setting('kabowd_logo_alt', array('default' => 'Logo Kabowd'));
+    $wp_customize->add_control('kabowd_logo_alt', array(
+        'label' => __('Texte alternatif du logo', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_logo_mb', array('default' => get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_logo_mb', array(
+        'label' => __('Logo mobile', 'kabowd'),
+        'section' => 'kabowd_header',
+        'settings' => 'kabowd_logo_mb',
+    )));
+    $wp_customize->add_setting('kabowd_logo_mb_alt', array('default' => 'Logo Kabowd'));
+    $wp_customize->add_control('kabowd_logo_mb_alt', array(
+        'label' => __('Texte alternatif du logo mobile', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_search_placeholder', array('default' => 'Search...'));
+    $wp_customize->add_control('kabowd_search_placeholder', array(
+        'label' => __('Placeholder de recherche', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_search_button', array('default' => 'Go'));
+    $wp_customize->add_control('kabowd_search_button', array(
+        'label' => __('Texte du bouton de recherche', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_login_text', array('default' => 'Connexion'));
+    $wp_customize->add_control('kabowd_login_text', array(
+        'label' => __('Texte du lien de connexion', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_linkedin_url', array('default' => '#'));
+    $wp_customize->add_control('kabowd_linkedin_url', array(
+        'label' => __('Lien Linkedin', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_facebook_url', array('default' => '#'));
+    $wp_customize->add_control('kabowd_facebook_url', array(
+        'label' => __('Lien Facebook', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_github_url', array('default' => '#'));
+    $wp_customize->add_control('kabowd_github_url', array(
+        'label' => __('Lien GitHub', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_instagram_url', array('default' => '#'));
+    $wp_customize->add_control('kabowd_instagram_url', array(
+        'label' => __('Lien Instagram', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_youtube_url', array('default' => '#'));
+    $wp_customize->add_control('kabowd_youtube_url', array(
+        'label' => __('Lien YouTube', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_rdv_url', array('default' => home_url('/contact')));
+    $wp_customize->add_control('kabowd_rdv_url', array(
+        'label' => __('Lien du bouton RDV', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_rdv_text', array('default' => 'Prenez un Rendez-vous'));
+    $wp_customize->add_control('kabowd_rdv_text', array(
+        'label' => __('Texte du bouton RDV', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'text',
+    ));
+    // Réseaux sociaux : affichage
+    $wp_customize->add_setting('kabowd_show_linkedin', array('default' => true, 'sanitize_callback' => 'wp_validate_boolean'));
+    $wp_customize->add_control('kabowd_show_linkedin', array(
+        'label' => __('Afficher Linkedin', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'checkbox',
+    ));
+    $wp_customize->add_setting('kabowd_show_facebook', array('default' => true, 'sanitize_callback' => 'wp_validate_boolean'));
+    $wp_customize->add_control('kabowd_show_facebook', array(
+        'label' => __('Afficher Facebook', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'checkbox',
+    ));
+    $wp_customize->add_setting('kabowd_show_github', array('default' => true, 'sanitize_callback' => 'wp_validate_boolean'));
+    $wp_customize->add_control('kabowd_show_github', array(
+        'label' => __('Afficher GitHub', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'checkbox',
+    ));
+    $wp_customize->add_setting('kabowd_show_instagram', array('default' => true, 'sanitize_callback' => 'wp_validate_boolean'));
+    $wp_customize->add_control('kabowd_show_instagram', array(
+        'label' => __('Afficher Instagram', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'checkbox',
+    ));
+    $wp_customize->add_setting('kabowd_show_youtube', array('default' => true, 'sanitize_callback' => 'wp_validate_boolean'));
+    $wp_customize->add_control('kabowd_show_youtube', array(
+        'label' => __('Afficher YouTube', 'kabowd'),
+        'section' => 'kabowd_header',
+        'type' => 'checkbox',
+    ));
 }
+add_action('customize_register', 'kabowd_customize_register');
 
 ?>

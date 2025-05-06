@@ -427,3 +427,25 @@ header {
 
     
 }
+
+.ReseauxSociaux {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+
+  a {
+    width: 35px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img, svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      fill: currentColor;
+    }
+  }
+}
