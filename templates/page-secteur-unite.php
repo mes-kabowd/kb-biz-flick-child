@@ -1,14 +1,20 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Template Name: Secteur Unité
+ * Description: Page secteur unité avec un carrousel de services et un formulaire de contact.
+ * @package BlankslateKabowd
+ */
+get_header(); ?>
 
         <main>
             <section class="Titre-Page Block-Main">
                 <section class="Block-Gauche">
-                    <h2 class="TitrePage">Titre de la page</h2>
+                    <h2 class="TitrePage"><?php the_title(); ?></h2>
                     <h3 class="SousTitre">Sous-titre de section</h3>
                 </section>
                 
                 <section class="Block-Droite">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                 </section>
             </section>
 
@@ -18,7 +24,7 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla perferendis quae veniam aperiam quidem quibusdam molestiae error ipsam, nemo cum necessitatibus saepe officiis reprehenderit, recusandae vitae, maxime voluptatum debitis aliquid voluptas minus magni voluptatibus? Ducimus quo odit excepturi doloribus sapiente nobis, repellendus vel dolore quam! Doloribus accusantium magnam deleniti officia.</p>
                 </article>
                 <section class="Block-Droite">
-                    <div class="ImgStat"><img src="assets/img/Icon Logo Principal Couleur.png" alt=""></div>
+                    <div class="ImgStat"><img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt=""></div>
                 </section>
                 <section class="Block-Bas">
                     <article class="MiniStats">
@@ -46,7 +52,7 @@
                 </article>
                 <ul class="Carrousel">
                     <li class="carte">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                         <div class="Contenue-Carte">
                           <h5 class="Titre-Carte">Titre article 1</h5>
                           <p>
@@ -56,7 +62,7 @@
                         </div>
                     </li>
                     <li class="carte">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                         <div class="Contenue-Carte">
                           <h5 class="Titre-Carte">Titre article 1</h5>
                           <p>
@@ -66,7 +72,7 @@
                         </div>
                     </li>
                     <li class="carte">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                         <div class="Contenue-Carte">
                           <h5 class="Titre-Carte">Titre article 1</h5>
                           <p>
@@ -101,11 +107,11 @@
                         <button type="submit">Envoyer</button>
                     </form>
                    
-                    
+                
                 </section>
                 <section class="Block-Droite">
                     <article class="card">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="card-Ctn">
                           <h5>Special title treatment</h5>
                           <p>
@@ -115,7 +121,7 @@
                         </div>
                     </article>
                     <article class="card">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="card-Ctn">
                           <h5>Special title treatment</h5>
                           <p>

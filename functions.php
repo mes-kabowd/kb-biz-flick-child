@@ -1,16 +1,23 @@
 <?php
 
 // --- Chargement du textdomain pour la traduction ---
-add_action( 'after_setup_theme', function() {
+add_action( 'after_setup_theme', 'blankslateKabowd_load_textdomain' );
+function blankslateKabowd_load_textdomain() {
     load_child_theme_textdomain( 'blankslateKabowd', get_stylesheet_directory() . '/assets/lang' );
-} );
+}
 
-// --- Chargement du thème enfant ---
+// --- Configuration du thème enfant ---
 add_action( 'after_setup_theme', 'blankslateKabowd_setup' );
 function blankslateKabowd_setup() {
     add_theme_support( 'custom-logo' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
+    add_theme_support( 'title-tag' );
+    add_theme_support( 'automatic-feed-links' );
+    add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
+    add_theme_support( 'align-wide' );
+    add_theme_support( 'editor-styles' );
+    add_editor_style( 'assets/sass/styles.css' );
     register_nav_menus( array(
         'main-menu'    => esc_html__( 'Menu principal', 'blankslateKabowd' ),
         'footer-menu'  => esc_html__( 'Menu pied de page', 'blankslateKabowd' ),
@@ -21,26 +28,41 @@ function blankslateKabowd_setup() {
 // --- Chargement des styles/scripts principaux ---
 add_action( 'wp_enqueue_scripts', 'blankslateKabowd_enqueue' );
 function blankslateKabowd_enqueue() {
+    $theme_version = wp_get_theme()->get( 'Version' );
+
     // Style principal du thème enfant
-    wp_enqueue_style( 'blankslateKabowd-style', get_stylesheet_directory_uri() . '/style.css', array(), null );
+    wp_enqueue_style(
+        'blankslateKabowd-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array(),
+        $theme_version
+    );
 
     // Normalisation CSS
-    wp_enqueue_style( 'normalize', get_stylesheet_directory_uri() . '/assets/css/normalize.css', array(), null );
+    wp_enqueue_style(
+        'blankslateKabowd-normalize',
+        get_stylesheet_directory_uri() . '/assets/css/normalize.css',
+        array(),
+        $theme_version
+    );
 
     // CSS compilé principal
-    wp_enqueue_style( 'blankslateKabowd-main', get_stylesheet_directory_uri() . '/assets/sass/styles.css', array(), null );
+    wp_enqueue_style(
+        'blankslateKabowd-main',
+        get_stylesheet_directory_uri() . '/assets/sass/styles.css',
+        array(),
+        $theme_version
+    );
 
     // jQuery natif WP
-    if ( !wp_script_is('jquery', 'enqueued') ) {
-        wp_enqueue_script( 'jquery' );
-    }
+    wp_enqueue_script( 'jquery' );
 
     // JS principal du thème
     wp_enqueue_script(
         'kabowd-main',
         get_stylesheet_directory_uri() . '/assets/js/main.js',
         array('jquery'),
-        null,
+        $theme_version,
         true
     );
 
@@ -50,7 +72,7 @@ function blankslateKabowd_enqueue() {
             'kabowd-filtre',
             get_stylesheet_directory_uri() . '/assets/js/Filtre.js',
             array('jquery'),
-            null,
+            $theme_version,
             true
         );
     }

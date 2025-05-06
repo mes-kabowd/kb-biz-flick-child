@@ -1,13 +1,23 @@
-<?php get_header(); ?>
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+get_header();
+?>
 
 <main class="Block-Main">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <article <?php post_class(); ?>>
-      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+    <?php if ( is_singular('page') ) : ?>
+      <?php the_content(); ?>
+    <?php else : ?>
       <?php the_excerpt(); ?>
-    </article>
+    <?php endif; ?>
   <?php endwhile; else: ?>
-    <?php include get_template_directory() . '/front-page.php'; ?>
+    <?php
+    // Affiche la page 404 si rien n'est trouvé
+    include get_stylesheet_directory() . '/404.php';
+    ?>
   <?php endif; ?>
 </main>
 

@@ -1,15 +1,21 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: Service Unité
+ * Description: Page service unité avec des statistiques et un carrousel de services.
+ * @package BlankslateKabowd
+ */
+get_header(); ?>
 
         <main>
             <section class="Titre-Page Block-Main">
                 <section class="Block-Gauche">
-                    <h1>Titre du Service</h1>
+                    <h1><?php the_title(); ?></h1>
                     <h3 class="SousTitre">Sous-titre de section</h3>
 
                 </section>
             
                 <section class="Block-Droite">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
                 </section>
 
                 <section class="Bloc-Bas">
@@ -34,14 +40,14 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
                 </article>
                 <section class="Block-Droite">
-                    <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                 </section>
             </section>
             
             
             <section class="Texte-Page Block-Main">
                 <section class="Block-Gauche">
-                    <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                 </section>
                 <article class="Block-Droite">
                     <h2>Services</h2>
@@ -61,7 +67,7 @@
                     </ul>
                 </article>
                 <section class="Block-Droite">
-                    <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                 </section>
             </section>
 
@@ -79,7 +85,7 @@
                     <div id="carousel">
                       
                       <article class="item">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre article</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
@@ -88,7 +94,7 @@
                         </div>
                       </article>
                       <article class="item">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre article</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
@@ -97,7 +103,7 @@
                         </div>
                       </article>
                       <article class="item">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre article</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
@@ -106,7 +112,7 @@
                         </div>
                       </article>
                       <article class="item">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre article</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
@@ -115,7 +121,7 @@
                         </div>
                       </article>
                       <article class="item">
-                        <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre article</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>

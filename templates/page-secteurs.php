@@ -1,15 +1,22 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: Secteurs
+ * Description: Page des secteurs avec une liste de services.
+ * @package BlankslateKabowd
+ */
+
+get_header(); ?>
 
         <main>
             <section class="Titre-Page Block-Main">
                 <section class="Block-Gauche">
-                    <H1 class="TitrePage">Titre de la page</H1>
+                    <h1 class="TitrePage"><?php the_title(); ?></h1>
                     <h3 class="SousTitre">Sous-titre de section</h3>
 
                 </section>
             
                 <section class="Block-Droite">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                 </section>
             </section>
             
@@ -20,7 +27,7 @@
                 </article>
                 <section class="Block-Bas">
                     <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="card-Ctn">
                           <h4>Special title treatment</h4>
                           <p>
@@ -30,7 +37,7 @@
                         </div>
                     </article>
                     <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="card-Ctn">
                           <h4>Special title treatment</h4>
                           <p>
@@ -45,7 +52,7 @@
             <section class="List-Block Block-Main">
                 <section class="Block-Bas">
                     <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="card-Ctn">
                           <h4>Special title treatment</h4>
                           <p>
@@ -55,7 +62,7 @@
                         </div>
                     </article>
                     <article class="Pack">
-                        <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png' ); ?>" alt="">
                         <div class="card-Ctn">
                           <h4>Special title treatment</h4>
                           <p>

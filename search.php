@@ -2,8 +2,8 @@
 <main>
     <section class="Page-Recherche Block-Main">
         <section class="Titre-Page">
-            <h1 class="TitrePage"><?php _e('Résultats de recherche', 'blankslate'); ?></h1>
-            <p class="ParagrapheTitre"><?php printf( __('Vous avez recherché : %s', 'blankslate'), get_search_query() ); ?></p>
+            <h1 class="TitrePage"><?php _e('Résultats de recherche', 'blankslateKabowd'); ?></h1>
+            <p class="ParagrapheTitre"><?php printf( __('Vous avez recherché : %s', 'blankslateKabowd'), get_search_query() ); ?></p>
         </section>
         <section class="mainCard Block-Main">
             <div class="mainCardHeader"></div>
@@ -18,11 +18,11 @@
                         <div class="InfoBlog">
                             <h3><?php the_title(); ?></h3>
                             <p><?php the_excerpt(); ?></p>
-                            <a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php _e('En voir davantage', 'blankslate'); ?></a>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php _e('En voir davantage', 'blankslateKabowd'); ?></a>
                         </div>
                     </article>
                 <?php endwhile; else : ?>
-                    <p><?php _e('Aucun résultat trouvé.', 'blankslate'); ?></p>
+                    <p><?php _e('Aucun résultat trouvé.', 'blankslateKabowd'); ?></p>
                 <?php endif; ?>
             </section>
         </section>

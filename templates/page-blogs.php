@@ -1,14 +1,20 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Template Name: Page de Blog
+ * Description: Page de blog avec un carrousel et une liste d'articles.
+ * @package BlankslateKabowd
+ */
+get_header(); ?>
 
     <main>
         <section class="Titre-Page Block-Main">
             <section class="Block-Gauche">
-                <h1 class="TitrePage">Titre de la page</h1>
+                <h1 class="TitrePage"><?php the_title(); ?></h1>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequatur deleniti maiores quos inventore perferendis reprehenderit quo sit consequuntur ipsum voluptatem porro aut corporis sint, temporibus, corrupti iusto qui dolores!50</p>
             </section>
             
             <section class="Block-Droite">
-                <img src="assets/img/Logo Principal Couleur.png" alt="">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
             </section>
         </section>
         <section class="Carrousel-pack Block-Main">
@@ -40,7 +46,7 @@
                 <div class="mainCardHeader"></div>
                 <section class="articles">
                     <article class="miniCard" data-tags="Communiqué">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -48,7 +54,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Communiqué">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -56,7 +62,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Services, Secteurs">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -64,7 +70,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Blog">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -72,7 +78,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Services">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -80,7 +86,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Secteur-Unite, Secteurs">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -88,7 +94,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Services, Service-Unite">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -96,7 +102,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Secteur-Unite">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -104,7 +110,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Secteurs">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>
@@ -112,7 +118,7 @@
                         </div>
                     </article>  
                     <article class="miniCard" data-tags="Services">
-                        <img src="assets/img/Icon Logo Principal Noir.png" alt="">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
                         <div class="InfoBlog">
                             <h3>Titre Article</h3>
                             <h4>Auteur Article</h4>

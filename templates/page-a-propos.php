@@ -1,6 +1,8 @@
 <?php
 /**
  * Template Name: À Propos
+ * Description: Page à propos avec une section équipe et un formulaire de contact.
+ * @package BlankslateKabowd
  */
 get_header(); 
 ?>
@@ -8,9 +10,9 @@ get_header();
 <!-- Début du contenu principal identique à a-propos.html -->
 <main>
     <section class="Titre-Page Block-Main">
-        <H1 class="TitrePage">Titre de la page</H1>
+        <h1 class="TitrePage"><?php the_title(); ?></h1>
         <section class="Block-Gauche">
-            <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+            <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
         </section>
         <section class="Block-Droite">
             <p class="ParagrapheTitre">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quidem, neque id illo error provident ipsum architecto unde dolores libero optio rerum eveniet temporibus nam illum? Aspernatur fuga laborum, beatae voluptates amet incidunt ducimus iusto, harum numquam libero veritatis rem dignissimos? Ipsa, distinctio? Exercitationem sed quo rerum dolore impedit dignissimos.</p>

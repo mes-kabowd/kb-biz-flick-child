@@ -1,14 +1,21 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Template Name: Services
+ * Description: Page des services avec un carrousel et des statistiques.
+ * @package BlankslateKabowd
+ */
+
+get_header(); ?>
 
     <main>
         <section class="Titre-Page Block-Main">
             <section class="Block-Gauche">
-                <h2 class="TitrePage">Titre de la page Services</h2>
+                <h2 class="TitrePage"><?php the_title(); ?></h2>
                 <h3 class="SousTitre">Sous-titre de section</h3>
             </section>
             
             <section class="Block-Droite">
-                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
+                <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
             </section>
         </section>
 
@@ -41,7 +48,7 @@
             </article>
             <ul class="Carrousel">
                 <li class="carte">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                     <div class="Contenue-Carte">
                         <h5 class="Titre-Carte">Titre article 1</h5>
                         <p>
@@ -51,7 +58,7 @@
                     </div>
                 </li>
                 <li class="carte">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                     <div class="Contenue-Carte">
                         <h5 class="Titre-Carte">Titre article 1</h5>
                         <p>
@@ -61,7 +68,7 @@
                     </div>
                 </li>
                 <li class="carte">
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
+                    <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png' ); ?>" alt="">
                     <div class="Contenue-Carte">
                         <h5 class="Titre-Carte">Titre article 1</h5>
                         <p>
