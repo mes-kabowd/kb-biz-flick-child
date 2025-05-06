@@ -7,22 +7,24 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 <header>
     <nav class="NavHeader">
         <div class="LogoMb">
-            <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
-            <!-- <a href="index.html"><img src="assets/img/Logo Principal Blanc.png" alt=""></a> -->
+            <a href="<?php echo esc_url( home_url('/') ); ?>">
+                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="Logo Kabowd">
+            </a>
         </div>
         <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
             <input id="search" type="search" placeholder="Search..." autofocus required />
             <button type="submit">Go</button>    
         </form>
-
-        
-        <input type="checkbox" name="" class="menu" id="BtnBurger">
+        <input type="checkbox" class="menu" id="BtnBurger">
         <section class="ContenuHeader">
             <div class="Logo">
-                <a href="index.html"><img src="assets/img/Logo Principal Couleur.png" alt=""></a>
+                <a href="<?php echo esc_url( home_url('/') ); ?>">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="Logo Kabowd">
+                </a>
             </div>
             <nav class="MenuHaut">
                 <ul>
@@ -32,26 +34,28 @@
                             <button type="submit">Go</button>    
                         </form>
                     </li>
-                    <li><a href="Recherche.html">Connexion</a></li>
+                    <li><a href="<?php echo esc_url( wp_login_url() ); ?>">Connexion</a></li>
                 </ul>
             </nav>
             <div class="ReseauxSociaux">
-                <a href=""><img src="assets/img/Linkedin.svg" alt=""></a>
-                <a href=""><img src="assets/img/Facebook.svg" alt=""></a>
-                <a href=""><img src="assets/img/GitHub.svg" alt=""></a>
-                <a href=""><img src="assets/img/Instagram.svg" alt=""></a>
-                <a href=""><img src="assets/img/YouTube.svg" alt=""></a>
+                <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Linkedin.svg' ); ?>" alt="Linkedin"></a>
+                <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Facebook.svg' ); ?>" alt="Facebook"></a>
+                <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/GitHub.svg' ); ?>" alt="GitHub"></a>
+                <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Instagram.svg' ); ?>" alt="Instagram"></a>
+                <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/YouTube.svg' ); ?>" alt="YouTube"></a>
             </div>
             <nav class="MenuBas">
-                <ul>
-                    <li><a href="Services.html">Services</a></li>
-                    <li><a href="Secteurs.html">Secteurs</a></li>
-                    <li><a href="Blogs.html">Blog</a></li>
-                    <li><a href="A-Propos.html">À propos</a></li>
-                </ul>
+                <?php
+                wp_nav_menu( array(
+                    'theme_location' => 'main-menu',
+                    'container' => false,
+                    'menu_class' => '',
+                    'items_wrap' => '<ul>%3$s</ul>',
+                ) );
+                ?>
             </nav>
             <div class="Rdv">
-                <a href="erreur404.html">Prenez un Rendez-vous</a>
+                <a href="<?php echo esc_url( home_url('/contact') ); ?>">Prenez un Rendez-vous</a>
             </div>
         </section>
     </nav>

@@ -9,7 +9,7 @@
                 </section>
             
                 <section class="Block-Droite">
-                    <img src="assets/img/Logo Principal Couleur.png" alt="">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
                 </section>
 
                 <section class="Bloc-Bas">

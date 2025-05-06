@@ -1,23 +1,25 @@
 <?php get_header(); ?>
 <main>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <section class="Titre-Article Block-Main">
         <section class="Block-Haut">
-            <h1 class="TitrePage">Titre de l'article</h1>
+            <h1 class="TitrePage"><?php the_title(); ?></h1>
         </section>
         <section class="Block-Bas">
-            <h3 class="SousTitre">Auteur</h3>
+            <h3 class="SousTitre"><?php the_author(); ?></h3>
         </section>
-        
         <section class="Block-Droite">
-            <img src="assets/img/Logo Principal Couleur.png" alt="">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <?php the_post_thumbnail('large', ['alt' => get_the_title()]); ?>
+            <?php else : ?>
+                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
+            <?php endif; ?>
         </section>
     </section>
 
     <section class="Txt-Article Block-Main">
-        <h2>Texte</h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime beatae doloremque minima tempora saepe quas deserunt nobis, modi placeat cumque sit explicabo ipsam magnam ratione impedit eos at fugiat rerum voluptatum! Suscipit a tempora maxime beatae impedit quibusdam quis corrupti mollitia vitae, quod debitis consequatur, deserunt sequi esse amet! Quis ab corrupti nihil expedita suscipit molestiae mollitia quae harum ipsam consequatur necessitatibus, in repudiandae eius, quaerat aliquid. Cupiditate omnis eius officia facere minus necessitatibus voluptates? Officiis cumque eligendi fuga quisquam quidem velit vitae ullam animi fugiat exercitationem nostrum, alias nisi id blanditiis eos nam autem ipsam sed. Corporis numquam asperiores voluptatem ipsum adipisci quaerat incidunt expedita nisi excepturi sit, delectus ullam velit veniam? Quibusdam consequatur perspiciatis, eum repellendus obcaecati rem assumenda deleniti sit, quam aliquam, ipsam veritatis provident temporibus laudantium asperiores doloremque inventore ad reprehenderit. Similique error repellat alias quos, deleniti quibusdam velit harum fugiat aspernatur repellendus eum cum veniam quidem accusantium enim sint, magnam quisquam in? Eaque unde repellat voluptatum, id dignissimos ab eum magni hic cum beatae quasi ipsa! Molestias illo, quibusdam iure libero dicta error provident neque rerum delectus vero fugit at similique. Dignissimos cum, totam natus modi eius rem quas eveniet aspernatur aliquam consectetur deserunt optio rerum, delectus nobis dolorum tempora facere quidem eligendi sapiente. Sed nemo ad deserunt tempore dolorem doloremque hic suscipit consectetur natus, inventore molestiae totam sunt provident harum excepturi dolorum qui maiores perferendis deleniti dolor blanditiis reprehenderit rerum? Reiciendis ab quas recusandae similique, neque odit dolorum tempore alias aliquid consectetur dolore temporibus.
-        </p>
+        <h2><?php _e('Texte', 'blankslate'); ?></h2>
+        <?php the_content(); ?>
     </section>
 
     <section class="MiniMedia-Article Block-Main">
@@ -114,5 +116,6 @@
             </div>
         </section>
     </section>
+<?php endwhile; endif; ?>
 </main>
 <?php get_footer(); ?>
