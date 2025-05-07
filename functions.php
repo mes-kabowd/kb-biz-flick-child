@@ -325,6 +325,237 @@ function kabowd_customize_footer($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_footer');
 
+// --- Customizer : options de personnalisation du contenu des pages et articles ---
+function kabowd_customize_content($wp_customize) {
+    // Section pour les pages
+    $wp_customize->add_section('kabowd_page_content', array(
+        'title'    => __('Contenu des pages', 'kabowd'),
+        'priority' => 50,
+    ));
+    $wp_customize->add_setting('kabowd_page_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_page_title', array(
+        'label' => __('Titre personnalisé (pages)', 'kabowd'),
+        'section' => 'kabowd_page_content',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_page_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_page_subtitle', array(
+        'label' => __('Sous-titre personnalisé (pages)', 'kabowd'),
+        'section' => 'kabowd_page_content',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_page_image', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_page_image', array(
+        'label' => __('Image principale (pages)', 'kabowd'),
+        'section' => 'kabowd_page_content',
+        'settings' => 'kabowd_page_image',
+    )));
+    $wp_customize->add_setting('kabowd_page_media', array('default' => ''));
+    $wp_customize->add_control('kabowd_page_media', array(
+        'label' => __('Lien média (vidéo, audio, etc.)', 'kabowd'),
+        'section' => 'kabowd_page_content',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_page_color', array('default' => '#361fdb', 'sanitize_callback' => 'sanitize_hex_color'));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'kabowd_page_color', array(
+        'label' => __('Couleur de fond personnalisée (pages)', 'kabowd'),
+        'section' => 'kabowd_page_content',
+        'settings' => 'kabowd_page_color',
+    )));
+
+    // Section pour les articles
+    $wp_customize->add_section('kabowd_post_content', array(
+        'title'    => __('Contenu des articles', 'kabowd'),
+        'priority' => 51,
+    ));
+    $wp_customize->add_setting('kabowd_post_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_post_title', array(
+        'label' => __('Titre personnalisé (articles)', 'kabowd'),
+        'section' => 'kabowd_post_content',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_post_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_post_subtitle', array(
+        'label' => __('Sous-titre personnalisé (articles)', 'kabowd'),
+        'section' => 'kabowd_post_content',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_post_image', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_post_image', array(
+        'label' => __('Image principale (articles)', 'kabowd'),
+        'section' => 'kabowd_post_content',
+        'settings' => 'kabowd_post_image',
+    )));
+    $wp_customize->add_setting('kabowd_post_media', array('default' => ''));
+    $wp_customize->add_control('kabowd_post_media', array(
+        'label' => __('Lien média (vidéo, audio, etc.)', 'kabowd'),
+        'section' => 'kabowd_post_content',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_post_color', array('default' => '#db701f', 'sanitize_callback' => 'sanitize_hex_color'));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'kabowd_post_color', array(
+        'label' => __('Couleur de fond personnalisée (articles)', 'kabowd'),
+        'section' => 'kabowd_post_content',
+        'settings' => 'kabowd_post_color',
+    )));
+}
+add_action('customize_register', 'kabowd_customize_content');
+
+// --- Customizer : options de personnalisation de la page d'accueil ---
+function kabowd_customize_homepage($wp_customize) {
+    $wp_customize->add_section('kabowd_homepage', array(
+        'title'    => __('Page d\'accueil personnalisée', 'kabowd'),
+        'priority' => 20,
+    ));
+    $wp_customize->add_setting('kabowd_homepage_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_logo', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_homepage_logo', array(
+        'label' => __('Image principale', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'settings' => 'kabowd_homepage_logo',
+    )));
+    $wp_customize->add_setting('kabowd_homepage_bgcolor', array('default' => '', 'sanitize_callback' => 'sanitize_hex_color'));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'kabowd_homepage_bgcolor', array(
+        'label' => __('Couleur de fond', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'settings' => 'kabowd_homepage_bgcolor',
+    )));
+}
+add_action('customize_register', 'kabowd_customize_homepage');
+
+// --- Customizer : visibilité des sections page d'accueil ---
+function kabowd_customize_homepage_blocks($wp_customize) {
+    $wp_customize->add_section('kabowd_homepage_blocks', array(
+        'title'    => __('Affichage des sections Accueil', 'kabowd'),
+        'priority' => 25,
+    ));
+    $blocks = array(
+        'titre'      => 'Bloc Titre',
+        'stats'      => 'Bloc Statistiques',
+        'services'   => 'Bloc Services',
+        'secteurs'   => 'Bloc Secteurs',
+        'blog'       => 'Bloc Blog',
+    );
+    foreach ($blocks as $slug => $label) {
+        $wp_customize->add_setting("kabowd_homepage_show_$slug", array(
+            'default'           => true,
+            'sanitize_callback' => 'wp_validate_boolean',
+        ));
+        $wp_customize->add_control("kabowd_homepage_show_$slug", array(
+            'label'    => __("Afficher $label", 'kabowd'),
+            'section'  => 'kabowd_homepage_blocks',
+            'type'     => 'checkbox',
+        ));
+    }
+}
+add_action('customize_register', 'kabowd_customize_homepage_blocks');
+
+// Utilitaire pour la visibilité
+function kabowd_homepage_show_block($slug) {
+    $val = get_theme_mod("kabowd_homepage_show_$slug", true);
+    return $val;
+}
+
+// --- Customizer : options de personnalisation pour la page À Propos ---
+function kabowd_customize_apropos($wp_customize) {
+    $wp_customize->add_section('kabowd_apropos', array(
+        'title'    => __('Page À Propos personnalisée', 'kabowd'),
+        'priority' => 21,
+    ));
+    $wp_customize->add_setting('kabowd_apropos_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_apropos_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_apropos_logo', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_apropos_logo', array(
+        'label' => __('Image principale', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'settings' => 'kabowd_apropos_logo',
+    )));
+    $wp_customize->add_setting('kabowd_apropos_paragraph', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_paragraph', array(
+        'label' => __('Paragraphe principal', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'textarea',
+    ));
+}
+add_action('customize_register', 'kabowd_customize_apropos');
+
+// --- Customizer : options de personnalisation pour la page Secteur Unité ---
+function kabowd_customize_secteur_unite($wp_customize) {
+    $wp_customize->add_section('kabowd_secteur_unite', array(
+        'title'    => __('Page Secteur Unité personnalisée', 'kabowd'),
+        'priority' => 22,
+    ));
+    $wp_customize->add_setting('kabowd_secteur_unite_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_secteur_unite_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_secteur_unite',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_secteur_unite_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_secteur_unite_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_secteur_unite',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_secteur_unite_logo', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_secteur_unite_logo', array(
+        'label' => __('Image principale', 'kabowd'),
+        'section' => 'kabowd_secteur_unite',
+        'settings' => 'kabowd_secteur_unite_logo',
+    )));
+}
+add_action('customize_register', 'kabowd_customize_secteur_unite');
+
+// Utilitaires pour récupérer les valeurs customizer des templates
+function kabowd_apropos_customizer($key, $default = '') {
+    $val = get_theme_mod('kabowd_apropos_' . $key, '');
+    return $val !== '' ? $val : $default;
+}
+function kabowd_secteur_unite_customizer($key, $default = '') {
+    $val = get_theme_mod('kabowd_secteur_unite_' . $key, '');
+    return $val !== '' ? $val : $default;
+}
+
+// Utilitaire pour récupérer la valeur customizer ou fallback
+function kabowd_homepage_customizer($key, $default = '') {
+    $val = get_theme_mod('kabowd_homepage_' . $key, '');
+    return $val !== '' ? $val : $default;
+}
+
+// Utilitaires pour récupérer les options personnalisées
+function kabowd_get_customizer($key, $default = '', $type = 'page') {
+    if ($type === 'post' && is_single()) {
+        $val = get_theme_mod('kabowd_post_' . $key, '');
+        return $val !== '' ? $val : $default;
+    }
+    if ($type === 'page' && is_page()) {
+        $val = get_theme_mod('kabowd_page_' . $key, '');
+        return $val !== '' ? $val : $default;
+    }
+    return $default;
+}
+
 // Génère la liste des réseaux sociaux à afficher
 function kabowd_get_social_networks() {
     $output = array();

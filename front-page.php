@@ -6,24 +6,47 @@
 get_header();
 ?>
 
-<main>
+<main style="background:<?php echo esc_attr(kabowd_homepage_customizer('bgcolor', kabowd_get_customizer('color', '', 'page'))); ?>">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <!-- Tu peux placer the_content() où tu veux afficher le contenu éditable de la page d'accueil -->
         <?php the_content(); ?>
     <?php endwhile; endif; ?>
 
+    <?php if (kabowd_homepage_show_block('titre')): ?>
     <section class="Titre-Page Block-Main">
         <section class="Block-Droite">
-            <H1 class="TitrePage"><?php bloginfo('name'); ?></H1>
-            <p class="ParagrapheTitre"><?php bloginfo('description'); ?></p>
+            <H1 class="TitrePage">
+                <?php
+                $custom_title = kabowd_homepage_customizer('title');
+                echo $custom_title ? esc_html($custom_title) : get_bloginfo('name');
+                ?>
+            </H1>
+            <p class="ParagrapheTitre">
+                <?php
+                $custom_subtitle = kabowd_homepage_customizer('subtitle');
+                echo $custom_subtitle ? esc_html($custom_subtitle) : get_bloginfo('description');
+                ?>
+            </p>
         </section>
         <section class="Block-Gauche">
             <div class="Logo">
-                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
+                <?php
+                $custom_img = kabowd_homepage_customizer('logo');
+                if ($custom_img) :
+                ?>
+                    <img src="<?php echo esc_url($custom_img); ?>" alt="">
+                <?php else : ?>
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
+                <?php endif; ?>
             </div>
-            <h3 class="SousTitre">Sous-titre de section</h3>
+            <h3 class="SousTitre">
+              <?php echo $custom_subtitle ? esc_html($custom_subtitle) : 'Sous-titre de section'; ?>
+            </h3>
         </section>
     </section>
+    <?php endif; ?>
+
+    <?php if (kabowd_homepage_show_block('stats')): ?>
     <section class="Stats Block-Main">
         <section class="Block-Gauche">
             <h2>Statistiques</h2>
@@ -44,7 +67,7 @@ get_header();
             </article>
             <article class="MiniStats">
                 <h4 class="Valeur">40%</h4>
-                <h3 class="Txt-Valeur">Type de Statistiques 4</h4>
+                <h3 class="Txt-Valeur">Type de Statistiques 4</h3>
             </article>
         </section>
         <section class="Block-Droite">
@@ -53,6 +76,9 @@ get_header();
             </div>
         </section>
     </section>
+    <?php endif; ?>
+
+    <?php if (kabowd_homepage_show_block('services')): ?>
     <section class="Carrousel-pack Block-Main">
         <article class="Block-Haut">
             <h2>Services</h2>
@@ -91,6 +117,9 @@ get_header();
             </li>
         </ul>
     </section>
+    <?php endif; ?>
+
+    <?php if (kabowd_homepage_show_block('secteurs')): ?>
     <section class="Carrousel-pack Block-Main">
         <article class="Block-Haut">
             <h2>Secteurs</h2>
@@ -129,6 +158,9 @@ get_header();
             </li>
           </ul>
     </section>
+    <?php endif; ?>
+
+    <?php if (kabowd_homepage_show_block('blog')): ?>
     <section class="Mini-Carrousel-Blog Block-Main">
         <h2>
             Blog
@@ -189,6 +221,7 @@ get_header();
             <div>
         </section>
     </section>
+    <?php endif; ?>
 </main>
 
 <?php get_footer(); ?>

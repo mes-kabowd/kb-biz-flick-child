@@ -203,7 +203,7 @@ a {
 }
 
 header {
-  width: 100%;
+  width: 100vw;
 }
 header a {
   color: var(--White-Primary);
@@ -742,8 +742,19 @@ footer .VoletDroite ul {
     height: 65%;
     width: 75%;
     padding: 5% 0 5%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  footer .VoletCentre .Services > li,
+  footer .VoletCentre .Secteurs > li {
+    display: block;
+  }
+  footer .VoletCentre ul {
+    height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
   }
   footer .VoletCentre .PrenezRDV {
     width: 25%;

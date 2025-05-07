@@ -1,133 +1,63 @@
 <?php 
 /**
- * Template Name: Page de Blog
+ * Template Name: T Blog
  * Description: Page de blog avec un carrousel et une liste d'articles.
  * @package BlankslateKabowd
  */
 get_header(); ?>
 
-    <main>
-        <section class="Titre-Page Block-Main">
-            <section class="Block-Gauche">
-                <h1 class="TitrePage"><?php the_title(); ?></h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequatur deleniti maiores quos inventore perferendis reprehenderit quo sit consequuntur ipsum voluptatem porro aut corporis sint, temporibus, corrupti iusto qui dolores!50</p>
-            </section>
-            
-            <section class="Block-Droite">
-                <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="">
-            </section>
+<main>
+    <section class="Titre-Page Block-Main">
+        <section class="Block-Gauche">
+            <h1 class="TitrePage"><?php the_title(); ?></h1>
+            <p><?php esc_html_e('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequatur deleniti maiores quos inventore perferendis reprehenderit quo sit consequuntur ipsum voluptatem porro aut corporis sint, temporibus, corrupti iusto qui dolores!50', 'blankslateKabowd'); ?></p>
         </section>
-        <section class="Carrousel-pack Block-Main">
-            <article class="Block-Haut">
-                <h2>Actu en Priorité</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?</p>
-            </article>
+        <section class="Block-Droite">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'); ?>" alt="">
         </section>
-        <section class="Grd-Carrousel-Blog Block-Main">
-            <h2>Contenu de Blog</h2>
-            <div class="Filtre">
-                <div class="Mini-Entete">
-                    <h3>Liste d'articles de Kabowd</h3>
-                    <form onsubmit="event.preventDefault();" role="search">
-                        <label for="search">Search for stuff</label>
-                        <input id="search" type="search" placeholder="Search..." autofocus required />
-                        <button type="submit">Go</button>    
-                    </form>
-                </div>
-                <ul>
-                    <li><a href="#" class="active">Tout</a></li>
-                    <li><a href="#">Communiqué</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Secteurs</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">À propos</a></li>
-                </ul>
+    </section>
+    <section class="Carrousel-pack Block-Main">
+        <article class="Block-Haut">
+            <h2><?php esc_html_e('Actu en Priorité', 'blankslateKabowd'); ?></h2>
+            <p><?php esc_html_e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?', 'blankslateKabowd'); ?></p>
+        </article>
+    </section>
+    <section class="Grd-Carrousel-Blog Block-Main">
+        <h2><?php esc_html_e('Contenu de Blog', 'blankslateKabowd'); ?></h2>
+        <div class="Filtre">
+            <div class="Mini-Entete">
+                <h3><?php esc_html_e("Liste d'articles de Kabowd", 'blankslateKabowd'); ?></h3>
+                <form onsubmit="event.preventDefault();" role="search">
+                    <label for="search"><?php esc_html_e('Search for stuff', 'blankslateKabowd'); ?></label>
+                    <input id="search" type="search" placeholder="<?php esc_attr_e('Search...', 'blankslateKabowd'); ?>" autofocus required />
+                    <button type="submit"><?php esc_html_e('Go', 'blankslateKabowd'); ?></button>    
+                </form>
+            </div>
+            <ul>
+                <li><a href="#" class="active"><?php esc_html_e('Tout', 'blankslateKabowd'); ?></a></li>
+                <li><a href="#"><?php esc_html_e('Communiqué', 'blankslateKabowd'); ?></a></li>
+                <li><a href="#"><?php esc_html_e('Services', 'blankslateKabowd'); ?></a></li>
+                <li><a href="#"><?php esc_html_e('Secteurs', 'blankslateKabowd'); ?></a></li>
+                <li><a href="#"><?php esc_html_e('Blog', 'blankslateKabowd'); ?></a></li>
+                <li><a href="#"><?php esc_html_e('À propos', 'blankslateKabowd'); ?></a></li>
+            </ul>
             <section class="mainCard">
                 <div class="mainCardHeader"></div>
                 <section class="articles">
+                    <?php for ($i=0; $i<10; $i++): ?>
                     <article class="miniCard" data-tags="Communiqué">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Noir.png'); ?>" alt="">
                         <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
+                            <h3><?php esc_html_e('Titre Article', 'blankslateKabowd'); ?></h3>
+                            <h4><?php esc_html_e('Auteur Article', 'blankslateKabowd'); ?></h4>
+                            <a href="#" class="btn btn-primary"><?php esc_html_e("Lire l'article", 'blankslateKabowd'); ?></a>
                         </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Communiqué">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Services, Secteurs">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Blog">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Services">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Secteur-Unite, Secteurs">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Services, Service-Unite">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Secteur-Unite">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Secteurs">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
-                    <article class="miniCard" data-tags="Services">
-                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/img/Icon Logo Principal Noir.png' ); ?>" alt="">
-                        <div class="InfoBlog">
-                            <h3>Titre Article</h3>
-                            <h4>Auteur Article</h4>
-                            <a href="Articles-Blog.html" class="btn btn-primary">Lire l'article</a>
-                        </div>
-                    </article>  
+                    </article>
+                    <?php endfor; ?>
                 </section>
             </section>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
 <?php get_footer(); ?>
