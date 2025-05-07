@@ -10,7 +10,14 @@ get_header(); ?>
     <section class="Titre-Page Block-Main">
         <section class="Block-Gauche">
             <h1 class="TitrePage"><?php the_title(); ?></h1>
-            <p><?php esc_html_e('Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi consequatur deleniti maiores quos inventore perferendis reprehenderit quo sit consequuntur ipsum voluptatem porro aut corporis sint, temporibus, corrupti iusto qui dolores!50', 'blankslateKabowd'); ?></p>
+            <p>
+                <?php
+                // Affiche le contenu WordPress si présent
+                if (have_posts()) : while (have_posts()) : the_post();
+                    the_content();
+                endwhile; endif;
+                ?>
+            </p>
         </section>
         <section class="Block-Droite">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'); ?>" alt="">

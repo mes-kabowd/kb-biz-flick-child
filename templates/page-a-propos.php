@@ -12,7 +12,7 @@ get_header();
         <H1 class="TitrePage">
             <?php
             $custom_title = kabowd_apropos_customizer('title');
-            echo $custom_title ? esc_html($custom_title) : 'Titre de la page';
+            echo $custom_title ? esc_html($custom_title) : get_the_title();
             ?>
         </H1>
         <section class="Block-Gauche">
@@ -22,14 +22,19 @@ get_header();
             ?>
                 <img src="<?php echo esc_url($custom_logo); ?>" alt="">
             <?php else : ?>
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png'); ?>" alt="">
             <?php endif; ?>
         </section>
         <section class="Block-Droite">
             <p class="ParagrapheTitre">
                 <?php
                 $custom_paragraph = kabowd_apropos_customizer('paragraph');
-                echo $custom_paragraph ? esc_html($custom_paragraph) : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quidem, neque id illo error provident ipsum architecto unde dolores libero optio rerum eveniet temporibus nam illum? Aspernatur fuga laborum, beatae voluptates amet incidunt ducimus iusto, harum numquam libero veritatis rem dignissimos? Ipsa, distinctio? Exercitationem sed quo rerum dolore impedit dignissimos.';
+                if ($custom_paragraph) {
+                    echo esc_html($custom_paragraph);
+                } else {
+                    // Affiche le contenu WordPress si pas de paragraphe customizer
+                    the_content();
+                }
                 ?>
             </p>
             <div class="ListBtn">

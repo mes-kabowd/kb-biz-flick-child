@@ -11,11 +11,25 @@ get_header(); ?>
     <section class="Titre-Page Block-Main">
         <section class="Block-Gauche">
             <h2 class="TitrePage"><?php the_title(); ?></h2>
-            <h3 class="SousTitre"><?php echo esc_html(get_theme_mod('kabowd_services_subtitle', 'Sous-titre de section')); ?></h3>
+            <h3 class="SousTitre">
+                <?php
+                $subtitle = get_theme_mod('kabowd_services_subtitle', '');
+                echo $subtitle ? esc_html($subtitle) : '';
+                ?>
+            </h3>
         </section>
         <section class="Block-Droite">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'); ?>" alt="">
         </section>
+    </section>
+
+    <section class="Texte-Page Block-Main">
+        <?php
+        // Affiche le contenu WordPress si présent
+        if (have_posts()) : while (have_posts()) : the_post();
+            the_content();
+        endwhile; endif;
+        ?>
     </section>
 
     <section class="Carrousel-pack Block-Main">
@@ -56,13 +70,6 @@ get_header(); ?>
             </li>
             <?php endfor; ?>
         </ul>
-    </section>
-
-    <section class="Texte-Page Block-Main">
-        <article class="Block-Centre">
-            <h2><?php esc_html_e('Statistiques', 'blankslateKabowd'); ?></h2>
-            <p><?php esc_html_e('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla perferendis quae veniam aperiam quidem quibusdam molestiae error ipsam, nemo cum necessitatibus saepe officiis reprehenderit, recusandae vitae, maxime voluptatum debitis aliquid voluptas minus magni voluptatibus? Ducimus quo odit excepturi doloribus sapiente nobis, repellendus vel dolore quam! Doloribus accusantium magnam deleniti officia.', 'blankslateKabowd'); ?></p>
-        </article>
     </section>
 
     <section class="Carrousel-Infini Block-Main">

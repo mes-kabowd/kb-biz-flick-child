@@ -11,13 +11,27 @@ get_header(); ?>
   <section class="Titre-Page Block-Main">
       <section class="Block-Gauche">
           <H1 class="TitrePage"><?php the_title(); ?></H1>
-          <h3 class="SousTitre"><?php echo esc_html(get_theme_mod('kabowd_secteurs_subtitle', 'Sous-titre de section')); ?></h3>
+          <h3 class="SousTitre">
+              <?php
+              $subtitle = get_theme_mod('kabowd_secteurs_subtitle', '');
+              echo $subtitle ? esc_html($subtitle) : '';
+              ?>
+          </h3>
       </section>
       <section class="Block-Droite">
           <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png'); ?>" alt="">
       </section>
   </section>
-  
+
+  <section class="Texte-Page Block-Main">
+      <?php
+      // Affiche le contenu WordPress si présent
+      if (have_posts()) : while (have_posts()) : the_post();
+          the_content();
+      endwhile; endif;
+      ?>
+  </section>
+
   <section class="List-Block Block-Main">
       <article class="Block-Haut">
           <h2><?php esc_html_e('Services', 'blankslateKabowd'); ?></h2>

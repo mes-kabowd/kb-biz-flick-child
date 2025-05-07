@@ -12,13 +12,13 @@ get_header(); ?>
             <h2 class="TitrePage">
                 <?php
                 $custom_title = kabowd_secteur_unite_customizer('title');
-                echo $custom_title ? esc_html($custom_title) : 'Titre de la page';
+                echo $custom_title ? esc_html($custom_title) : get_the_title();
                 ?>
             </h2>
             <h3 class="SousTitre">
                 <?php
                 $custom_subtitle = kabowd_secteur_unite_customizer('subtitle');
-                echo $custom_subtitle ? esc_html($custom_subtitle) : 'Sous-titre de section';
+                echo $custom_subtitle ? esc_html($custom_subtitle) : '';
                 ?>
             </h3>
         </section>
@@ -29,9 +29,18 @@ get_header(); ?>
             ?>
                 <img src="<?php echo esc_url($custom_logo); ?>" alt="">
             <?php else : ?>
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png'); ?>" alt="">
             <?php endif; ?>
         </section>
+    </section>
+
+    <section class="Texte-Page Block-Main">
+        <?php
+        // Affiche le contenu WordPress si présent
+        if (have_posts()) : while (have_posts()) : the_post();
+            the_content();
+        endwhile; endif;
+        ?>
     </section>
 
     <section class="Stats Block-Main">
