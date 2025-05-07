@@ -428,11 +428,13 @@ header {
     
 }
 
+// Personnalisez le contenu via PHP (voir functions.php)
 .ReseauxSociaux {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  gap: 1.5rem; // Espacement entre les icônes
 
   a {
     width: 35px;
@@ -440,12 +442,20 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
 
     img, svg {
       width: 100%;
       height: 100%;
       object-fit: contain;
       fill: currentColor;
+    }
+    span {
+      display: inline-block;
+      color: var(--White-Primary);
+      font-size: 1rem;
+      margin-left: 0.25rem;
+      white-space: nowrap;
     }
   }
 }

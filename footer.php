@@ -1,24 +1,25 @@
-<footer>
+<footer class="footer">
     <section class="VoletGauche">
         <a href="<?php echo esc_url( home_url('/') ); ?>" class="Logo">
-            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png' ); ?>" alt="Logo Kabowd">
+            <img src="<?php echo esc_url( get_theme_mod('kabowd_logo_mb', get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png') ); ?>" alt="<?php echo esc_attr( get_theme_mod('kabowd_logo_mb_alt', 'Logo Kabowd') ); ?>">
         </a>
         <div class="ReseauxSociaux">
-            <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Linkedin.svg' ); ?>" alt="Linkedin"></a>
-            <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Facebook.svg' ); ?>" alt="Facebook"></a>
-            <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/GitHub.svg' ); ?>" alt="GitHub"></a>
-            <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Instagram.svg' ); ?>" alt="Instagram"></a>
-            <a href="#"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/YouTube.svg' ); ?>" alt="YouTube"></a>
+            <?php foreach (kabowd_get_social_networks() as $social) : ?>
+                <a href="<?php echo esc_url($social['url']); ?>" target="_blank" rel="noopener">
+                    <img src="<?php echo esc_url($social['icon']); ?>" alt="<?php echo esc_attr($social['name']); ?>">
+                    <?php if (!empty($social['show_label'])) : ?>
+                        <span><?php echo esc_html($social['name']); ?></span>
+                    <?php endif; ?>
+                </a>
+            <?php endforeach; ?>
         </div>
     </section>
     <section class="VoletCentre">
-        <ul class="Services">
+        <!-- <ul class="Services">
             <li><a href="<?php echo esc_url( home_url('/services') ); ?>">Services</a></li>
-            <!-- Utilisez un Custom Post Type ou ACF pour générer dynamiquement la liste des services -->
         </ul>
         <ul class="Secteurs">
             <li><a href="<?php echo esc_url( home_url('/secteurs') ); ?>">Secteurs</a></li>
-            <!-- Idem pour les secteurs -->
         </ul>
         <ul class="Blog">
             <li><a href="<?php echo esc_url( home_url('/blog') ); ?>">Blog</a></li>
@@ -28,14 +29,32 @@
         </ul>
         <ul class="PrenezRDV">
             <li><a href="<?php echo esc_url( home_url('/contact') ); ?>" class="Rdv">Prenez un Rendez-vous</a></li>
-        </ul>
+        </ul> -->
+        <?php
+        // Menu de navigation du footer (modifiable dans Apparence > Menus)
+        wp_nav_menu(array(
+            'theme_location' => 'footer-menu',
+            'container'      => false,
+            'menu_class'     => 'FooterNav',
+            'fallback_cb'    => false,
+            'items_wrap'     => '<ul class="FooterNav">%3$s</ul>',
+        ));
+        ?>
     </section>
     <section class="VoletDroite">
         <ul>
-            <li>Numéro de Tel</li>
-            <li>Adresse</li>
-            <li>Courriel</li>
-            <li>Crédit</li>
+            <?php if ($phone = get_theme_mod('kabowd_footer_phone')): ?>
+                <li><?php echo esc_html($phone); ?></li>
+            <?php endif; ?>
+            <?php if ($address = get_theme_mod('kabowd_footer_address')): ?>
+                <li><?php echo esc_html($address); ?></li>
+            <?php endif; ?>
+            <?php if ($email = get_theme_mod('kabowd_footer_email')): ?>
+                <li><a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a></li>
+            <?php endif; ?>
+            <?php if ($credit = get_theme_mod('kabowd_footer_credit')): ?>
+                <li><?php echo esc_html($credit); ?></li>
+            <?php endif; ?>
         </ul>
     </section>
 </footer>

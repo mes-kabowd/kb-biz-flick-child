@@ -38,22 +38,25 @@
                 </ul>
             </nav>
             <div class="ReseauxSociaux">
-                <?php if ( get_theme_mod('kabowd_show_linkedin', true) ) : ?>
-                <a href="<?php echo esc_url( get_theme_mod('kabowd_linkedin_url', '#') ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Linkedin.svg' ); ?>" alt="Linkedin"></a>
-                <?php endif; ?>
-                <?php if ( get_theme_mod('kabowd_show_facebook', true) ) : ?>
-                <a href="<?php echo esc_url( get_theme_mod('kabowd_facebook_url', '#') ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Facebook.svg' ); ?>" alt="Facebook"></a>
-                <?php endif; ?>
-                <?php if ( get_theme_mod('kabowd_show_github', true) ) : ?>
-                <a href="<?php echo esc_url( get_theme_mod('kabowd_github_url', '#') ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/GitHub.svg' ); ?>" alt="GitHub"></a>
-                <?php endif; ?>
-                <?php if ( get_theme_mod('kabowd_show_instagram', true) ) : ?>
-                <a href="<?php echo esc_url( get_theme_mod('kabowd_instagram_url', '#') ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/Instagram.svg' ); ?>" alt="Instagram"></a>
-                <?php endif; ?>
-                <?php if ( get_theme_mod('kabowd_show_youtube', true) ) : ?>
-                <a href="<?php echo esc_url( get_theme_mod('kabowd_youtube_url', '#') ); ?>"><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/YouTube.svg' ); ?>" alt="YouTube"></a>
-                <?php endif; ?>
+                <?php foreach (kabowd_get_social_networks() as $social) : ?>
+                    <?php /* Debug temporaire */ ?>
+                    <!-- <?php echo esc_url($social['icon']); ?> -->
+                    <a href="<?php echo esc_url($social['url']); ?>" target="_blank" rel="noopener">
+                        <img src="<?php echo esc_url($social['icon']); ?>" alt="<?php echo esc_attr($social['name']); ?>">
+                        <?php if (!empty($social['show_label'])) : ?>
+                            <span><?php echo esc_html($social['name']); ?></span>
+                        <?php endif; ?>
+                    </a>
+                <?php endforeach; ?>
             </div>
+            <!--
+            Exemple de JSON à coller dans le champ "Réseaux sociaux personnalisés" du Customizer :
+            [
+                {"name":"Facebook","url":"https://facebook.com/monprofil","icon":"https://.../Facebook.png"},
+                {"name":"Instagram","url":"https://instagram.com/monprofil","icon":"https://.../Instagram.png"},
+                {"name":"LinkedIn","url":"https://linkedin.com/in/monprofil","icon":"https://.../Linkedin.png"}
+            ]
+            -->
             <nav class="MenuBas">
                 <?php
                 wp_nav_menu( array(

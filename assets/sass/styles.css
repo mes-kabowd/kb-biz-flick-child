@@ -611,6 +611,7 @@ header .Prenez-Notre-Service {
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  gap: 1.5rem;
 }
 .ReseauxSociaux a {
   width: 35px;
@@ -618,6 +619,7 @@ header .Prenez-Notre-Service {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
 }
 .ReseauxSociaux a img, .ReseauxSociaux a svg {
   width: 100%;
@@ -625,6 +627,13 @@ header .Prenez-Notre-Service {
   -o-object-fit: contain;
      object-fit: contain;
   fill: currentColor;
+}
+.ReseauxSociaux a span {
+  display: inline-block;
+  color: var(--White-Primary);
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  white-space: nowrap;
 }
 
 footer {
@@ -733,19 +742,8 @@ footer .VoletDroite ul {
     height: 65%;
     width: 75%;
     padding: 5% 0 5%;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-  }
-  footer .VoletCentre .Services > li,
-  footer .VoletCentre .Secteurs > li {
-    display: block;
-  }
-  footer .VoletCentre ul {
-    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
   }
   footer .VoletCentre .PrenezRDV {
     width: 25%;
