@@ -256,8 +256,21 @@ get_header();
 
     <?php if (kabowd_homepage_show_block('blog')): ?>
     <section class="Mini-Carrousel-Blog Block-Main">
+        <?php
+        $blog_carrousel_title = get_theme_mod('kabowd_homepage_blog_carrousel_title', 'Blog');
+        $blog_carrousel_page_id = get_theme_mod('kabowd_homepage_blog_carrousel_page', '');
+        $blog_carrousel_url_custom = get_theme_mod('kabowd_homepage_blog_carrousel_url', '');
+        $blog_carrousel_url = '#';
+        if (!empty($blog_carrousel_url_custom)) {
+            $blog_carrousel_url = $blog_carrousel_url_custom;
+        } elseif (!empty($blog_carrousel_page_id)) {
+            $blog_carrousel_url = get_permalink($blog_carrousel_page_id);
+        }
+        ?>
         <h2>
-            Blog
+            <a href="<?php echo esc_url($blog_carrousel_url); ?>">
+                <?php echo esc_html($blog_carrousel_title); ?>
+            </a>
         </h2>
         <section class="Galerie-Blog">
             <input type="radio" name="position" checked />
@@ -266,53 +279,49 @@ get_header();
             <input type="radio" name="position" />
             <input type="radio" name="position" />
             <div class="Carrousel2Blog">
-              <article class="item">
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                <div class="InfoBlog">
-                    <h3>Titre article</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
-                    <h4>Auteur Article</h4>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
-              </article>
-              <article class="item">
-                <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                <div class="InfoBlog">
-                    <h3>Titre article</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
-                    <h4>Auteur Article</h4>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
-              </article>
-              <article class="item">
-                <img src="assets/img/Icon Logo Principal Noir.png" alt="">
-                <div class="InfoBlog">
-                    <h3>Titre article</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
-                    <h4>Auteur Article</h4>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
-              </article>
-              <article class="item">
-                <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                <div class="InfoBlog">
-                    <h3>Titre article</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
-                    <h4>Auteur Article</h4>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
-              </article>
-              <article class="item">
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                <div class="InfoBlog">
-                    <h3>Titre article</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, reiciendis.</p>
-                    <h4>Auteur Article</h4>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
-              </article>
-            
-            <div>
+                <?php
+                $blog_query = new WP_Query(array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 5,
+                    'orderby' => 'date',
+                    'order' => 'DESC'
+                ));
+                if ($blog_query->have_posts()) :
+                    while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
+                        <article class="item">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')); ?>" alt="<?php the_title_attribute(); ?>">
+                            <?php else : ?>
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png'); ?>" alt="">
+                            <?php endif; ?>
+                            <div class="InfoBlog">
+                                <h3><?php the_title(); ?></h3>
+                                <p>
+                                    <?php
+                                    $excerpt = get_the_excerpt();
+                                    $words = explode(' ', wp_strip_all_tags($excerpt));
+                                    echo esc_html(implode(' ', array_slice($words, 0, 10)));
+                                    if (count($words) > 10) echo '...';
+                                    ?>
+                                </p>
+                                <h4><?php the_author(); ?></h4>
+                                <a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php esc_html_e('Bouton', 'blankslateKabowd'); ?></a>
+                            </div>
+                        </article>
+                    <?php endwhile;
+                    wp_reset_postdata();
+                else: ?>
+                    <article class="item">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png'); ?>" alt="">
+                        <div class="InfoBlog">
+                            <h3><?php esc_html_e('Aucun article trouvé.', 'blankslateKabowd'); ?></h3>
+                            <p></p>
+                            <h4></h4>
+                            <a href="#" class="btn btn-primary"><?php esc_html_e('Bouton', 'blankslateKabowd'); ?></a>
+                        </div>
+                    </article>
+                <?php endif; ?>
+            </div>
         </section>
     </section>
     <?php endif; ?>
