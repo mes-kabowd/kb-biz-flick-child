@@ -159,6 +159,7 @@ a {
   height: 100%;
   margin: 0;
   font-weight: normal;
+  overflow-x: hidden;
 }
 * body {
   display: flex;
@@ -706,6 +707,17 @@ footer .VoletCentre .Services > li,
 footer .VoletCentre .Secteurs > li {
   display: none;
 }
+footer .VoletCentre .FooterMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 footer .VoletDroite {
   height: 35%;
   padding: var(--padding-base);
@@ -759,6 +771,12 @@ footer .VoletDroite ul {
   footer .VoletCentre .PrenezRDV {
     width: 25%;
     font-size: large;
+  }
+  footer .VoletCentre .FooterMenu {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
   }
   footer .VoletDroite {
     height: 65%;
@@ -826,6 +844,12 @@ footer .VoletDroite ul {
   }
   footer .VoletCentre .PrenezRDV {
     font-size: x-large;
+  }
+  footer .VoletCentre .FooterMenu {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
   }
   footer .VoletDroite {
     order: 3;
@@ -2104,19 +2128,59 @@ footer .VoletDroite ul {
   top: 0;
 }
 .Carrousel-Infini .Ctn-Carrousel-Infini .Contenu {
-  animation: scroll 40s linear infinite;
   display: flex;
-  width: 3500px;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: auto;
+  height: 100%;
 }
 .Carrousel-Infini .Ctn-Carrousel-Infini .ImgCtn {
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 250px;
+  height: 100px;
+  flex: 0 0 auto;
+}
+.Carrousel-Infini .Ctn-Carrousel-Infini .ImgCtn img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+}
+@media screen and (min-width: 576px) {
+  .Carrousel-Infini .Ctn-Carrousel-Infini .ImgCtn {
+    width: 250px;
+    height: 100px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .Carrousel-Infini .Ctn-Carrousel-Infini .ImgCtn {
+    width: 250px;
+    height: 100px;
+  }
 }
 @media screen and (min-width: 992px) {
   .Carrousel-Infini {
     padding: var(--padding-null);
   }
+  .Carrousel-Infini .Ctn-Carrousel-Infini .ImgCtn {
+    width: 250px;
+    height: 100px;
+  }
 }
+@media screen and (min-width: 1200px) {
+  .Carrousel-Infini .Ctn-Carrousel-Infini .ImgCtn {
+    width: 250px;
+    height: 100px;
+  }
+}
+
 .Carrousel-pack {
   display: flex;
   align-items: center;

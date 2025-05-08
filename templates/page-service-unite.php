@@ -10,31 +10,27 @@ get_header(); ?>
     <section class="Titre-Page Block-Main">
         <section class="Block-Gauche">
             <h1><?php the_title(); ?></h1>
-            <h3 class="SousTitre"><?php echo esc_html(get_theme_mod('kabowd_service_unite_subtitle', 'Sous-titre de section')); ?></h3>
+            <h3 class="SousTitre"><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_subtitle', true) ?: get_theme_mod('kabowd_service_unite_subtitle', 'Sous-titre de section')); ?></h3>
         </section>
         <section class="Block-Droite">
+            <?php if (has_post_thumbnail()) : the_post_thumbnail('large', ['alt' => get_the_title()]); else : ?>
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'); ?>" alt="">
+            <?php endif; ?>
         </section>
         <section class="Bloc-Bas">
+            <?php for ($i=1; $i<=3; $i++): ?>
             <article class="MiniStats">
-                <h4 class="Valeur">00%</h4>
-                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques', 'blankslateKabowd'); ?></h3>
+                <h4 class="Valeur"><?php echo esc_html(get_post_meta(get_the_ID(), "kabowd_stats_value_$i", true) ?: ($i==1?'00%':($i==2?'20%':'30%'))); ?></h4>
+                <h3 class="Txt-Valeur"><?php echo esc_html(get_post_meta(get_the_ID(), "kabowd_stats_label_$i", true) ?: __("Type de Statistiques" . ($i>1?" $i":""), 'blankslateKabowd')); ?></h3>
             </article>
-            <article class="MiniStats">
-                <h4 class="Valeur">20%</h4>
-                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 2', 'blankslateKabowd'); ?></h3>
-            </article>
-            <article class="MiniStats">
-                <h4 class="Valeur">30%</h4>
-                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 3', 'blankslateKabowd'); ?></h3>
-            </article>
+            <?php endfor; ?>
         </section>
     </section>
 
     <section class="Texte-Page Block-Main">
         <article class="Block-Gauche">
-            <h2><?php esc_html_e('Services', 'blankslateKabowd'); ?></h2>
-            <p><?php esc_html_e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?', 'blankslateKabowd'); ?></p>
+            <h2><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_title', true) ?: __('Services', 'blankslateKabowd')); ?></h2>
+            <p><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_text', true) ?: __('Lorem ipsum dolor sit amet...', 'blankslateKabowd')); ?></p>
         </article>
         <section class="Block-Droite">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Noir.png'); ?>" alt="">
@@ -46,20 +42,18 @@ get_header(); ?>
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Noir.png'); ?>" alt="">
         </section>
         <article class="Block-Droite">
-            <h2><?php esc_html_e('Services', 'blankslateKabowd'); ?></h2>
-            <p><?php esc_html_e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?', 'blankslateKabowd'); ?></p>
+            <h2><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_title2', true) ?: __('Services', 'blankslateKabowd')); ?></h2>
+            <p><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_text2', true) ?: __('Lorem ipsum dolor sit amet...', 'blankslateKabowd')); ?></p>
         </article>
     </section>
 
     <section class="Texte-Page Block-Main">
         <article class="Block-Gauche">
-            <h2><?php esc_html_e('Services', 'blankslateKabowd'); ?></h2>
+            <h2><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_title3', true) ?: __('Services', 'blankslateKabowd')); ?></h2>
             <ul>
-                <li><?php esc_html_e('Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, rerum?', 'blankslateKabowd'); ?></li>
-                <li><?php esc_html_e('Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero, fugit.', 'blankslateKabowd'); ?></li>
-                <li><?php esc_html_e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, exercitationem.', 'blankslateKabowd'); ?></li>
-                <li><?php esc_html_e('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, maxime!', 'blankslateKabowd'); ?></li>
-                <li><?php esc_html_e('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, ipsam.', 'blankslateKabowd'); ?></li>
+                <?php for ($i=1; $i<=5; $i++): ?>
+                <li><?php echo esc_html(get_post_meta(get_the_ID(), "kabowd_services_list_$i", true) ?: __('Lorem ipsum...', 'blankslateKabowd')); ?></li>
+                <?php endfor; ?>
             </ul>
         </article>
         <section class="Block-Droite">

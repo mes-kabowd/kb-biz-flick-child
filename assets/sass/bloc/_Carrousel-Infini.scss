@@ -1,27 +1,28 @@
-.Carrousel-Infini{
+.Carrousel-Infini {
     height: 30vh;
     @include flex-center;
     padding: var(--padding-null);
-    
+
     $animationSpeed: 40s;
-    
+    $img-width: 250px;
+    $img-height: 100px;
+    $img-gap: 2rem;
+
     // Animation
     @keyframes scroll {
         0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-250px * 7))}
+        100% { transform: translateX(-1750px); } // 250px * 7 images par défaut
     }
-    
-    
-    // Styling
+
     .Ctn-Carrousel-Infini {
         background: white;
         box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
         margin: auto;
-        overflow:hidden;
+        overflow: hidden;
         position: relative;
         width: 100%;
         padding: var(--padding-null);
-        
+
         &::before,
         &::after {
             @include white-gradient;
@@ -31,37 +32,71 @@
             width: 200px;
             z-index: 2;
         }
-        
+
         &::after {
             right: 0;
             top: 0;
             transform: rotateZ(180deg);
         }
-    
+
         &::before {
             left: 0;
             top: 0;
         }
-        
+
         .Contenu {
-            animation: scroll $animationSpeed linear infinite;
             display: flex;
-            width: calc(250px * 14);
-        }
-        
-        .ImgCtn {
+            align-items: center;
+            justify-content: center;
+            gap: $img-gap;
+            animation: scroll $animationSpeed linear infinite;
+            min-width: fit-content;
+            width: auto;
             height: 100%;
-            width: 250px;
+        }
+
+        .ImgCtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $img-width;
+            height: $img-height;
+            flex: 0 0 auto;
+        }
+        .ImgCtn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
     }
 
-    @media screen and (min-width: 576px) {}
-    
-    @media screen and (min-width: 768px) {}
-    
+    @media screen and (min-width: 576px) {
+        .Ctn-Carrousel-Infini .ImgCtn {
+            width: $img-width;
+            height: $img-height;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .Ctn-Carrousel-Infini .ImgCtn {
+            width: $img-width;
+            height: $img-height;
+        }
+    }
+
     @media screen and (min-width: 992px) {
         padding: var(--padding-null);
+        .Ctn-Carrousel-Infini .ImgCtn {
+            width: $img-width;
+            height: $img-height;
+        }
     }
-    
-    @media screen and (min-width: 1200px) {}
+
+    @media screen and (min-width: 1200px) {
+        .Ctn-Carrousel-Infini .ImgCtn {
+            width: $img-width;
+            height: $img-height;
+        }
+    }
 }

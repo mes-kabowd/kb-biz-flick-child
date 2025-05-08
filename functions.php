@@ -89,7 +89,7 @@ function blankslateKabowd_skip_link() {
 function kabowd_customize_register($wp_customize) {
     $wp_customize->add_section('kabowd_header', array(
         'title' => __('Header Kabowd', 'kabowd'),
-        'priority' => 30,
+        'priority' => 50,
     ));
     $wp_customize->add_setting('kabowd_logo', array('default' => get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'));
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_logo', array(
@@ -213,7 +213,7 @@ add_action('customize_register', 'kabowd_customize_register');
 function kabowd_customize_socials($wp_customize) {
     $wp_customize->add_section('kabowd_socials', array(
         'title'    => __('Réseaux sociaux', 'kabowd'),
-        'priority' => 35,
+        'priority' => 60, // déplacé plus bas
     ));
 
     // Champ textarea pour réseaux sociaux personnalisés (JSON)
@@ -265,7 +265,7 @@ add_action('customize_register', 'kabowd_customize_socials');
 function kabowd_customize_footer($wp_customize) {
     $wp_customize->add_section('kabowd_footer', array(
         'title'    => __('Pied de page (Footer)', 'kabowd'),
-        'priority' => 40,
+        'priority' => 70, // déplacé plus bas
     ));
 
     // Texte de crédit
@@ -330,7 +330,7 @@ function kabowd_customize_content($wp_customize) {
     // Section pour les pages
     $wp_customize->add_section('kabowd_page_content', array(
         'title'    => __('Contenu des pages', 'kabowd'),
-        'priority' => 50,
+        'priority' => 80, // déplacé plus bas
     ));
     $wp_customize->add_setting('kabowd_page_title', array('default' => ''));
     $wp_customize->add_control('kabowd_page_title', array(
@@ -366,7 +366,7 @@ function kabowd_customize_content($wp_customize) {
     // Section pour les articles
     $wp_customize->add_section('kabowd_post_content', array(
         'title'    => __('Contenu des articles', 'kabowd'),
-        'priority' => 51,
+        'priority' => 90, // déplacé plus bas
     ));
     $wp_customize->add_setting('kabowd_post_title', array('default' => ''));
     $wp_customize->add_control('kabowd_post_title', array(
@@ -405,7 +405,7 @@ add_action('customize_register', 'kabowd_customize_content');
 function kabowd_customize_homepage($wp_customize) {
     $wp_customize->add_section('kabowd_homepage', array(
         'title'    => __('Page d\'accueil personnalisée', 'kabowd'),
-        'priority' => 20,
+        'priority' => 10, // tout en haut après identité du site
     ));
     $wp_customize->add_setting('kabowd_homepage_title', array('default' => ''));
     $wp_customize->add_control('kabowd_homepage_title', array(
@@ -590,7 +590,7 @@ add_action('customize_register', 'kabowd_customize_homepage_carrousel2');
 function kabowd_customize_homepage_blocks($wp_customize) {
     $wp_customize->add_section('kabowd_homepage_blocks', array(
         'title'    => __('Affichage des sections Accueil', 'kabowd'),
-        'priority' => 25,
+        'priority' => 40, // après Secteur Unité
     ));
     $blocks = array(
         'titre'      => 'Bloc Titre',
@@ -623,7 +623,7 @@ function kabowd_homepage_show_block($slug) {
 function kabowd_customize_apropos($wp_customize) {
     $wp_customize->add_section('kabowd_apropos', array(
         'title'    => __('Page À Propos personnalisée', 'kabowd'),
-        'priority' => 21,
+        'priority' => 20, // après accueil
     ));
     $wp_customize->add_setting('kabowd_apropos_title', array('default' => ''));
     $wp_customize->add_control('kabowd_apropos_title', array(
@@ -649,35 +649,163 @@ function kabowd_customize_apropos($wp_customize) {
         'section' => 'kabowd_apropos',
         'type' => 'textarea',
     ));
+
+    // Bouton 1
+    $wp_customize->add_setting('kabowd_apropos_btn1_text', array('default' => 'Bouton 1'));
+    $wp_customize->add_control('kabowd_apropos_btn1_text', array(
+        'label' => __('Texte du bouton 1', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'text',
+    ));
+    // Sélecteur de page ou article pour bouton 1
+    $posts = get_posts(array('numberposts' => -1, 'post_type' => array('page', 'post'), 'orderby' => 'title', 'order' => 'ASC'));
+    $post_choices = array('' => __('-- Sélectionner une page ou un article --', 'kabowd'));
+    foreach ($posts as $post) {
+        $post_choices[$post->ID] = $post->post_title . ' (' . get_post_type($post) . ')';
+    }
+    $wp_customize->add_setting('kabowd_apropos_btn1_post', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_btn1_post', array(
+        'label' => __('Page/Article cible du bouton 1', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'select',
+        'choices' => $post_choices,
+    ));
+    // Champ URL personnalisée pour bouton 1
+    $wp_customize->add_setting('kabowd_apropos_btn1_url', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_btn1_url', array(
+        'label' => __('URL personnalisée du bouton 1 (prioritaire si renseignée)', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'url',
+    ));
+
+    // Bouton 2
+    $wp_customize->add_setting('kabowd_apropos_btn2_text', array('default' => 'Bouton 2'));
+    $wp_customize->add_control('kabowd_apropos_btn2_text', array(
+        'label' => __('Texte du bouton 2', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_apropos_btn2_post', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_btn2_post', array(
+        'label' => __('Page/Article cible du bouton 2', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'select',
+        'choices' => $post_choices,
+    ));
+    $wp_customize->add_setting('kabowd_apropos_btn2_url', array('default' => ''));
+    $wp_customize->add_control('kabowd_apropos_btn2_url', array(
+        'label' => __('URL personnalisée du bouton 2 (prioritaire si renseignée)', 'kabowd'),
+        'section' => 'kabowd_apropos',
+        'type' => 'url',
+    ));
+
+    // Carrousel-Infini : images multiples (stockées sous forme de liste d'IDs séparés par des virgules)
+    $wp_customize->add_setting('kabowd_apropos_carrousel_infini_ids', array(
+        'default' => '',
+        'sanitize_callback' => function($value) {
+            // Nettoie la liste d'IDs (ex: "1,2,3")
+            return implode(',', array_filter(array_map('intval', explode(',', $value))));
+        }
+    ));
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'kabowd_apropos_carrousel_infini_ids',
+        array(
+            'label' => __('Images du Carrousel Infini (IDs séparés par des virgules)', 'kabowd'),
+            'description' => __('Sélectionnez les images via la médiathèque (voir ci-dessous)', 'kabowd'),
+            'section' => 'kabowd_apropos',
+            'type' => 'text',
+        )
+    ));
 }
 add_action('customize_register', 'kabowd_customize_apropos');
 
-// --- Customizer : options de personnalisation pour la page Secteur Unité ---
-function kabowd_customize_secteur_unite($wp_customize) {
-    $wp_customize->add_section('kabowd_secteur_unite', array(
-        'title'    => __('Page Secteur Unité personnalisée', 'kabowd'),
-        'priority' => 22,
-    ));
-    $wp_customize->add_setting('kabowd_secteur_unite_title', array('default' => ''));
-    $wp_customize->add_control('kabowd_secteur_unite_title', array(
-        'label' => __('Titre principal', 'kabowd'),
-        'section' => 'kabowd_secteur_unite',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('kabowd_secteur_unite_subtitle', array('default' => ''));
-    $wp_customize->add_control('kabowd_secteur_unite_subtitle', array(
-        'label' => __('Sous-titre', 'kabowd'),
-        'section' => 'kabowd_secteur_unite',
-        'type' => 'text',
-    ));
-    $wp_customize->add_setting('kabowd_secteur_unite_logo', array('default' => ''));
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_secteur_unite_logo', array(
-        'label' => __('Image principale', 'kabowd'),
-        'section' => 'kabowd_secteur_unite',
-        'settings' => 'kabowd_secteur_unite_logo',
-    )));
+// Utilitaire pour récupérer les IDs d'images du carrousel infini
+function kabowd_apropos_carrousel_infini_ids() {
+    $ids = get_theme_mod('kabowd_apropos_carrousel_infini_ids', '');
+    if (!$ids) return [];
+    return array_filter(array_map('intval', explode(',', $ids)));
 }
-add_action('customize_register', 'kabowd_customize_secteur_unite');
+
+// Ajoute un champ de sélection multiple d'images dans la médiathèque pour le Customizer (JS)
+// (Ce JS ne s'affiche que dans le Customizer)
+add_action('customize_controls_enqueue_scripts', function() {
+    ?>
+    <script>
+    (function($){
+        wp.customize.bind('ready', function() {
+            // Ajoute un bouton pour ouvrir la médiathèque à côté du champ texte
+            var $input = $('#customize-control-kabowd_apropos_carrousel_infini_ids input[type="text"]');
+            if ($input.length && $('#kabowd-carrousel-infini-media-btn').length === 0) {
+                var $btn = $('<button type="button" id="kabowd-carrousel-infini-media-btn" class="button" style="margin-left:10px;"><?php echo esc_js(__('Choisir des images', 'kabowd')); ?></button>');
+                $input.after($btn);
+                $btn.on('click', function(e){
+                    e.preventDefault();
+                    var frame = wp.media({
+                        title: '<?php echo esc_js(__('Choisir des images pour le carrousel infini', 'kabowd')); ?>',
+                        multiple: true,
+                        library: { type: 'image' }
+                    });
+                    frame.on('select', function(){
+                        var selection = frame.state().get('selection');
+                        var ids = [];
+                        selection.each(function(attachment){
+                            ids.push(attachment.id);
+                        });
+                        $input.val(ids.join(',')).trigger('change');
+                    });
+                    frame.open();
+                });
+            }
+        });
+    })(jQuery);
+    </script>
+    <?php
+});
+
+// JS pour le Customizer : bouton de sélection multiple d'images pour le carrousel infini
+add_action('customize_controls_print_footer_scripts', function() {
+    ?>
+    <script>
+    (function($){
+        wp.customize.bind('ready', function() {
+            var $control = $('#customize-control-kabowd_apropos_carrousel_infini_ids');
+            if ($control.length && $control.find('.kabowd-multi-image-btn').length === 0) {
+                var $input = $control.find('input[type="text"]');
+                var $btn = $('<button type="button" class="button kabowd-multi-image-btn" style="margin-left:10px;"><?php echo esc_js(__('Sélectionner des images', 'kabowd')); ?></button>');
+                $input.after($btn);
+                $btn.on('click', function(e){
+                    e.preventDefault();
+                    var frame = wp.media({
+                        title: '<?php echo esc_js(__('Choisir des images pour le carrousel infini', 'kabowd')); ?>',
+                        multiple: true,
+                        library: { type: 'image' }
+                    });
+                    frame.on('select', function(){
+                        var selection = frame.state().get('selection');
+                        var ids = [];
+                        selection.each(function(attachment){
+                            ids.push(attachment.id);
+                        });
+                        $input.val(ids.join(',')).trigger('change');
+                    });
+                    frame.open();
+                });
+            }
+        });
+    })(jQuery);
+    </script>
+    <?php
+});
+
+// Utilitaire pour obtenir l'URL finale d'un bouton (priorité URL personnalisée, sinon page/article)
+function kabowd_apropos_btn_url($btn = 1) {
+    $url = trim(get_theme_mod("kabowd_apropos_btn{$btn}_url", ''));
+    if (!empty($url)) return $url;
+    $post_id = get_theme_mod("kabowd_apropos_btn{$btn}_post", '');
+    if (!empty($post_id) && get_permalink($post_id)) return get_permalink($post_id);
+    return '#';
+}
 
 // Utilitaires pour récupérer les valeurs customizer des templates
 function kabowd_apropos_customizer($key, $default = '') {
@@ -793,6 +921,290 @@ add_action('admin_head', function() {
     echo '<style>
     .page-categories-div, .tagsdiv-page_tag { display:block !important; }
     </style>';
+});
+
+// Afficher la metabox "Champs personnalisés" par défaut pour les pages
+add_action('admin_init', function() {
+    $screen = get_current_screen();
+    if ($screen && $screen->post_type === 'page') {
+        add_post_type_support('page', 'custom-fields');
+    }
+});
+
+// Utilitaire pour récupérer un champ personnalisé avec fallback
+function kabowd_get_field($key, $default = '') {
+    $val = get_post_meta(get_the_ID(), $key, true);
+    return $val !== '' ? $val : $default;
+}
+
+// Metabox personnalisée pour le template page-a-propos.php (affichage dans la sidebar)
+add_action('add_meta_boxes', function() {
+    add_meta_box(
+        'kabowd_apropos_metabox',
+        __('Options de la page À propos', 'blankslateKabowd'),
+        function($post) {
+            $template = get_post_meta($post->ID, '_wp_page_template', true);
+            if ($template !== 'templates/page-a-propos.php') {
+                echo '<p>' . __('Cette metabox s’affiche uniquement pour le template À propos.', 'blankslateKabowd') . '</p>';
+                return;
+            }
+            $subtitle = get_post_meta($post->ID, 'kabowd_apropos_subtitle', true);
+            $logo = get_post_meta($post->ID, 'kabowd_apropos_logo', true);
+            $paragraph = get_post_meta($post->ID, 'kabowd_apropos_paragraph', true);
+            ?>
+            <p>
+                <label for="kabowd_apropos_subtitle"><strong><?php _e('Sous-titre', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_subtitle" id="kabowd_apropos_subtitle" value="<?php echo esc_attr($subtitle); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label for="kabowd_apropos_logo"><strong><?php _e('Logo (URL de l\'image)', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_logo" id="kabowd_apropos_logo" value="<?php echo esc_attr($logo); ?>" style="width:100%;">
+                <em><?php _e('Collez ici l\'URL de l\'image ou utilisez la médiathèque.', 'blankslateKabowd'); ?></em>
+            </p>
+            <p>
+                <label for="kabowd_apropos_paragraph"><strong><?php _e('Paragraphe principal', 'blankslateKabowd'); ?></strong></label><br>
+                <textarea name="kabowd_apropos_paragraph" id="kabowd_apropos_paragraph" style="width:100%;height:80px;"><?php echo esc_textarea($paragraph); ?></textarea>
+            </p>
+            <p style="color:#666;font-size:0.95em;">
+                <?php _e('Pour voir le rendu, cliquez sur "Aperçu" ou "Voir la page" après avoir enregistré.', 'blankslateKabowd'); ?>
+            </p>
+            <?php
+            wp_nonce_field('kabowd_apropos_metabox_nonce', 'kabowd_apropos_metabox_nonce_field');
+        },
+        'page',
+        'side', // Affichage dans la sidebar
+        'high'
+    );
+});
+
+// Sauvegarde des champs personnalisés pour À propos
+add_action('save_post_page', function($post_id) {
+    if (!isset($_POST['kabowd_apropos_metabox_nonce_field']) || !wp_verify_nonce($_POST['kabowd_apropos_metabox_nonce_field'], 'kabowd_apropos_metabox_nonce')) return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_page', $post_id)) return;
+
+    $fields = ['kabowd_apropos_subtitle', 'kabowd_apropos_logo', 'kabowd_apropos_paragraph'];
+    foreach ($fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+});
+
+// Metabox avancée pour chaque section .Block-Main du template page-a-propos.php (images via médiathèque)
+add_action('add_meta_boxes', function() {
+    add_meta_box(
+        'kabowd_apropos_sections',
+        __('Sections personnalisées (À propos)', 'blankslateKabowd'),
+        function($post) {
+            $template = get_post_meta($post->ID, '_wp_page_template', true);
+            if ($template !== 'templates/page-a-propos.php') {
+                echo '<p>' . __('Cette metabox s’affiche uniquement pour le template À propos.', 'blankslateKabowd') . '</p>';
+                return;
+            }
+            // Champs principaux
+            $titre = get_post_meta($post->ID, 'kabowd_apropos_titre', true);
+            $sous_titre = get_post_meta($post->ID, 'kabowd_apropos_sous_titre', true);
+            $logo_id = get_post_meta($post->ID, 'kabowd_apropos_logo_id', true);
+            $paragraphe = get_post_meta($post->ID, 'kabowd_apropos_paragraphe', true);
+            $btn1 = get_post_meta($post->ID, 'kabowd_apropos_btn1', true);
+            $btn1_url = get_post_meta($post->ID, 'kabowd_apropos_btn1_url', true);
+            $btn2 = get_post_meta($post->ID, 'kabowd_apropos_btn2', true);
+            $btn2_url = get_post_meta($post->ID, 'kabowd_apropos_btn2_url', true);
+
+            // Champs formulaires
+            $contact_titre = get_post_meta($post->ID, 'kabowd_apropos_contact_titre', true);
+            $contact_form_titre = get_post_meta($post->ID, 'kabowd_apropos_contact_form_titre', true);
+            $contact_form_btn = get_post_meta($post->ID, 'kabowd_apropos_contact_form_btn', true);
+
+            $team_form_titre = get_post_meta($post->ID, 'kabowd_apropos_team_form_titre', true);
+            $team_form_btn = get_post_meta($post->ID, 'kabowd_apropos_team_form_btn', true);
+
+            $collab_form_titre = get_post_meta($post->ID, 'kabowd_apropos_collab_form_titre', true);
+            $collab_form_btn = get_post_meta($post->ID, 'kabowd_apropos_collab_form_btn', true);
+
+            // Carrousel images (tableau d'IDs)
+            $carousel_ids = get_post_meta($post->ID, 'kabowd_apropos_carousel_ids', true);
+            if (!is_array($carousel_ids)) $carousel_ids = [];
+
+            ?>
+            <h4><?php _e('Section 1 : Bloc titre', 'blankslateKabowd'); ?></h4>
+            <p>
+                <label><strong><?php _e('Titre principal', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_titre" value="<?php echo esc_attr($titre); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Sous-titre', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_sous_titre" value="<?php echo esc_attr($sous_titre); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Logo (image)', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="hidden" id="kabowd_apropos_logo_id" name="kabowd_apropos_logo_id" value="<?php echo esc_attr($logo_id); ?>">
+                <button type="button" class="button kabowd-media-upload" data-target="kabowd_apropos_logo_id"><?php _e('Choisir une image', 'blankslateKabowd'); ?></button>
+                <span class="kabowd-media-preview">
+                    <?php if ($logo_id && wp_attachment_is_image($logo_id)) echo wp_get_attachment_image($logo_id, 'thumbnail'); ?>
+                </span>
+            </p>
+            <p>
+                <label><strong><?php _e('Paragraphe principal', 'blankslateKabowd'); ?></strong></label><br>
+                <textarea name="kabowd_apropos_paragraphe" style="width:100%;height:60px;"><?php echo esc_textarea($paragraphe); ?></textarea>
+            </p>
+            <p>
+                <label><strong><?php _e('Texte bouton 1', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_btn1" value="<?php echo esc_attr($btn1); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Lien bouton 1 (URL ou ID page/article)', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_btn1_url" value="<?php echo esc_attr($btn1_url); ?>" style="width:100%;">
+                <em><?php _e('Collez une URL ou l\'ID d\'une page/article.', 'blankslateKabowd'); ?></em>
+            </p>
+            <p>
+                <label><strong><?php _e('Texte bouton 2', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_btn2" value="<?php echo esc_attr($btn2); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Lien bouton 2 (URL ou ID page/article)', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_btn2_url" value="<?php echo esc_attr($btn2_url); ?>" style="width:100%;">
+                <em><?php _e('Collez une URL ou l\'ID d\'une page/article.', 'blankslateKabowd'); ?></em>
+            </p>
+            <hr>
+            <h4><?php _e('Section 2 : Bloc contact', 'blankslateKabowd'); ?></h4>
+            <p>
+                <label><strong><?php _e('Titre section contact', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_contact_titre" value="<?php echo esc_attr($contact_titre); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Titre formulaire contact', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_contact_form_titre" value="<?php echo esc_attr($contact_form_titre); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Texte bouton formulaire contact', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_contact_form_btn" value="<?php echo esc_attr($contact_form_btn); ?>" style="width:100%;">
+            </p>
+            <hr>
+            <h4><?php _e('Section 3 : Bloc équipe', 'blankslateKabowd'); ?></h4>
+            <p>
+                <label><strong><?php _e('Titre formulaire équipe', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_team_form_titre" value="<?php echo esc_attr($team_form_titre); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Texte bouton formulaire équipe', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_team_form_btn" value="<?php echo esc_attr($team_form_btn); ?>" style="width:100%;">
+            </p>
+            <hr>
+            <h4><?php _e('Section 4 : Bloc collaboration', 'blankslateKabowd'); ?></h4>
+            <p>
+                <label><strong><?php _e('Titre formulaire collaboration', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_collab_form_titre" value="<?php echo esc_attr($collab_form_titre); ?>" style="width:100%;">
+            </p>
+            <p>
+                <label><strong><?php _e('Texte bouton formulaire collaboration', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="text" name="kabowd_apropos_collab_form_btn" value="<?php echo esc_attr($collab_form_btn); ?>" style="width:100%;">
+            </p>
+            <hr>
+            <h4><?php _e('Section 5 : Carrousel d\'images', 'blankslateKabowd'); ?></h4>
+            <p>
+                <label><strong><?php _e('Images du carrousel', 'blankslateKabowd'); ?></strong></label><br>
+                <input type="hidden" id="kabowd_apropos_carousel_ids" name="kabowd_apropos_carousel_ids" value="<?php echo esc_attr(implode(',', $carousel_ids)); ?>">
+                <button type="button" class="button kabowd-media-multi-upload" data-target="kabowd_apropos_carousel_ids"><?php _e('Choisir des images', 'blankslateKabowd'); ?></button>
+                <span class="kabowd-media-preview">
+                    <?php
+                    foreach ($carousel_ids as $img_id) {
+                        if (wp_attachment_is_image($img_id)) echo wp_get_attachment_image($img_id, 'thumbnail', false, ['style'=>'margin:2px;']);
+                    }
+                    ?>
+                </span>
+            </p>
+            <p style="color:#666;font-size:0.95em;">
+                <?php _e('Pour voir le rendu, cliquez sur "Aperçu" ou "Voir la page" après avoir enregistré.', 'blankslateKabowd'); ?>
+            </p>
+            <?php
+            wp_nonce_field('kabowd_apropos_sections_nonce', 'kabowd_apropos_sections_nonce_field');
+        },
+        'page',
+        'side',
+        'high'
+    );
+});
+
+// JS pour la sélection d'images via la médiathèque (logo + carrousel)
+add_action('admin_footer', function() {
+    global $post;
+    if (!isset($post) || get_post_meta($post->ID, '_wp_page_template', true) !== 'templates/page-a-propos.php') return;
+    ?>
+    <script>
+    jQuery(document).ready(function($){
+        // Image simple
+        $('.kabowd-media-upload').click(function(e){
+            e.preventDefault();
+            var button = $(this);
+            var target = $('#' + button.data('target'));
+            var preview = button.siblings('.kabowd-media-preview');
+            var frame = wp.media({ title: 'Choisir une image', multiple: false, library: { type: 'image' } });
+            frame.on('select', function(){
+                var attachment = frame.state().get('selection').first().toJSON();
+                target.val(attachment.id);
+                preview.html('<img src="'+attachment.sizes.thumbnail.url+'" style="max-width:80px;">');
+            });
+            frame.open();
+        });
+        // Images multiples
+        $('.kabowd-media-multi-upload').click(function(e){
+            e.preventDefault();
+            var button = $(this);
+            var target = $('#' + button.data('target'));
+            var preview = button.siblings('.kabowd-media-preview');
+            var frame = wp.media({ title: 'Choisir des images', multiple: true, library: { type: 'image' } });
+            frame.on('select', function(){
+                var selection = frame.state().get('selection');
+                var ids = [];
+                var html = '';
+                selection.each(function(attachment){
+                    ids.push(attachment.id);
+                    html += '<img src="'+attachment.attributes.sizes.thumbnail.url+'" style="max-width:60px;margin:2px;">';
+                });
+                target.val(ids.join(','));
+                preview.html(html);
+            });
+            frame.open();
+        });
+    });
+    </script>
+    <?php
+});
+
+// Sauvegarde des champs personnalisés pour chaque section (avec images)
+add_action('save_post_page', function($post_id) {
+    if (!isset($_POST['kabowd_apropos_sections_nonce_field']) || !wp_verify_nonce($_POST['kabowd_apropos_sections_nonce_field'], 'kabowd_apropos_sections_nonce')) return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_page', $post_id)) return;
+    $fields = [
+        'kabowd_apropos_titre',
+        'kabowd_apropos_sous_titre',
+        'kabowd_apropos_logo_id',
+        'kabowd_apropos_paragraphe',
+        'kabowd_apropos_btn1',
+        'kabowd_apropos_btn1_url',
+        'kabowd_apropos_btn2',
+        'kabowd_apropos_btn2_url',
+        'kabowd_apropos_contact_titre',
+        'kabowd_apropos_contact_form_titre',
+        'kabowd_apropos_contact_form_btn',
+        'kabowd_apropos_team_form_titre',
+        'kabowd_apropos_team_form_btn',
+        'kabowd_apropos_collab_form_titre',
+        'kabowd_apropos_collab_form_btn',
+    ];
+    foreach ($fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+    // Carrousel d'images (tableau d'IDs)
+    if (isset($_POST['kabowd_apropos_carousel_ids'])) {
+        $ids = array_filter(array_map('intval', explode(',', $_POST['kabowd_apropos_carousel_ids'])));
+        update_post_meta($post_id, 'kabowd_apropos_carousel_ids', $ids);
+    }
 });
 
 ?>

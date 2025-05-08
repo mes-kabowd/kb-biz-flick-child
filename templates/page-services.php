@@ -13,19 +13,27 @@ get_header(); ?>
             <h2 class="TitrePage"><?php the_title(); ?></h2>
             <h3 class="SousTitre">
                 <?php
-                $subtitle = get_theme_mod('kabowd_services_subtitle', '');
+                // Sous-titre : champ personnalisé ou Customizer
+                $subtitle = get_post_meta(get_the_ID(), 'kabowd_subtitle', true);
+                if (!$subtitle) $subtitle = get_theme_mod('kabowd_services_subtitle', '');
                 echo $subtitle ? esc_html($subtitle) : '';
                 ?>
             </h3>
         </section>
         <section class="Block-Droite">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'); ?>" alt="">
+            <?php
+            // Image à la une ou logo par défaut
+            if (has_post_thumbnail()) :
+                the_post_thumbnail('large', ['alt' => get_the_title()]);
+            else :
+            ?>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png'); ?>" alt="">
+            <?php endif; ?>
         </section>
     </section>
 
     <section class="Texte-Page Block-Main">
         <?php
-        // Affiche le contenu WordPress si présent
         if (have_posts()) : while (have_posts()) : the_post();
             the_content();
         endwhile; endif;
@@ -34,37 +42,37 @@ get_header(); ?>
 
     <section class="Carrousel-pack Block-Main">
         <article class="Block-Haut">
-            <h2><?php esc_html_e('Statistiques', 'blankslateKabowd'); ?></h2>
-            <p><?php esc_html_e('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla perferendis quae veniam aperiam quidem quibusdam molestiae error ipsam, nemo cum necessitatibus saepe officiis reprehenderit, recusandae vitae, maxime voluptatum debitis aliquid voluptas minus magni voluptatibus? Ducimus quo odit excepturi doloribus sapiente nobis, repellendus vel dolore quam! Doloribus accusantium magnam deleniti officia.', 'blankslateKabowd'); ?></p>
+            <h2><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_stats_title', true) ?: __('Statistiques', 'blankslateKabowd')); ?></h2>
+            <p><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_stats_text', true) ?: __('Lorem, ipsum dolor sit amet consectetur adipisicing elit...', 'blankslateKabowd')); ?></p>
         </article>
         <section class="Block-Bas">
+            <?php
+            // Statistiques personnalisées (exemple avec 3)
+            for ($i=1; $i<=3; $i++) :
+                $val = get_post_meta(get_the_ID(), "kabowd_stats_value_$i", true);
+                $label = get_post_meta(get_the_ID(), "kabowd_stats_label_$i", true);
+                if (!$val && !$label) continue;
+            ?>
             <article class="MiniStats">
-                <h4 class="Valeur">00%</h4>
-                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques', 'blankslateKabowd'); ?></h3>
+                <h4 class="Valeur"><?php echo esc_html($val ?: '00%'); ?></h4>
+                <h3 class="Txt-Valeur"><?php echo esc_html($label ?: "Type de Statistiques $i"); ?></h3>
             </article>
-            <article class="MiniStats">
-                <h4 class="Valeur">20%</h4>
-                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 2', 'blankslateKabowd'); ?></h3>
-            </article>
-            <article class="MiniStats">
-                <h4 class="Valeur">30%</h4>
-                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 3', 'blankslateKabowd'); ?></h3>
-            </article>
+            <?php endfor; ?>
         </section>
     </section>
     
     <section class="Carrousel-pack Block-Main">
         <article class="Block-Haut">
-            <h2><?php esc_html_e('Services', 'blankslateKabowd'); ?></h2>
-            <p><?php esc_html_e('Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias illum mollitia autem fugit accusantium perferendis eum vero quis minima, ipsum tenetur asperiores ipsam distinctio at! Quasi labore aliquam officia illo officiis, minima eius. Fugit, sed quisquam sapiente labore quidem provident? Voluptas labore ratione perspiciatis, iusto tempore pariatur quas voluptatibus explicabo?', 'blankslateKabowd'); ?></p>
+            <h2><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_title', true) ?: __('Services', 'blankslateKabowd')); ?></h2>
+            <p><?php echo esc_html(get_post_meta(get_the_ID(), 'kabowd_services_text', true) ?: __('Lorem ipsum dolor sit amet...', 'blankslateKabowd')); ?></p>
         </article>
         <ul class="Carrousel">
             <?php for ($i=0; $i<5; $i++): ?>
             <li class="carte">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Blanc.png'); ?>" alt="">
                 <div class="Contenue-Carte">
-                    <h5 class="Titre-Carte"><?php esc_html_e('Titre article 1', 'blankslateKabowd'); ?></h5>
-                    <p><?php esc_html_e("Some quick example text to build on the card title and make up the bulk of the card's content.", 'blankslateKabowd'); ?></p>
+                    <h5 class="Titre-Carte"><?php echo esc_html(get_post_meta(get_the_ID(), "kabowd_card_title_$i", true) ?: __('Titre article 1', 'blankslateKabowd')); ?></h5>
+                    <p><?php echo esc_html(get_post_meta(get_the_ID(), "kabowd_card_text_$i", true) ?: __("Some quick example text...", 'blankslateKabowd')); ?></p>
                     <a href="#" class="btn btn-primary"><?php esc_html_e('En voir davantage', 'blankslateKabowd'); ?></a>
                 </div>
             </li>
