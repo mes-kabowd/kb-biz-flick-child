@@ -434,6 +434,158 @@ function kabowd_customize_homepage($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_homepage');
 
+function kabowd_customize_homepage_stats($wp_customize) {
+    $wp_customize->add_setting('kabowd_homepage_stats_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_stats_title', array(
+        'label' => __('Titre section Statistiques', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_stats_text', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_stats_text', array(
+        'label' => __('Texte section Statistiques', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'textarea',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_stats_img', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_homepage_stats_img', array(
+        'label' => __('Image Statistiques', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'settings' => 'kabowd_homepage_stats_img',
+    )));
+    $wp_customize->add_setting('kabowd_homepage_stats_values', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_stats_values', array(
+        'label' => __('Valeurs Statistiques (JSON)', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'textarea',
+        'description' => __('Format : [{"value":"00%","label":"Type de Statistiques"},...]', 'kabowd'),
+    ));
+}
+add_action('customize_register', 'kabowd_customize_homepage_stats');
+
+function kabowd_customize_homepage_stats_simple($wp_customize) {
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_setting("kabowd_homepage_stats_value_$i", array('default' => ''));
+        $wp_customize->add_control("kabowd_homepage_stats_value_$i", array(
+            'label' => __("Valeur Statistique ( % ) $i", 'kabowd'),
+            'section' => 'kabowd_homepage',
+            'type' => 'text',
+        ));
+        $wp_customize->add_setting("kabowd_homepage_stats_label_$i", array('default' => ''));
+        $wp_customize->add_control("kabowd_homepage_stats_label_$i", array(
+            'label' => __("Label Statistique (texte) $i", 'kabowd'),
+            'section' => 'kabowd_homepage',
+            'type' => 'text',
+        ));
+    }
+}
+add_action('customize_register', 'kabowd_customize_homepage_stats_simple');
+
+function kabowd_customize_homepage_carrousel($wp_customize) {
+    $wp_customize->add_setting('kabowd_homepage_carrousel_title', array('default' => 'Services'));
+    $wp_customize->add_control('kabowd_homepage_carrousel_title', array(
+        'label' => __('Titre du carrousel', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_carrousel_url', array('default' => '#'));
+    $wp_customize->add_control('kabowd_homepage_carrousel_url', array(
+        'label' => __('URL du titre du carrousel', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_carrousel_desc', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel_desc', array(
+        'label' => __('Description du carrousel', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'textarea',
+    ));
+    // Liste déroulante des catégories
+    $categories = get_categories(array('hide_empty' => false));
+    $cat_choices = array('' => __('-- Sélectionner --', 'kabowd'));
+    foreach ($categories as $cat) {
+        $cat_choices[$cat->slug] = $cat->name;
+    }
+    $wp_customize->add_setting('kabowd_homepage_carrousel_cat', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel_cat', array(
+        'label' => __('Catégorie de pages à afficher', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'select',
+        'choices' => $cat_choices,
+    ));
+
+    // Sélecteur de page pour le lien du titre du carrousel
+    $pages = get_pages(array('sort_column' => 'post_title', 'sort_order' => 'asc'));
+    $page_choices = array('' => __('-- Sélectionner une page --', 'kabowd'));
+    foreach ($pages as $page) {
+        $page_choices[$page->ID] = $page->post_title;
+    }
+    $wp_customize->add_setting('kabowd_homepage_carrousel_page', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel_page', array(
+        'label' => __('Page cible du titre du carrousel', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'select',
+        'choices' => $page_choices,
+    ));
+
+    // (Optionnel) On garde l'URL libre pour compatibilité
+    $wp_customize->add_setting('kabowd_homepage_carrousel_url', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel_url', array(
+        'label' => __('URL personnalisée du titre du carrousel (prioritaire si renseignée)', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'url',
+    ));
+}
+add_action('customize_register', 'kabowd_customize_homepage_carrousel');
+
+function kabowd_customize_homepage_carrousel2($wp_customize) {
+    $wp_customize->add_setting('kabowd_homepage_carrousel2_title', array('default' => 'Secteurs'));
+    $wp_customize->add_control('kabowd_homepage_carrousel2_title', array(
+        'label' => __('Titre du carrousel 2', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'text',
+    ));
+    // Sélecteur de page pour le lien du titre du carrousel 2
+    $pages = get_pages(array('sort_column' => 'post_title', 'sort_order' => 'asc'));
+    $page_choices = array('' => __('-- Sélectionner une page --', 'kabowd'));
+    foreach ($pages as $page) {
+        $page_choices[$page->ID] = $page->post_title;
+    }
+    $wp_customize->add_setting('kabowd_homepage_carrousel2_page', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel2_page', array(
+        'label' => __('Page cible du titre du carrousel 2', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'select',
+        'choices' => $page_choices,
+    ));
+    $wp_customize->add_setting('kabowd_homepage_carrousel2_url', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel2_url', array(
+        'label' => __('URL personnalisée du titre du carrousel 2 (prioritaire si renseignée)', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'url',
+    ));
+    $wp_customize->add_setting('kabowd_homepage_carrousel2_desc', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel2_desc', array(
+        'label' => __('Description du carrousel 2', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'textarea',
+    ));
+    // Liste déroulante des catégories
+    $categories = get_categories(array('hide_empty' => false));
+    $cat_choices = array('' => __('-- Sélectionner --', 'kabowd'));
+    foreach ($categories as $cat) {
+        $cat_choices[$cat->slug] = $cat->name;
+    }
+    $wp_customize->add_setting('kabowd_homepage_carrousel2_cat', array('default' => ''));
+    $wp_customize->add_control('kabowd_homepage_carrousel2_cat', array(
+        'label' => __('Catégorie de pages à afficher (carrousel 2)', 'kabowd'),
+        'section' => 'kabowd_homepage',
+        'type' => 'select',
+        'choices' => $cat_choices,
+    ));
+}
+add_action('customize_register', 'kabowd_customize_homepage_carrousel2');
+
 // --- Customizer : visibilité des sections page d'accueil ---
 function kabowd_customize_homepage_blocks($wp_customize) {
     $wp_customize->add_section('kabowd_homepage_blocks', array(
@@ -626,5 +778,21 @@ function kabowd_get_social_networks() {
 
     return $output;
 }
+
+// --- Activer catégories, étiquettes et extraits pour les pages ---
+add_action('init', function() {
+    // Catégories et étiquettes pour les pages
+    register_taxonomy_for_object_type('category', 'page');
+    register_taxonomy_for_object_type('post_tag', 'page');
+    // Extrait pour les pages
+    add_post_type_support('page', 'excerpt');
+});
+
+// (Optionnel) Afficher les métaboxes catégories/étiquettes dans l'admin pour les pages
+add_action('admin_head', function() {
+    echo '<style>
+    .page-categories-div, .tagsdiv-page_tag { display:block !important; }
+    </style>';
+});
 
 ?>

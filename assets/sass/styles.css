@@ -1075,7 +1075,7 @@ footer .VoletDroite ul {
   align-items: center;
   justify-items: center;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog {
   grid-row: 1/2;
   grid-column: 1/8;
   width: 100vw;
@@ -1091,7 +1091,7 @@ footer .VoletDroite ul {
   --position: 1;
   pointer-events: none;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item {
   position: absolute;
   height: 100%;
   aspect-ratio: 5/7;
@@ -1111,17 +1111,17 @@ footer .VoletDroite ul {
   justify-content: space-around;
   /* S'assurer que le contenu interne est placé au-dessus de l'overlay */
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item * {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item * {
   position: relative;
   z-index: 2;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item img {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item img {
   width: 35%;
   aspect-ratio: 1;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog {
   height: 100%;
   width: 60%;
   padding: 2.5%;
@@ -1132,17 +1132,17 @@ footer .VoletDroite ul {
   margin-bottom: 0.75rem;
   color: var(--Black-Primary);
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog p {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog p {
   margin-bottom: 1rem;
   color: var(--Gray-Primary);
   display: none;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog img {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog img {
   padding: var(--padding-base);
   -o-object-fit: contain;
      object-fit: contain;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog .btn {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog .btn {
   display: inline-block;
   width: 100%;
   line-height: 1.5;
@@ -1156,29 +1156,29 @@ footer .VoletDroite ul {
   border-radius: var(--border-base);
   transition: color var(--transition-speed) ease-in-out, background-color var(--transition-speed) ease-in-out, border-color var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog .btn.btn-primary {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog .btn.btn-primary {
   color: var(--White-Primary);
   background-color: var(--primary-color1);
   border-color: var(--primary-color1);
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog .btn.btn-primary:hover, .Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog .btn.btn-primary:focus {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog .btn.btn-primary:hover, .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog .btn.btn-primary:focus {
   color: var(--White-Primary);
   background-color: var(--primary-color2);
   border-color: var(--primary-color1);
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item:nth-of-type(1) {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item:nth-of-type(1) {
   --offset: 1;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item:nth-of-type(2) {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item:nth-of-type(2) {
   --offset: 2;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item:nth-of-type(3) {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item:nth-of-type(3) {
   --offset: 3;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item:nth-of-type(4) {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item:nth-of-type(4) {
   --offset: 4;
 }
-.Mini-Carrousel-Blog .Galerie-Blog #carousel .item:nth-of-type(5) {
+.Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item:nth-of-type(5) {
   --offset: 5;
 }
 .Mini-Carrousel-Blog .Galerie-Blog input {
@@ -1190,35 +1190,35 @@ footer .VoletDroite ul {
   grid-column: 2/3;
   grid-row: 2/3;
 }
-.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(1):checked ~ #carousel {
+.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(1):checked ~ .Carrousel2Blog {
   --position: 1;
 }
 .Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(2) {
   grid-column: 3/4;
   grid-row: 2/3;
 }
-.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(2):checked ~ #carousel {
+.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(2):checked ~ .Carrousel2Blog {
   --position: 2;
 }
 .Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(3) {
   grid-column: 4/5;
   grid-row: 2/3;
 }
-.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(3):checked ~ #carousel {
+.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(3):checked ~ .Carrousel2Blog {
   --position: 3;
 }
 .Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(4) {
   grid-column: 5/6;
   grid-row: 2/3;
 }
-.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(4):checked ~ #carousel {
+.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(4):checked ~ .Carrousel2Blog {
   --position: 4;
 }
 .Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(5) {
   grid-column: 6/7;
   grid-row: 2/3;
 }
-.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(5):checked ~ #carousel {
+.Mini-Carrousel-Blog .Galerie-Blog input:nth-of-type(5):checked ~ .Carrousel2Blog {
   --position: 5;
 }
 @media screen and (min-width: 768px) {
@@ -1236,7 +1236,7 @@ footer .VoletDroite ul {
     grid-template-columns: 1fr 10% 10% 10% 10% 10% 1fr;
     align-items: flex-start;
   }
-  .Mini-Carrousel-Blog .Galerie-Blog #carousel {
+  .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog {
     grid-row: 1/2;
     grid-column: 1/8;
     width: 100vw;
@@ -1252,7 +1252,7 @@ footer .VoletDroite ul {
     --position: 1;
     pointer-events: none;
   }
-  .Mini-Carrousel-Blog .Galerie-Blog #carousel .item {
+  .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item {
     position: absolute;
     aspect-ratio: 5/7;
   }
@@ -1266,7 +1266,7 @@ footer .VoletDroite ul {
     grid-template-rows: 500px 100px;
     grid-template-columns: 1fr 7.5% 7.5% 7.5% 7.5% 7.5% 1fr;
   }
-  .Mini-Carrousel-Blog .Galerie-Blog #carousel {
+  .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog {
     grid-row: 1/2;
     grid-column: 1/8;
     width: 100vw;
@@ -1282,15 +1282,15 @@ footer .VoletDroite ul {
     --position: 1;
     pointer-events: none;
   }
-  .Mini-Carrousel-Blog .Galerie-Blog #carousel .item {
+  .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item {
     flex-direction: row;
     height: 75%;
     aspect-ratio: 4/3;
   }
-  .Mini-Carrousel-Blog .Galerie-Blog #carousel .item .InfoBlog p {
+  .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog .item .InfoBlog p {
     display: block;
   }
-  .Mini-Carrousel-Blog .Galerie-Blog #carousel input {
+  .Mini-Carrousel-Blog .Galerie-Blog .Carrousel2Blog input {
     cursor: pointer;
   }
 }
