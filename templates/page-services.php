@@ -10,7 +10,7 @@ get_header(); ?>
 <main>
     <section class="Titre-Page Block-Main">
         <section class="Block-Gauche">
-            <h2 class="TitrePage"><?php the_title(); ?></h2>
+            <h2 class="TitreDePage"><?php the_title(); ?></h2>
             <h3 class="SousTitre">
                 <?php
                 // Sous-titre : champ personnalisé ou Customizer

@@ -9,7 +9,7 @@ get_header(); ?>
 <main>
     <section class="Titre-Page Block-Main">
         <section class="Block-Gauche">
-            <h2 class="TitrePage">
+            <h2 class="TitreDePage">
                 <?php
                 $custom_title = kabowd_secteur_unite_customizer('title');
                 echo $custom_title ? esc_html($custom_title) : get_the_title();

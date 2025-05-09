@@ -15,7 +15,7 @@ get_header();
     <?php if (kabowd_homepage_show_block('titre')): ?>
     <section class="Titre-Page Block-Main">
         <section class="Block-Droite">
-            <h1 class="TitrePage">
+            <h1 class="TitreDePage">
                 <?php
                 $custom_title = kabowd_homepage_customizer('title');
                 echo $custom_title ? esc_html($custom_title) : get_bloginfo('name');

@@ -9,7 +9,7 @@ get_header(); ?>
 <main>
     <section class="Titre-Page Block-Main">
         <section class="Block-Gauche">
-            <h1 class="TitrePage"><?php the_title(); ?></h1>
+            <h1 class="TitreDePage"><?php the_title(); ?></h1>
             <p>
                 <?php
                 // Affiche le contenu WordPress si présent

@@ -931,65 +931,6 @@ add_action('admin_init', function() {
     }
 });
 
-// Utilitaire pour récupérer un champ personnalisé avec fallback
-function kabowd_get_field($key, $default = '') {
-    $val = get_post_meta(get_the_ID(), $key, true);
-    return $val !== '' ? $val : $default;
-}
-
-// Metabox personnalisée pour le template page-a-propos.php (affichage dans la sidebar)
-add_action('add_meta_boxes', function() {
-    add_meta_box(
-        'kabowd_apropos_metabox',
-        __('Options de la page À propos', 'blankslateKabowd'),
-        function($post) {
-            $template = get_post_meta($post->ID, '_wp_page_template', true);
-            if ($template !== 'templates/page-a-propos.php') {
-                echo '<p>' . __('Cette metabox s’affiche uniquement pour le template À propos.', 'blankslateKabowd') . '</p>';
-                return;
-            }
-            $subtitle = get_post_meta($post->ID, 'kabowd_apropos_subtitle', true);
-            $logo = get_post_meta($post->ID, 'kabowd_apropos_logo', true);
-            $paragraph = get_post_meta($post->ID, 'kabowd_apropos_paragraph', true);
-            ?>
-            <p>
-                <label for="kabowd_apropos_subtitle"><strong><?php _e('Sous-titre', 'blankslateKabowd'); ?></strong></label><br>
-                <input type="text" name="kabowd_apropos_subtitle" id="kabowd_apropos_subtitle" value="<?php echo esc_attr($subtitle); ?>" style="width:100%;">
-            </p>
-            <p>
-                <label for="kabowd_apropos_logo"><strong><?php _e('Logo (URL de l\'image)', 'blankslateKabowd'); ?></strong></label><br>
-                <input type="text" name="kabowd_apropos_logo" id="kabowd_apropos_logo" value="<?php echo esc_attr($logo); ?>" style="width:100%;">
-                <em><?php _e('Collez ici l\'URL de l\'image ou utilisez la médiathèque.', 'blankslateKabowd'); ?></em>
-            </p>
-            <p>
-                <label for="kabowd_apropos_paragraph"><strong><?php _e('Paragraphe principal', 'blankslateKabowd'); ?></strong></label><br>
-                <textarea name="kabowd_apropos_paragraph" id="kabowd_apropos_paragraph" style="width:100%;height:80px;"><?php echo esc_textarea($paragraph); ?></textarea>
-            </p>
-            <p style="color:#666;font-size:0.95em;">
-                <?php _e('Pour voir le rendu, cliquez sur "Aperçu" ou "Voir la page" après avoir enregistré.', 'blankslateKabowd'); ?>
-            </p>
-            <?php
-            wp_nonce_field('kabowd_apropos_metabox_nonce', 'kabowd_apropos_metabox_nonce_field');
-        },
-        'page',
-        'side', // Affichage dans la sidebar
-        'high'
-    );
-});
-
-// Sauvegarde des champs personnalisés pour À propos
-add_action('save_post_page', function($post_id) {
-    if (!isset($_POST['kabowd_apropos_metabox_nonce_field']) || !wp_verify_nonce($_POST['kabowd_apropos_metabox_nonce_field'], 'kabowd_apropos_metabox_nonce')) return;
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if (!current_user_can('edit_page', $post_id)) return;
-
-    $fields = ['kabowd_apropos_subtitle', 'kabowd_apropos_logo', 'kabowd_apropos_paragraph'];
-    foreach ($fields as $field) {
-        if (isset($_POST[$field])) {
-            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
-        }
-    }
-});
 
 // Metabox avancée pour chaque section .Block-Main du template page-a-propos.php (images via médiathèque)
 add_action('add_meta_boxes', function() {
@@ -1206,5 +1147,113 @@ add_action('save_post_page', function($post_id) {
         update_post_meta($post_id, 'kabowd_apropos_carousel_ids', $ids);
     }
 });
+
+// Forcer l'utilisation du modèle 404.php pour les erreurs 404
+add_action('template_redirect', function() {
+    if (is_404()) {
+        status_header(404);
+        include get_template_directory() . '/404.php';
+        exit;
+    }
+});
+
+// Ajouter une section pour personnaliser la page 404 dans le Customizer
+function kabowd_customize_404($wp_customize) {
+    $wp_customize->add_section('kabowd_404', array(
+        'title'    => __('Page d\'erreur 404', 'kabowd'),
+        'priority' => 80,
+    ));
+
+    // Titre principal
+    $wp_customize->add_setting('kabowd_404_title', array(
+        'default'           => __('Erreur 404', 'kabowd'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('kabowd_404_title', array(
+        'label'    => __('Titre principal', 'kabowd'),
+        'section'  => 'kabowd_404',
+        'type'     => 'text',
+    ));
+
+    // Sous-titre
+    $wp_customize->add_setting('kabowd_404_subtitle', array(
+        'default'           => __('Page non trouvée', 'kabowd'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('kabowd_404_subtitle', array(
+        'label'    => __('Sous-titre', 'kabowd'),
+        'section'  => 'kabowd_404',
+        'type'     => 'text',
+    ));
+
+    // Message d'erreur
+    $wp_customize->add_setting('kabowd_404_message', array(
+        'default'           => __('La page que vous cherchez n’existe pas ou a été déplacée.', 'kabowd'),
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('kabowd_404_message', array(
+        'label'    => __('Message d\'erreur', 'kabowd'),
+        'section'  => 'kabowd_404',
+        'type'     => 'textarea',
+    ));
+
+    // Image d'illustration (URL ou médiathèque)
+    $wp_customize->add_setting('kabowd_404_image', array(
+        'default'           => get_template_directory_uri() . '/assets/img/404-default.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control('kabowd_404_image', array(
+        'label'    => __('Image d\'illustration (URL)', 'kabowd'),
+        'section'  => 'kabowd_404',
+        'type'     => 'url',
+    ));
+
+    // Boutons de redirection
+    for ($i = 1; $i <= 10; $i++) {
+        $wp_customize->add_setting("kabowd_404_button_text_$i", array(
+            'default'           => $i === 1 ? __('Accueil', 'kabowd') : '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        $wp_customize->add_control("kabowd_404_button_text_$i", array(
+            'label'    => sprintf(__('Texte du bouton %d', 'kabowd'), $i),
+            'section'  => 'kabowd_404',
+            'type'     => 'text',
+        ));
+
+        $wp_customize->add_setting("kabowd_404_button_url_$i", array(
+            'default'           => $i === 1 ? home_url('/') : '',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control("kabowd_404_button_url_$i", array(
+            'label'    => sprintf(__('URL personnalisée du bouton %d', 'kabowd'), $i),
+            'section'  => 'kabowd_404',
+            'type'     => 'url',
+        ));
+
+        $wp_customize->add_setting("kabowd_404_button_page_$i", array(
+            'default'           => '',
+            'sanitize_callback' => 'absint',
+        ));
+        $wp_customize->add_control("kabowd_404_button_page_$i", array(
+            'label'    => sprintf(__('Page ou article cible du bouton %d', 'kabowd'), $i),
+            'section'  => 'kabowd_404',
+            'type'     => 'dropdown-pages',
+        ));
+    }
+}
+add_action('customize_register', 'kabowd_customize_404');
+
+// Utilitaire pour obtenir l'URL finale d'un bouton (priorité à la page/article, sinon URL personnalisée)
+function kabowd_404_get_button_url($index) {
+    $page_id = get_theme_mod("kabowd_404_button_page_$index", '');
+    if ($page_id) {
+        return get_permalink($page_id);
+    }
+    return get_theme_mod("kabowd_404_button_url_$index", '#');
+}
+
+// Recherchez des fonctions comme celles-ci :
+// print_r($widget_data); // Supprimez ou commentez cette ligne
+// var_dump($widget_data); // Supprimez ou commentez cette ligne
 
 ?>

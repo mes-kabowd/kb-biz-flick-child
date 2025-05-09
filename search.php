@@ -2,7 +2,7 @@
 <main>
     <section class="Page-Recherche Block-Main">
         <section class="Titre-Page">
-            <h1 class="TitrePage"><?php _e('Résultats de recherche', 'blankslateKabowd'); ?></h1>
+            <h1 class="TitreDePage"><?php _e('Résultats de recherche', 'blankslateKabowd'); ?></h1>
             <p class="ParagrapheTitre"><?php printf( __('Vous avez recherché : %s', 'blankslateKabowd'), get_search_query() ); ?></p>
         </section>
         <section class="mainCard Block-Main">

@@ -10,7 +10,7 @@ get_header(); ?>
 <main>
   <section class="Titre-Page Block-Main">
       <section class="Block-Gauche">
-          <H1 class="TitrePage"><?php the_title(); ?></H1>
+          <H1 class="TitreDePage"><?php the_title(); ?></H1>
           <h3 class="SousTitre">
               <?php
               $subtitle = get_theme_mod('kabowd_secteurs_subtitle', '');

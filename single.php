@@ -3,7 +3,7 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <section class="Titre-Article Block-Main">
         <section class="Block-Haut">
-            <h1 class="TitrePage">
+            <h1 class="TitreDePage">
                 <?php
                 $custom_title = kabowd_get_customizer('title', '', 'post');
                 echo $custom_title ? esc_html($custom_title) : get_the_title();
