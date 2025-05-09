@@ -1511,12 +1511,20 @@ function kabowd_customize_single($wp_customize) {
         'type' => 'text',
     ));
 
-    // Image principale
-    $wp_customize->add_setting('kabowd_single_image', array('default' => ''));
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_single_image', array(
-        'label' => __('Image principale', 'kabowd'),
+    // Paragraphe
+    $wp_customize->add_setting('kabowd_single_paragraph', array('default' => ''));
+    $wp_customize->add_control('kabowd_single_paragraph', array(
+        'label' => __('Paragraphe', 'kabowd'),
         'section' => 'kabowd_single',
-        'settings' => 'kabowd_single_image',
+        'type' => 'textarea',
+    ));
+
+    // Logo
+    $wp_customize->add_setting('kabowd_single_logo', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_single_logo', array(
+        'label' => __('Logo', 'kabowd'),
+        'section' => 'kabowd_single',
+        'settings' => 'kabowd_single_logo',
     )));
 
     // Galerie d'images
@@ -1533,14 +1541,6 @@ function kabowd_customize_single($wp_customize) {
         'label' => __('Ressources (une par ligne)', 'kabowd'),
         'section' => 'kabowd_single',
         'type' => 'textarea',
-    ));
-
-    // Carrousel
-    $wp_customize->add_setting('kabowd_single_carousel', array('default' => ''));
-    $wp_customize->add_control('kabowd_single_carousel', array(
-        'label' => __('Images du carrousel (IDs séparés par des virgules)', 'kabowd'),
-        'section' => 'kabowd_single',
-        'type' => 'text',
     ));
 }
 add_action('customize_register', 'kabowd_customize_single');
