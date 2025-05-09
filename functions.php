@@ -1488,4 +1488,61 @@ add_action('customize_controls_print_styles', function() {
     <?php
 });
 
+// --- Customizer : personnalisation des articles (single.php) ---
+function kabowd_customize_single($wp_customize) {
+    $wp_customize->add_section('kabowd_single', array(
+        'title'    => __('Articles (Single)', 'kabowd'),
+        'priority' => 30,
+    ));
+
+    // Titre principal
+    $wp_customize->add_setting('kabowd_single_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_single_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_single',
+        'type' => 'text',
+    ));
+
+    // Sous-titre
+    $wp_customize->add_setting('kabowd_single_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_single_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_single',
+        'type' => 'text',
+    ));
+
+    // Image principale
+    $wp_customize->add_setting('kabowd_single_image', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_single_image', array(
+        'label' => __('Image principale', 'kabowd'),
+        'section' => 'kabowd_single',
+        'settings' => 'kabowd_single_image',
+    )));
+
+    // Galerie d'images
+    $wp_customize->add_setting('kabowd_single_gallery', array('default' => ''));
+    $wp_customize->add_control('kabowd_single_gallery', array(
+        'label' => __('Galerie d\'images (IDs séparés par des virgules)', 'kabowd'),
+        'section' => 'kabowd_single',
+        'type' => 'text',
+    ));
+
+    // Ressources
+    $wp_customize->add_setting('kabowd_single_resources', array('default' => ''));
+    $wp_customize->add_control('kabowd_single_resources', array(
+        'label' => __('Ressources (une par ligne)', 'kabowd'),
+        'section' => 'kabowd_single',
+        'type' => 'textarea',
+    ));
+
+    // Carrousel
+    $wp_customize->add_setting('kabowd_single_carousel', array('default' => ''));
+    $wp_customize->add_control('kabowd_single_carousel', array(
+        'label' => __('Images du carrousel (IDs séparés par des virgules)', 'kabowd'),
+        'section' => 'kabowd_single',
+        'type' => 'text',
+    ));
+}
+add_action('customize_register', 'kabowd_customize_single');
+
 ?>
