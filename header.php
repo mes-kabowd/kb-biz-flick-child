@@ -15,9 +15,9 @@
                 <img src="<?php echo esc_url( get_theme_mod('kabowd_logo_mb', get_template_directory_uri() . '/assets/img/Logo Principal Couleur.png') ); ?>" alt="<?php echo esc_attr( get_theme_mod('kabowd_logo_mb_alt', 'Logo Kabowd') ); ?>">
             </a>
         </div>
-        <form onsubmit="event.preventDefault();" role="search" class="BarreRechercheMb">
-            <input id="search" type="search" placeholder="<?php echo esc_attr( get_theme_mod('kabowd_search_placeholder', 'Search...') ); ?>" autofocus required />
-            <button type="submit"><?php echo esc_html( get_theme_mod('kabowd_search_button', 'Go') ); ?></button>    
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="BarreRechercheMb">
+            <input id="search" type="search" name="s" placeholder="<?php echo esc_attr(get_theme_mod('kabowd_search_placeholder', 'Search...')); ?>" required />
+            <button type="submit"><?php echo esc_html(get_theme_mod('kabowd_search_button', 'Go')); ?></button>
         </form>
         <input type="checkbox" class="menu" id="BtnBurger">
         <section class="ContenuHeader">
@@ -29,9 +29,9 @@
             <nav class="MenuHaut">
                 <ul>
                     <li>
-                        <form onsubmit="event.preventDefault();" role="search" class="BarreRecherche">
-                            <input id="search" type="search" placeholder="<?php echo esc_attr( get_theme_mod('kabowd_search_placeholder', 'Search...') ); ?>" autofocus required />
-                            <button type="submit"><?php echo esc_html( get_theme_mod('kabowd_search_button', 'Go') ); ?></button>    
+                        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="BarreRecherche">
+                            <input id="search" type="search" name="s" placeholder="<?php echo esc_attr(get_theme_mod('kabowd_search_placeholder', 'Search...')); ?>" required />
+                            <button type="submit"><?php echo esc_html(get_theme_mod('kabowd_search_button', 'Go')); ?></button>
                         </form>
                     </li>
                     <li><a href="<?php echo esc_url( wp_login_url() ); ?>"><?php echo esc_html( get_theme_mod('kabowd_login_text', 'Connexion') ); ?></a></li>

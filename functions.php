@@ -1636,4 +1636,46 @@ function kabowd_blogs_carrousel_infini_ids() {
     return $ids ? array_filter(array_map('intval', explode(',', $ids))) : [];
 }
 
+// --- Customizer : personnalisation de la page de recherche ---
+function kabowd_customize_search($wp_customize) {
+    $wp_customize->add_section('kabowd_search', array(
+        'title'    => __('Page de recherche', 'kabowd'),
+        'priority' => 35,
+    ));
+
+    // Logo
+    $wp_customize->add_setting('kabowd_search_logo', array(
+        'default' => get_template_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_search_logo', array(
+        'label' => __('Logo de la page de recherche', 'kabowd'),
+        'section' => 'kabowd_search',
+        'settings' => 'kabowd_search_logo',
+    )));
+
+    // Texte de titre
+    $wp_customize->add_setting('kabowd_search_title', array(
+        'default' => __('Résultats de recherche', 'kabowd'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('kabowd_search_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_search',
+        'type' => 'text',
+    ));
+
+    // Texte de sous-titre
+    $wp_customize->add_setting('kabowd_search_subtitle', array(
+        'default' => __('Voici les résultats pour votre recherche.', 'kabowd'),
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('kabowd_search_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_search',
+        'type' => 'text',
+    ));
+}
+add_action('customize_register', 'kabowd_customize_search');
+
 ?>
