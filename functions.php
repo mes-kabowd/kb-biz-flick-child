@@ -186,6 +186,8 @@ function kabowd_customize_register($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_register');
 
+
+
 // --- Customizer : personnalisation des réseaux sociaux ---
 function kabowd_customize_socials($wp_customize) {
     $wp_customize->add_section('kabowd_socials', array(
@@ -237,6 +239,8 @@ function kabowd_customize_socials($wp_customize) {
     }
 }
 add_action('customize_register', 'kabowd_customize_socials');
+
+
 
 // --- Customizer : personnalisation du footer ---
 function kabowd_customize_footer($wp_customize) {
@@ -380,6 +384,8 @@ function kabowd_customize_content($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_content');
 
+
+
 // --- Customizer : personnalisation de la page d'accueil ---
 function kabowd_customize_homepage($wp_customize) {
     $wp_customize->add_section('kabowd_homepage', array(
@@ -412,6 +418,8 @@ function kabowd_customize_homepage($wp_customize) {
     )));
 }
 add_action('customize_register', 'kabowd_customize_homepage');
+
+
 
 function kabowd_customize_homepage_stats($wp_customize) {
     $wp_customize->add_setting('kabowd_homepage_stats_title', array('default' => ''));
@@ -565,6 +573,8 @@ function kabowd_customize_homepage_carrousel2($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_homepage_carrousel2');
 
+
+
 // --- Customizer : visibilité des sections page d'accueil ---
 function kabowd_customize_homepage_blocks($wp_customize) {
     $wp_customize->add_section('kabowd_homepage_blocks', array(
@@ -702,12 +712,16 @@ function kabowd_customize_apropos($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_apropos');
 
+
+
 // Utilitaire pour récupérer les IDs d'images du carrousel infini
 function kabowd_apropos_carrousel_infini_ids() {
     $ids = get_theme_mod('kabowd_apropos_carrousel_infini_ids', '');
     if (!$ids) return [];
     return array_filter(array_map('intval', explode(',', $ids)));
 }
+
+
 
 // Ajoute un champ de sélection multiple d'images dans la médiathèque pour le Customizer (JS)
 // (Ce JS ne s'affiche que dans le Customizer)
@@ -1134,111 +1148,6 @@ add_action('save_post_page', function($post_id) {
 });
 
 
-
-// Forcer l'utilisation du modèle 404.php pour les erreurs 404
-add_action('template_redirect', function() {
-    if (is_404()) {
-        status_header(404);
-        include get_template_directory() . '/404.php';
-        exit;
-    }
-});
-
-// Ajouter une section pour personnaliser la page 404 dans le Customizer
-function kabowd_customize_404($wp_customize) {
-    $wp_customize->add_section('kabowd_404', array(
-        'title'    => __('Page d\'erreur 404', 'kabowd'),
-        'priority' => 80,
-    ));
-
-    // Titre principal
-    $wp_customize->add_setting('kabowd_404_title', array(
-        'default'           => __('Erreur 404', 'kabowd'),
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('kabowd_404_title', array(
-        'label'    => __('Titre principal', 'kabowd'),
-        'section'  => 'kabowd_404',
-        'type'     => 'text',
-    ));
-
-    // Sous-titre
-    $wp_customize->add_setting('kabowd_404_subtitle', array(
-        'default'           => __('Page non trouvée', 'kabowd'),
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-    $wp_customize->add_control('kabowd_404_subtitle', array(
-        'label'    => __('Sous-titre', 'kabowd'),
-        'section'  => 'kabowd_404',
-        'type'     => 'text',
-    ));
-
-    // Message d'erreur
-    $wp_customize->add_setting('kabowd_404_message', array(
-        'default'           => __('La page que vous cherchez n’existe pas ou a été déplacée.', 'kabowd'),
-        'sanitize_callback' => 'sanitize_textarea_field',
-    ));
-    $wp_customize->add_control('kabowd_404_message', array(
-        'label'    => __('Message d\'erreur', 'kabowd'),
-        'section'  => 'kabowd_404',
-        'type'     => 'textarea',
-    ));
-
-    // Image d'illustration (URL ou médiathèque)
-    $wp_customize->add_setting('kabowd_404_image', array(
-        'default'           => get_template_directory_uri() . '/assets/img/404-default.png',
-        'sanitize_callback' => 'esc_url_raw',
-    ));
-    $wp_customize->add_control('kabowd_404_image', array(
-        'label'    => __('Image d\'illustration (URL)', 'kabowd'),
-        'section'  => 'kabowd_404',
-        'type'     => 'url',
-    ));
-
-    // Boutons de redirection
-    for ($i = 1; $i <= 10; $i++) {
-        $wp_customize->add_setting("kabowd_404_button_text_$i", array(
-            'default'           => $i === 1 ? __('Accueil', 'kabowd') : '',
-            'sanitize_callback' => 'sanitize_text_field',
-        ));
-        $wp_customize->add_control("kabowd_404_button_text_$i", array(
-            'label'    => sprintf(__('Texte du bouton %d', 'kabowd'), $i),
-            'section'  => 'kabowd_404',
-            'type'     => 'text',
-        ));
-
-        $wp_customize->add_setting("kabowd_404_button_url_$i", array(
-            'default'           => $i === 1 ? home_url('/') : '',
-            'sanitize_callback' => 'esc_url_raw',
-        ));
-        $wp_customize->add_control("kabowd_404_button_url_$i", array(
-            'label'    => sprintf(__('URL personnalisée du bouton %d', 'kabowd'), $i),
-            'section'  => 'kabowd_404',
-            'type'     => 'url',
-        ));
-
-        $wp_customize->add_setting("kabowd_404_button_page_$i", array(
-            'default'           => '',
-            'sanitize_callback' => 'absint',
-        ));
-        $wp_customize->add_control("kabowd_404_button_page_$i", array(
-            'label'    => sprintf(__('Page ou article cible du bouton %d', 'kabowd'), $i),
-            'section'  => 'kabowd_404',
-            'type'     => 'dropdown-pages',
-        ));
-    }
-}
-add_action('customize_register', 'kabowd_customize_404');
-
-// Utilitaire pour obtenir l'URL finale d'un bouton (priorité à la page/article, sinon URL personnalisée)
-function kabowd_404_get_button_url($index) {
-    $page_id = get_theme_mod("kabowd_404_button_page_$index", '');
-    if ($page_id) {
-        return get_permalink($page_id);
-    }
-    return get_theme_mod("kabowd_404_button_url_$index", '#');
-}
-
 // Recherchez des fonctions comme celles-ci :
 // print_r($widget_data); // Supprimez ou commentez cette ligne
 // var_dump($widget_data); // Supprimez ou commentez cette ligne
@@ -1544,5 +1453,187 @@ function kabowd_customize_single($wp_customize) {
     ));
 }
 add_action('customize_register', 'kabowd_customize_single');
+
+
+
+// --- Customizer : options de personnalisation pour la page Secteurs ---
+function kabowd_customize_secteurs($wp_customize) {
+    $wp_customize->add_section('kabowd_secteurs', array(
+        'title'    => __('Page Secteurs personnalisée', 'kabowd'),
+        'priority' => 25, // après À Propos
+    ));
+    $wp_customize->add_setting('kabowd_secteurs_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_secteurs_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_secteurs',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_secteurs_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_secteurs_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_secteurs',
+        'type' => 'text',
+    ));
+    $wp_customize->add_setting('kabowd_secteurs_logo', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_secteurs_logo', array(
+        'label' => __('Image principale', 'kabowd'),
+        'section' => 'kabowd_secteurs',
+        'settings' => 'kabowd_secteurs_logo',
+    )));
+    $wp_customize->add_setting('kabowd_secteurs_paragraph', array('default' => ''));
+    $wp_customize->add_control('kabowd_secteurs_paragraph', array(
+        'label' => __('Paragraphe principal', 'kabowd'),
+        'section' => 'kabowd_secteurs',
+        'type' => 'textarea',
+    ));
+
+    // Boutons
+    for ($i = 1; $i <= 2; $i++) {
+        $wp_customize->add_setting("kabowd_secteurs_btn{$i}_text", array('default' => "Bouton $i"));
+        $wp_customize->add_control("kabowd_secteurs_btn{$i}_text", array(
+            'label' => __("Texte du bouton $i", 'kabowd'),
+            'section' => 'kabowd_secteurs',
+            'type' => 'text',
+        ));
+        $wp_customize->add_setting("kabowd_secteurs_btn{$i}_url", array('default' => ''));
+        $wp_customize->add_control("kabowd_secteurs_btn{$i}_url", array(
+            'label' => __("URL personnalisée du bouton $i", 'kabowd'),
+            'section' => 'kabowd_secteurs',
+            'type' => 'url',
+        ));
+    }
+
+    // Carrousel-Infini
+    $wp_customize->add_setting('kabowd_secteurs_carrousel_infini_ids', array(
+        'default' => '',
+        'sanitize_callback' => function($value) {
+            return implode(',', array_filter(array_map('intval', explode(',', $value))));
+        }
+    ));
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'kabowd_secteurs_carrousel_infini_ids',
+        array(
+            'label' => __('Images du Carrousel Infini (IDs séparés par des virgules)', 'kabowd'),
+            'description' => __('Sélectionnez les images via la médiathèque (voir ci-dessous)', 'kabowd'),
+            'section' => 'kabowd_secteurs',
+            'type' => 'text',
+        )
+    ));
+}
+add_action('customize_register', 'kabowd_customize_secteurs');
+
+
+
+// Utilitaires pour récupérer les valeurs customizer des templates
+function kabowd_secteur_customizer($key, $default = '') {
+    $val = get_theme_mod('kabowd_secteurs_' . $key, '');
+    return $val !== '' ? $val : $default;
+}
+
+// Utilitaire pour obtenir l'URL finale d'un bouton (priorité URL personnalisée)
+function kabowd_secteur_btn_url($btn = 1) {
+    $url = trim(get_theme_mod("kabowd_secteurs_btn{$btn}_url", ''));
+    return !empty($url) ? $url : '#';
+}
+
+// Utilitaire pour récupérer les IDs d'images du carrousel infini
+function kabowd_secteur_carrousel_infini_ids() {
+    $ids = get_theme_mod('kabowd_secteurs_carrousel_infini_ids', '');
+    return $ids ? array_filter(array_map('intval', explode(',', $ids))) : [];
+}
+
+// --- Customizer : options de personnalisation pour la page Blogs ---
+function kabowd_customize_blogs($wp_customize) {
+    $wp_customize->add_section('kabowd_blogs', array(
+        'title'    => __('Page Blogs personnalisée', 'kabowd'),
+        'priority' => 30, // après À Propos
+    ));
+
+    // Titre principal
+    $wp_customize->add_setting('kabowd_blogs_title', array('default' => ''));
+    $wp_customize->add_control('kabowd_blogs_title', array(
+        'label' => __('Titre principal', 'kabowd'),
+        'section' => 'kabowd_blogs',
+        'type' => 'text',
+    ));
+
+    // Sous-titre
+    $wp_customize->add_setting('kabowd_blogs_subtitle', array('default' => ''));
+    $wp_customize->add_control('kabowd_blogs_subtitle', array(
+        'label' => __('Sous-titre', 'kabowd'),
+        'section' => 'kabowd_blogs',
+        'type' => 'text',
+    ));
+
+    // Logo
+    $wp_customize->add_setting('kabowd_blogs_logo', array('default' => ''));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'kabowd_blogs_logo', array(
+        'label' => __('Image principale', 'kabowd'),
+        'section' => 'kabowd_blogs',
+        'settings' => 'kabowd_blogs_logo',
+    )));
+
+    // Paragraphe principal
+    $wp_customize->add_setting('kabowd_blogs_paragraph', array('default' => ''));
+    $wp_customize->add_control('kabowd_blogs_paragraph', array(
+        'label' => __('Paragraphe principal', 'kabowd'),
+        'section' => 'kabowd_blogs',
+        'type' => 'textarea',
+    ));
+
+    // Boutons
+    for ($i = 1; $i <= 2; $i++) {
+        $wp_customize->add_setting("kabowd_blogs_btn{$i}_text", array('default' => "Bouton $i"));
+        $wp_customize->add_control("kabowd_blogs_btn{$i}_text", array(
+            'label' => __("Texte du bouton $i", 'kabowd'),
+            'section' => 'kabowd_blogs',
+            'type' => 'text',
+        ));
+        $wp_customize->add_setting("kabowd_blogs_btn{$i}_url", array('default' => ''));
+        $wp_customize->add_control("kabowd_blogs_btn{$i}_url", array(
+            'label' => __("URL personnalisée du bouton $i", 'kabowd'),
+            'section' => 'kabowd_blogs',
+            'type' => 'url',
+        ));
+    }
+
+    // Carrousel-Infini : images multiples
+    $wp_customize->add_setting('kabowd_blogs_carrousel_infini_ids', array(
+        'default' => '',
+        'sanitize_callback' => function($value) {
+            return implode(',', array_filter(array_map('intval', explode(',', $value))));
+        }
+    ));
+    $wp_customize->add_control(new WP_Customize_Control(
+        $wp_customize,
+        'kabowd_blogs_carrousel_infini_ids',
+        array(
+            'label' => __('Images du Carrousel Infini (IDs séparés par des virgules)', 'kabowd'),
+            'description' => __('Sélectionnez les images via la médiathèque (voir ci-dessous)', 'kabowd'),
+            'section' => 'kabowd_blogs',
+            'type' => 'text',
+        )
+    ));
+}
+add_action('customize_register', 'kabowd_customize_blogs');
+
+// Utilitaires pour récupérer les valeurs customizer des templates
+function kabowd_blogs_customizer($key, $default = '') {
+    $val = get_theme_mod('kabowd_blogs_' . $key, '');
+    return $val !== '' ? $val : $default;
+}
+
+// Utilitaire pour obtenir l'URL finale d'un bouton (priorité URL personnalisée)
+function kabowd_blogs_btn_url($btn = 1) {
+    $url = trim(get_theme_mod("kabowd_blogs_btn{$btn}_url", ''));
+    return !empty($url) ? $url : '#';
+}
+
+// Utilitaire pour récupérer les IDs d'images du carrousel infini
+function kabowd_blogs_carrousel_infini_ids() {
+    $ids = get_theme_mod('kabowd_blogs_carrousel_infini_ids', '');
+    return $ids ? array_filter(array_map('intval', explode(',', $ids))) : [];
+}
 
 ?>

@@ -8,8 +8,6 @@
 get_header(); 
 ?>
 
-
-
 <main>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <!-- <section class="Titre-Article Block-Main">
@@ -79,6 +77,8 @@ get_header();
                 ?>
             </ul>
         </section> -->
+
+        
     <section class="Titre-Article Block-Main">
         <section class="Block-Haut">
             <h1 class="TitreDePage">
