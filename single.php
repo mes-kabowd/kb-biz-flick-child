@@ -148,25 +148,39 @@ get_header();
     </section>
 
     <section class="Galerie-Media Block-Main">
-        <img class="Img1" src="assets/img/Icon Logo Principal Blanc.png" alt="">
-        <img class="Img2" src="assets/img/Icon Logo Principal Couleur.png" alt="">
-        <img class="Img3" src="assets/img/Icon Logo Principal Noir.png" alt="">
-        <img class="Img4" src="assets/img/Logo Principal Blanc.png" alt="">
-        <img class="Img5" src="assets/img/Logo Principal Couleur.png" alt="">
-        <img class="Img6" src="assets/img/Logo Principal Noir.png" alt="">
-        <img class="Img7" src="assets/img/Icon Logo Principal Blanc.png" alt="">
-        <img class="Img8" src="assets/img/Icon Logo Principal Couleur.png" alt="">
-        <img class="Img9" src="assets/img/Icon Logo Principal Noir.png" alt="">
+        <?php
+        $imgs = [
+            'Icon Logo Principal Blanc.png',
+            'Icon Logo Principal Couleur.png',
+            'Icon Logo Principal Noir.png',
+            'Logo Principal Blanc.png',
+            'Logo Principal Couleur.png',
+            'Logo Principal Noir.png',
+            'Icon Logo Principal Blanc.png',
+            'Icon Logo Principal Couleur.png',
+            'Icon Logo Principal Noir.png'
+        ];
+        foreach ($imgs as $i => $img) {
+            echo '<img class="Img'.($i+1).'" src="'.esc_url(get_template_directory_uri().'/assets/img/'.$img).'" alt="">';
+        }
+        ?>
     </section>
 
     <section class="Ressources-Article Block-Main">
-        <h2>Ressources & Liens utiles</h2>
+        <h2><?php esc_html_e('Ressources & Liens utiles', 'blankslateKabowd'); ?></h2>
         <ul>
-            <li><a href="">Ressource1</a></li>
-            <li><a href="">Url</a></li>
-            <li><a href="">Titre-Article</a></li>
-            <li><a href="">Titre Livre</a></li>
-            <li><a href="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, quod.</a></li>
+            <?php
+            $resources = get_theme_mod('kabowd_single_resources', '');
+            if ($resources) {
+                $lines = explode("\n", $resources);
+                foreach ($lines as $line) {
+                    $line = trim($line);
+                    if ($line) {
+                        echo '<li><a href="#">' . esc_html($line) . '</a></li>';
+                    }
+                }
+            }
+            ?>
         </ul>
     </section>
 

@@ -36,7 +36,6 @@ get_header(); ?>
 
     <section class="Texte-Page Block-Main">
         <?php
-        // Affiche le contenu WordPress si présent
         if (have_posts()) : while (have_posts()) : the_post();
             the_content();
         endwhile; endif;
@@ -45,117 +44,55 @@ get_header(); ?>
 
     <section class="Stats Block-Main">
         <article class="Block-Gauche">
-            <h2>Statistiques</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla perferendis quae veniam aperiam quidem quibusdam molestiae error ipsam, nemo cum necessitatibus saepe officiis reprehenderit, recusandae vitae, maxime voluptatum debitis aliquid voluptas minus magni voluptatibus? Ducimus quo odit excepturi doloribus sapiente nobis, repellendus vel dolore quam! Doloribus accusantium magnam deleniti officia.</p>
+            <h2><?php esc_html_e('Statistiques', 'blankslateKabowd'); ?></h2>
+            <p><?php esc_html_e('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla perferendis quae veniam aperiam quidem quibusdam molestiae error ipsam, nemo cum necessitatibus saepe officiis reprehenderit, recusandae vitae, maxime voluptatum debitis aliquid voluptas minus magni voluptatibus? Ducimus quo odit excepturi doloribus sapiente nobis, repellendus vel dolore quam! Doloribus accusantium magnam deleniti officia.', 'blankslateKabowd'); ?></p>
         </article>
         <section class="Block-Droite">
-            <div class="ImgStat"><img src="assets/img/Icon Logo Principal Couleur.png" alt=""></div>
+            <div class="ImgStat"><img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png'); ?>" alt=""></div>
         </section>
         <section class="Block-Bas">
             <article class="MiniStats">
                 <h4 class="Valeur">00%</h4>
-                <h3 class="Txt-Valeur">Type de Statistiques</h3>
+                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques', 'blankslateKabowd'); ?></h3>
             </article>
             <article class="MiniStats">
                 <h4 class="Valeur">20%</h4>
-                <h3 class="Txt-Valeur">Type de Statistiques 2</h3>
+                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 2', 'blankslateKabowd'); ?></h3>
             </article>
             <article class="MiniStats">
                 <h4 class="Valeur">30%</h4>
-                <h3 class="Txt-Valeur">Type de Statistiques 3</h3>
+                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 3', 'blankslateKabowd'); ?></h3>
             </article>
             <article class="MiniStats">
                 <h4 class="Valeur">40%</h4>
-                <h3 class="Txt-Valeur">Type de Statistiques 4</h3>
+                <h3 class="Txt-Valeur"><?php esc_html_e('Type de Statistiques 4', 'blankslateKabowd'); ?></h3>
             </article>
         </section>
     </section>
 
-    <section class="Carrousel-pack Block-Main">
-        <article class="Block-Haut">
-            <h2>Services</h2>
-        </article>
-        <ul class="Carrousel">
-            <li class="carte">
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                <div class="Contenue-Carte">
-                    <h5 class="Titre-Carte">Titre article 1</h5>
-                    <p>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">En voir davantage</a>
-                </div>
-            </li>
-            <li class="carte">
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                <div class="Contenue-Carte">
-                    <h5 class="Titre-Carte">Titre article 1</h5>
-                    <p>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">En voir davantage</a>
-                </div>
-            </li>
-            <li class="carte">
-                <img src="assets/img/Icon Logo Principal Blanc.png" alt="">
-                <div class="Contenue-Carte">
-                    <h5 class="Titre-Carte">Titre article 1</h5>
-                    <p>
-                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                    <a href="#" class="btn btn-primary">En voir davantage</a>
-                </div>
-            </li>
-        </ul>
-    </section>
+    <?php get_template_part('template-parts/blocks/carrousel-pack'); ?>
 
     <section class="MiniContact Block-Main">
-        <h2>
-            En savoir davantage
-        </h2>
+        <h2><?php esc_html_e('En savoir davantage', 'blankslateKabowd'); ?></h2>
         <section class="Block-Gauche">
-
-            <h3>Contactez-nous</h3>
+            <h3><?php esc_html_e('Contactez-nous', 'blankslateKabowd'); ?></h3>
             <form action="#" method="post" class="contact-form Formulaires" data-endpoint="https://votre-endpoint-serveur.com">
-                <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" placeholder="Votre nom" required>
-            
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" placeholder="Votre email" required>
-
-                <label for="subject">Objet :</label>
-                <input type="text" id="subject" name="subject" placeholder="Objet de votre demande" required>
-            
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
-            
-                <button type="submit">Envoyer</button>
+                <label for="name"><?php esc_html_e('Nom :', 'blankslateKabowd'); ?></label>
+                <input type="text" id="name" name="name" placeholder="<?php esc_attr_e('Votre nom', 'blankslateKabowd'); ?>" required>
+                <label for="email"><?php esc_html_e('Email :', 'blankslateKabowd'); ?></label>
+                <input type="email" id="email" name="email" placeholder="<?php esc_attr_e('Votre email', 'blankslateKabowd'); ?>" required>
+                <label for="subject"><?php esc_html_e('Objet :', 'blankslateKabowd'); ?></label>
+                <input type="text" id="subject" name="subject" placeholder="<?php esc_attr_e('Objet de votre demande', 'blankslateKabowd'); ?>" required>
+                <label for="message"><?php esc_html_e('Message :', 'blankslateKabowd'); ?></label>
+                <textarea id="message" name="message" rows="5" placeholder="<?php esc_attr_e('Votre message', 'blankslateKabowd'); ?>" required></textarea>
+                <button type="submit"><?php esc_html_e('Envoyer', 'blankslateKabowd'); ?></button>
             </form>
-           
-            
         </section>
         <section class="Block-Droite">
             <article class="card">
-                <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                <div class="card-Ctn">
-                    <h5>Special title treatment</h5>
-                    <p>
-                        With supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Icon Logo Principal Couleur.png'); ?>" alt="">
+                <div class="card-Ctn"></div>
             </article>
-            <article class="card">
-                <img src="assets/img/Icon Logo Principal Couleur.png" alt="">
-                <div class="card-Ctn">
-                    <h5>Special title treatment</h5>
-                    <p>
-                        With supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Bouton</a>
-                </div>
-            </article>
-              
         </section>
     </section>
 

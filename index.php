@@ -9,9 +9,9 @@ get_header();
 <main>
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <?php if ( is_singular('page') ) : ?>
-      <?php the_content(); ?>
+      <?php get_template_part( 'content', 'page' ); ?>
     <?php else : ?>
-      <?php the_excerpt(); ?>
+      <?php get_template_part( 'content', 'excerpt' ); ?>
     <?php endif; ?>
   <?php endwhile; else: ?>
     <?php

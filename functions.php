@@ -1678,4 +1678,220 @@ function kabowd_customize_search($wp_customize) {
 }
 add_action('customize_register', 'kabowd_customize_search');
 
+// --- Enregistrement des Block Patterns personnalisés pour chaque section principale ---
+add_action('init', function() {
+    register_block_pattern_category(
+        'kabowd-blocs',
+        ['label' => __('Kabowd Blocs', 'blankslateKabowd')]
+    );
+
+    $patterns = [
+        'Titre-Page' => [
+            'title' => 'Titre Page',
+            'content' => '<!-- wp:group {"className":"Titre-Page Block-Main"} -->
+<div class="wp-block-group Titre-Page Block-Main">
+    <!-- wp:heading {"level":1,"className":"TitreDePage"} -->
+    <h1 class="wp-block-heading TitreDePage">Titre de la page</h1>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph {"className":"SousTitre"} -->
+    <p class="SousTitre">Sous-titre</p>
+    <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Stats' => [
+            'title' => 'Stats',
+            'content' => '<!-- wp:group {"className":"Stats Block-Main"} -->
+<div class="wp-block-group Stats Block-Main">
+    <!-- wp:heading {"level":2} -->
+    <h2>Statistiques</h2>
+    <!-- /wp:heading -->
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
+        <!-- wp:column --><div class="wp-block-column"><p>00%</p><p>Type de Statistiques</p></div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column"><p>20%</p><p>Type de Statistiques 2</p></div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column"><p>30%</p><p>Type de Statistiques 3</p></div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column"><p>40%</p><p>Type de Statistiques 4</p></div><!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Carrousel-pack' => [
+            'title' => 'Carrousel Pack',
+            'content' => '<!-- wp:group {"className":"Carrousel-pack Block-Main"} -->
+<div class="wp-block-group Carrousel-pack Block-Main">
+    <!-- wp:heading {"level":2} --><h2>Nos Packs</h2><!-- /wp:heading -->
+    <!-- wp:paragraph --><p>Découvrez nos offres et packs adaptés à vos besoins.</p><!-- /wp:paragraph -->
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
+        <!-- wp:column --><div class="wp-block-column">
+            <!-- wp:image {"className":"carte"} --><figure class="wp-block-image carte"><img src="assets/img/Icon Logo Principal Blanc.png" alt=""/></figure><!-- /wp:image -->
+            <!-- wp:heading {"level":5,"className":"Titre-Carte"} --><h5 class="Titre-Carte">Titre du pack 1</h5><!-- /wp:heading -->
+            <!-- wp:paragraph --><p>Description courte du pack 1.</p><!-- /wp:paragraph -->
+            <!-- wp:button {"className":"btn btn-primary"} --><div class="wp-block-button btn btn-primary"><a class="wp-block-button__link">Découvrir</a></div><!-- /wp:button -->
+        </div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column">
+            <!-- wp:image {"className":"carte"} --><figure class="wp-block-image carte"><img src="assets/img/Icon Logo Principal Couleur.png" alt=""/></figure><!-- /wp:image -->
+            <!-- wp:heading {"level":5,"className":"Titre-Carte"} --><h5 class="Titre-Carte">Titre du pack 2</h5><!-- /wp:heading -->
+            <!-- wp:paragraph --><p>Description courte du pack 2.</p><!-- /wp:paragraph -->
+            <!-- wp:button {"className":"btn btn-primary"} --><div class="wp-block-button btn btn-primary"><a class="wp-block-button__link">Découvrir</a></div><!-- /wp:button -->
+        </div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column">
+            <!-- wp:image {"className":"carte"} --><figure class="wp-block-image carte"><img src="assets/img/Icon Logo Principal Noir.png" alt=""/></figure><!-- /wp:image -->
+            <!-- wp:heading {"level":5,"className":"Titre-Carte"} --><h5 class="Titre-Carte">Titre du pack 3</h5><!-- /wp:heading -->
+            <!-- wp:paragraph --><p>Description courte du pack 3.</p><!-- /wp:paragraph -->
+            <!-- wp:button {"className":"btn btn-primary"} --><div class="wp-block-button btn btn-primary"><a class="wp-block-button__link">Découvrir</a></div><!-- /wp:button -->
+        </div><!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Ressources-Article' => [
+            'title' => 'Ressources Article',
+            'content' => '<!-- wp:group {"className":"Ressources-Article Block-Main"} -->
+<div class="wp-block-group Ressources-Article Block-Main">
+    <!-- wp:heading {"level":2} --><h2>Ressources &amp; Liens utiles</h2><!-- /wp:heading -->
+    <!-- wp:list -->
+    <ul>
+        <li>Ressource1</li>
+        <li>Url</li>
+        <li>Titre-Article</li>
+        <li>Titre Livre</li>
+        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, quod.</li>
+    </ul>
+    <!-- /wp:list -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Galerie-Media' => [
+            'title' => 'Galerie Media',
+            'content' => '<!-- wp:group {"className":"Galerie-Media Block-Main"} -->
+<div class="wp-block-group Galerie-Media Block-Main">
+    <!-- wp:gallery -->
+    <figure class="wp-block-gallery columns-3 is-cropped">
+        <ul class="blocks-gallery-grid">
+            <li class="blocks-gallery-item"><img src="assets/img/Icon Logo Principal Blanc.png" alt=""/></li>
+            <li class="blocks-gallery-item"><img src="assets/img/Icon Logo Principal Couleur.png" alt=""/></li>
+            <li class="blocks-gallery-item"><img src="assets/img/Icon Logo Principal Noir.png" alt=""/></li>
+            <li class="blocks-gallery-item"><img src="assets/img/Logo Principal Blanc.png" alt=""/></li>
+            <li class="blocks-gallery-item"><img src="assets/img/Logo Principal Couleur.png" alt=""/></li>
+            <li class="blocks-gallery-item"><img src="assets/img/Logo Principal Noir.png" alt=""/></li>
+        </ul>
+    </figure>
+    <!-- /wp:gallery -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'MiniContact' => [
+            'title' => 'Mini Contact',
+            'content' => '<!-- wp:group {"className":"MiniContact Block-Main"} -->
+<div class="wp-block-group MiniContact Block-Main">
+    <!-- wp:heading {"level":2} --><h2>Contactez-nous</h2><!-- /wp:heading -->
+    <!-- wp:paragraph --><p>Formulaire de contact rapide.</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'MiniMedia-Article' => [
+            'title' => 'Mini Media Article',
+            'content' => '<!-- wp:group {"className":"MiniMedia-Article Block-Main"} -->
+<div class="wp-block-group MiniMedia-Article Block-Main">
+    <!-- wp:heading {"level":2} --><h2>Texte + Media</h2><!-- /wp:heading -->
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
+        <!-- wp:column --><div class="wp-block-column"><p>Lorem ipsum dolor sit amet...</p></div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column"><img src="assets/img/Logo Principal Couleur.png" alt=""/></div><!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Media-Article' => [
+            'title' => 'Media Article',
+            'content' => '<!-- wp:group {"className":"Media-Article Block-Main"} -->
+<div class="wp-block-group Media-Article Block-Main">
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
+        <!-- wp:column --><div class="wp-block-column">
+            <!-- wp:heading {"level":2} --><h2>Media</h2><!-- /wp:heading -->
+            <!-- wp:list -->
+            <ul>
+                <li>mini info 1</li>
+                <li>mini info 2</li>
+            </ul>
+            <!-- /wp:list -->
+        </div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column"><img src="assets/img/Logo Principal Couleur.png" alt=""/></div><!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Texte-Page' => [
+            'title' => 'Texte Page',
+            'content' => '<!-- wp:group {"className":"Texte-Page Block-Main"} -->
+<div class="wp-block-group Texte-Page Block-Main">
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
+        <!-- wp:column --><div class="wp-block-column">
+            <!-- wp:heading {"level":2} --><h2>Titre section</h2><!-- /wp:heading -->
+            <!-- wp:paragraph --><p>Texte à gauche...</p><!-- /wp:paragraph -->
+        </div><!-- /wp:column -->
+        <!-- wp:column --><div class="wp-block-column">
+            <img src="assets/img/Logo Principal Couleur.png" alt=""/>
+        </div><!-- /wp:column -->
+    </div>
+    <!-- /wp:columns -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Mini-Carrousel-Blog' => [
+            'title' => 'Mini Carrousel Blog',
+            'content' => '<!-- wp:group {"className":"Mini-Carrousel-Blog Block-Main"} -->
+<div class="wp-block-group Mini-Carrousel-Blog Block-Main">
+    <!-- wp:heading {"level":2} --><h2>Mini Carrousel Blog</h2><!-- /wp:heading -->
+    <!-- wp:paragraph --><p>Carrousel de blogs ou d’articles récents.</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Grd-Carrousel-Blog' => [
+            'title' => 'Grand Carrousel Blog',
+            'content' => '<!-- wp:group {"className":"Grd-Carrousel-Blog Block-Main"} -->
+<div class="wp-block-group Grd-Carrousel-Blog Block-Main">
+    <!-- wp:heading {"level":2} --><h2>Grand Carrousel Blog</h2><!-- /wp:heading -->
+    <!-- wp:paragraph --><p>Carrousel principal pour les articles ou blogs.</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->'
+        ],
+        'Carrousel-Infini' => [
+            'title' => 'Carrousel Infini',
+            'content' => '<!-- wp:group {"className":"Carrousel-Infini Block-Main"} -->
+<div class="wp-block-group Carrousel-Infini Block-Main">
+    <!-- wp:paragraph --><p>Carrousel d’images défilant en continu.</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->'
+        ],
+    ];
+
+    foreach ($patterns as $slug => $pattern) {
+        register_block_pattern(
+            "kabowd-blocs/$slug",
+            [
+                'title'       => $pattern['title'],
+                'description' => "Bloc de composition {$pattern['title']} pour Kabowd.",
+                'categories'  => ['kabowd-blocs'],
+                'content'     => $pattern['content'],
+            ]
+        );
+    }
+});
+
+// Helper pour charger un bloc facilement
+if (!function_exists('kabowd_get_block')) {
+    function kabowd_get_block($slug) {
+        get_template_part('template-parts/blocks/' . $slug);
+    }
+}
+
 ?>
